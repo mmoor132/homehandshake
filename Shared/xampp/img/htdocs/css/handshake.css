@@ -1,0 +1,195 @@
+BODY
+{
+    margin-left: 0px;
+    margin-top: 0px;
+    font-family: Tahoma;
+    font-size: 11px;
+    color: #000000;
+    background-color: #FFFFFF;
+}
+.style1
+{
+    color: #FF3300;
+}
+.style2
+{
+    color: #996600;
+}
+TD
+{
+    font-family: Tahoma;
+    font-size: 11px;
+}
+
+#top
+{
+    background: url(i/top_r.gif) no-repeat 100% 0px;
+    background-color: #B33D25;
+    padding-left: 50px;
+    height: 39px;
+}
+
+#menu
+{
+    background: url(i/mr.jpg) no-repeat 100% 0px;
+    background-color: #B33D25;
+    padding-left: 31px;
+}
+
+#foot
+{
+    font-size: 10px;
+    padding-left: 50px;
+}
+
+#params
+{
+    font-size: 10px;
+    color: #4C4C4C;
+}
+
+H1 {
+
+    font-size: 24px;
+    color: #0066cc;
+    margin-bottom: 0px;
+    margin-top: 10px;
+
+}
+H2
+{
+    font-size: 11px;
+    color: #9B0B0B;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+P
+{
+    font-size: 12px;
+    color: #000;
+    text-indent: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    line-height: 15px;
+}
+P.gray
+{
+    font-size: 12px;
+    color: #7F7F7F;
+    text-indent: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    line-height: 15px;
+}
+INPUT
+{
+    font-size: 11px;
+    color: #000;
+}
+TEXTAREA
+{
+    font-size: 11px;
+    color: #000;
+}
+LI
+{
+    font-size: 11px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    text-indent: 0px;
+    line-height: 13px;
+    color: #000000;
+}
+A, A:active, A:visited
+{
+    font-size: 9px;
+    color: #B33D25;
+    text-decoration: underline;
+}
+A:hover
+{
+    font-size: 9px;
+    text-decoration: none;
+}
+
+#top A, #top A:active, #top A:visited
+{
+    font-size: 9px;
+    color: #FFF;
+    text-decoration: none;
+}
+#top A:hover
+{
+    font-size: 9px;
+    text-decoration: underline;
+}
+
+#menu A, #menu A:active, #menu A:visited
+{
+    font-size: 11px;
+    color: #FFF;
+    text-decoration: none;
+}
+#menu A:hover
+{
+    font-size: 11px;
+    text-decoration: underline;
+}
+
+#foot A, #foot A:active, #foot A:visited
+{
+    font-size: 10px;
+    color: #000;
+    text-decoration: underline;
+}
+#foot A:hover
+{
+    font-size: 10px;
+    text-decoration: none;
+}
+.dropmenu {
+   width: 129px;
+   border-width: 1px;
+   border-style: solid;
+   border-color: #404040;	
+   background-color: #D4D4D4;
+}
+.dropmenu ul {
+   margin: 0;
+   padding: 0;
+   list-style-type: none;
+}
+.dropmenu li {
+   display: inline;
+}
+.dropmenu a, .dropmenu a:visited, .dropmenu a:active {
+   display: block;
+   width: 125px;
+
+   padding: 2px;
+   margin: 2px;
+   font-family: Arial;
+   font-size: 11px;
+   font-weight: normal;
+   text-align: center;
+   text-decoration: none;
+
+   color: #FFFFFF;
+   background-color: #5C0FAF;
+}
+.dropmenu a:hover {
+   padding: 2px;
+   margin: 2px;
+   font-family: Arial;
+   font-size: 11px;
+   font-weight: normal;
+   text-align: center;
+   text-decoration: none;
+
+   color: #000000;
+   background-color: #E1BFFF;
+}
