@@ -1,0 +1,51 @@
+[Mon Jan 29 23:20:19.699925 2018] [ssl:warn] [pid 10572:tid 188] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Mon Jan 29 23:20:19.804116 2018] [ssl:warn] [pid 10572:tid 188] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Mon Jan 29 23:20:19.845173 2018] [mpm_winnt:notice] [pid 10572:tid 188] AH00455: Apache/2.4.29 (Win32) OpenSSL/1.1.0g PHP/7.2.1 configured -- resuming normal operations
+[Mon Jan 29 23:20:19.845173 2018] [mpm_winnt:notice] [pid 10572:tid 188] AH00456: Apache Lounge VC15 Server built: Nov  3 2017 10:30:36
+[Mon Jan 29 23:20:19.845173 2018] [core:notice] [pid 10572:tid 188] AH00094: Command line: 'C:\\xampp\\apache\\bin\\httpd.exe -d C:/xampp/apache'
+[Mon Jan 29 23:20:19.872328 2018] [mpm_winnt:notice] [pid 10572:tid 188] AH00418: Parent: Created child process 11228
+[Mon Jan 29 23:20:20.167994 2018] [ssl:warn] [pid 11228:tid 700] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Mon Jan 29 23:20:20.275648 2018] [ssl:warn] [pid 11228:tid 700] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Mon Jan 29 23:20:20.299685 2018] [mpm_winnt:notice] [pid 11228:tid 700] AH00354: Child: Starting 150 worker threads.
+[Mon Jan 29 23:33:22.348513 2018] [ssl:warn] [pid 8692:tid 680] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Mon Jan 29 23:33:22.403695 2018] [ssl:warn] [pid 8692:tid 680] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Mon Jan 29 23:33:22.427713 2018] [mpm_winnt:notice] [pid 8692:tid 680] AH00455: Apache/2.4.29 (Win32) OpenSSL/1.1.0g PHP/7.2.1 configured -- resuming normal operations
+[Mon Jan 29 23:33:22.427713 2018] [mpm_winnt:notice] [pid 8692:tid 680] AH00456: Apache Lounge VC15 Server built: Nov  3 2017 10:30:36
+[Mon Jan 29 23:33:22.427713 2018] [core:notice] [pid 8692:tid 680] AH00094: Command line: 'c:\\xampp\\apache\\bin\\httpd.exe -d C:/xampp/apache'
+[Mon Jan 29 23:33:22.460754 2018] [mpm_winnt:notice] [pid 8692:tid 680] AH00418: Parent: Created child process 972
+[Mon Jan 29 23:33:22.880357 2018] [ssl:warn] [pid 972:tid 704] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Mon Jan 29 23:33:22.929410 2018] [ssl:warn] [pid 972:tid 704] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Mon Jan 29 23:33:22.956985 2018] [mpm_winnt:notice] [pid 972:tid 704] AH00354: Child: Starting 150 worker threads.
+[Tue Jan 30 10:28:13.325720 2018] [php7:warn] [pid 972:tid 1952] [client ::1:52041] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'administrator'@'localhost' (using password: YES) in C:\\xampp\\htdocs\\practice\\db_connection.php on line 11
+[Tue Jan 30 10:28:13.326720 2018] [php7:warn] [pid 972:tid 1952] [client ::1:52041] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in C:\\xampp\\htdocs\\practice\\db_connection.php on line 19
+[Tue Jan 30 10:28:47.356462 2018] [php7:warn] [pid 972:tid 1952] [client ::1:52045] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'administrator'@'localhost' (using password: YES) in C:\\xampp\\htdocs\\practice\\db_connection.php on line 11
+[Tue Jan 30 10:28:47.356462 2018] [php7:warn] [pid 972:tid 1952] [client ::1:52045] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in C:\\xampp\\htdocs\\practice\\db_connection.php on line 19
+[Tue Jan 30 10:30:43.625425 2018] [php7:warn] [pid 972:tid 1940] [client ::1:52055] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'administrator'@'localhost' (using password: YES) in C:\\xampp\\htdocs\\practice\\db_connection.php on line 11
+[Tue Jan 30 10:30:43.626425 2018] [php7:warn] [pid 972:tid 1940] [client ::1:52055] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in C:\\xampp\\htdocs\\practice\\db_connection.php on line 19
+[Tue Jan 30 10:30:57.358450 2018] [php7:warn] [pid 972:tid 1940] [client ::1:52059] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'administrator'@'localhost' (using password: NO) in C:\\xampp\\htdocs\\practice\\db_connection.php on line 11
+[Tue Jan 30 10:30:57.358450 2018] [php7:warn] [pid 972:tid 1940] [client ::1:52059] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in C:\\xampp\\htdocs\\practice\\db_connection.php on line 19
+[Tue Jan 30 10:31:10.297121 2018] [php7:warn] [pid 972:tid 1940] [client ::1:52061] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'administrator'@'localhost' (using password: YES) in C:\\xampp\\htdocs\\practice\\db_connection.php on line 11
+[Tue Jan 30 10:31:10.297121 2018] [php7:warn] [pid 972:tid 1940] [client ::1:52061] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in C:\\xampp\\htdocs\\practice\\db_connection.php on line 19
+[Tue Jan 30 10:32:10.754771 2018] [php7:warn] [pid 972:tid 1952] [client ::1:52078] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'administrator'@'localhost' (using password: YES) in C:\\xampp\\htdocs\\practice\\db_connection.php on line 11
+[Tue Jan 30 10:32:10.754771 2018] [php7:warn] [pid 972:tid 1952] [client ::1:52078] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in C:\\xampp\\htdocs\\practice\\db_connection.php on line 19
+[Tue Jan 30 10:32:11.743512 2018] [php7:warn] [pid 972:tid 1952] [client ::1:52078] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'administrator'@'localhost' (using password: YES) in C:\\xampp\\htdocs\\practice\\db_connection.php on line 11
+[Tue Jan 30 10:32:11.743512 2018] [php7:warn] [pid 972:tid 1952] [client ::1:52078] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in C:\\xampp\\htdocs\\practice\\db_connection.php on line 19
+[Tue Jan 30 10:32:11.969471 2018] [php7:warn] [pid 972:tid 1952] [client ::1:52078] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'administrator'@'localhost' (using password: YES) in C:\\xampp\\htdocs\\practice\\db_connection.php on line 11
+[Tue Jan 30 10:32:11.969471 2018] [php7:warn] [pid 972:tid 1952] [client ::1:52078] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in C:\\xampp\\htdocs\\practice\\db_connection.php on line 19
+[Tue Jan 30 10:32:12.793590 2018] [php7:warn] [pid 972:tid 1952] [client ::1:52078] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'administrator'@'localhost' (using password: YES) in C:\\xampp\\htdocs\\practice\\db_connection.php on line 11
+[Tue Jan 30 10:32:12.793590 2018] [php7:warn] [pid 972:tid 1952] [client ::1:52078] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in C:\\xampp\\htdocs\\practice\\db_connection.php on line 19
+[Tue Jan 30 10:33:05.378582 2018] [php7:warn] [pid 972:tid 1904] [client ::1:52119] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES) in C:\\xampp\\htdocs\\practice\\db_connection.php on line 11
+[Tue Jan 30 10:33:05.379582 2018] [php7:warn] [pid 972:tid 1904] [client ::1:52119] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in C:\\xampp\\htdocs\\practice\\db_connection.php on line 19
+[Tue Jan 30 10:33:06.083068 2018] [php7:warn] [pid 972:tid 1904] [client ::1:52119] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES) in C:\\xampp\\htdocs\\practice\\db_connection.php on line 11
+[Tue Jan 30 10:33:06.084069 2018] [php7:warn] [pid 972:tid 1904] [client ::1:52119] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in C:\\xampp\\htdocs\\practice\\db_connection.php on line 19
+[Wed Jan 31 02:22:33.757261 2018] [php7:error] [pid 972:tid 1912] [client ::1:55072] script 'C:/xampp/htdocs/create_table.php' not found or unable to stat
+[Wed Jan 31 02:31:19.906159 2018] [ssl:warn] [pid 9676:tid 680] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 31 02:31:19.962181 2018] [core:warn] [pid 9676:tid 680] AH00098: pid file C:/xampp/apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Wed Jan 31 02:31:19.967185 2018] [ssl:warn] [pid 9676:tid 680] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 31 02:31:20.141821 2018] [mpm_winnt:notice] [pid 9676:tid 680] AH00455: Apache/2.4.29 (Win32) OpenSSL/1.1.0g PHP/7.2.1 configured -- resuming normal operations
+[Wed Jan 31 02:31:20.141821 2018] [mpm_winnt:notice] [pid 9676:tid 680] AH00456: Apache Lounge VC15 Server built: Nov  3 2017 10:30:36
+[Wed Jan 31 02:31:20.141821 2018] [core:notice] [pid 9676:tid 680] AH00094: Command line: 'c:\\xampp\\apache\\bin\\httpd.exe -d C:/xampp/apache'
+[Wed Jan 31 02:31:20.176332 2018] [mpm_winnt:notice] [pid 9676:tid 680] AH00418: Parent: Created child process 792
+[Wed Jan 31 02:31:20.681317 2018] [ssl:warn] [pid 792:tid 680] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 31 02:31:20.765885 2018] [ssl:warn] [pid 792:tid 680] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Jan 31 02:31:20.788900 2018] [mpm_winnt:notice] [pid 792:tid 680] AH00354: Child: Starting 150 worker threads.
