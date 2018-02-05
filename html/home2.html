@@ -3,10 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!--Bootstrap 4
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  END Bootstrap 4-->
+
+  <!--Bootstrap 3-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!--END Bootstrap 3-->
   <link href="css\handshake2.css" type="text/css" rel="stylesheet" />
 </head>
 
@@ -17,43 +26,37 @@
             visibility: hidden" alt="Image of a butterfly" height="120" width="150" />
     </p>
 
-	<!--Navbar code-->
-	<nav class="navbar navbar-expand-sm bg navbar-dark" style="background-color:maroon">
-		<a class="navbar-brand" href="home2.html">http://www.homehandshake.com</a>
-	</nav
-	<!-- END Navbar code-->
-
 	<!--Jumbotron code-->
   	<div>
-    	<img id="banner" src="img\skys2.jpg" style="width: 100%; height: 400px">
+    	<img src="img\image.jpg" style="width: 100%; height: 400px;">
   	</div>
   	<!--END Jumbotron code-->
 
 <!--Navbar code-->
 
-<nav class="navbar navbar-expand-md bg" style="background-color:maroon">
-  <a class="navbar-brand" href="#" style="color: white">Home</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" style="color: white">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="nav justify-content-center">
-      <li class="nav-item">
-        <a class="nav-link" href="#" style="color: white">Housing Handshakes</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" style="color: white">Housing Listings</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" style="color: white">Login</a>
-      </li> 
-      <!-- <li class="nav-item">
-       <form class="form-inline" action="/action_page.php" style=>
-			<input class="form-control" type="text" placeholder="Search"><button class="btn btn-success" type="submit">Search</button>
-		</form>
-      </li> -->    
-    </ul>
-  </div>  
+<nav class="navbar navbar-inverse" style="background-color: maroon">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+    </div>
+    <center>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#" style="color: white">Home</a></li>
+        <li><a href="#" style="color: white">Housing Handshakes</a></li>
+        <li><a href="#" style="color: white">Housing Listing</a></li> 
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#" style="color: white"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#" style="color: white"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+    </center>
+  </div>
 </nav>
 
 <!--END Navbar code-->
@@ -64,7 +67,7 @@
 	<center>
 		<div class="container" style="">
 			<div class="row">
-				<div id="col1" class="col-md-6" style="border-right-style: solid;">
+				<div id="col1" class="col-md-6" style="">
 					<p>Founded in 2018 by Orange Solution</p>
 					<p style="width: 85%">
 						Housing Handshakes allows you to cut out the middle man while searching for a home,
