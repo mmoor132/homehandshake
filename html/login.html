@@ -16,6 +16,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <!--END Bootstrap 3-->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link href="css\handshake2.css" type="text/css" rel="stylesheet" />
 </head>
 
@@ -56,40 +57,59 @@
 
 <!--END Navbar code-->
 
-<br>
+<!--Login Form-->
+<center>
+  <div class="w3-container">
+  <div class="w3-card-4" style="width:50%;">
 
-<tr>
-    <td>
-        <table border="0" width="100%" style="height: 100%; text-align: center;" cellpadding="0" cellspacing="0">
-            <tr valign="top">
-                <td width="100%">
-                    <table border="0" width="100%" style="height: 100%" cellpadding="0" cellspacing="0">
-                        <tr>
-                            <td>
-                                <p style="width: 85%">
-                                    Housing Handshakes allows you to cut out the middle man while searching for a home,
-                                    which significantly adds to the value of a your time and convenience by removing
-									&quot;middle man&quot; limitations. 
-                                </p>
-                                <h2>
-                                    The Handshake Experience</h2>
-                                <p style="width: 85%">
-                                    Housing Handshakes connecting with others Easy!
-                                        1) Select your campus
-                                        2) Browse our listings (depending on your needs)
-                                        3) Make the connection</p>
-                                <h2>
-                                    Registration</h2>
-                                <p>
-                                    Registration is simple and easy. Click on the home tab to fill out the new account.</p>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
-    </td>
-</tr>
+    <header class="w3-container" style="background-color: maroon;">
+      <a href="homepage.html"><img src="img\logo.jpg" class="img-rounded"></a>
+    </header>
+
+    <div class="w3-container">
+      <br>
+      <table border="0">
+        <colgroup span="1" width="40%" align="left" />
+        <colgroup span=" 1" align="left" />
+          <tr>
+            <td>
+              <p>Username</p>
+            </td>
+            <td>
+              <input type="text" name="username" id="user" size="20" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Password</p>
+            </td>
+            <td>
+              <input type="password" name="password" id="pass" size="20" />
+            </td>
+          </tr>
+      </table>
+      <br>
+      <p><button type="submit">Login</button></p>
+    </div>
+
+    <footer class="w3-container" style="background-color: maroon;">
+      <br>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <a href="#" style="color: white; font-size: 20px"><span class="glyphicon glyphicon-home"></span> Create An Account</a>
+              <br><br>
+          </div>
+          <div class="col-md-4">
+            <a href="createaccount.html" style="color: white; font-size: 20px"><span class="glyphicon glyphicon-user"></span> Forgot Password</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  </div>  
+</center>
+<!--END of Login Form-->
 
 <br>
 
