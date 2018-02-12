@@ -16,6 +16,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <!--END Bootstrap 3-->
+
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link href="css\logincss.css" type="text/css" rel="stylesheet" />
 </head>
@@ -29,11 +30,10 @@
 <!--END Jumbotron code-->
 
 <!--Navbar code-->
-
 <nav class="navbar navbar-inverse" style="background-color: maroon">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" style="justify-content: right">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span> 
@@ -54,14 +54,11 @@
     </center>
   </div>
 </nav>
-
 <!--END Navbar code-->
 
-<br><br><br>
+<br>
 
 <!--Login Form-->
-
-<h2>Login Form</h2>
 
 <form action="/action_page.php">
   <div class="imgcontainer">
@@ -75,72 +72,19 @@
     <label><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
         
-    <button type="submit">Login</button>
+    <button class="loginbutton" style="background-color: maroon" type="submit">Login</button>
     <label>
-      <input type="checkbox" checked="checked"> Remember me
+      <input type="checkbox" checked=""> Remember me
     </label>
   </div>
 
   <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
+    <a href="createaccount.html"><button style="color: white; background-color: maroon;" type="button" class="cancelbtn">Create Account</button></a>
+    <a href="#"><span class="psw">Forgot password?</span></a>
   </div>
 </form>
 
-
-<!--
-<center>
-  <div class="w3-container">
-  <div class="w3-card-4" style="width:50%;">
-
-    <header class="w3-container" style="background-color: maroon;">
-      <a href="homepage.html"><img src="img\logo.jpg" class="img-rounded"></a>
-    </header>
-
-    <div class="w3-container">
-      <br>
-      <table border="0">
-        <colgroup span="1" width="40%" align="left" />
-        <colgroup span=" 1" align="left" />
-          <tr>
-            <td>
-              <p>Username</p>
-            </td>
-            <td>
-              <input type="text" name="username" id="user" size="20" />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>Password</p>
-            </td>
-            <td>
-              <input type="password" name="password" id="pass" size="20" />
-            </td>
-          </tr>
-      </table>
-      <br>
-      <p><button type="submit">Login</button></p>
-    </div>
-
-    <footer class="w3-container" style="background-color: maroon;">
-      <br>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <a href="#" style="color: white; font-size: 20px"><span class="glyphicon glyphicon-home"></span> Create An Account</a>
-              <br><br>
-          </div>
-          <div class="col-md-4">
-            <a href="createaccount.html" style="color: white; font-size: 20px"><span class="glyphicon glyphicon-user"></span> Forgot Password</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </div>
-  </div>  
-</center>
-END of Login Form-->
+<!--END of Login Form-->
 
 <br><br><br><br>
 
@@ -153,16 +97,16 @@ END of Login Form-->
 	<div class="container">
 		<div class="row">
 			<div class="col-md-3">
-				<a href="C:\xampp\htdocs\html\home2.html" style="color: white">Home</a>
+				<a href="home2.html" style="color: white">Home</a>
 			</div>
 			<div class="col-md-3">
-				<a href="C:\xampp\htdocs\html\home2.html" style="color: white">Housing Handshakes</a>
+				<a href="home2.html" style="color: white">Housing Handshakes</a>
 			</div>
 			<div class="col-md-3">
-				<a href="C:\xampp\htdocs\html\home2.html" style="color: white">Housings Listings</a>
+				<a href="home2.html" style="color: white">Housings Listings</a>
 			</div>
 			<div class="col-md-3">
-				<a href="C:\xampp\htdocs\html\home2.html" style="color: white">Login</a>
+				<a href="home2.html" style="color: white">Login</a>
 			</div>
 		</div>
 	</div>
