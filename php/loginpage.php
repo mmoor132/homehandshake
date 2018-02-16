@@ -1,8 +1,8 @@
 <?php
-  include('login.php'); // Includes Login Script
+ include('log.php'); // Includes Login Script
 
   if(isset($_SESSION['login_user'])){
-    header("location: profile.php");
+    header("location: prof.php");
   }
 ?>
 
@@ -87,8 +87,6 @@
       <input type="checkbox" checked=""> Remember me
     </label>
   </div>
-
-  <span><?php echo $error; ?></span>
 
   <div class="container" style="background-color:#f1f1f1">
     <a href="createaccount.html"><button style="color: white; background-color: maroon;" type="button" class="cancelbtn">Create Account</button></a>
