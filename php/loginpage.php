@@ -1,11 +1,3 @@
-<?php
- include('log.php'); // Includes Login Script
-
-  if(isset($_SESSION['login_user'])){
-    header("location: prof.php");
-  }
-?>
-
 <!Doctype html>
 
 <head>
@@ -69,7 +61,7 @@
 
 <!--Login Form-->
 
-<form action="" method="post">
+<form action="login.php" method="post">
   <div class="imgcontainer">
     <img src="img\logo.jpg" alt="Avatar" class="avatar">
   </div>
@@ -81,7 +73,7 @@
     <label><b>Password</b></label>
     <input id="password" name="password" type="password" placeholder="Enter Password"  required>
         
-    <button class="loginbutton" style="background-color: maroon" type="submit" name="submit" value=" Login ">Login</button>
+    <button class="loginbutton" style="background-color: maroon" type="submit" name="submit" value="Submit">Login</button>
     <label>
     
       <input type="checkbox" checked=""> Remember me

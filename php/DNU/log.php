@@ -4,7 +4,12 @@ $username = "administrator";
 $password = "";
 $dbname = "homehandshake";
 
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
 session_start();
+
+$error=''; // Variable To Store Error Message
 
 $error=''; // Variable To Store Error Message
 if (isset($_POST['submit'])) {
@@ -17,15 +22,17 @@ else
 $username=$_POST['username'];
 $password=$_POST['password'];
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = mysqli_query("SELECT * FROM users");
-$result = mysqli_num_rows($sql);
+$sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+
+$result = mysqli_query($conn,$sql);
+
+$rows = mysqli_num_rows($result);
 
 if ($rows == 1) 
 {
@@ -37,5 +44,5 @@ $error = "Username or Password is invalid - $result";
 }
 }
 
-
+mysqli_close($conn);
  ?>

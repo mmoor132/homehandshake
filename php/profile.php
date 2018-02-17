@@ -1,3 +1,9 @@
+<?php
+session_start();
+$username = $_SESSION["username"];
+$password = $_SESSION["password"];
+?>
+
 <!Doctype html>
 
 <head>
@@ -56,6 +62,14 @@
 
 
 <!--END Navbar code-->
+
+<br>
+
+<!--Profile Div-->
+Welcome <?php echo "$username" ?><br>
+Your password is: <?php echo "$password" ?>
+      <h2><a href = "logout.php">Sign Out</a></h2>
+<!--END Profile Div-->
 
 <br>
 
