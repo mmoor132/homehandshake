@@ -31,6 +31,8 @@
 
 <!--Navbar code-->
 
+
+<!--Navbar code-->
 <nav class="navbar navbar-inverse" style="background-color: maroon">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -42,14 +44,14 @@
     </div>
     <center>
     <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="homepage.html" style="color: white">Home</a></li>
-        <li><a href="housinghandshakes.html" style="color: white">Housing Handshakes</a></li>
-        <li><a href="listings.html" style="color: white">Housing Listing</a></li> 
+      <ul class="nav navbar
+        <li class=""><a href="homepage.html" style="color: white">Home</a></li>
+        <li><a href="" style="color: white">Housing Handshakes</a></li>
+        <li><a href="listings.php" style="color: white">Housing Listing</a></li> 
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="createaccount.html" style="color: white"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="login.html" style="color: white"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="createaccount.php" style="color: white"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="loginpage.php" style="color: white"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>
     </center>
@@ -254,37 +256,37 @@
 
 <center>
 
-	<!--Links-->
-	<div class="container">
-		<div class="row">
-			<div class="col-md-3">
-				<a href="home2.html" style="color: white">Home</a>
-			</div>
-			<div class="col-md-3">
-				<a href="home2.html" style="color: white">Housing Handshakes</a>
-			</div>
-			<div class="col-md-3">
-				<a href="home2.html" style="color: white">Housings Listings</a>
-			</div>
-			<div class="col-md-3">
-				<a href="home2.html" style="color: white">Login</a>
-			</div>
-		</div>
-	</div>
-	<!--End Links-->
+  <!--Links-->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <a href="homepage.html" style="color: white">Home</a>
+      </div>
+      <div class="col-md-3">
+        <a href="Contactus.html" style="color: white">Housing Handshakes</a>
+      </div>
+      <div class="col-md-3">
+        <a href="listings.php" style="color: white">Housings Listings</a>
+      </div>
+      <div class="col-md-3">
+        <a href="loginpage.php" style="color: white">Login</a>
+      </div>
+    </div>
+  </div>
+  <!--End Links-->
 
 </center>
-	<br>
+  <br>
 
-	<!--Copyright-->
-	<div>
-		<center>
-			<span style="color: white;">2018 © Copyright Orange Solutions. All rights reserved.</span>
-		</center>
-	<div>
-	<!--End of Copyright-->
+  <!--Copyright-->
+  <div>
+    <center>
+      <span style="color: white;">2018 © Copyright Orange Solutions. All rights reserved.</span>
+    </center>
+  <div>
+  <!--End of Copyright-->
 
-	<br>
+  <br>
 
 </footer>
 <!--END Footer-->

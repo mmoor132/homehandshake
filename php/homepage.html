@@ -1,0 +1,224 @@
+<!Doctype html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!--Bootstrap 4
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  END Bootstrap 4-->
+
+  <!--Bootstrap 3-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!--END Bootstrap 3-->
+  <link href="css\handshake2.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body onload="setInterval('flyButterfly()', 100);">
+
+	<p>
+        <img src="img\butterfly.gif" id="butterfly" style="position: absolute; left: -100px; top: 250px;
+            visibility: hidden" alt="Image of a butterfly" height="120" width="150" />
+    </p>
+
+	<!--Jumbotron code-->
+  	<div>
+    	<img src="img\image.jpg" style="width: 100%; height: 400px;">
+  	</div>
+  	<!--END Jumbotron code-->
+
+<!--Navbar code-->
+
+<nav class="navbar navbar-inverse" style="background-color: maroon">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+    </div>
+    <center>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class=""><a href="homepage.html" style="color: white">Home</a></li>
+        <li><a href="" style="color: white">Housing Handshakes</a></li>
+        <li><a href="listings.php" style="color: white">Housing Listing</a></li> 
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="createaccount.php" style="color: white"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="loginpage.php" style="color: white"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+    </center>
+  </div>
+</nav>
+
+
+<!--END Navbar code-->
+
+<br>
+
+<!--Titleey Font-Centur-->
+<center>
+<h1 style="font-style: Century;">Welcome to Housing Handshakes!</h1>
+<h4>Housing Handshakes is the web app that advertises short-term vacancy in a house or apartment.</h4>
+</center>
+<!-- END of Title-->
+
+<br>
+
+<!--Column 1 code-->
+	<center>
+		<div class="container">
+			<div class="row">
+				<div id="col1" class="col-md-6">
+					<h1>We understand.</h1>
+					<p style="width: 85%">
+						Subleasing is difficult - hands down. Whether you are studying abroad,landed an internship (congrats!), headed home for the summer, or simply can't afford your current living - we can help.</p>
+				</div>
+<!--END Column 1 code-->				
+
+<!--Column 2 code-->
+				<div class="col-md-6" style=" ">
+					<h1>Special Offer</h1>
+					<span class="style2"><b>Learn more about Housing Handshakes!</b></span><p>
+					You will find the home you have been searching for.</p>
+					<form action="mailto:email@youraddress.com" method="post" enctype="text/plain" name="info"
+					id="info">
+					<table border="0">
+						<colgroup span="1" width="40%" align="left" />
+						<colgroup span=" 1" align="left" />
+						<tr>
+							<td>
+								<p>
+								First name</p>
+							</td>
+							<td>
+								<input type="text" name="first" id="first" size="20" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p>Last name</p>
+							</td>
+							<td>
+								<input type="text" name="last" id="last" size="20" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p>Telephone</p>
+							</td>
+							<td>
+								<input type="text" name="phone" id="phone" size="20" /></td>
+						</tr>
+						<tr>
+							<td>
+								<p>E-mail address</p>
+							</td>
+							<td>
+								<input type="text" name="email" id="email" size="20" /></td>
+							</tr>
+						</table>
+						<br>		
+						<p><button type="submit">Discover!</button></p>
+					</form>
+				</div>
+			</div>
+		</div>	
+	</center>
+<!-- ND Column 2 code-->
+
+<br>
+
+<center>
+	<div class="container">
+		<div class="row">
+			<h1>The Handshake Experience</h1>
+				<span>1) Select your campus.</span>
+				<br>
+				<span>2) Browse our listings (depending on your needs).</span>
+				<br>
+				<span>3) Make the connection!</span>
+		</div>
+	</div>
+</center>
+
+<br>
+
+<!--Disclaimer-->
+<center>
+	<button type="button" class="btn btn-warning">Warning</button>
+		<h5 style="font-style: italic;">Housing Handshakes connects you to people who are looking to enter a subleasing agreement - nothing more. Use discretion when sharing personal information with others over the internet. We are not resposible for any contractual relationships or harm inflicted from utilizing this service.</h5>
+</center>
+<!-- END of Disclaimer-->
+
+<br>
+
+<!--Footer-->
+<footer style="background-color:maroon;"">
+
+<center>
+
+  <!--Links-->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <a href="homepage.html" style="color: white">Home</a>
+      </div>
+      <div class="col-md-3">
+        <a href="Contactus.html" style="color: white">Housing Handshakes</a>
+      </div>
+      <div class="col-md-3">
+        <a href="listings.php" style="color: white">Housings Listings</a>
+      </div>
+      <div class="col-md-3">
+        <a href="loginpage.php" style="color: white">Login</a>
+      </div>
+    </div>
+  </div>
+  <!--End Links-->
+
+</center>
+  <br>
+
+  <!--Copyright-->
+  <div>
+    <center>
+      <span style="color: white;">2018 © Copyright Orange Solutions. All rights reserved.</span>
+    </center>
+  <div>
+  <!--End of Copyright-->
+
+  <br>
+
+</footer>
+<!--END Footer-->
+
+<script type="text/javascript">
+	/* <![CDATA[ */
+	var topPosition = 250;
+	var leftPosition = -100;
+	function flyButterfly() {
+		var butterfly = document.getElementById("butterfly");
+		butterfly.style.left = leftPosition + "px";
+		butterfly.style.top = topPosition + "px";
+		butterfly.style.visibility = "visible";
+		topPosition -= 2;
+		leftPosition += 10;
+		if (leftPosition >= screen.availWidth - 300) {
+			topPosition = 250;
+			leftPosition = -100;
+		}
+	}
+	/* ]]> */
+    </script>
+
+</body>
+</html>

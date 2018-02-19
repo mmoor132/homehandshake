@@ -1,0 +1,294 @@
+<?php
+session_start();
+$username = $_SESSION["username"];
+$password = $_SESSION["password"];
+?>
+
+<!Doctype html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!--Bootstrap 4
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  END Bootstrap 4-->
+
+  <!--Bootstrap 3-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!--END Bootstrap 3-->
+  <link href="css\handshake2.css" type="text/css" rel="stylesheet" />
+</head>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial;
+}
+
+/* The grid: Four equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+}
+
+/* Style the images inside the grid */
+.column img {
+    opacity: 0.8; 
+    cursor: pointer; 
+}
+
+.column img:hover {
+    opacity: 1;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* The expanding image container */
+.container {
+    position: relative;
+    display: none;
+}
+
+/* Expanding image text */
+#imgtext {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: white;
+    font-size: 20px;
+}
+
+/* Closable button inside the expanded image */
+.closebtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+}
+</style>
+
+
+<body>
+
+<!--Jumbotron code-->
+	<div>
+	<img src="img\image.jpg" style="width: 100%; height: 400px;">
+	</div>
+<!--END Jumbotron code-->
+
+<!--Navbar code-->
+
+<nav class="navbar navbar-inverse" style="background-color: maroon">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+    </div>
+    <center>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class=""><a href="homepage.html" style="color: white">Home</a></li>
+        <li><a href="" style="color: white">Housing Handshakes</a></li>
+        <li><a href="listings.php" style="color: white">Housing Listing</a></li> 
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="createaccount.php" style="color: white"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="loginpage.php" style="color: white"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+    </center>
+  </div>
+</nav>
+
+
+<!--END Navbar code-->
+
+<br>
+
+<!--List Profile-->
+
+  <div class="container-fluid" style="background-color: grey; border-style: solid;">
+    <div class="col-md-8">
+
+      <!--Row 1-->
+      <div class="row" style="border: solid;">
+        <div class="col-md-6" style="border: solid;">
+          <h2>University Townhomes</h2>
+        </div>
+        <div class="col-md-6" style="border: solid;">
+          <center>
+          <button style="margin:25px">Contact</button>
+          <span>    </span>
+          <button>Return to Listings</button>
+          </center>
+        </div>
+      </div>
+      <!--END of Row 1-->
+
+      <!--Row 2-->
+      <div class="row">
+        <center>
+        <div class="col-md-6" style="border: solid;">
+          <h5>$450 per Month</h5>
+        </div>
+        <div class="col-md-6" style="border: solid;">
+          <h5>1801 Gemini Court, Kent, Ohio 44240</h5>
+        </div>
+        </center>
+      </div>
+      <!--END of Row 2-->
+
+      <!--Row 3-->
+      <div class="row">
+        <div class="col-md-6" style="border: solid;">
+          <div class="container" style="max-width: 100%">
+            <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+            <img id="expandedImg" style="max-width:100%">
+            <div id="imgtext"></div>
+          </div>
+           <!-- The four columns -->
+          <div class="row">
+            <div class="column">
+              <img class="active" src="img\testimage.jpg" alt="Nature" style="width:100%" onclick="myFunction(this);">
+            </div>
+            <div class="column">
+              <img src="img\testimage.jpg" alt="Fjords" style="width:100%" onclick="myFunction(this);">
+            </div>
+            <div class="column">
+              <img src="img\testimage.jpg" alt="Mountains" style="width:100%" onclick="myFunction(this);">
+            </div>
+            <div class="column">
+              <img src="img\house.jpg" alt="Lights" style="width:100%" onclick="myFunction(this);">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" style="border: solid;">
+          <div class="row" style="border: solid;">
+          <h3>Poster's Comment</h3>
+            <br>
+            <span>"One bedroom available inn the University Townhome Complex. It is close to campus, and willing to negotiate for pricing!"</span>
+          </div>
+          <div class="row" style="border: solid;">
+            <h3>Availability</h3>
+              <br>
+            <span>Dates: 6/01/2018 - 7/31/2018</span>
+          </div>
+          <div class="row" style="border: solid;"> 
+            <h3>Pricing</h3>
+              <br>
+            <span>$450 per month</span>
+             <br>
+            <span>All Utilites included</span>
+          </div>
+          <div class="row" style="border: solid;">
+            <h3>Amenities</h3>
+              <br>
+            <div class="custom-select" style="width:200px;">
+              <ul>
+                <li value="1">Pool</li>
+                <li value="2">Private Bathroom</li>
+                <li value="3">Cooling</li>
+                <li value="4">Parking</li>
+                <li value="5">Property Management</li>
+                <li value="6">Furnished</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row" style="border: solid;">
+            <h3>Contact</h3>
+               <br>
+            <span>Cell phone or e-mail</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--END of Row 3-->
+    
+    <!--Google Map-->
+    <div class="col-md-4" style="top: 100%; bottom: 100%">
+      <img src="img\SimpleMap.jpg" style="object-fit: fill;">
+    </div>
+    <!--END of Google Map-->
+  
+  </div>
+<!--END of List Profile-->
+
+
+</div>
+
+
+<br>
+
+<!--Footer-->
+<footer style="background-color:maroon;"">
+
+<center>
+
+  <!--Links-->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <a href="homepage.html" style="color: white">Home</a>
+      </div>
+      <div class="col-md-3">
+        <a href="Contactus.html" style="color: white">Housing Handshakes</a>
+      </div>
+      <div class="col-md-3">
+        <a href="listings.php" style="color: white">Housings Listings</a>
+      </div>
+      <div class="col-md-3">
+        <a href="loginpage.php" style="color: white">Login</a>
+      </div>
+    </div>
+  </div>
+  <!--End Links-->
+
+</center>
+  <br>
+
+  <!--Copyright-->
+  <div>
+    <center>
+      <span style="color: white;">2018 © Copyright Orange Solutions. All rights reserved.</span>
+    </center>
+  <div>
+  <!--End of Copyright-->
+
+  <br>
+
+</footer>
+<!--END Footer-->
+
+<script>
+function myFunction(imgs) {
+    var expandImg = document.getElementById("expandedImg");
+    var imgText = document.getElementById("imgtext");
+    expandImg.src = imgs.src;
+    imgText.innerHTML = imgs.alt;
+    expandImg.parentElement.style.display = "block";
+}
+
+</script>
+</body>
+</html>

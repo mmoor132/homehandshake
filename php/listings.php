@@ -41,13 +41,13 @@
     <center>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="C:\xampp\htdocs\html\homepage.html" style="color: white">Home</a></li>
+        <li class=""><a href="homepage.html" style="color: white">Home</a></li>
         <li><a href="" style="color: white">Housing Handshakes</a></li>
-        <li><a href="C:\xampp\htdocs\php\listings.php" style="color: white">Housing Listing</a></li> 
+        <li><a href="listings.php" style="color: white">Housing Listing</a></li> 
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="C:\xampp\htdocs\php\createaccount.php" style="color: white"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="C:\xampp\htdocs\php\loginpage.php" style="color: white"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="createaccount.php" style="color: white"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="loginpage.php" style="color: white"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>
     </center>
@@ -64,37 +64,37 @@
 
 <center>
 
-	<!--Links-->
-	<div class="container">
-		<div class="row">
-			<div class="col-md-3">
-				<a href="C:\xampp\htdocs\html\home2.html" style="color: white">Home</a>
-			</div>
-			<div class="col-md-3">
-				<a href="C:\xampp\htdocs\html\home2.html" style="color: white">Housing Handshakes</a>
-			</div>
-			<div class="col-md-3">
-				<a href="C:\xampp\htdocs\html\home2.html" style="color: white">Housings Listings</a>
-			</div>
-			<div class="col-md-3">
-				<a href="C:\xampp\htdocs\html\home2.html" style="color: white">Login</a>
-			</div>
-		</div>
-	</div>
-	<!--End Links-->
+  <!--Links-->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <a href="homepage.html" style="color: white">Home</a>
+      </div>
+      <div class="col-md-3">
+        <a href="Contactus.html" style="color: white">Housing Handshakes</a>
+      </div>
+      <div class="col-md-3">
+        <a href="listings.php" style="color: white">Housings Listings</a>
+      </div>
+      <div class="col-md-3">
+        <a href="loginpage.php" style="color: white">Login</a>
+      </div>
+    </div>
+  </div>
+  <!--End Links-->
 
 </center>
-	<br>
+  <br>
 
-	<!--Copyright-->
-	<div>
-		<center>
-			<span style="color: white;">2018 © Copyright Orange Solutions. All rights reserved.</span>
-		</center>
-	<div>
-	<!--End of Copyright-->
+  <!--Copyright-->
+  <div>
+    <center>
+      <span style="color: white;">2018 © Copyright Orange Solutions. All rights reserved.</span>
+    </center>
+  <div>
+  <!--End of Copyright-->
 
-	<br>
+  <br>
 
 </footer>
 <!--END Footer-->
