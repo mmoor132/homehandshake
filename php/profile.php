@@ -97,7 +97,7 @@ $password = $_SESSION["password"];
         <center>
         <a href=""><button style="margin: 2px; width: 50%">View Listing</button></a>
           <br>
-        <a href=""><button style="margin: 2px; width: 50%"">Edit Listing</button></a>
+        <a href=""><button style="margin: 2px; width: 50%">Edit Listing</button></a>
           <br>
         <a href=""><button style="margin: 2px; width: 50%">Delete Listing</button></a>
           <br>
