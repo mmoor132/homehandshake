@@ -67,13 +67,14 @@
   <div class="container">
     <h1>Welcome to Housing Handshakes!</h1>
   </div>
-</center>
+
 
 <div class="container">
   <h3>Create Account</h3>
 </div>
 <!--End Header-->
 
+</center>
 
 <!--Create Profile Div 1-->
 <center>
@@ -90,7 +91,7 @@
              <label for="fname">First Name</label>
             </div>
             <div class="col-75">
-              <input type="text" id="lname" name="firstname" placeholder="Your first name..">
+              <input type="text" id="lname" name="firstname" placeholder="Your first name.." style="width: 50%">
             </div>
           </div>
           <div class="col-md-4">
@@ -98,7 +99,7 @@
               <label for="lname">Last Name</label>
             </div>
             <div class="col-75">
-             <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+             <input type="text" id="lname" name="lastname" placeholder="Your last name.." style="width: 50%">
             </div>
           </div>
           <div class="col-md-4">
@@ -116,7 +117,7 @@
              <label for="fname">Date of Birth</label>
             </div>
             <div class="col-75">
-              <input type="text" id="dob" name="dob" placeholder="XX/XX/XXXX">
+              <input type="text" id="dob" name="dob" placeholder="XX/XX/XXXX" style="width: 50%">
             </div>
           </div>
           <div class="col-md-4">
@@ -124,14 +125,14 @@
              <label for="fname">Campus</label>
             </div>
             <div class="col-75">
-              <input type="text" id="campus" name="campus" placeholder="Your campus..">
+              <input type="text" id="campus" name="campus" placeholder="Your campus.." style="width: 50%">
             </div>
           </div>
           <div class="col-md-4">
             <div class="col-25">
              <label for="fname">Date of Birth</label>
             </div>
-            <div class="col-75">
+            <div class="col-75" style="width: 50%">
               <select>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -151,7 +152,7 @@
               <label for="lname">Permanent Address</label>
             </div>
             <div class="col-75">
-             <textarea placeholder="Your permanent address..."></textarea>
+             <textarea placeholder="Your permanent address..." style="width: 50%"></textarea>
             </div>
           </div>
           <div class="col-md-4">
@@ -219,7 +220,7 @@
               <label for="country">Zip Code</label>
             </div>
             <div class="col-75">
-              <input type="text" id="zip" name="zip" placeholder="Your Zip Code..">
+              <input type="text" id="zip" name="zip" placeholder="Your Zip Code.." style="width: 50%">
             </div>
           </div>
         </div>

@@ -33,7 +33,9 @@ $password = $_SESSION["password"];
   </div>
 <!--END Jumbotron code-->
 
+
 <!--Navbar code-->
+
 <nav class="navbar navbar-inverse" style="background-color: maroon">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -45,7 +47,7 @@ $password = $_SESSION["password"];
     </div>
     <center>
     <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar
+      <ul class="nav navbar-nav">
         <li class=""><a href="homepage.html" style="color: white">Home</a></li>
         <li><a href="" style="color: white">Housing Handshakes</a></li>
         <li><a href="listings.php" style="color: white">Housing Listing</a></li> 
@@ -59,7 +61,9 @@ $password = $_SESSION["password"];
   </div>
 </nav>
 
+
 <!--END Navbar code-->
+
 
 
 <!--END Navbar code-->
@@ -80,7 +84,7 @@ $password = $_SESSION["password"];
   <!--Row 1-->
   <div class="container-fluid" style="background-color: grey; border-style: solid; margin: 1px;">
     <h3>My Active Listings</h3>
-    <div class="row" style="margin: 1px;">
+    <div class="row" style="margin: 1px; display: flex;">
       <div class="col-md-4" style="background-color: white;border-style: solid;border-color: gray">
         <br>
       </div>
@@ -90,12 +94,14 @@ $password = $_SESSION["password"];
       </div>
 
       <div class="col-md-4" style="background-color: white;border-style: solid;border-color: gray">
-        <a href=""><button style="margin: 2px; width: 300px">View Listing</button></a>
+        <center>
+        <a href=""><button style="margin: 2px; width: 50%">View Listing</button></a>
           <br>
-        <a href=""><button style="margin: 2px; width: 300px">Edit Listing</button></a>
+        <a href=""><button style="margin: 2px; width: 50%"">Edit Listing</button></a>
           <br>
-        <a href=""><button style="margin: 2px; width: 300px">Delete Listing</button></a>
+        <a href=""><button style="margin: 2px; width: 50%">Delete Listing</button></a>
           <br>
+        </center>
       </div>
     </div>
     <br>
@@ -105,14 +111,16 @@ $password = $_SESSION["password"];
   <!--Row 2-->
   <div class="container-fluid" style="background-color: grey; border-style: solid; margin: 2px;">
     <h3>My Favorites</h3>
-    <div class="row" style="margin: 1px;">
+    <div class="row" style="margin: 1px; display: flex;">
       <div class="col-md-8" style="background-color: white;border-style: solid;border-color: gray">
         <br>
       </div>
 
       <div class="col-md-4" style="background-color: white;border-style: solid;border-color: gray">
-        <a href=""><button style="margin: 2px; width: 300px">Add Listing</button></a>
+        <center>
+        <a href=""><button style="margin: 2px; width: 50%">Add Listing</button></a>
           <br>
+        </center> 
       </div>
     </div>
     <br>
@@ -122,7 +130,7 @@ $password = $_SESSION["password"];
   <!--ROW 3-->
   <div class="container-fluid" style="background-color: grey; border-style: solid; margin: 2px;">
     <h3>Account Details</h3>
-    <div class="row" style="margin: 1px;">
+    <div class="row" style="margin: 1px; display: flex">
       <div class="col-md-8" style="background-color: white;border-style: solid;border-color: gray">
         <div class="row">
           <div class="col-md-6">
@@ -170,10 +178,12 @@ $password = $_SESSION["password"];
       </div>
 
       <div class="col-md-4" style="background-color: white;border-style: solid;border-color: gray">
-          <a href=""><button style="margin: 2px; width: 300px">Update Account</button></a>
+        <center>
+          <a href=""><button style="margin-top:50px;margin-bottom: 5px; width: 50%">Update Account</button></a>
         <br>
-          <a href=""><button style="margin: 2px; width: 300px">Delete Account</button></a>
+          <a href=""><button style="margin: 2px; width: 50%">Delete Account</button></a>
         <br>
+        </center>
       </div>
     </div>
     <br>
