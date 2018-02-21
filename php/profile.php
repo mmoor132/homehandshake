@@ -84,7 +84,7 @@ $password = $_SESSION["password"];
   <!--Row 1-->
   <div class="container-fluid" style="background-color: grey; border-style: solid; margin: 1px;">
     <h3>My Active Listings</h3>
-    <div class="row" style="margin: 1px; display: flex;">
+    <div class="row" style="margin: 1px;">
       <div class="col-md-4" style="background-color: white;border-style: solid;border-color: gray">
         <br>
       </div>
@@ -111,7 +111,7 @@ $password = $_SESSION["password"];
   <!--Row 2-->
   <div class="container-fluid" style="background-color: grey; border-style: solid; margin: 2px;">
     <h3>My Favorites</h3>
-    <div class="row" style="margin: 1px; display: flex;">
+    <div class="row" style="margin: 1px;">
       <div class="col-md-8" style="background-color: white;border-style: solid;border-color: gray">
         <br>
       </div>
@@ -130,7 +130,7 @@ $password = $_SESSION["password"];
   <!--ROW 3-->
   <div class="container-fluid" style="background-color: grey; border-style: solid; margin: 2px;">
     <h3>Account Details</h3>
-    <div class="row" style="margin: 1px; display: flex">
+    <div class="row" style="margin: 1px;">
       <div class="col-md-8" style="background-color: white;border-style: solid;border-color: gray">
         <div class="row">
           <div class="col-md-6">
@@ -179,7 +179,7 @@ $password = $_SESSION["password"];
 
       <div class="col-md-4" style="background-color: white;border-style: solid;border-color: gray">
         <center>
-          <a href=""><button style="margin-top:50px;margin-bottom: 5px; width: 50%">Update Account</button></a>
+          <a href=""><button style="margin: 2px; width: 50%">Update Account</button></a>
         <br>
           <a href=""><button style="margin: 2px; width: 50%">Delete Account</button></a>
         <br>
