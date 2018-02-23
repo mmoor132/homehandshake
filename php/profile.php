@@ -2,6 +2,14 @@
 session_start();
 $username = $_SESSION["username"];
 $password = $_SESSION["password"];
+$listingid = $_SESSION["listingid"];
+$lsprice = $_SESSION["price"];
+$lsaddress = $_SESSION["address"];
+$lscity = $_SESSION["city"];
+$lszip = $_SESSION["zip"];
+$picture = $_SESSION["pic1"];
+$phone = $_SESSION["phone"];
+$email = $_SESSION["email"];
 ?>
 
 <!Doctype html>
@@ -24,6 +32,12 @@ $password = $_SESSION["password"];
   <!--END Bootstrap 3-->
   <link href="css\handshake2.css" type="text/css" rel="stylesheet" />
 </head>
+
+<style>
+  .wrap    { 
+    flex-wrap: wrap;
+  }
+</style>
 
 <body>
 
@@ -71,7 +85,6 @@ $password = $_SESSION["password"];
 <br>
 
 <!--Profile Div-->
-<!--Profile Div-->
 
   <!--Welcome Header-->
 <div>
@@ -80,17 +93,48 @@ $password = $_SESSION["password"];
   <!--Welcome Header-->
 
 <br>
-
+  <center>
   <!--Row 1-->
   <div class="container-fluid" style="background-color: grey; border-style: solid; margin: 1px;">
     <h3>My Active Listings</h3>
     <div class="row" style="margin: 1px;">
-      <div class="col-md-4" style="background-color: white;border-style: solid;border-color: gray">
-        <br>
+      <div class="col-md-4" style="background-color: white;border-style: solid;border-color: gray; padding: 0; max-width: 50%">
+        <img src="<?php echo $picture ?>" style="max-width: 100% ">
       </div>
 
       <div class="col-md-4" style="background-color: white;border-style: solid;border-color: gray">
-        <br>
+        <div class="row">
+          <div class="col-md-6" style="text-align: left;">
+            <span>Location:</span>
+          </div>
+          <div class="col-md-6" style="text-align: left;">
+            <span><?php echo "$lsaddress, $lscity, $lszip" ?></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6" style="text-align: left;">
+             <span>Price:</span>
+          </div>
+          <div class="col-md-6" style="text-align: left;">
+            <span><?php echo "$ $lsprice per month" ?></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6" style="text-align: left;">
+            <span>Holder:</span>
+          </div>
+          <div class="col-md-6" style="text-align: left;">
+            <span><?php echo "$password" ?></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6" style="text-align: left;">
+            <span>Holder:</span>
+          </div>
+          <div class="col-md-6" style="text-align: left;">
+            <span><?php echo "$password" ?></span>
+          </div>
+        </div>
       </div>
 
       <div class="col-md-4" style="background-color: white;border-style: solid;border-color: gray">
@@ -118,7 +162,9 @@ $password = $_SESSION["password"];
 
       <div class="col-md-4" style="background-color: white;border-style: solid;border-color: gray">
         <center>
-        <a href=""><button style="margin: 2px; width: 50%">Add Listing</button></a>
+        <a href=""><button style="margin: 2px; width: 50%">Add Favorite Listing</button></a>
+          <br>
+        <a href=""><button style="margin: 2px; width: 50%">Delete Listing</button></a>
           <br>
         </center> 
       </div>
@@ -138,7 +184,7 @@ $password = $_SESSION["password"];
              <label for="">Your Username:</label>
             </div>
             <div class="col-75">
-              <span><?php echo "$password" ?></span>
+              <span><?php echo "$username" ?></span>
             </div>
             <br>
           </div>
@@ -147,7 +193,7 @@ $password = $_SESSION["password"];
              <label for="">Preferred Contact Number:</label>
             </div>
             <div class="col-75" style="margin: 5px">
-              <span><?php echo "$password" ?></span>
+              <span><?php echo "$phone" ?></span>
             </div>
           </div>
         </div>
@@ -171,7 +217,7 @@ $password = $_SESSION["password"];
              <label for="">Preferred E-mail</label>
             </div>
             <div class="col-75" style="margin: 5px">
-              <span><?php echo "$password" ?></span>
+              <span><?php echo "$email" ?></span>
             </div>
           </div>
         </div>
@@ -189,10 +235,31 @@ $password = $_SESSION["password"];
     <br>
   </div>
   <!--END Row 3-->
+  </center>
 
-  <a href = "logout.php"><button style="margin: 2px"><span style="color: black">Sign Out</span></button></a>
+  <br>
 
-<!--END Profile Div-->
+<!--Row 4-->
+  <div class="row">
+    <div class="col-md-4">
+      <center>
+      <a href = "logout.php"><button style="margin: 2px"><span style="color: black">Create Listing</span></button></a>
+    </center>
+    </div>  
+    <div class="col-md-4">
+      <center>
+      <a href = "logout.php"><button style="margin: 2px"><span style="color: black">Sign Out</span></button></a>
+    </center>
+    </div>
+    <div class="col-md-4">
+        <center>
+      <a href = "logout.php"><button style="margin: 2px"><span style="color: black">Sign Out</span></button></a>
+    </center>
+    </div>
+  </div>
+<!--END Row 4-->
+
+  <br>
 <!--END Profile Div-->
 
 <br>
