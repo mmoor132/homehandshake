@@ -111,16 +111,13 @@
 
         <!--Row 2-->
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-8">
             <div class="col-25">
              <label for="description">Description</label>
             </div>
             <div class="col-75">
-              <textarea placeholder="Listing Title..."></textarea>
+              <textarea style="width: 100%" placeholder="Listing description..."></textarea>
             </div>
-          </div>
-          <div class="col-md-4">
-            <!--Blank-->
           </div>
           <div class="col-md-4">
             <!--Blank-->
@@ -130,7 +127,44 @@
 
         <br>
 
-        <!--Row 3-->
+         <!--Row 3-->
+        <div class="row">
+          <h5 style="font-weight: bold;">Image uploads</h5>
+          <div class="col-md-4">
+            <form action="upload.php" method="post" enctype="multipart/form-data">
+              <input type="file" name="fileToUpload1" id="fileToUpload">
+              <input type="file" name="fileToUpload2" id="fileToUpload">
+            </form>
+          </div>
+          <div class="col-md-4">
+            <input type="file" name="fileToUpload3" id="fileToUpload">
+            <input type="file" name="fileToUpload4" id="fileToUpload">
+          </div>
+          <div class="col-md-4">
+            <input type="file" name="fileToUpload5" id="fileToUpload">
+          </div>
+        </div>
+        <!--End Row 3-->
+
+        <br>
+
+        <!--Row 4-->
+        <div class="row">
+          <div class="col-md-4">
+            <input type="submit" value="Upload Images" name="submit">
+          </div>
+          <div class="col-md-4">
+            <!--Blank-->
+          </div>
+          <div class="col-md-4">
+            <!--Blank-->
+          </div>
+        </div>
+        <!--End Row 4-->
+
+        <br>
+
+        <!--Row 5-->
         <div class="row">
           <div class="col-md-4" style="border-style: solid; margin: 2px;">
             <label>Amenities - Check all that apply:</label>
@@ -190,13 +224,12 @@
                   <option value="house">House</option>
                </select>
               </div>
-              <br>
-          <div>
-                 
-              </div>
-            </div>
+          </div>
           
+          <br>
+
           <div class="col-md-4">
+            <br>
             <div class="col-25">
                 <label>Price of Rent: (numbers only)</label>
             </div>
@@ -205,9 +238,11 @@
             </div>
           </div>
         </div>
-        <!--End Row 3-->
+        <!--End Row 5-->
 
-        <!--Row 4-->
+        <br>
+
+        <!--Row 6-->
          <div class="row">
           <div class="col-md-6">
             <div class="col-25">
@@ -231,7 +266,7 @@
             <!--Blank-->
           </div>
         </div>
-        <!--End Row 4-->
+        <!--End Row 6-->
 
       </div>
     </form>
