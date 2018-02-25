@@ -4,7 +4,6 @@ Query for Profile Listing
 	FROM listings
 	INNER JOIN picture ON listings.listingid=picture.listingid
 
-
 Query for a User profile
 
 	SELECT username, phone, email,fname, lname
@@ -17,3 +16,10 @@ Query for Active Listing on Profile Page
 	FROM listings
 	INNER JOIN picture ON listings.listingid=picture.listingid
 	INNER JOIN users ON listings.userid = users.userid
+
+Query For Browse listing
+	
+	SELECT picture.pic1, listings.listingid, listings.title, listings.address, listings.city, listings.state, listings.zip
+	FROM picture
+	INNER JOIN listings
+		ON listings.listingid = picture.listingid

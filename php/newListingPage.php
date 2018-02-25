@@ -1,4 +1,34 @@
-<!Doctype html>
+<?php
+$servername = "localhost";
+$username = "administrator";
+$password = "";
+$dbname = "homehandshake";
+
+session_start();
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Query For Active Listing
+$stm = $conn->prepare("
+SELECT picture.pic1, listings.listingid, listings.title, listings.address, listings.city, listings.state, listings.zip
+FROM picture
+INNER JOIN listings
+	ON listings.listingid = picture.listingid");
+
+// Execute Query
+$stm->execute();
+
+// Assign Result
+$result = $stm->get_result();
+?>
+
+<!--Doctype html-->
 
 <head>
   <meta charset="utf-8">
@@ -71,28 +101,76 @@
 </center>
 <!-- END of Title-->
 
-<br>
-<div class="container-fluid" style="background-color: grey; text-align: center; border-style: solid; margin: 1px;">
-    <div class="row" style="margin: 1px; display: flex;">
-      <div class="col-md-4" style="background-color: white;border-style: solid;border-color: gray">
-        <br>
-      </div>
 
+<?php
+while($row = $result->fetch_assoc())
+{
+	
+?>
+
+<br>
+<!--Row 1-->
+  <div class="container-fluid" style="background-color: grey; border-style: solid; margin: 1px;">
+    <div class="row" style="margin: 1px;">
+	
+	<center>
+      <div class="col-md-4" style="background-color: white;border-style: solid;border-color: gray; padding: 0; max-width: 50%">
+        <img src = "<?php echo $row["pic1"] ?>" style="max-width: 100% ">
+      </div>
+	</center>
+	
       <div class="col-md-4" style="background-color: white;border-style: solid;border-color: gray">
-        <br>
+        <div class="row">
+          <div class="col-md-6" style="text-align: left;">
+            <span>Location:</span>
+          </div>
+          <div class="col-md-6" style="text-align: left;">
+            <span><?php echo $row["address"], $row["state"], $row["zip"] ?></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6" style="text-align: left;">
+             <span>Price:</span>
+          </div>
+          <div class="col-md-6" style="text-align: left;">
+            <span><?php echo "$  per month" ?></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6" style="text-align: left;">
+            <span>Holder:</span>
+          </div>
+          <div class="col-md-6" style="text-align: left;">
+            <span><?php echo "" ?></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6" style="text-align: left;">
+            <span>Holder:</span>
+          </div>
+          <div class="col-md-6" style="text-align: left;">
+            <span><?php echo "" ?></span>
+          </div>
+        </div>
       </div>
 
       <div class="col-md-4" style="background-color: white;border-style: solid;border-color: gray">
         <center>
         <a href=""><button style="margin: 2px; width: 50%">View Listing</button></a>
           <br>
-        <a href=""><button style="margin: 2px; width: 50%">Contact</button></a>
+        <a href=""><button style="margin: 2px; width: 50%">Edit Listing</button></a>
           <br>
         </center>
       </div>
     </div>
     <br>
   </div>
+  <hr>
+  <!--END Row 1-->
+  
+  <?php
+}
+  ?>
 
 <!--Footer-->
 <footer style="background-color:maroon;"">
@@ -140,54 +218,3 @@
 </body>
 </html>
 
-<?php
-$servername = "localhost";
-$dbname = "homehandshake";
-
-session_start();
-
-// Create connection
-$conn = new mysqli($servername, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Query For Active Listing
-$st = $conn->prepare("
-SELECT pic1
-FROM picture
-INNER JOIN listings
-	ON listings.listingid=picture.listingid
-INNER JOIN users
-	ON listings.listingid=users.userid
-WHERE users.userid= '$userid'");
-
-foreach ($listingid as $key) {
-    extract($);
-    $sql = "SELECT * FROM picture </br>";
-    $result = mysql_query($sql);
-    $row = mysql_fetch_array($result);
-    echo $row['picture'];
-}
-
-// Execute Query
-$st->execute();
-
-// Assign Result
-$result = $st->get_result();
-
-// Cycle through result and assigning Values for picture
-while ($row = $result->fetch_assoc()){
-  	
-	$_SESSION['pic1'] = $row["pic1"];
-
-	header("location: newListingPage.php");
-
-}
-
-// Close
-$conn->close();
-
-?>
