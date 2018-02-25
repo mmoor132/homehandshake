@@ -164,6 +164,13 @@ INNER JOIN users
 	ON listings.listingid=users.userid
 WHERE users.userid= '$userid'");
 
+foreach ($listingid as $key) {
+    extract($);
+    $sql = "SELECT * FROM picture </br>";
+    $result = mysql_query($sql);
+    $row = mysql_fetch_array($result);
+    echo $row['picture'];
+}
 
 // Execute Query
 $st->execute();
