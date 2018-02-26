@@ -23,3 +23,8 @@ Query For Browse listing
 	FROM picture
 	INNER JOIN listings
 		ON listings.listingid = picture.listingid
+
+Query for Create Listing
+
+	INSERT INTO listings (title, address, city, state, zip, housingstyle, roommates, numofroom, price, startdate, enddate)
+	VALUES ($listtitle, )

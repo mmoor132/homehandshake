@@ -77,8 +77,7 @@
 <div class="container-fluid" style="background-color: grey; border-style: solid; margin: 2px;">
   <br>
   <div class="container">
-    <form action="action_page.php">
-      <div class="container">
+    <form action="listingupload.php" method="post">
         
         <!--Row 1-->
         <div class="row">
@@ -92,110 +91,15 @@
           </div>
           <div class="col-md-4">
             <div class="col-25">
-             <label for="listtitle">Type of Listing</label>
+             <label for="housingstyle">Type of Listing</label>
             </div>
             <div class="col-75">
-              <select>
-                <option value="apartment">Apartment Room</option>
-                <option value="house">House</option>
-              </select> 
-            </div>
-          </div>
-          <div class="col-md-4">
-            <!--Blank-->
-          </div>
-        </div>
-        <!--End Row 1-->
-
-        <br>
-
-        <!--Row 2-->
-        <div class="row">
-          <div class="col-md-4">
-            <div class="col-25">
-             <label for="description">Description</label>
-            </div>
-            <div class="col-75">
-              <textarea placeholder="Listing Title..."></textarea>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <!--Blank-->
-          </div>
-          <div class="col-md-4">
-            <!--Blank-->
-          </div>
-        </div>
-        <!--End Row 2-->
-
-        <br>
-
-        <!--Row 3-->
-        <div class="row">
-          <div class="col-md-4" style="border-style: solid; margin: 2px;">
-            <label>Amenities - Check all that apply:</label>
-            <br>
-            <div style="" class="col-md-4">
-              <div class="col-75">
-                <form>
-                  <div class="checkbox">
-                    <label><input type="checkbox" value="">Laundry</label>
-                  </div>
-                  <div class="checkbox">
-                    <label><input type="checkbox" value="">Pets</label>
-                  </div>
-                  <div class="checkbox">
-                    <label><input type="checkbox" value="">Cooling</label>
-                  </div>
-                  <div class="checkbox">
-                    <label><input type="checkbox" value="">Parking</label>
-                  </div>
-                  <div class="checkbox">
-                    <label><input type="checkbox" value="">Furnished</label>
-                  </div>
-                </form>
-              </div>
-            </div>
-            <div style="" class="col-md-8">
-              <form>
-                <div class="checkbox">
-                  <label><input type="checkbox" value="">Swimming</label>
-                </div>
-                <div class="checkbox">
-                  <label><input type="checkbox" value="">Gym</label>
-                </div>
-                <div class="checkbox">
-                  <label><input type="checkbox" value="">Property Management</label>
-                </div>
-                <div class="checkbox">
-                  <label><input type="checkbox" value="">Hot Tub</label>
-                </div>
-                <div class="checkbox">
-                  <label><input type="checkbox" value="">Private Bathroom</label>
-                </div>
-              </form>
-            </div> 
-          </div>
-
-          <div class="col-md-6">
-           <label>Details:</label>
-            <br>
-              <div class="col-25">
-                <label>Address</label>
-              </div>
-              <div class="col-75">
-               <input type="text" id="address" name="address" placeholder="Type something...">
-               <select>
+              <select name="housingstyle">
                   <option value="apartment">Apartment Room</option>
                   <option value="house">House</option>
                </select>
-              </div>
-              <br>
-          <div>
-                 
-              </div>
             </div>
-          
+          </div>
           <div class="col-md-4">
             <div class="col-25">
                 <label>Price of Rent: (numbers only)</label>
@@ -205,9 +109,170 @@
             </div>
           </div>
         </div>
+        <!--End Row 1-->
+
+        <!--Row 2-->
+        <div class="row">
+          <div class="col-md-4">
+            <div class="col-25">
+             <label for="description">Description</label>
+            </div>
+            <div class="col-75">
+              <textarea name="bio" placeholder="Description..."></textarea>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="col-25">
+             <label for="address">Address</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="address" name="address" placeholder="Listing's Address...">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="col-25">
+             <label for="city">City</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="city" name="city" placeholder="City Name...">
+            </div>
+          </div>
+        </div>
+        <!--End Row 2-->
+
+         <!--Row 3-->
+        <div class="row">
+          <div class="col-md-4">
+            <div class="col-25">
+              <label for="country">State</label>
+            </div>
+            <div class="col-75">
+              <select name="state">
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+                <option value="CA">California</option>
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DE">Delaware</option>
+                <option value="DC">District Of Columbia</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+                <option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="IA">Iowa</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="ME">Maine</option>
+                <option value="MD">Maryland</option>
+                <option value="MA">Massachusetts</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option>
+                <option value="MO">Missouri</option>
+                <option value="MT">Montana</option>
+                <option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ">New Jersey</option>
+                <option value="NM">New Mexico</option>
+                <option value="NY">New York</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="TN">Tennessee</option>
+                <option value="TX">Texas</option>
+                <option value="UT">Utah</option>
+                <option value="VT">Vermont</option>
+                <option value="VA">Virginia</option>
+                <option value="WA">Washington</option>
+                <option value="WV">West Virginia</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WY">Wyoming</option>
+              </select>       
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="col-25">
+             <label for="zip">Zip</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="zip" name="zip" placeholder="Your Zip Code...">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <!--Blank-->
+          </div>
+        </div>
         <!--End Row 3-->
 
+        <br>
+
         <!--Row 4-->
+        <div class="row">
+          <div class="col-md-4" style="border-style: solid; margin: 2px;">
+            <label>Amenities - Check all that apply:</label>
+            <br>
+            <div style="" class="col-md-4">
+              <div class="col-75">
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="check_list[]" value="Laundry">Laundry</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="check_list[]" value="Pets">Pets</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="check_list[]" value="Cooling">Cooling</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="check_list[]" value="Parking">Parking</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="check_list[]" value="Furnished">Furnished</label>
+                  </div>
+              </div>
+            </div>
+            <div style="" class="col-md-8">
+                <div class="checkbox">
+                  <label><input type="checkbox" name="check_list[]" value="Swimming">Swimming</label>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox" name="check_list[]" value="Gym">Gym</label>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox" name="check_list[]" value="Property Management">Property Management</label>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox" name="check_list[]" value="Hot Tub">Hot Tub</label>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox" name="check_list[]" value="Private Bathroom">Private Bathroom</label>
+                </div>
+            </div> 
+          </div>
+
+          <div class="col-md-6">
+           
+            <div>   
+            </div>
+          </div>
+          
+          <div class="col-md-4">
+            
+        </div>
+        <!--End Row 4-->
+
+        <!--Row 5-->
          <div class="row">
           <div class="col-md-6">
             <div class="col-25">
@@ -231,9 +296,40 @@
             <!--Blank-->
           </div>
         </div>
-        <!--End Row 4-->
+        <!--End Row 5-->
+
+        <!--Row 6-->
+        <div class="row">
+          <div class="col-md-4">
+            <div class="col-25">
+             <label for="numofroom">Number of Rooms</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="numofroom" name="numofroom" placeholder="Number of Room...">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="col-25">
+             <label for="numofpeople">Number of Rooms</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="numofpeople" name="numofpeople" placeholder="Number of Roommates...">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <!--Blank-->
+          </div>
+        </div>
+        <!--End Row 6-->
 
       </div>
+      <!--Create Listing Button-->
+      <center>
+        <br>
+        <br>
+        <button type="submit" name="submit" value="Submit" class="btn" style="background-color: maroon; color: white">Create Listing</button>
+      </center>
+      <!--End Create Listing Button-->
     </form>
   </div>
   <br>
@@ -242,11 +338,7 @@
 
 <br>
 
-<!--Create Listing Button-->
-<center>
-  <button type="button" class="btn" style="background-color: maroon; color: white">Create Listing</button>
-</center>
-<!--End Create Listing Button-->
+
 
   <br><br>
 
