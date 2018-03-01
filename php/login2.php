@@ -85,7 +85,7 @@ while ($row = $result->fetch_assoc()){
   	
 	$_SESSION['pic1'] = $row["pic1"];
 
-	header("location: profile.php");
+	header("location: myaccount.php");
 
 }
 
