@@ -97,7 +97,66 @@ $result = $stm->get_result();
 	<button type="button" class="" id="searchListing" name="searchListing">Search Listing</button>
 </center>
 <!-- END of Title-->
+ <div id="wrapper" class="toggled">
 
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="https://blackrockdigital.github.io/startbootstrap-simple-sidebar/#">
+                        Start Bootstrap
+                    </a>
+                </li>
+                <li>
+                    <a href="https://blackrockdigital.github.io/startbootstrap-simple-sidebar/#">Dashboard</a>
+                </li>
+                <li>
+                    <a href="https://blackrockdigital.github.io/startbootstrap-simple-sidebar/#">Shortcuts</a>
+                </li>
+                <li>
+                    <a href="https://blackrockdigital.github.io/startbootstrap-simple-sidebar/#">Overview</a>
+                </li>
+                <li>
+                    <a href="https://blackrockdigital.github.io/startbootstrap-simple-sidebar/#">Events</a>
+                </li>
+                <li>
+                    <a href="https://blackrockdigital.github.io/startbootstrap-simple-sidebar/#">About</a>
+                </li>
+                <li>
+                    <a href="https://blackrockdigital.github.io/startbootstrap-simple-sidebar/#">Services</a>
+                </li>
+                <li>
+                    <a href="https://blackrockdigital.github.io/startbootstrap-simple-sidebar/#">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <h1>Simple Sidebar</h1>
+                <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
+                <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
+                <a href="https://blackrockdigital.github.io/startbootstrap-simple-sidebar/#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="./Simple Sidebar - Start Bootstrap Template_files/jquery.min.js.download"></script>
+    <script src="./Simple Sidebar - Start Bootstrap Template_files/bootstrap.bundle.min.js.download"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
 
 <?php
 while($row = $result->fetch_assoc())
