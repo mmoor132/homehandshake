@@ -47,9 +47,21 @@ $result = $stm->get_result();
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <!--END Bootstrap 3-->
   <link href="css\handshake2.css" type="text/css" rel="stylesheet" />
+  <link href="css\sidenav.css" rel="stylesheet" />
   <title></title>
   <script type="text/javascript">
   </script>
+  <script>
+  /* Open the sidenav */
+	function openNav() {
+		document.getElementById("mySidenav").style.display = "block";
+	}
+
+/* Close/hide the sidenav */
+	function closeNav() {
+		document.getElementById("mySidenav").style.display = "none";
+	}
+	</script>
 </head>
 
 <body>
@@ -75,7 +87,7 @@ $result = $stm->get_result();
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="homepage.html" style="color: white">Home</a></li>
-		<li><a href="myaccount.html" style="color: white">My Account</a></li>
+		<li><a href="myaccount.php" style="color: white">My Account</a></li>
         <li><a href="browselisting.php" style="color: white">Browse Listings</a></li>
         <li><a href="createaccount.html" style="color: white"><span class="glyphicon glyphicon-user"></span> Sign Up </a></li>
         <li><a href="loginpage.html" style="color: white"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
@@ -97,66 +109,28 @@ $result = $stm->get_result();
 	<button type="button" class="" id="searchListing" name="searchListing">Search Listing</button>
 </center>
 <!-- END of Title-->
- <div id="wrapper" class="toggled">
 
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="https://blackrockdigital.github.io/startbootstrap-simple-sidebar/#">
-                        Start Bootstrap
-                    </a>
-                </li>
-                <li>
-                    <a href="https://blackrockdigital.github.io/startbootstrap-simple-sidebar/#">Dashboard</a>
-                </li>
-                <li>
-                    <a href="https://blackrockdigital.github.io/startbootstrap-simple-sidebar/#">Shortcuts</a>
-                </li>
-                <li>
-                    <a href="https://blackrockdigital.github.io/startbootstrap-simple-sidebar/#">Overview</a>
-                </li>
-                <li>
-                    <a href="https://blackrockdigital.github.io/startbootstrap-simple-sidebar/#">Events</a>
-                </li>
-                <li>
-                    <a href="https://blackrockdigital.github.io/startbootstrap-simple-sidebar/#">About</a>
-                </li>
-                <li>
-                    <a href="https://blackrockdigital.github.io/startbootstrap-simple-sidebar/#">Services</a>
-                </li>
-                <li>
-                    <a href="https://blackrockdigital.github.io/startbootstrap-simple-sidebar/#">Contact</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
+<div id="mySidenav" class="sidenav" style="color: maroon">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a><br>
+  <input type="checkbox">Furnished</a><br>
+  <input type="checkbox">Gym<br>
+  <input type="checkbox">Laundry<br>
+  <input type="checkbox">Pets<br>
+  <input type="checkbox">Cooling<br>
+  <input type="checkbox">Parking<br>
+  <input type="checkbox">Pool<br>
+  <input type="checkbox">Garage</a><br>
+  <input type="checkbox">Property Management<br>
+  <input type="checkbox">Hot Tub<br>
+  <input type="checkbox">Private Bathroom<br>
+  <input type="checkbox">Floor Number<br>
+  <input type="checkbox">Heating<br>
+  <button type="button">Submit Filter</button><br>
+</div>
 
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <h1>Simple Sidebar</h1>
-                <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-                <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-                <a href="https://blackrockdigital.github.io/startbootstrap-simple-sidebar/#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
-            </div>
-        </div>
-        <!-- /#page-content-wrapper -->
+<!-- Use any element to open the sidenav -->
+<button onclick="openNav()" button type="button">Open</button>
 
-    </div>
-    <!-- /#wrapper -->
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="./Simple Sidebar - Start Bootstrap Template_files/jquery.min.js.download"></script>
-    <script src="./Simple Sidebar - Start Bootstrap Template_files/bootstrap.bundle.min.js.download"></script>
-
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
 
 <?php
 while($row = $result->fetch_assoc())
@@ -240,7 +214,7 @@ while($row = $result->fetch_assoc())
         <a href="homepage.html" style="color: white"> Home </a>
       </div>
 	  <div class="col-md-2">
-        <a href="myaccount.html" style="color: white"> My Account </a>
+        <a href="myaccount.php" style="color: white"> My Account </a>
       </div>
       <div class="col-md-2">
         <a href="browselisting.php" style="color: white"> Browse Listings </a>
@@ -272,5 +246,6 @@ while($row = $result->fetch_assoc())
 <!--END Footer-->
 
 </body>
+
 </html>
 
