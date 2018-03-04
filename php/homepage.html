@@ -75,14 +75,14 @@
 
 <center>
 
-<div id="map" style="width:400px;height:400px;background:yellow"></div>
+<div id="map" style="width:800px;height:400px;background:yellow"></div>
 
 <script>
 function myMap() {
 var mapOptions = {
     center: new google.maps.LatLng(41.149063, -81.341465),
-    zoom: 14,
-    mapTypeId: google.maps.MapTypeId.HYBRID
+    zoom: 13,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
 }
 var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 }
