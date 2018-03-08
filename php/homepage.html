@@ -19,12 +19,44 @@
   <link href="css\handshake2.css" type="text/css" rel="stylesheet" />
 </head>
 
-<body onload="setInterval('flyButterfly()', 100);">
+<!-- Start of Sticky Navbar Code -->
 
-	<p>
-        <img src="img\butterfly.gif" id="butterfly" style="position: absolute; left: -100%; top: 100%px;
-            visibility: hidden" alt="Image of a butterfly" height="120" width="150" />
-    </p>
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+.top-container {
+  background-color: #f1f1f1;
+  padding: 30px;
+  text-align: center;
+}
+
+.header {
+  padding: 10px 16px;
+  background: #555;
+  color: #f1f1f1;
+}
+
+.content {
+  padding: 16px; 
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 102px;
+}
+</style>
+
+<!-- End of Sticky Navbar Code -->
+
+<body >
 
 	<!--Jumbotron code-->
   	<div>
@@ -34,6 +66,7 @@
 
 <!--Navbar code-->
 
+<div class="header" id="myHeader">
 <nav class="navbar navbar-inverse" style="background-color:#002664">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -56,12 +89,15 @@
     </center>
   </div>
 </nav>
+</div>
 
 <!--END Navbar code-->
 
 <br>
 
-<!--Titleey Font-Centur-->
+<div class="content">
+
+<!--Title Font-Century-->
 <center>
 <h1 style="font-style: Century;">Welcome to Housing Handshakes!</h1>
 <h4>Housing Handshakes is the web app that advertises short-term vacancy in a house or apartment.</h4>
@@ -99,6 +135,7 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
 <!-- End Google map -->
 
 <br>
+
 
 <!--Column 1 code-->
 	<center>
@@ -186,10 +223,12 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
 </center>
 <!-- END of Disclaimer-->
 
+</div>
+
 <br>
 
 <!--Footer-->
-<footer style="background-color:#002664;"">
+<footer style="background-color:#002664;">
 
 <center>
 
@@ -231,24 +270,24 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
 </footer>
 <!--END Footer-->
 
-<script type="text/javascript">
-	/* <![CDATA[ */
-	var topPosition = 250;
-	var leftPosition = -100;
-	function flyButterfly() {
-		var butterfly = document.getElementById("butterfly");
-		butterfly.style.left = leftPosition + "px";
-		butterfly.style.top = topPosition + "px";
-		butterfly.style.visibility = "visible";
-		topPosition -= 2;
-		leftPosition += 10;
-		if (leftPosition >= screen.availWidth - 300) {
-			topPosition = 250;
-			leftPosition = -100;
-		}
+<!-- Start Sticky Navbar script -->
+
+	<script>
+	window.onscroll = function() {myFunction()};
+
+	var header = document.getElementById("myHeader");
+	var sticky = header.offsetTop;
+
+	function myFunction() {
+	  if (window.pageYOffset >= sticky) {
+	    header.classList.add("sticky");
+	  } else {
+	    header.classList.remove("sticky");
+	  }
 	}
-	/* ]]> */
-    </script>
+	</script>
+
+<!-- End Sticky Navbar script -->
 
 </body>
 </html>
