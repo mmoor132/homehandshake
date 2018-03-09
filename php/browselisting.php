@@ -33,7 +33,6 @@ $result = $stm->get_result();
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <!--Bootstrap 4
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -49,19 +48,9 @@ $result = $stm->get_result();
   <link href="css\handshake2.css" type="text/css" rel="stylesheet" />
   <link href="css\sidenav.css" rel="stylesheet" />
   <title></title>
-  <script type="text/javascript">
-  </script>
-  <script>
-  /* Open the sidenav */
-	function openNav() {
-		document.getElementById("mySidenav").style.display = "block";
-	}
+<style>
 
-/* Close/hide the sidenav */
-	function closeNav() {
-		document.getElementById("mySidenav").style.display = "none";
-	}
-	</script>
+</style>
 </head>
 
 <body>
@@ -101,7 +90,7 @@ $result = $stm->get_result();
 <!--END Navbar code-->
 
 <br>
-
+<div id="main">
 <!--Titleey Font-Centur-->
 <center>
 	<button type="button" class="" id="createListing" name="createListing">Create Listing</button> 
@@ -130,7 +119,17 @@ $result = $stm->get_result();
 
 <!-- Use any element to open the sidenav -->
 <button onclick="openNav()" button type="button">Open</button>
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
 
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+}
+</script>
 
 <?php
 while($row = $result->fetch_assoc())
@@ -155,7 +154,7 @@ while($row = $result->fetch_assoc())
             <span>Location:</span>
           </div>
           <div class="col-md-6" style="text-align: left;">
-            <span><?php echo $row["address"], $row["state"], $row["zip"] ?></span>
+            <span><?php echo $row["address"], $row["state"], $row["zip"]; ?></span>
           </div>
         </div>
         <div class="row">
@@ -201,7 +200,7 @@ while($row = $result->fetch_assoc())
   <?php
 }
   ?>
-
+</div>
 <!--Footer-->
 <footer style="background-color:maroon;"">
 
