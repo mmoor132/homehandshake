@@ -21,6 +21,24 @@
 
 </head>
 
+<style>
+  
+.space{
+  padding-top: 10px;
+}
+
+  @media only screen and (max-width: 991px){
+    .cent{
+    text-align: center;
+    }
+    .space{
+      padding-top: 8px;
+    }
+  }
+
+</style>
+
+
 <body>
 
 <!--Jumbotron code-->
@@ -72,14 +90,14 @@
   <br><br>
 
 <!--Create Listing Div-->
-<div class="container-fluid" style="background-color: grey; border-style: solid; margin: 2px;">
+<div id="" class="container-fluid" style="background-color: grey; border-style: solid; margin: 2px;">
   <br>
   <div class="container">
     <form action="listingupload.php" method="post">
         
         <!--Row 1-->
-        <div class="row">
-          <div class="col-md-4">
+        <div class="row cent">
+          <div class="col-md-4 space">
             <div class="col-25">
              <label for="listtitle">Give Your Listing a Title</label>
             </div>
@@ -87,7 +105,7 @@
               <input type="text" id="listtitle" name="listtitle" placeholder="Listing Title...">
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 space">
             <div class="col-25">
              <label for="housingstyle">Type of Listing</label>
             </div>
@@ -98,36 +116,7 @@
                </select>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="col-25">
-                <label>Price of Rent: (numbers only)</label>
-            </div>
-            <div class="col-75">
-             <input type="text" id="rent" name="rent" placeholder="Type something...">
-            </div>
-          </div>
-        </div>
-        <!--End Row 1-->
-
-        <!--Row 2-->
-        <div class="row">
-          <div class="col-md-4">
-            <div class="col-25">
-             <label for="description">Description</label>
-            </div>
-            <div class="col-75">
-              <textarea name="bio" placeholder="Description..."></textarea>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="col-25">
-             <label for="address">Address</label>
-            </div>
-            <div class="col-75">
-              <input type="text" id="address" name="address" placeholder="Listing's Address...">
-            </div>
-          </div>
-          <div class="col-md-4">
+          <div class="col-md-4 space">
             <div class="col-25">
              <label for="city">City</label>
             </div>
@@ -136,11 +125,11 @@
             </div>
           </div>
         </div>
-        <!--End Row 2-->
+        <!--End Row 1-->
 
-         <!--Row 3-->
-        <div class="row">
-          <div class="col-md-4">
+        <!--Row 2-->
+        <div class="row cent">
+          <div class="col-md-4 space">
             <div class="col-25">
               <label for="country">State</label>
             </div>
@@ -200,24 +189,52 @@
               </select>       
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 space">
             <div class="col-25">
+             <label for="address">Address</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="address" name="address" placeholder="Listing's Address...">
+            </div>
+          </div>
+          <div class="col-md-4 space">
+             <div class="col-25">
              <label for="zip">Zip</label>
             </div>
             <div class="col-75">
               <input type="text" id="zip" name="zip" placeholder="Your Zip Code...">
             </div>
           </div>
-          <div class="col-md-4">
+        </div>
+        <!--End Row 2-->
+
+         <!--Row 3-->
+        <div class="row cent">
+          <div class="col-md-4 space">
+           <div class="col-25">
+                <label>Price of Rent: (numbers only)</label>
+            </div>
+            <div class="col-75">
+             <input type="number" id="rent" name="rent" min="0" max="2000" style="width: 50%" placeholder="$1234">
+             <span> Per Month</span>
+            </div>
+          </div>
+          <div class="col-md-4 space">
+            <div class="col-25">
+             <label for="numofpeople">Number of Roommates</label>
+            </div>
+            <div class="col-75">
+              <input type="number" id="numofpeople" name="numofpeople" min = "1" max = "10" style="width: 50%">
+            </div>
+          </div>
+          <div class="col-md-4 space">
             <!--Blank-->
           </div>
         </div>
         <!--End Row 3-->
 
-        <br>
-
         <!--Row 4-->
-        <div class="row">
+        <div class="row space">
           <div class="col-md-4" style="border-style: solid; margin: 2px;">
             <label>Amenities - Check all that apply:</label>
             <br>
@@ -258,36 +275,26 @@
                 </div>
             </div> 
           </div>
-
-          <div class="col-md-6">
-           
-            <div>   
-            </div>
-          </div>
-          
-          <div class="col-md-4">
-            
-        </div>
         <!--End Row 4-->
 
         <!--Row 5-->
-         <div class="row">
-          <div class="col-md-6">
+         <div class="row cent">
+          <div class="col-md-6 space">
             <div class="col-25">
              <label for="available">Avalibility</label>
             </div>
             <div class="col-75">
-              <input type="text" id="sdate" name="sdate" placeholder="XX/XX/XXXX">
+              <input type="date" id="sdate" name="sdate" placeholder="">
               <span> to: </span>
-              <input type="text" id="edate" name="edate" placeholder="XX/XX/XXXX">
+              <input type="date" id="edate" name="edate" placeholder="">
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 space">
             <div class="col-25">
              <label for="expiration">Listing Expiration:</label>
             </div>
             <div class="col-75">
-              <input type="text" id="expiration" name="expiration" placeholder="XX/XX/XXXX">
+              <input type="date" id="expiration" name="expiration" placeholder="XX/XX/XXXX">
             </div>
           </div>
           <div class="col-md-4">
@@ -297,30 +304,23 @@
         <!--End Row 5-->
 
         <!--Row 6-->
-        <div class="row">
-          <div class="col-md-4">
+        <div class="row space">
+          <center>
+          <div>
             <div class="col-25">
-             <label for="numofroom">Number of Rooms</label>
+             <label for="description">Listing Description</label>
             </div>
-            <div class="col-75">
-              <input type="text" id="numofroom" name="numofroom" placeholder="Number of Room...">
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="col-25">
-             <label for="numofpeople">Number of Rooms</label>
-            </div>
-            <div class="col-75">
-              <input type="text" id="numofpeople" name="numofpeople" placeholder="Number of Roommates...">
+            <div class="col-75" style="height: 75%">
+              <textarea  style="width: 75%; height: 75%" name="bio" placeholder="Description of Listing..."></textarea>
             </div>
           </div>
-          <div class="col-md-4">
-            <!--Blank-->
-          </div>
+          </center>
         </div>
         <!--End Row 6-->
 
       </div>
+      <!--Create Listing Div END -->
+
       <!--Create Listing Button-->
       <center>
         <br>
@@ -328,17 +328,14 @@
         <button type="submit" name="submit" value="Submit" class="btn" style="background-color: maroon; color: white">Create Listing</button>
       </center>
       <!--End Create Listing Button-->
+
     </form>
   </div>
   <br>
 </div>
 <!--End Listing Div-->
 
-<br>
-
-
-
-  <br><br>
+<br><br><br>
 
 <!--Footer-->
 <footer style="background-color:maroon;"">

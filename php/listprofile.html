@@ -37,6 +37,12 @@ $password = $_SESSION["password"];
     display: table-cell;
     padding: 16px;
 }
+
+ @media only screen and (max-width: 991px){
+    .map1{
+      height: 100px;
+    }
+  }
 </style>
 
 <body>
@@ -114,28 +120,28 @@ $password = $_SESSION["password"];
   <br><br>
 
   <!--Row 3-->
-  <div class="row" style="display: flex;">
-    <div class="col-md-8">
+  <div class="row" style="padding: 0px">
+    <div class="col-md-8" style="padding: 0px">
       <!--Main Image Display-->
-      <div class="row" style="max-width: 100%; min-width: 100%">
-        <div class="container" style="max-width: 100%;">
+      <div class="row" style="max-width: 100%; min-width: 100%; padding: 0px; margin:0px; margin-bottom: 10px;">
+        <div class="container" style="max-width: 100%; padding: 0px">
           <div class="mySlides">
-            <img src="img\house.jpg" style="max-width:100%;">
+            <img src="img\house.jpg" style="width:100%;">
           </div>
           <div class="mySlides">
-            <img src="img\skys2.jpg" style="max-width:100%;">
+            <img src="img\eagle.jpg" style="width:100%;">
           </div>
           <div class="mySlides">
-            <img src="img\house.jpg" style="max-width:100%">
+            <img src="img\province.jpg" style="width:100%">
           </div>  
           <div class="mySlides">
-            <img src="img\skys2.jpg" style="max-width:100%">
+            <img src="img\thomes.jpg" style="width:100%">
           </div>
           <div class="mySlides">
-             <img src="img\house.jpg" style="max-width:100%">
+             <img src="img\edge.jpg" style="width:100%">
           </div>
           <div class="mySlides">
-            <img src="img\testimage.jpg" style="max-width:100%">
+            <img src="img\campuspointe.jpg" style="max-width:100%">
           </div>
           <div class="caption-container">
             <p id="caption"></p>
@@ -148,28 +154,45 @@ $password = $_SESSION["password"];
               <img class="demo cursor" src="img\house.jpg" style="width:100%; height: 95px" onclick="currentSlide(1)" alt="">
             </div>
             <div class="column">
-              <img class="demo cursor" src="img\skys2.jpg" style="width:100%; height: 95px" onclick="currentSlide(2)" alt="">
+              <img class="demo cursor" src="img\eagle.jpg" style="width:100%; height: 95px" onclick="currentSlide(2)" alt="">
             </div>
             <div class="column">
-              <img class="demo cursor" src="img\house.jpg" style="width:100%; height: 95px" onclick="currentSlide(3)" alt="">
+              <img class="demo cursor" src="img\province.jpg" style="width:100%; height: 95px" onclick="currentSlide(3)" alt="">
             </div>
             <div class="column">
-              <img class="demo cursor" src="img\skys2.jpg" style="width:100%; height: 95px" onclick="currentSlide(4)" alt="">
+              <img class="demo cursor" src="img\thomes.jpg" style="width:100%; height: 95px" onclick="currentSlide(4)" alt="">
             </div>
             <div class="column">
-              <img class="demo cursor" src="img\house.jpg" style="width:100%; height: 95px" onclick="currentSlide(5)" alt="">
+              <img class="demo cursor" src="img\edge.jpg" style="width:100%; height: 95px" onclick="currentSlide(5)" alt="">
             </div>  
             <div class="column">
-              <img class="demo cursor" src="img\testimage.jpg" style="width:100%; height: 95px" onclick="currentSlide(6)" alt="">
+              <img class="demo cursor" src="img\campuspointe.jpg" style="width:100%; height: 95px" onclick="currentSlide(6)" alt="">
             </div>    
           </div>
           <!--END Image Navbar-->
         </div>
       </div>
     </div>
+
+ <!-- Google map -->
     <div class="col-md-4" style="padding: 0; border:solid;">
-      <img src="img\SimpleMap.jpg" style="">
+      <center>
+      <div id="map" class="map1" style="width:100%;height:600px;" frameborder="0" style="border:0"></div>
+      <script>
+        function myMap() {
+        var mapOptions = {
+            center: new google.maps.LatLng(41.149063, -81.341465),
+            zoom: 13,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        }
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwPMtmTS5-ruHic9Qa3Q9h_R-I0ptYC3w&callback=myMap"></script>
+      </center>  
     </div>
+  <!-- End Google map -->
+
   </div>
   <!--END of ROW 3-->
   <br>
@@ -179,7 +202,7 @@ $password = $_SESSION["password"];
 <br>
 
 <!--Details Navbar-->
-  <button class="tablink" onclick="openCity('London', this, 'maroon')" id="defaultOpen">Description</button>
+  <button class="tablink" onclick="openCity('London', this, 'maroon')" id="defaultOpen">Bio</button>
   <button class="tablink" onclick="openCity('Paris', this, 'maroon')">Availibilty</button>
   <button class="tablink" onclick="openCity('Tokyo', this, 'maroon')">Amenities</button>
   <button class="tablink" onclick="openCity('Oslo', this, 'maroon')">Pricing</button>

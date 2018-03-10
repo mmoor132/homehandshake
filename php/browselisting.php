@@ -61,8 +61,6 @@ $result = $stm->get_result();
       .three {
         flex: 1 1 0;
       }
-  
-  
 </style>
 
 
