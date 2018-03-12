@@ -206,11 +206,12 @@ $result = $stm->get_result();
         </div>
       </div>
 
-      <div class=" col-md-4 three" style="background-color: white;border-style: solid;border-color: gray">
+      <div class=" col-md-4 three" style="background-color: white; border-style: solid; border-color: gray">
         <center>
-        <a href=""><button style="margin: 2px; width: 50%">View Listing</button></a>
-          <br>
-        <a href=""><button style="margin: 2px; width: 50%">Edit Listing</button></a>
+        <form  method="post" action="viewlisting.php">
+          <input type="hidden" name="listingid" value = "<?php echo $row['listingid']; ?>" >
+          <button class="loginbutton" style="background-color: maroon; margin: 2px; width: 50%" type="submit" name="submit" value="Submit">View Listing</button>
+        </form>
           <br>
         </center>
       </div>

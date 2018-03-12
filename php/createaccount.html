@@ -19,6 +19,23 @@
 
 </head>
 
+<style>
+  
+.space{
+  padding-top: 10px;
+}
+
+  @media only screen and (max-width: 991px){
+    .cent{
+    text-align: center;
+    }
+    .space{
+      padding-top: 8px;
+    }
+  }
+
+</style>
+
 <body>
 
 <!--Jumbotron code-->
@@ -83,8 +100,8 @@
       <div class="container">
         
         <!--Row 1-->
-        <div class="row">
-          <div class="col-md-4">
+        <div class="row cent">
+          <div class="col-md-4 space" >
             <div class="col-25">
              <label for="fname">First Name</label>
             </div>
@@ -92,7 +109,7 @@
               <input type="text" id="lname" name="firstname" placeholder="Your first name.." style="width: 50%">
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 space">
             <div class="col-25">
               <label for="lname">Last Name</label>
             </div>
@@ -100,25 +117,28 @@
              <input type="text" id="lname" name="lastname" placeholder="Your last name.." style="width: 50%">
             </div>
           </div>
-          <div class="col-md-4">
-            <!--Blank-->
+          <div class="col-md-4 space">
+            <div class="col-25">
+              <label for="lname">Username</label>
+            </div>
+            <div class="col-75">
+             <input type="text" id="uname" name="uname" placeholder="Your Username.." style="width: 50%">
+            </div>
           </div>
         </div>
         <!--End Row 1-->
 
-<br>
-
         <!--Row 2-->
-        <div class="row">
-          <div class="col-md-4">
+        <div class="row cent">
+          <div class="col-md-4 space">
             <div class="col-25">
              <label for="fname">Date of Birth</label>
             </div>
             <div class="col-75">
-              <input type="text" id="dob" name="dob" placeholder="XX/XX/XXXX" style="width: 50%">
+              <input type="date" id="dob" name="dob" style="width: 50%">
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 space">
             <div class="col-25">
              <label for="fname">Campus</label>
             </div>
@@ -126,39 +146,41 @@
               <input type="text" id="campus" name="campus" placeholder="Your campus.." style="width: 50%">
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 space">
             <div class="col-25">
-             <label for="fname">Date of Birth</label>
+             <label for="gender">Gender</label>
             </div>
-            <div class="col-75" style="width: 50%">
-              <select>
+            <div class="col-75">
+              <select style="width: 50%">
                 <option value="male">Male</option>
                 <option value="female">Female</option>
-                <option value="Other">Other...</option>
-              </select> 
+                <option value="Transgender Male">Transgender Male</option>
+                <option value="Transgender Female">Transgender Female</option>
+                <option value="Gender Queer">Gender Queer</option>
+                <option value="Non-Binary">Non-Binary</option>
+                <option value="Other">Other</option>
+              </select>
             </div>
           </div>
         </div>
         <!--End Row 2-->
 
-<br>
-
         <!--Row 3-->
-        <div class="row">
-          <div class="col-md-4">
+        <div class="row cent">
+          <div class="col-md-4 space">
             <div class="col-25">
-              <label for="lname">Permanent Address</label>
+              <label for="address">Permanent Address</label>
             </div>
             <div class="col-75">
-             <textarea placeholder="Your permanent address..." style="width: 50%"></textarea>
+             <input type="text" name="address" placeholder="Your permanent address..." style="width: 50%">
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 space">
             <div class="col-25">
-              <label for="country">State</label>
+              <label for="state">State</label>
             </div>
             <div class="col-75">
-              <select>
+              <select style="width: 50%">
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
                 <option value="AZ">Arizona</option>
@@ -213,7 +235,7 @@
               </select>       
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 space">
             <div class="col-25">
               <label for="country">Zip Code</label>
             </div>
@@ -224,8 +246,102 @@
         </div>
         <!--End Row 3-->
 
-        <br>
-      </div>
+        <!--Row 4-->
+        <div class="row cent">
+          <div class="col-md-4 space">
+            <div class="col-25">
+             <label for="telnum">Phone Number</label>
+            </div>
+            <div class="col-75">
+              <input type="tel" id="telnum" name="telnum" placeholder="(XXX)-XXX-XXXX" style="width: 50%">
+            </div>
+          </div>
+          <div class="col-md-4 space">
+            <div class="col-25">
+              <label for="email">E-Mail</label>
+            </div>
+            <div class="col-75">
+             <input type="email" id="email" name="email" placeholder="example@gmail.com" style="width: 50%">
+            </div>
+          </div>
+          <div class="col-md-4 space">
+            <div class="col-25">
+             <label for="age">Age</label>
+            </div>
+            <div class="col-75">
+              <input type="number" id="age" name="age" min="18" max="100" placeholder="Your age..." style="width: 50%">
+            </div>
+          </div>
+        </div>
+        <!--End Row 4-->
+
+        <!--Row 5-->
+        <div class="row cent">
+          <div class="col-md-4 space">
+            <div class="col-25">
+             <label for="pass">Password</label>
+            </div>
+            <div class="col-75">
+              <input type="password" id="pass" name="pass" placeholder="Your password..." style="width: 50%">
+            </div>
+          </div>
+          <div class="col-md-4 space">
+            <div class="col-25">
+              <label for="cpass">Confirm Password</label>
+            </div>
+            <div class="col-75">
+             <input type="password" id="cpass" name="cpass" placeholder="Confirm password..." style="width: 50%">
+            </div>
+          </div>
+          <div class="col-md-4 space">
+            <div class="col-25">
+              <label for="lname">City</label>
+            </div>
+            <div class="col-75">
+             <input type="text" id="city" name="city" placeholder="Your city..." style="width: 50%">
+            </div>
+          </div>
+        </div>
+        <!--End Row 5-->
+
+        <!--Row 6
+        <div class="row cent">
+          <div class="col-md-4 space">
+            <input type="" id="" name="" placeholder="" style="width: 50%">
+          </div>
+          <div class="col-md-4 space">
+            <div class="col-25">
+              <label for=""></label>
+            </div>
+            <div class="">
+             <input type="" id="" name="" placeholder="" style="width: 50%">
+            </div>
+          </div>
+          <div class="col-md-4 space">
+            <div class="col-25">
+              <label for=""></label>
+            </div>
+            <div class="col-75">
+            <input type="" id="" name="" placeholder="" style="width: 50%">-
+            </div>
+          </div>
+        </div>
+        <End Row 6-->
+
+        <!--Row 7-->
+        <div class="row cent">
+          <div class="col-md-12 space">
+            <div class="col-25">
+             <label for="description">Your bio...</label>
+            </div>
+            <div class="col-75" style="height: 75%">
+              <textarea  style="width: 75%; height: 75%" name="bio" placeholder="Description of you..."></textarea>
+          </div>
+          </div>
+        </div>
+        <!--End Row 7-->
+
+        <br><br>
     </form>
   </div>
 </div>
