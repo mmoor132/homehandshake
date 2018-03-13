@@ -102,6 +102,7 @@ $result = $stm->get_result();
     </div>
     <div>
       <h5 style="padding-left: 5px">Amenities</h5>
+	  <ul><input type="checkbox" id="chkall"	onchange = "checkallFunction()">Check All</ul>
       <ul><input type="checkbox" id="furnished" onchange = "amenitiesFunction()">Furnished</ul>
       <ul><input type="checkbox" id="gym" 		onchange = "amenitiesFunction()">Gym</ul>
       <ul><input type="checkbox" id="laundry" 	onchange = "amenitiesFunction()">Laundry</ul>
@@ -117,8 +118,15 @@ $result = $stm->get_result();
       <ul><input type="checkbox" id="heat"		onchange = "amenitiesFunction()">Heating</ul>
     </div>
 	<script>
+	function checkallFunction(){
+		if(chkall == checked){
+			furnished == checked;
+			//this function is likely broken and needs to be updated
+		}
+	}
 	function amenitiesFunction(){
 		var x = document.getElementById().value;
+		//this function isn't actually doing anything yet
 	}
 	</script>
     <div>
