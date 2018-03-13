@@ -28,29 +28,29 @@ body {
 }
 
 .top-container {
+
   background-color: #f1f1f1;
   padding: 30px;
   text-align: center;
 }
 
-.header {
-  padding: 10px 16px;
-  background: #555;
-  color: #f1f1f1;
-}
-
 .content {
+
   padding: 16px; 
+
 }
 
 .sticky {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 1;
 }
 
 .sticky + .content {
-  padding-top: 102px;
+
+	padding-top: 100px;
+
 }
 </style>
 
@@ -98,10 +98,12 @@ body {
 <div class="content">
 
 <!--Title Font-Century-->
+
 <center>
 <h1 style="font-style: Century;">Welcome to Housing Handshakes!</h1>
 <h4>Housing Handshakes is the web app that advertises short-term vacancy in a house or apartment.</h4>
 </center>
+
 <!-- END of Title-->
 
 <br>
@@ -110,7 +112,7 @@ body {
 
 <center>
 
-<div id="map" style="width:800px;height:400px;background:yellow"></div>
+<div id="map" style="width:75%;height:400px;background:yellow"></div>
 
 <script>
 function myMap() {
@@ -124,6 +126,27 @@ var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwPMtmTS5-ruHic9Qa3Q9h_R-I0ptYC3w&callback=myMap"></script>
+
+<script>
+
+      function initMap() {
+        var myLatLng = {lat: 41.149063, lng: -81.341465};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World!'
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwPMtmTS5-ruHic9Qa3Q9h_R-I0ptYC3w&callback=initMap">
+    </script>
 
 </center>
 
@@ -254,7 +277,7 @@ var map = new google.maps.Map(document.getElementById("map"), mapOptions);
   <!--Copyright-->
   <div>
     <center>
-      <span style="color: white;">2018 © Copyright Orange Solutions. All rights reserved.</span>
+      <span style="color: white;">2018 © Copyright Team 3 Solutions. All rights reserved.</span>
     </center>
   <div>
   <!--End of Copyright-->
