@@ -52,6 +52,19 @@ body {
 	padding-top: 100px;
 
 }
+
+.container {
+    position: relative;
+    text-align: center;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 </style>
 
 <!-- End of Sticky Navbar Code -->
@@ -59,10 +72,13 @@ body {
 <body >
 
 	<!--Jumbotron code-->
+
   	<div>
-    	<img src="img\Homepage Header Image.jpg" alt = "Header Image" style="width: 100%; height: 100%;">
+    	<img src="img\Homepage Header Image.jpg" alt = "Header Image" style="width: 100%; height: 680px;">
+      <div class="centered"><span style="color: white; font-size: 50px">Household Handjobs</span></div>
   	</div>
-  	<!--END Jumbotron code-->
+
+  <!--END Jumbotron code-->
 
 <!--Navbar code-->
 
@@ -80,7 +96,6 @@ body {
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="homepage.html" style="color: white">Home</a></li>
-		<li><a href="myaccount.html" style="color: white">My Account</a></li>
         <li><a href="browselisting.php" style="color: white">Browse Listings</a></li>
         <li><a href="createaccount.html" style="color: white"><span class="glyphicon glyphicon-user"></span> Sign Up </a></li>
         <li><a href="loginpage.html" style="color: white"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
