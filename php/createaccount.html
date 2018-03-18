@@ -132,10 +132,18 @@
         <div class="row cent">
           <div class="col-md-4 space">
             <div class="col-25">
-             <label for="fname">Date of Birth</label>
+             <label for="pass">Password</label>
             </div>
             <div class="col-75">
-              <input type="date" id="dob" name="dob" style="width: 50%">
+              <input type="password" id="pass" name="pass" placeholder="Your password..." style="width: 50%">
+            </div>
+          </div>
+          <div class="col-md-4 space">
+            <div class="col-25">
+              <label for="cpass">Confirm Password</label>
+            </div>
+            <div class="col-75">
+             <input type="password" id="cpass" name="cpass" placeholder="Confirm password..." style="width: 50%">
             </div>
           </div>
           <div class="col-md-4 space">
@@ -145,23 +153,7 @@
             <div class="col-75">
               <input type="text" id="campus" name="campus" placeholder="Your campus.." style="width: 50%">
             </div>
-          </div>
-          <div class="col-md-4 space">
-            <div class="col-25">
-             <label for="gender">Gender</label>
-            </div>
-            <div class="col-75">
-              <select style="width: 50%">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="Transgender Male">Transgender Male</option>
-                <option value="Transgender Female">Transgender Female</option>
-                <option value="Gender Queer">Gender Queer</option>
-                <option value="Non-Binary">Non-Binary</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-          </div>
+          </div>          
         </div>
         <!--End Row 2-->
 
@@ -173,6 +165,14 @@
             </div>
             <div class="col-75">
              <input type="text" name="address" placeholder="Your permanent address..." style="width: 50%">
+            </div>
+          </div>
+          <div class="col-md-4 space">
+            <div class="col-25">
+              <label for="lname">City</label>
+            </div>
+            <div class="col-75">
+             <input type="text" id="city" name="city" placeholder="Your city..." style="width: 50%">
             </div>
           </div>
           <div class="col-md-4 space">
@@ -235,6 +235,11 @@
               </select>       
             </div>
           </div>
+        </div>
+        <!--End Row 3-->
+
+        <!--Row 4-->
+        <div class="row cent">
           <div class="col-md-4 space">
             <div class="col-25">
               <label for="country">Zip Code</label>
@@ -243,10 +248,34 @@
               <input type="text" id="zip" name="zip" placeholder="Your Zip Code.." style="width: 50%">
             </div>
           </div>
+          <div class="col-md-4 space">
+            <div class="col-25">
+             <label for="age">Age</label>
+            </div>
+            <div class="col-75">
+              <input type="number" id="age" name="age" min="18" max="100" placeholder="Your age..." style="width: 50%">
+            </div>
+          </div>
+          <div class="col-md-4 space">
+            <div class="col-25">
+             <label for="gender">Gender</label>
+            </div>
+            <div class="col-75">
+              <select style="width: 50%">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="Transgender Male">Transgender Male</option>
+                <option value="Transgender Female">Transgender Female</option>
+                <option value="Gender Queer">Gender Queer</option>
+                <option value="Non-Binary">Non-Binary</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>          
         </div>
-        <!--End Row 3-->
+        <!--End Row 4-->
 
-        <!--Row 4-->
+        <!--Row 5-->
         <div class="row cent">
           <div class="col-md-4 space">
             <div class="col-25">
@@ -262,43 +291,6 @@
             </div>
             <div class="col-75">
              <input type="email" id="email" name="email" placeholder="example@gmail.com" style="width: 50%">
-            </div>
-          </div>
-          <div class="col-md-4 space">
-            <div class="col-25">
-             <label for="age">Age</label>
-            </div>
-            <div class="col-75">
-              <input type="number" id="age" name="age" min="18" max="100" placeholder="Your age..." style="width: 50%">
-            </div>
-          </div>
-        </div>
-        <!--End Row 4-->
-
-        <!--Row 5-->
-        <div class="row cent">
-          <div class="col-md-4 space">
-            <div class="col-25">
-             <label for="pass">Password</label>
-            </div>
-            <div class="col-75">
-              <input type="password" id="pass" name="pass" placeholder="Your password..." style="width: 50%">
-            </div>
-          </div>
-          <div class="col-md-4 space">
-            <div class="col-25">
-              <label for="cpass">Confirm Password</label>
-            </div>
-            <div class="col-75">
-             <input type="password" id="cpass" name="cpass" placeholder="Confirm password..." style="width: 50%">
-            </div>
-          </div>
-          <div class="col-md-4 space">
-            <div class="col-25">
-              <label for="lname">City</label>
-            </div>
-            <div class="col-75">
-             <input type="text" id="city" name="city" placeholder="Your city..." style="width: 50%">
             </div>
           </div>
         </div>

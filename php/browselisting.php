@@ -55,7 +55,7 @@ $result = $stm->get_result();
 </style>
 
 
-<body>
+<body onload = "onload()">
 
 <!--Jumbotron code-->
   <div>
@@ -102,7 +102,8 @@ $result = $stm->get_result();
     </div>
     <div>
       <h5 style="padding-left: 5px">Amenities</h5>
-	  <ul><input type="checkbox" id="chkall"	onchange = "checkallFunction()">Check All</ul>
+	  <ul><input type="radio" name = "onoff" id="chkall"	onchange = "checkallFunction()">Check All</ul>
+	  <ul><input type="radio" name = "onoff" id="unchkall"	onchange = "uncheckallFunction()">UnCheck All</ul>
       <ul><input type="checkbox" id="furnished" onchange = "amenitiesFunction()">Furnished</ul>
       <ul><input type="checkbox" id="gym" 		onchange = "amenitiesFunction()">Gym</ul>
       <ul><input type="checkbox" id="laundry" 	onchange = "amenitiesFunction()">Laundry</ul>
@@ -118,15 +119,46 @@ $result = $stm->get_result();
       <ul><input type="checkbox" id="heat"		onchange = "amenitiesFunction()">Heating</ul>
     </div>
 	<script>
+	function onload(){
+		chkall.onchange.checked = true;
+		checkallFunction();
+	}
 	function checkallFunction(){
-		if(chkall == checked){
-			furnished == checked;
-			//this function is likely broken and needs to be updated
-		}
+		if(chkall.onchange.checked = true){
+			furnished.checked = true; gym.checked = true; laundry.checked = true;
+			pets.checked = true; cool.checked = true; parking.checked = true;
+			pool.checked = true; garage.checked = true; mgmt.checked = true;
+			hottub.checked = true; pvtbroom.checked = true; pvtbroom.checked = true;
+			flrlvl.checked = true; heat.checked = true; sum.checked = true;
+			fall.checked = true; spng.checked = true; twnhm.checked = true;
+			cpnt.checked = true; pvnc.checked = true; uedg.checked = true;
+			ctow.checked = true; eaglnd.checked = true;
+		}	
+	}
+	function uncheckallFunction(){
+		if(chkall.onchange.checked = true){
+			furnished.checked = false; gym.checked = false; laundry.checked = false;
+			pets.checked = false; cool.checked = false; parking.checked = false;
+			pool.checked = false; garage.checked = false; mgmt.checked = false;
+			hottub.checked = false; pvtbroom.checked = false; pvtbroom.checked = false;
+			flrlvl.checked = false; heat.checked = false; sum.checked = false;
+			fall.checked = false; spng.checked = false; twnhm.checked = false;
+			cpnt.checked = false; pvnc.checked = false; uedg.checked = false;
+			ctow.checked = false; eaglnd.checked = false;
+		}	
 	}
 	function amenitiesFunction(){
-		var x = document.getElementById().value;
-		//this function isn't actually doing anything yet
+		var x = document.getElementByVal(this);
+		if(x.checked != true){
+			chk4amenities();
+		}
+		
+	}
+	function chk4amenities(){
+		var x = document.getElementByVal(this);
+		if(x = null){
+			document.getElementById(hideRow).type = hidden;
+		}
 	}
 	</script>
     <div>
@@ -145,18 +177,18 @@ $result = $stm->get_result();
     </div>
     <div>
       <h5 style="padding-left: 5px">Availablility</h5>
-      <ul><input type="checkbox">Summer Only</ul>
-      <ul><input type="checkbox">Fall Semester</ul>
-      <ul><input type="checkbox">Spring Semester</ul>
+      <ul><input type="checkbox" id = "sum">Summer Only</ul>
+      <ul><input type="checkbox" id = "fall">Fall Semester</ul>
+      <ul><input type="checkbox" id = "spng">Spring Semester</ul>
     </div>
     <div>
       <h5 style="padding-left: 5px">Locations</h5>
-      <ul><input type="checkbox">Unversity TownHomes</ul>
-      <ul><input type="checkbox">Campus Pointe</ul>
-      <ul><input type="checkbox">Province</ul>
-      <ul><input type="checkbox">Unversity Edge</ul>
-      <ul><input type="checkbox">College Towers</ul>
-      <ul><input type="checkbox">Eagles Landing</ul>
+      <ul><input type="checkbox" id = "twnhm">Unversity TownHomes</ul>
+      <ul><input type="checkbox" id = "cpnt">Campus Pointe</ul>
+      <ul><input type="checkbox" id = "pvnc">Province</ul>
+      <ul><input type="checkbox" id = "uedg">Unversity Edge</ul>
+      <ul><input type="checkbox" id = "ctow">College Towers</ul>
+      <ul><input type="checkbox" id = "eaglnd">Eagles Landing</ul>
     </div>
   </div>
   <!--SIDEBAR END-->
@@ -169,7 +201,7 @@ $result = $stm->get_result();
       
     ?>
   
-    <div class="box" style="margin: 1px;">
+    <div class="box" id="hideRow" style="margin: 1px;">
       <div class="col-md-4 one" style="background-color: white;border-style: solid;border-color: gray; max-width: 100%; padding: 0">
         <img src = "<?php echo $row["pic1"] ?>" style="width: 100%">
       </div>
@@ -207,12 +239,26 @@ $result = $stm->get_result();
             <span><?php echo "" ?></span>
           </div>
         </div>
+        
       </div>
 
       <div class=" col-md-4 three" style="background-color: white; border-style: solid; border-color: gray">
         <center>
         <form  method="post" action="viewlisting.php">
           <input type="hidden" name="listingid" value = "<?php echo $row['listingid']; ?>" >
+		  <input type="hidden" id = "chk4amenities()" name="1" 	value = "<?php echo $row['furnished']; ?>" >
+		  <input type="hidden" id = "chk4amenities()" name="2" 	value = "<?php echo $row['gym']; ?>" >
+		  <input type="hidden" id = "chk4amenities()" name="3" 	value = "<?php echo $row['laundry']; ?>" >
+		  <input type="hidden" id = "chk4amenities()" name="4" 	value = "<?php echo $row['pets']; ?>" >
+		  <input type="hidden" id = "chk4amenities()" name="5" 	value = "<?php echo $row['cooling']; ?>" >
+		  <input type="hidden" id = "chk4amenities()" name="6" 	value = "<?php echo $row['parking']; ?>" >
+		  <input type="hidden" id = "chk4amenities()" name="7" 	value = "<?php echo $row['pool']; ?>" >
+		  <input type="hidden" id = "chk4amenities()" name="8" 	value = "<?php echo $row['garage']; ?>" >
+		  <input type="hidden" id = "chk4amenities()" name="9" 	value = "<?php echo $row['propertymanagement']; ?>" >
+		  <input type="hidden" id = "chk4amenities()" name="10" value = "<?php echo $row['hot tub']; ?>" >
+		  <input type="hidden" id = "chk4amenities()" name="11" value = "<?php echo $row['privatebathroom']; ?>" >
+		  <input type="hidden" id = "chk4amenities()" name="12" value = "<?php echo $row['floornumber']; ?>" >
+		  <input type="hidden" id = "chk4amenities()" name="13" value = "<?php echo $row['heating']; ?>" >
           <button class="button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" type="submit" name="submit" value="Submit">View Listing</button>
         </form>
           <br>
