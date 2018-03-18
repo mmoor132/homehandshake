@@ -213,7 +213,7 @@ $result = $stm->get_result();
         <center>
         <form  method="post" action="viewlisting.php">
           <input type="hidden" name="listingid" value = "<?php echo $row['listingid']; ?>" >
-          <button class="loginbutton" style="background-color: maroon; margin: 2px; width: 50%" type="submit" name="submit" value="Submit">View Listing</button>
+          <button class="button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" type="submit" name="submit" value="Submit">View Listing</button>
         </form>
           <br>
         </center>
@@ -331,15 +331,3 @@ slider2.oninput = function() {
 </script>
 </body>
 </html>
-© 2018 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-API
-Training
-Shop
-Blog
-About
