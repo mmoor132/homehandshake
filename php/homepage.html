@@ -74,7 +74,7 @@ body {
 	<!--Jumbotron code-->
 
   	<div>
-    	<img src="img\KSU Student Center.jpg" alt = "Header Image" style="width: 100%; height: 100%;">
+    	<img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%; height: 100%;">
   	</div>
 
   <!--END Jumbotron code-->
@@ -130,7 +130,7 @@ body {
 <script>
 function myMap() {
 var mapOptions = {
-    center: new google.maps.LatLng(41.149063, -81.341465),
+    center: new google.maps.LatLng(41.149063, -81.350555),
     zoom: 13,
     mapTypeId: google.maps.MapTypeId.ROADMAP
 }
@@ -143,18 +143,35 @@ var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 <script>
 
       function initMap() {
-        var myLatLng = {lat: 41.149063, lng: -81.341465};
+
+        var theProvince = {lat: 41.147250, lng: -81.350555};
 
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 13,
-          center: myLatLng
+          center: theProvince
+        });
+        var contentString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<p><b> The Province</b></p>'+
+            '<p>Website: The Province, <a href="http://www.theprovincekent.com/">'+
+            'http://www.theprovincekent.com</a> '+
+            '</div>'+
+            '</div>';
+
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString
         });
 
         var marker = new google.maps.Marker({
-          position: myLatLng,
+          position: theProvince,
           map: map,
-          title: 'Hello World!'
+          title: 'The Province'
+          });
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
         });
+
       }
     </script>
     <script async defer
