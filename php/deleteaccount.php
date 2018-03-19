@@ -6,7 +6,7 @@ $dbname = "homehandshake";
 
 session_start();
 
-$listingid = $_SESSION["listingid"];
+$userid = $_SESSION["userid"];
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -17,7 +17,7 @@ if ($conn->connect_error) {
 }
 
 // sql to delete a record
-$sql = "DELETE FROM listings WHERE listingid = '$listingid' ";
+$sql = "DELETE FROM users WHERE username = '$userid' ";
 
 if ($conn->query($sql) === TRUE) {
     echo "Record deleted successfully";

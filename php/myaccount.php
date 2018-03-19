@@ -10,6 +10,7 @@ $lszip = $_SESSION["zip"];
 $picture = $_SESSION["pic1"];
 $phone = $_SESSION["phone"];
 $email = $_SESSION["email"];
+$userid = $_SESSION["userid"];
 ?>
 
 <!Doctype html>
@@ -137,12 +138,18 @@ $email = $_SESSION["email"];
 
       <div class="col-md-4" style="background-color: white;border-style: solid;border-color: gray">
         <center>
-        <a href=""><button style="margin: 2px; width: 50%">View Listing</button></a>
-          <br>
-        <a href=""><button style="margin: 2px; width: 50%">Edit Listing</button></a>
-          <br>
-        <a href=""><button style="margin: 2px; width: 50%">Delete Listing</button></a>
-          <br>
+          <form method="post" action="listprofile.php">
+            <input type="hidden" name="<?php echo $listingid ?>">
+            <button style="margin: 2px; width: 50%" type="submit" name="submit" value="Submit">View Listing</button>
+          </form>
+          <form method="post" action="updatelist.php">
+            <input type="hidden" name="<?php echo $listingid ?>">
+            <button style="margin: 2px; width: 50%" type="submit" name="submit" value="Submit">Edit Listing</button>
+          </form>
+          <form method="post" action="deletelist.php">
+            <input type="hidden" name="<?php echo $listingid ?>">
+            <button style="margin: 2px; width: 50%" type="submit" name="submit" value="Submit">Delete Listing</button>
+          </form>
         </center>
       </div>
     </div>
@@ -160,10 +167,11 @@ $email = $_SESSION["email"];
 
       <div class="col-md-4" style="background-color: white;border-style: solid;border-color: gray">
         <center>
-        <a href=""><button style="margin: 2px; width: 50%">Add Favorite Listing</button></a>
-          <br>
-        <a href=""><button style="margin: 2px; width: 50%">Delete Listing</button></a>
-          <br>
+          <form method="post" action="listprofile.php">
+            <input type="hidden" name="<?php echo $listingid ?>">
+            <button style="margin: 2px; width: 50%" type="submit" name="submit" value="Submit">View Listing</button>
+          </form>
+          <button style="margin: 2px; width: 50%" type="submit" name="submit" value="Submit">Unfavorite Listing</button>
         </center> 
       </div>
     </div>
@@ -198,17 +206,15 @@ $email = $_SESSION["email"];
         <div class="row">
           <div class="col-md-6">
             <h5>Preferred Method of Contact</h5>
-            <form>
               <div class="checkbox">
-                <label><input type="checkbox" value="">Phone</label>
+                <label>Phone</label>
               </div>
               <div class="checkbox">
-                <label><input type="checkbox" value="">Text</label>
+                <label>Text</label>
               </div>
               <div class="checkbox">
-                <label><input type="checkbox" value="">E-Mail</label>
+                <label>E-Mail</label>
               </div>
-            </form>
           </div>
           <div class="col-md-6">
             <div class="col-25" style="margin: 5px">
@@ -223,10 +229,14 @@ $email = $_SESSION["email"];
 
       <div class="col-md-4" style="background-color: white;border-style: solid;border-color: gray">
         <center>
-          <a href=""><button style="margin: 2px; width: 50%">Update Account</button></a>
-        <br>
-          <a href=""><button style="margin: 2px; width: 50%">Delete Account</button></a>
-        <br>
+        <form  method="post" action="updateaccount.php">
+          <input type="hidden" name="userid" value="<?php echo $row['username'] ?>">
+          <button style="margin: 2px; width: 50%" type="submit" name="submit" value="Submit">Update Account</button>
+        </form>
+        <form  method="post" action="deleteaccount.php">
+          <input type="hidden" name="userid" value="<?php echo $row['username'] ?>">
+          <button style="margin: 2px; width: 50%" type="submit" name="submit" value="Submit">Delete Account</button>
+        </form>
         </center>
       </div>
     </div>
@@ -239,18 +249,13 @@ $email = $_SESSION["email"];
 
 <!--Row 4-->
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
       <center>
-      <a href = "logout.php"><button style="margin: 2px"><span style="color: black">Create Listing</span></button></a>
+      <a href = "createlistings.html"><button style="margin: 2px"><span style="color: black">Create Listing</span></button></a>
     </center>
     </div>  
-    <div class="col-md-4">
+    <div class="col-md-6">
       <center>
-      <a href = "logout.php"><button style="margin: 2px"><span style="color: black">Sign Out</span></button></a>
-    </center>
-    </div>
-    <div class="col-md-4">
-        <center>
       <a href = "logout.php"><button style="margin: 2px"><span style="color: black">Sign Out</span></button></a>
     </center>
     </div>

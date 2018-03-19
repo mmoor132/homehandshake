@@ -27,14 +27,14 @@
   padding-top: 10px;
 }
 
-  @media only screen and (max-width: 991px){
-    .cent{
-    text-align: center;
-    }
-    .space{
-      padding-top: 8px;
-    }
+@media only screen and (max-width: 991px){
+  .cent{
+  text-align: center;
   }
+  .space{
+    padding-top: 8px;
+  }
+}
 
 </style>
 
@@ -90,10 +90,10 @@
   <br><br>
 
 <!--Create Listing Div-->
-<div id="" class="container-fluid" style="background-color: grey; border-style: solid; margin: 2px;">
+<div id="" class="container-fluid" style="border-style: solid; margin: 2px;">
   <br>
   <div class="container">
-    <form action="listingupload.php" method="post">
+    <form action="createlisting.php" method="post" enctype = "multipart/form-data">
         
         <!--Row 1-->
         <div class="row cent">
@@ -212,11 +212,12 @@
         <div class="row cent">
           <div class="col-md-4 space">
            <div class="col-25">
-                <label>Price of Rent: (numbers only)</label>
+                <label>Price of Rent: (Per Month)</label>
             </div>
             <div class="col-75">
-             <input type="number" id="rent" name="rent" min="0" max="2000" style="width: 50%" placeholder="$1234">
-             <span> Per Month</span>
+                <div class="">
+                  </span><input type="number" id="rent" name="rent" min="0" max="2000" style="width: 50%;" placeholder="$1234" class=""">
+                </div>
             </div>
           </div>
           <div class="col-md-4 space">
@@ -323,7 +324,7 @@
           <center>
             <h5 style="font-weight: bold;">Upload Your Listing's Pictures</h5>
             <div class="col-md-6 space">
-              <input type="file" name="fileToUpload1" id="fileToUpload1">
+              <input type="file" name="fileToUpload" id="fileToUpload">
               <br>
               <input type="file" name="fileToUpload2" id="fileToUpload2">
               <br>
@@ -333,7 +334,7 @@
             <div class="col-md-6 space">
               <input type="file" name="fileToUpload4" id="fileToUpload4">
               <br>
-              <input type="file" name="fileToUpload4" id="fileToUpload5">
+              <input type="file" name="fileToUpload5" id="fileToUpload5">
               <br>
             </div>
           </center>

@@ -14,6 +14,7 @@
   <!--Bootstrap 3-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.1.62/jquery.inputmask.bundle.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <!--END Bootstrap 3-->
 
@@ -93,33 +94,33 @@
 
 <!--Create Profile Div 1-->
 <center>
-<div class="container-fluid" style="background-color: grey; border-style: solid; margin: 2px;">
-  <br>
-  <div class="container">
-    <form action="action_page.php">
+<form action="createaccount.php" method="post" enctype = "multipart/form-data">
+  <div class="container-fluid" style="background-color: grey; border-style: solid; margin: 2px;">
+    <br>
+    <div class="container">
       <div class="container">
-        
+          
         <!--Row 1-->
         <div class="row cent">
           <div class="col-md-4 space" >
             <div class="col-25">
-             <label for="fname">First Name</label>
+             <label for="firstname">First Name</label>
             </div>
             <div class="col-75">
-              <input type="text" id="lname" name="firstname" placeholder="Your first name.." style="width: 50%">
+              <input type="text" id="firstname" name="firstname" placeholder="Your first name.." style="width: 50%">
             </div>
           </div>
           <div class="col-md-4 space">
             <div class="col-25">
-              <label for="lname">Last Name</label>
+              <label for="lastname">Last Name</label>
             </div>
             <div class="col-75">
-             <input type="text" id="lname" name="lastname" placeholder="Your last name.." style="width: 50%">
+             <input type="text" id="lastname" name="lastname" placeholder="Your last name.." style="width: 50%">
             </div>
           </div>
           <div class="col-md-4 space">
             <div class="col-25">
-              <label for="lname">Username</label>
+              <label for="uname">Username</label>
             </div>
             <div class="col-75">
              <input type="text" id="uname" name="uname" placeholder="Your Username.." style="width: 50%">
@@ -147,12 +148,7 @@
             </div>
           </div>
           <div class="col-md-4 space">
-            <div class="col-25">
-             <label for="fname">Campus</label>
-            </div>
-            <div class="col-75">
-              <input type="text" id="campus" name="campus" placeholder="Your campus.." style="width: 50%">
-            </div>
+            <!--BLANK-->
           </div>          
         </div>
         <!--End Row 2-->
@@ -169,7 +165,7 @@
           </div>
           <div class="col-md-4 space">
             <div class="col-25">
-              <label for="lname">City</label>
+              <label for="city">City</label>
             </div>
             <div class="col-75">
              <input type="text" id="city" name="city" placeholder="Your city..." style="width: 50%">
@@ -180,7 +176,7 @@
               <label for="state">State</label>
             </div>
             <div class="col-75">
-              <select style="width: 50%">
+              <select name="state" style="width: 50%">
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
                 <option value="AZ">Arizona</option>
@@ -261,7 +257,7 @@
              <label for="gender">Gender</label>
             </div>
             <div class="col-75">
-              <select style="width: 50%">
+              <select name="gender" style="width: 50%">
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="Transgender Male">Transgender Male</option>
@@ -282,7 +278,7 @@
              <label for="telnum">Phone Number</label>
             </div>
             <div class="col-75">
-              <input type="tel" id="telnum" name="telnum" placeholder="(XXX)-XXX-XXXX" style="width: 50%">
+              <input style="width: 50%" id="phone" requied id="telnum" name="telnum" type="text" />
             </div>
           </div>
           <div class="col-md-4 space">
@@ -296,31 +292,7 @@
         </div>
         <!--End Row 5-->
 
-        <!--Row 6
-        <div class="row cent">
-          <div class="col-md-4 space">
-            <input type="" id="" name="" placeholder="" style="width: 50%">
-          </div>
-          <div class="col-md-4 space">
-            <div class="col-25">
-              <label for=""></label>
-            </div>
-            <div class="">
-             <input type="" id="" name="" placeholder="" style="width: 50%">
-            </div>
-          </div>
-          <div class="col-md-4 space">
-            <div class="col-25">
-              <label for=""></label>
-            </div>
-            <div class="col-75">
-            <input type="" id="" name="" placeholder="" style="width: 50%">-
-            </div>
-          </div>
-        </div>
-        <End Row 6-->
-
-        <!--Row 7-->
+        <!--Row 6-->
         <div class="row cent">
           <div class="col-md-12 space">
             <div class="col-25">
@@ -331,12 +303,12 @@
           </div>
           </div>
         </div>
-        <!--End Row 7-->
+        <!--End Row 6-->
 
         <br><br>
-    </form>
+      </div>
+    </div>
   </div>
-</div>
 </center>
 <!--End Create Profile Div 1-->
 
@@ -344,24 +316,26 @@
 
 <!--Create Profile Div 2-->
 <center>
-<div class="container-fluid" style="background-color: grey; border-style: solid; margin: 2px;">
-  <br>
-  <button type="button" class="btn btn-warning">Warning</button>
-    <h5 style="font-style: italic; color: white">
-      Housing Handshakes connects you to people who are looking to enter a subleasing agreement - nothing more. Use discretion when sharing personal information with others over the internet. We are not resposible for any contractual relationships or harm inflicted from utilizing this service.
-    </h5>
-    <input type="checkbox" name="agreement"><span style="color: white"> I agree to the terms of using this service.</span>
-    <br><br>
-</div>
+  <div class="container-fluid" style="background-color: grey; border-style: solid; margin: 2px;">
+    <br>
+    <button type="button" class="btn btn-warning">Warning</button>
+      <h5 style="font-style: italic; color: white">
+        Housing Handshakes connects you to people who are looking to enter a subleasing agreement - nothing more. Use discretion when sharing personal information with others over the internet. We are not resposible for any contractual relationships or harm inflicted from utilizing this service.
+      </h5>
+      <input type="checkbox" name="agreement"><span style="color: white"> I agree to the terms of using this service.</span>
+      <br><br>
+  </div>
   <br>
 </center>
 <!--End Create Profile Div 2-->
 
 <!--Create Acount Button-->
 <center>
-  <button type="button" class="btn" style="background-color: maroon; color: white">Create Account</button>
+  <button class="btn" type="submit" name="submit" value="Submit" style="background-color: maroon; color: white">Create Account</button>
 </center>
 <!--End Create Account Button-->
+
+</form>
 
 <br><br>
 
@@ -407,6 +381,12 @@
 
 </footer>
 <!--END Footer-->
+
+<script>
+  $(":input").inputmask();
+
+  $("#phone").inputmask({"mask": "(999) 999-9999"});
+</script>
 
 </body>
 </html>

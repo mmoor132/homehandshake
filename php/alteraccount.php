@@ -4,6 +4,8 @@ $username = "administrator";
 $password = "";
 $dbname = "homehandshake";
 
+session_start();
+
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -13,18 +15,16 @@ if ($conn->connect_error) {
 }
 
 // Assign Passwords
-$pass = $_POST["password"];
+$pass = $_POST["pass"];
 $cpass = $_POST["cpass"];
 
 // Check Passwords
 if ($pass == $cpass) {
 
 	// Assinging Variables
-	$fname = $_POST["fname"] ;
-	$lname = $_POST["lname"];
+	$fname = $_POST["firstname"];
+	$lname = $_POST["lastname"];
 	$username = $_POST["uname"];
-	$dob = $_POST["dob"];
-	$campus = $_POST["campus"];
 	$gender = $_POST["gender"];
 	$permaddress = $_POST["address"]; 
 	$state = $_POST["state"];
@@ -35,25 +35,18 @@ if ($pass == $cpass) {
 	$age = $_POST["age"];
 	$bio = $_POST["bio"];
 
-	// SQL Insert Query
-	$sql = "INSERT INTO users (fname, lname, username, dob, campus, gender, address, state, city, zip, phone, email, age, bio)
-	VALUES ('$fname', '$lname', '$username', '$dob', '$campus', '$gender', '$permaddress', '$state', '$city', '$zip', '$phonenum', '$email', '$age', '$bio')";
+	// Query For Active Listing
+	$stm = $conn->prepare("UPDATE users SET postsPerPage = $postsPerPage,  WHERE id = '1'");
+
+	// Execute Query
+	$stm->execute();
 
 	// Check for Success
-	if ($conn->query($sql) === TRUE) {
-	    echo "New record created successfully";
+	if ($conn->query($stm) === TRUE) {
+	    echo "New record updated successfully";
 	} else {
-	    echo "Error: " . $sql . "<br>" . $conn->error;
+	    echo "Error: " . $stm . "<br>" . $conn->error;
 	}
 }
-
-else{
-
-	echo "Passwords don't match bruh";
-
-}
-
-// Clost DB Connection
-$conn->close();
 
 ?>
