@@ -4,6 +4,15 @@ $username = "administrator";
 $password = "";
 $dbname = "homehandshake";
 session_start();
+$price = $_SESSION['price']; $heating = $_SESSION['heating']; 
+$housingstyle = $_SESSION['housingstyle']; $roommates = $_SESSION['roommates'];
+$numofroom = $_SESSION['numofroom']; $startdate = $_SESSION['startdate'];
+$enddate = $_SESSION['enddate']; $furnished = $_SESSION['furnished']; $gym = $_SESSION['gym'];
+$laundry = $_SESSION['laundry']; $pets = $_SESSION['pets']; $cooling = $_SESSION['cooling'];
+$parking = $_SESSION['parking']; $pool = $_SESSION['pool']; $garage = $_SESSION['garage'];
+$propertymanagement = $_SESSION['propertymanagement']; $hottub = $_SESSION['hottub'];
+$privatebathroom = $_SESSION['privatebathroom']; $floornumber = $_SESSION['floornumber'];
+
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -12,7 +21,8 @@ if ($conn->connect_error) {
 }
 // Query For Active Listing
 $stm = $conn->prepare("
-SELECT picture.pic1, listings.listingid, listings.title, listings.address, listings.city, listings.state, listings.zip
+SELECT picture.pic1, listings.listingid, listings.title, listings.address, listings.city, 
+listings.state, listings.zip, listings.price, listings.squarefoot, listings.roommates
 FROM picture
 INNER JOIN listings
   ON listings.listingid = picture.listingid");
@@ -121,6 +131,7 @@ $result = $stm->get_result();
 	<script>
 	function onload(){
 		chkall.onchange.checked = true;
+		chkall.checked = true;
 		checkallFunction();
 	}
 	function checkallFunction(){
@@ -132,7 +143,11 @@ $result = $stm->get_result();
 			flrlvl.checked = true; heat.checked = true; sum.checked = true;
 			fall.checked = true; spng.checked = true; twnhm.checked = true;
 			cpnt.checked = true; pvnc.checked = true; uedg.checked = true;
-			ctow.checked = true; eaglnd.checked = true;
+			ctow.checked = true; eaglnd.checked = true; sum.checked = true; 
+			fall.checked = true; spng.checked = true; twnhm.checked = true; 
+			cpnt.checked = true; pvnc.checked = true; uedg.checked = true; 
+			ctow.checked = true; eaglnd.checked = true; myRange.value = "1000";
+			myRange2.value = "1000";
 		}	
 	}
 	function uncheckallFunction(){
@@ -144,7 +159,11 @@ $result = $stm->get_result();
 			flrlvl.checked = false; heat.checked = false; sum.checked = false;
 			fall.checked = false; spng.checked = false; twnhm.checked = false;
 			cpnt.checked = false; pvnc.checked = false; uedg.checked = false;
-			ctow.checked = false; eaglnd.checked = false;
+			ctow.checked = false; eaglnd.checked = false; sum.checked = false; 
+			fall.checked = false; spng.checked = false; twnhm.checked = false; 
+			cpnt.checked = false; pvnc.checked = false; uedg.checked = false; 
+			ctow.checked = false; eaglnd.checked = false; myRange.value = "0";
+			myRange2.value = "0";
 		}	
 	}
 	function amenitiesFunction(){
@@ -159,20 +178,30 @@ $result = $stm->get_result();
 		if(x = null){
 			document.getElementById(hideRow).type = hidden;
 		}
+		var y = myRange.value;
+		var z = myRange2.value;
+		var q = document.getElementsByName("14").value;
+		var r = document.getElementsByName("15").value;
+		if(q > y){
+			document.getElementById(hideRow).type = hidden;
+		}
+		if(r > z){
+			document.getElementById(hideRow).type = hidden;
+		}
 	}
 	</script>
     <div>
       <h5 style="padding-left: 5px">Rent Price</h5>
       <div class="slidecontainer">
-        <input type="range" min="0" max="1000" value="0" class="slider" id="myRange" style="margin-left: 5px">
-        <p>Value: <span id="demo"></span></p>
+        <input type="range" min="0" max="1000" value="1000" class="slider" id="myRange" style="margin-left: 5px">
+        <p>Max Cost: <span id="demo"></span></p>
       </div>
     </div>
     <div>
       <h5 style="padding-left: 5px">Square Feet</h5>
       <div class="slidecontainer">
-        <input type="range" min="0" max="1000" value="0" class="slider" id="myRange2" style="margin-left: 5px">
-        <p>Value: <span id="demo2"></span></p>
+        <input type="range" min="0" max="1000" value="1000" class="slider" id="myRange2" style="margin-left: 5px">
+        <p>Max Size: <span id="demo2"></span></p>
       </div>
     </div>
     <div>
@@ -215,28 +244,31 @@ $result = $stm->get_result();
             <span><?php echo $row["address"], $row["state"], $row["zip"] ?></span>
           </div>
         </div>
+		
         <div class="row">
           <div class="col-md-6" style="text-align: left;">
              <span>Price:</span>
           </div>
           <div class="col-md-6" style="text-align: left;">
-            <span><?php echo "$  per month" ?></span>
+            <span>$<?php echo $row["price"] ?> Per Month</span>
           </div>
         </div>
+		
         <div class="row">
           <div class="col-md-6" style="text-align: left;">
-            <span>Holder:</span>
+            <span>Square Feet: </span>
           </div>
           <div class="col-md-6" style="text-align: left;">
-            <span><?php echo "" ?></span>
+            <span><?php echo $row["squarefoot"] ?></span>
           </div>
         </div>
+		
         <div class="row">
           <div class="col-md-6" style="text-align: left;">
-            <span>Holder:</span>
+            <span>Roommates: </span>
           </div>
           <div class="col-md-6" style="text-align: left;">
-            <span><?php echo "" ?></span>
+            <span><?php echo $row["roommates"] ?></span>
           </div>
         </div>
         
@@ -245,20 +277,22 @@ $result = $stm->get_result();
       <div class=" col-md-4 three" style="background-color: white; border-style: solid; border-color: gray">
         <center>
         <form  method="post" action="viewlisting.php">
-          <input type="hidden" name="listingid" value = "<?php echo $row['listingid']; ?>" >
-		  <input type="hidden" id = "chk4amenities()" name="1" 	value = "<?php echo $row['furnished']; ?>" >
-		  <input type="hidden" id = "chk4amenities()" name="2" 	value = "<?php echo $row['gym']; ?>" >
-		  <input type="hidden" id = "chk4amenities()" name="3" 	value = "<?php echo $row['laundry']; ?>" >
-		  <input type="hidden" id = "chk4amenities()" name="4" 	value = "<?php echo $row['pets']; ?>" >
-		  <input type="hidden" id = "chk4amenities()" name="5" 	value = "<?php echo $row['cooling']; ?>" >
-		  <input type="hidden" id = "chk4amenities()" name="6" 	value = "<?php echo $row['parking']; ?>" >
-		  <input type="hidden" id = "chk4amenities()" name="7" 	value = "<?php echo $row['pool']; ?>" >
-		  <input type="hidden" id = "chk4amenities()" name="8" 	value = "<?php echo $row['garage']; ?>" >
-		  <input type="hidden" id = "chk4amenities()" name="9" 	value = "<?php echo $row['propertymanagement']; ?>" >
-		  <input type="hidden" id = "chk4amenities()" name="10" value = "<?php echo $row['hot tub']; ?>" >
-		  <input type="hidden" id = "chk4amenities()" name="11" value = "<?php echo $row['privatebathroom']; ?>" >
-		  <input type="hidden" id = "chk4amenities()" name="12" value = "<?php echo $row['floornumber']; ?>" >
-		  <input type="hidden" id = "chk4amenities()" name="13" value = "<?php echo $row['heating']; ?>" >
+          <input type="hidden" name="listingid" value = "<?php echo $listingid ?>" >
+		  <input type="hidden" id = "chk4amenities()" name="1" 	value = "<?php echo $furnished ?>" >
+		  <input type="hidden" id = "chk4amenities()" name="2" 	value = "<?php echo $gym ?>" >
+		  <input type="hidden" id = "chk4amenities()" name="3" 	value = "<?php echo $laundry ?>" >
+		  <input type="hidden" id = "chk4amenities()" name="4" 	value = "<?php echo $pets ?>" >
+		  <input type="hidden" id = "chk4amenities()" name="5" 	value = "<?php echo $cooling ?>" >
+		  <input type="hidden" id = "chk4amenities()" name="6" 	value = "<?php echo $parking ?>" >
+		  <input type="hidden" id = "chk4amenities()" name="7" 	value = "<?php echo $pool ?>" >
+		  <input type="hidden" id = "chk4amenities()" name="8" 	value = "<?php echo $garage ?>" >
+		  <input type="hidden" id = "chk4amenities()" name="9" 	value = "<?php echo $propertymanagement ?>" >
+		  <input type="hidden" id = "chk4amenities()" name="10" value = "<?php echo $hottub ?>" >
+		  <input type="hidden" id = "chk4amenities()" name="11" value = "<?php echo $privatebathroom ?>" >
+		  <input type="hidden" id = "chk4amenities()" name="12" value = "<?php echo $floornumber ?>" >
+		  <input type="hidden" id = "chk4amenities()" name="13" value = "<?php echo $heating ?>" >
+		  <input type="hidden" id = "chk4amenities()" name="14" value = "<?php echo $price ?>" >
+		  <input type="hidden" id = "chk4amenities()" name="15" value = "<?php echo $squarefoot ?>" >
           <button class="button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" type="submit" name="submit" value="Submit">View Listing</button>
         </form>
           <br>
