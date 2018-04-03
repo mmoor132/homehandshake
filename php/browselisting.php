@@ -4,14 +4,14 @@ $username = "administrator";
 $password = "";
 $dbname = "homehandshake";
 session_start();
-$price = $_SESSION['price']; $heating = $_SESSION['heating']; 
-$housingstyle = $_SESSION['housingstyle']; $roommates = $_SESSION['roommates'];
-$numofroom = $_SESSION['numofroom']; $startdate = $_SESSION['startdate'];
-$enddate = $_SESSION['enddate']; $furnished = $_SESSION['furnished']; $gym = $_SESSION['gym'];
-$laundry = $_SESSION['laundry']; $pets = $_SESSION['pets']; $cooling = $_SESSION['cooling'];
-$parking = $_SESSION['parking']; $pool = $_SESSION['pool']; $garage = $_SESSION['garage'];
-$propertymanagement = $_SESSION['propertymanagement']; $hottub = $_SESSION['hottub'];
-$privatebathroom = $_SESSION['privatebathroom']; $floornumber = $_SESSION['floornumber'];
+//$price = $_SESSION['price']; $heating = $_SESSION['heating']; 
+//$housingstyle = $_SESSION['housingstyle']; $roommates = $_SESSION['roommates'];
+//$numofroom = $_SESSION['numofroom']; $startdate = $_SESSION['startdate'];
+//$enddate = $_SESSION['enddate']; $furnished = $_SESSION['furnished']; $gym = $_SESSION['gym'];
+//$laundry = $_SESSION['laundry']; $pets = $_SESSION['pets']; $cooling = $_SESSION['cooling'];
+//$parking = $_SESSION['parking']; $pool = $_SESSION['pool']; $garage = $_SESSION['garage'];
+//$propertymanagement = $_SESSION['propertymanagement']; $hottub = $_SESSION['hottub'];
+//$privatebathroom = $_SESSION['privatebathroom']; $floornumber = $_SESSION['floornumber'];
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -66,7 +66,9 @@ $result = $stm->get_result();
 
 
 <body onload = "onload()">
-
+<button onclick="myFunction()">Try it</button>
+<script>function myFunction() { var x = document.getElementById("hideRow");
+if (x.style.display === "none") {x.style.display = "block";} else { x.style.display = "none"; }}</script>
 <!--Jumbotron code-->
   <div>
   <img src="img\image.jpg" style="width: 100%; height: 400px;">
@@ -175,21 +177,22 @@ $result = $stm->get_result();
 	}
 	function chk4amenities(){
 		var x = document.getElementByVal(this);
-		if(x = null){
-			document.getElementById(hideRow).type = hidden;
+		if(x == null){
+			document.getElementById(hideRow).style.display === "none";
 		}
 		var y = myRange.value;
 		var z = myRange2.value;
 		var q = document.getElementsByName("14").value;
 		var r = document.getElementsByName("15").value;
 		if(q > y){
-			document.getElementById(hideRow).type = hidden;
+			document.getElementById(hideRow).style.display === "none";
 		}
 		if(r > z){
-			document.getElementById(hideRow).type = hidden;
+			document.getElementById(hideRow).style.display === "none";
 		}
 	}
 	</script>
+
     <div>
       <h5 style="padding-left: 5px">Rent Price</h5>
       <div class="slidecontainer">
@@ -393,6 +396,7 @@ $result = $stm->get_result();
   <br>
 </footer>
 <!--END Footer-->
+
 <script>
 var slider = document.getElementById("myRange");
 var output = document.getElementById("demo");
