@@ -18,37 +18,70 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <!--END Bootstrap 3-->
 
-</head>
+<!-- Start of Sticky Navbar Code -->
 
 <style>
-  
-.space{
-  padding-top: 10px;
+body {
+  margin: 0;
+  font-family: Arial;
 }
 
-  @media only screen and (max-width: 991px){
-    .cent{
+.top-container {
+
+  background-color: #f1f1f1;
+  padding: 30px;
+  text-align: center;
+}
+
+.content {
+
+  padding: 16px; 
+
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.sticky + .content {
+
+  padding-top: 100px;
+
+}
+
+.container {
+    position: relative;
     text-align: center;
-    }
-    .space{
-      padding-top: 8px;
-    }
-  }
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 </style>
 
-<body>
+<!-- End of Sticky Navbar Code -->
 
-<!--Jumbotron code-->
-	<div>
-	<img src="img\image.jpg" style="width: 100%; height: 400px;">
-	</div>
-<!--END Jumbotron code-->
+<body >
 
+  <!--Jumbotron code-->
+
+    <div>
+      <img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%; height: 100%;">
+    </div>
+
+  <!--END Jumbotron code-->
 
 <!--Navbar code-->
 
-<nav class="navbar navbar-inverse" style="background-color: maroon">
+<div class="header" id="myHeader">
+<nav class="navbar navbar-inverse" style="background-color:#002664">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -61,36 +94,29 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="homepage.html" style="color: white">Home</a></li>
-		<li><a href="myaccount.html" style="color: white">My Account</a></li>
         <li><a href="browselisting.php" style="color: white">Browse Listings</a></li>
-        <li><a href="createaccount.html" style="color: white"><span class="glyphicon glyphicon-user"></span> Sign Up </a></li>
         <li><a href="loginpage.html" style="color: white"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
       </ul>
     </div>
     </center>
   </div>
 </nav>
-
+</div>
 
 <!--END Navbar code-->
 
-
-
 <br>
 
-<!--Header-->
+<div class="content">
+
+<!--Title Font-Century-->
+
 <center>
-  <div class="container">
-    <h1>Welcome to Housing Handshakes!</h1>
-  </div>
-
-
-<div class="container">
-  <h3>Create Account</h3>
-</div>
-<!--End Header-->
-
+<h1 style="font-style: Century;">Welcome to Housing Handshakes!</h1>
+<h4>Housing Handshakes is the web app that advertises short-term vacancy in a house or apartment.</h4>
 </center>
+
+<!-- END of Title-->
 
 <!--Create Profile Div 1-->
 <center>
@@ -331,7 +357,7 @@
 
 <!--Create Acount Button-->
 <center>
-  <button class="btn" type="submit" name="submit" value="Submit" style="background-color: maroon; color: white">Create Account</button>
+  <button class="btn" type="submit" name="submit" value="Submit" style="background-color: #002664; color: white">Create Account</button>
 </center>
 <!--End Create Account Button-->
 
@@ -340,26 +366,20 @@
 <br><br>
 
 <!--Footer-->
-<footer style="background-color:maroon;"">
+<footer style="background-color:#002664;">
 
 <center>
 
   <!--Links-->
   <div class="container">
     <div class="row"><br>
-      <div class="col-md-2">
+      <div class="col-md-4">
         <a href="homepage.html" style="color: white"> Home </a>
       </div>
-	  <div class="col-md-2">
-        <a href="myaccount.html" style="color: white"> My Account </a>
-      </div>
-      <div class="col-md-2">
+      <div class="col-md-4">
         <a href="browselisting.php" style="color: white"> Browse Listings </a>
       </div>
-      <div class="col-md-2">
-        <a href="createaccount.html" style="color: white"><span class="glyphicon glyphicon-user"></span> Sign Up </a>
-      </div>
-	  <div class="col-md-2">
+    <div class="col-md-4">
         <a href="loginpage.html" style="color: white"><span class="glyphicon glyphicon-log-in"></span> Login </a>
       </div>
     </div>
@@ -372,7 +392,7 @@
   <!--Copyright-->
   <div>
     <center>
-      <span style="color: white;">2018 © Copyright Orange Solutions. All rights reserved.</span>
+      <span style="color: white;">2018 © Copyright Team 3 Solutions. All rights reserved.</span>
     </center>
   <div>
   <!--End of Copyright-->
@@ -381,6 +401,23 @@
 
 </footer>
 <!--END Footer-->
+
+<!-- Start Sticky Navbar script -->
+
+  <script>
+  window.onscroll = function() {myFunction()};
+
+  var header = document.getElementById("myHeader");
+  var sticky = header.offsetTop;
+
+  function myFunction() {
+    if (window.pageYOffset >= sticky) {
+      header.classList.add("sticky");
+    } else {
+      header.classList.remove("sticky");
+    }
+  }
+  </script>
 
 <script>
   $(":input").inputmask();
