@@ -6,6 +6,8 @@ $dbname = "homehandshake";
 
 session_start();
 
+$userid = $_SESSION["userid"];
+
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -36,17 +38,22 @@ if ($pass == $cpass) {
 	$bio = $_POST["bio"];
 
 	// Query For Active Listing
-	$stm = $conn->prepare("UPDATE users SET postsPerPage = $postsPerPage,  WHERE id = '1'");
-
-	// Execute Query
-	$stm->execute();
+	$sql = "UPDATE users 
+		SET username = '$username', password = '$pass' , fname = '$fname' , lname = '$lname' , address = '$permaddress' , city = '$city' , state = '$state' , zip = '$zip' , phone = '$phonenum' , email = '$email', gender = '$gender', age = '$age', bio = '$bio'  
+		WHERE userid = '$userid'";
 
 	// Check for Success
-	if ($conn->query($stm) === TRUE) {
+	if ($conn->query($sql) === TRUE) {
 	    echo "New record updated successfully";
 	} else {
-	    echo "Error: " . $stm . "<br>" . $conn->error;
+	    echo "Error: " . $sql  . "<br>" . $conn->error;
 	}
 }
+
+//Close connection
+$conn->close();
+
+//Return to Account
+header("location: myaccount.php");
 
 ?>

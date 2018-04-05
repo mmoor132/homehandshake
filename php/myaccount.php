@@ -138,16 +138,16 @@ $userid = $_SESSION["userid"];
 
       <div class="col-md-4" style="background-color: white;border-style: solid;border-color: gray">
         <center>
-          <form method="post" action="listprofile.php">
-            <input type="hidden" name="<?php echo $listingid ?>">
+          <form method="post" action="viewlisting.php">
+            <input type="hidden" name="listingid" value="<?php echo "$listingid"; ?>">
             <button style="margin: 2px; width: 50%" type="submit" name="submit" value="Submit">View Listing</button>
           </form>
           <form method="post" action="updatelist.php">
-            <input type="hidden" name="<?php echo $listingid ?>">
+            <input type="hidden" name="listingid" value="<?php echo "$listingid"; ?>">
             <button style="margin: 2px; width: 50%" type="submit" name="submit" value="Submit">Edit Listing</button>
           </form>
           <form method="post" action="deletelist.php">
-            <input type="hidden" name="<?php echo $listingid ?>">
+            <input type="hidden" name="listingid" value="<?php echo "$listingid"; ?>">
             <button style="margin: 2px; width: 50%" type="submit" name="submit" value="Submit">Delete Listing</button>
           </form>
         </center>
@@ -234,7 +234,8 @@ $userid = $_SESSION["userid"];
           <button style="margin: 2px; width: 50%" type="submit" name="submit" value="Submit">Update Account</button>
         </form>
         <form  method="post" action="deleteaccount.php">
-          <input type="hidden" name="userid" value="<?php echo $row['username'] ?>">
+          <input type="hidden" name="userid" value="<?php echo $userid ?>">
+          <input type="hidden" name="listingid" value="<?php echo "$listingid"; ?>">
           <button style="margin: 2px; width: 50%" type="submit" name="submit" value="Submit">Delete Account</button>
         </form>
         </center>

@@ -239,21 +239,23 @@ if (x.style.display === "none") {x.style.display = "block";} else { x.style.disp
       </div>
       
       <div class=" col-md-4 two" style="background-color: white;border-style: solid;border-color: gray;">
-        <div class="row">
-          <div class="col-md-6" style="text-align: left;">
-            <span>Location:</span>
-          </div>
-          <div class="col-md-6" style="text-align: left;">
-            <span><?php echo $row["address"], $row["state"], $row["zip"] ?></span>
-          </div>
-        </div>
-		
+       
         <div class="row">
           <div class="col-md-6" style="text-align: left;">
              <span>Price:</span>
           </div>
           <div class="col-md-6" style="text-align: left;">
             <span>$<?php echo $row["price"] ?> Per Month</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6" style="text-align: left;">
+            <span>Availablity:</span>
+          </div>
+          <div class="col-md-6" style="text-align: left;">
+            <span><?php //echo $row["address"], $row["state"], $row["zip"] ?></span>
+            <span>Test Holder</span>
           </div>
         </div>
 		
@@ -272,6 +274,15 @@ if (x.style.display === "none") {x.style.display = "block";} else { x.style.disp
           </div>
           <div class="col-md-6" style="text-align: left;">
             <span><?php echo $row["roommates"] ?></span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6" style="text-align: left;">
+            <span>Complex: </span>
+          </div>
+          <div class="col-md-6" style="text-align: left;">
+            <span>Test Complex</span>
           </div>
         </div>
         

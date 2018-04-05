@@ -50,6 +50,47 @@ session_start();
 </head>
 
 <style>
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    text-align: center;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .col-container {
     display: table;
     width: 100%;
@@ -116,11 +157,25 @@ session_start();
     </div>
     </center>
     <div class="col-md-6" style=" ">
+
       <center>
-      <button style="margin:25px; width: 25%">Contact</button>
-      <span>    </span>
-      <button style="width: 25%">Return to Listings</button>
+        <button id="myBtn" style="margin:25px; width: 25%" >Contact</button>
+        <a href="browselisting.php" style="color: black"><button style="width: 25%">Return to Listings</button></a>
       </center>
+
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>Leasor: John Smith</p>
+          <br>
+          <p>Phone: (123)-345-5678</p>
+          <br>
+          <p>E-Mail: jsmith123@hotmail.com</p>
+        </div>
+      </div>
+
     </div>
   </div>
   <!--END of Row 1-->
@@ -223,10 +278,9 @@ session_start();
 <br>
 
 <!--Details Navbar-->
-    <button class="tablink" onclick="openCity('London', this, 'maroon')" id="defaultOpen">Bio</button>
+  <button class="tablink" onclick="openCity('London', this, 'maroon')" id="defaultOpen">Bio</button>
   <button class="tablink" onclick="openCity('Paris', this, 'maroon')">Availibilty</button>
   <button class="tablink" onclick="openCity('Tokyo', this, 'maroon')">Amenities</button>
-  <button class="tablink" onclick="openCity('Oslo', this, 'maroon')">Pricing</button>
 
   <div id="London" class="tabcontent">
     <h3>Poster's Comment</h3>
@@ -235,7 +289,7 @@ session_start();
 
   <div id="Paris" class="tabcontent">
       <h3>Availability</h3>
-        <p><?php echo "$startdate - $enddate" ?></p>
+        <p><?php echo date("d-m-Y", strtotime($startdate)); echo " - "; echo date("d-m-Y", strtotime($enddate))?></p>
       <br>
       <br>
       <br>
@@ -256,13 +310,6 @@ session_start();
         }
         
       ?>
-  </div>
-
-  <div id="Oslo" class="tabcontent">
-    <h3>Pricing</h3>
-        <br>
-        <p> $<?php echo "$price"?> per month</p>
-        <br>
   </div>
 <!--Details Navbar-->
 
@@ -358,6 +405,34 @@ function openCity(cityName,elmnt,color) {
 }
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
+</script>
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 </script>
 
 </body>

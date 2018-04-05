@@ -348,21 +348,6 @@ $result = $stm->get_result();
 
 <br>
 
-<!--Create Profile Div 2-->
-<center>
-  <div class="container-fluid" style="background-color: grey; border-style: solid; margin: 2px;">
-    <br>
-    <button type="button" class="btn btn-warning">Warning</button>
-      <h5 style="font-style: italic; color: white">
-        Housing Handshakes connects you to people who are looking to enter a subleasing agreement - nothing more. Use discretion when sharing personal information with others over the internet. We are not resposible for any contractual relationships or harm inflicted from utilizing this service.
-      </h5>
-      <input type="checkbox" name="agreement"><span style="color: white"> I agree to the terms of using this service.</span>
-      <br><br>
-  </div>
-  <br>
-</center>
-<!--End Create Profile Div 2-->
-
 <!--Create Acount Button-->
 <center>
   <button class="btn" type="submit" name="submit" value="Submit" style="background-color: maroon; color: white">Alter Account</button>
