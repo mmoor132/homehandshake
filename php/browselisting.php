@@ -3,7 +3,11 @@ $servername = "localhost";
 $username = "administrator";
 $password = "";
 $dbname = "homehandshake";
+
 session_start();
+
+$userid = $_SESSION["userid"];
+
 //$price = $_SESSION['price']; $heating = $_SESSION['heating']; 
 //$housingstyle = $_SESSION['housingstyle']; $roommates = $_SESSION['roommates'];
 //$numofroom = $_SESSION['numofroom']; $startdate = $_SESSION['startdate'];
@@ -26,8 +30,10 @@ listings.state, listings.zip, listings.price, listings.squarefoot, listings.room
 FROM picture
 INNER JOIN listings
   ON listings.listingid = picture.listingid");
+
 // Execute Query
 $stm->execute();
+
 // Assign Result
 $result = $stm->get_result();
 ?>
@@ -50,8 +56,8 @@ $result = $stm->get_result();
 </head>
 
 <style type="">
- .box {
-        display: flex;
+      .box {
+      display: flex;
       }
       .one {
         flex: 1 0 0;
@@ -285,30 +291,43 @@ if (x.style.display === "none") {x.style.display = "block";} else { x.style.disp
             <span>Test Complex</span>
           </div>
         </div>
+
+        <center>
+        <div class="row">
+          <div class="" style="text-align: left;">
+
+          </div>
+        </div>
+      </center>
         
       </div>
 
       <div class=" col-md-4 three" style="background-color: white; border-style: solid; border-color: gray">
         <center>
-        <form  method="post" action="viewlisting.php">
-          <input type="hidden" name="listingid" value = "<?php echo $row['listingid']; ?>" >
-    		  <input type="hidden" id = "chk4amenities()" name="1" 	value = "<?php echo $furnished ?>" >
-    		  <input type="hidden" id = "chk4amenities()" name="2" 	value = "<?php echo $gym ?>" >
-    		  <input type="hidden" id = "chk4amenities()" name="3" 	value = "<?php echo $laundry ?>" >
-    		  <input type="hidden" id = "chk4amenities()" name="4" 	value = "<?php echo $pets ?>" >
-    		  <input type="hidden" id = "chk4amenities()" name="5" 	value = "<?php echo $cooling ?>" >
-    		  <input type="hidden" id = "chk4amenities()" name="6" 	value = "<?php echo $parking ?>" >
-    		  <input type="hidden" id = "chk4amenities()" name="7" 	value = "<?php echo $pool ?>" >
-    		  <input type="hidden" id = "chk4amenities()" name="8" 	value = "<?php echo $garage ?>" >
-    		  <input type="hidden" id = "chk4amenities()" name="9" 	value = "<?php echo $propertymanagement ?>" >
-    		  <input type="hidden" id = "chk4amenities()" name="10" value = "<?php echo $hottub ?>" >
-    		  <input type="hidden" id = "chk4amenities()" name="11" value = "<?php echo $privatebathroom ?>" >
-    		  <input type="hidden" id = "chk4amenities()" name="12" value = "<?php echo $floornumber ?>" >
-    		  <input type="hidden" id = "chk4amenities()" name="13" value = "<?php echo $heating ?>" >
-    		  <input type="hidden" id = "chk4amenities()" name="14" value = "<?php echo $price ?>" >
-    		  <input type="hidden" id = "chk4amenities()" name="15" value = "<?php echo $squarefoot ?>" >
-          <button class="button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" type="submit" name="submit" value="Submit">View Listing</button>
-        </form>
+          <form  method="post" action="viewlisting.php">
+            <input type="hidden" name="listingid" value = "<?php echo $row['listingid']; ?>" >
+      		  <input type="hidden" id = "chk4amenities()" name="1" 	value = "<?php echo $furnished ?>" >
+      		  <input type="hidden" id = "chk4amenities()" name="2" 	value = "<?php echo $gym ?>" >
+      		  <input type="hidden" id = "chk4amenities()" name="3" 	value = "<?php echo $laundry ?>" >
+      		  <input type="hidden" id = "chk4amenities()" name="4" 	value = "<?php echo $pets ?>" >
+      		  <input type="hidden" id = "chk4amenities()" name="5" 	value = "<?php echo $cooling ?>" >
+      		  <input type="hidden" id = "chk4amenities()" name="6" 	value = "<?php echo $parking ?>" >
+      		  <input type="hidden" id = "chk4amenities()" name="7" 	value = "<?php echo $pool ?>" >
+      		  <input type="hidden" id = "chk4amenities()" name="8" 	value = "<?php echo $garage ?>" >
+      		  <input type="hidden" id = "chk4amenities()" name="9" 	value = "<?php echo $propertymanagement ?>" >
+      		  <input type="hidden" id = "chk4amenities()" name="10" value = "<?php echo $hottub ?>" >
+      		  <input type="hidden" id = "chk4amenities()" name="11" value = "<?php echo $privatebathroom ?>" >
+      		  <input type="hidden" id = "chk4amenities()" name="12" value = "<?php echo $floornumber ?>" >
+      		  <input type="hidden" id = "chk4amenities()" name="13" value = "<?php echo $heating ?>" >
+      		  <input type="hidden" id = "chk4amenities()" name="14" value = "<?php echo $price ?>" >
+      		  <input type="hidden" id = "chk4amenities()" name="15" value = "<?php echo $squarefoot ?>" >
+            <button class="button" style="position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%);" type="submit" name="submit" value="Submit">View Listing</button>
+          </form>
+          <form method="post" action="addfav.php">
+            <input type="hidden" name="listingid" value = "<?php echo $row['listingid']; ?>" >
+             <input type="hidden" name="userid" value = "<?php echo $userid ?>" >
+            <button class="button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" type="submit" name="submit" value="Submit">Add to Favorites</button>
+          </form>
           <br>
         </center>
       </div>

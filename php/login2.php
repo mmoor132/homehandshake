@@ -85,12 +85,12 @@ while ($row = $result->fetch_assoc()){
   	
 	$_SESSION['pic1'] = $row["pic1"];
 
-	header("location: myaccount.php");
-
 }
 
 // Close
 $conn->close();
+
+header("location: myaccount.php");
 
 ?>
 

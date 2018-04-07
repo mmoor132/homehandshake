@@ -16,7 +16,10 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 // Query For Active Listing
-$stm = $conn->prepare("SELECT * FROM listings where listingid = '$listingid' ");
+$stm = $conn->prepare("SELECT * FROM listings
+  INNER JOIN amenities
+    ON listings.listingid = amenities.listingid
+  WHERE listingid = '$listingid' ");
 
 // Execute Query
 $stm->execute();
@@ -320,9 +323,9 @@ $result = $stm->get_result();
              <label for="available">Avalibility</label>
             </div>
             <div class="col-75">
-              <input type="date" id="sdate" name="sdate" value="<?php echo $row['startdate'] ?>">
+              <input type="date" id="sdate" name="sdate" value="<?php echo date("Y-d-m", strtotime($row['startdate']));?>" 
               <span> to: </span>
-              <input type="date" id="edate" name="edate" value="<?php echo $row['enddate'] ?>">
+              <input type="date" id="edate" name="edate" value="<?php echo date("Y-d-m", strtotime($row['enddate']));?>">
             </div>
           </div>
           <div class="col-md-4 space">
@@ -330,7 +333,7 @@ $result = $stm->get_result();
              <label for="expiration">Listing Expiration:</label>
             </div>
             <div class="col-75">
-              <input type="date" id="expiration" name="expiration" value="<?php echo $row['expiration'] ?>">
+              <input type="date" id="expiration" name="expiration" value="<?php echo date("Y-d-m", strtotime($row['expiration']));?>">
             </div>
           </div>
           <div class="col-md-4">
@@ -358,28 +361,39 @@ $result = $stm->get_result();
       }
       ?>
 
+
+      <?php 
+        // Query For Active Listing
+        $stm = $conn->prepare("SELECT * FROM picture where listingid = '$listingid' ");
+
+        // Execute Query
+        $stm->execute();
+
+        // Get Results
+        $result = $stm->get_result();
+
+      ?>
         <!--Row 7-->
         <div class="row space">
           <center>
             <h5 style="font-weight: bold;">Upload Your Listing's Pictures</h5>
             <div class="col-md-6 space">
-              <input type="file" name="fileToUpload" id="fileToUpload">
+              <input type="file" name="fileToUpload" id="fileToUpload" value="">
               <br>
-              <input type="file" name="fileToUpload2" id="fileToUpload2">
+              <input type="file" name="fileToUpload2" id="fileToUpload2" value="">
               <br>
-              <input type="file" name="fileToUpload3" id="fileToUpload3">
+              <input type="file" name="fileToUpload3" id="fileToUpload3" value="">
               <br>
             </div>
             <div class="col-md-6 space">
-              <input type="file" name="fileToUpload4" id="fileToUpload4">
+              <input type="file" name="fileToUpload4" id="fileToUpload4" value="">
               <br>
-              <input type="file" name="fileToUpload5" id="fileToUpload5">
+              <input type="file" name="fileToUpload5" id="fileToUpload5" value="s">
               <br>
             </div>
           </center>
         </div>
         <!--End Row 7-->
-
       </div>
       <!--Create Listing Div END -->
 
