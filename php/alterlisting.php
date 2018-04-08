@@ -6,6 +6,8 @@ $dbname = "homehandshake";
 
 session_start();
 
+$listingid = $_SESSION["listingid"];
+
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -28,20 +30,23 @@ $edate = $_POST["edate"];
 $expiration = $_POST["expiration"]; 
 $bio = $_POST["bio"];
 
-// Query For Active Listing
-$stm = $conn->prepare("UPDATE listings SET postsPerPage = $postsPerPage,  WHERE id = '1'");
+// Update Query For Listing
+$stm = $conn->prepare("UPDATE listings SET title = '$listtitle', address = '$housingstyle', city = '$city', state = '$state', zip = '$state', housingstyle = '$housingstyle', description = '$bio', roommates = '$numofpeople', price = '$rent', startdate = '$sdate', enddate = 'edate', expiration = '$expiration',  WHERE listingid = '$listingid'");
+
 // Execute Query
 $stm->execute();
 
 // Check for Success
 if ($conn->query($stm) === TRUE) {
-    echo "New record updated successfully";
+    echo "New listing record updated successfully";
 } else {
     echo "Error: " . $stm . "<br>" . $conn->error;
 }
 
 echo "<br>";
 
+
+// Assign null values to Amenities variables
 $furnished = NULL;
 $gym = NULL;
 $laundry = NULL;
@@ -108,32 +113,317 @@ if(!empty($_POST['check_list'])) {
   }
 }
 
-// Query For Active Listing
-$st = $conn->prepare("UPDATE amenities SET postsPerPage = $postsPerPage,  WHERE id = '1'");
+// Update Query For Amenities
+$st = $conn->prepare("UPDATE amenities SET furnished = '$furnished', gym = '$gym', laundry = '$laundry', pets = '$pets', cooling = '$cooling', parking = '$parking', pool = '$pool', garage = '$garage', propertymanagement = '$propertymanagement', hottub = '$hottub', privatebathroom = '$privatebathroom',  WHERE listingid = '$listingid'");
+
 // Execute Query
 $st->execute();
 
 // Check for Success
 if ($conn->query($st) === TRUE) {
-    echo "New record updated successfully";
-} else {
+    echo "New amenities record updated successfully";
+  } else {
     echo "Error: " . $st . "<br>" . $conn->error;
 }
 
 echo "<br>";
 
-// Query For Active Listing
-$sql = $conn->prepare("UPDATE pictures SET postsPerPage = $postsPerPage,  WHERE id = '1'");
-// Execute Query
-$sql->execute();
+// Update Picture 1
+$path = "img\\\\"; 
+$target_file1 = $path . basename($_FILES["fileToUpload"] ["name"]);
 
-// Check for Success
-if ($conn->query($sql) === TRUE) {
-    echo "New record updated successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+// Picture 1 Check
+if($target_file1 != NULL){
+  // File Upload 1
+  $target_dir = "img/";
+  $target_file1 = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+  $uploadOk = 1;
+  $imageFileType = strtolower(pathinfo($target_file1,PATHINFO_EXTENSION));
+  // Check if image file is a actual image or fake image
+  if(isset($_POST["submit"])) {
+      $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+      if($check !== false) {
+         // echo "File is an image - " . $check["mime"] . ".";
+          $uploadOk = 1;
+      } else {
+         echo "File is not an image.";
+          $uploadOk = 0;
+      }
+  }
+  // Check if file already exists
+  if (file_exists($target_file1)) {
+      echo "Sorry, file already exists.";
+      $uploadOk = 0;
+  }
+  // Check file size
+  if ($_FILES["fileToUpload"]["size"] > 500000) {
+      echo "Sorry, your file is too large.";
+      $uploadOk = 0;
+  }
+  // Allow certain file formats
+  if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+  && $imageFileType != "gif" ) {
+      echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+      $uploadOk = 0;
+  }
+  // Check if $uploadOk is set to 0 by an error
+  if ($uploadOk == 0) {
+      echo "Sorry, your file was not uploaded.";
+  // if everything is ok, try to upload file
+  } else {
+      if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file1)) {
+          //echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+      } else {
+          echo "Sorry, there was an error uploading your file.";
+      }
+  }
+
+  // Update Query For Amenities
+  $s = $conn->prepare("UPDATE picture SET pic1 = '$target_file1' WHERE listingid = '$listingid'");
+
+  // Execute Query
+  $s->execute();
 }
 
-echo "<br>";
+// Update Picture 2
+$path = "img\\\\";
+$target_file2 = $path . basename($_FILES["fileToUpload2"]["name"]);
+
+// Picture 2 Check
+if($target_file2 != NULL){
+  // File Upload 2
+  $target_dir = "img/";
+  $target_file2 = $target_dir . basename($_FILES["fileToUpload2"]["name"]);
+  $uploadOk = 1;
+  $imageFileType = strtolower(pathinfo($target_file2,PATHINFO_EXTENSION));
+  // Check if image file is a actual image or fake image
+  if(isset($_POST["submit"])) {
+      $check = getimagesize($_FILES["fileToUpload2"]["tmp_name"]);
+      if($check !== false) {
+          //echo "File is an image - " . $check["mime"] . ".";
+          $uploadOk = 1;
+      } else {
+          echo "File is not an image.";
+          $uploadOk = 0;
+      }
+  }
+  // Check if file already exists
+  if (file_exists($target_file2)) {
+      echo "Sorry, file already exists.";
+      $uploadOk = 0;
+  }
+  // Check file size
+  if ($_FILES["fileToUpload2"]["size"] > 500000) {
+      echo "Sorry, your file is too large.";
+      $uploadOk = 0;
+  }
+  // Allow certain file formats
+  if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+  && $imageFileType != "gif" ) {
+      echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+      $uploadOk = 0;
+  }
+  // Check if $uploadOk is set to 0 by an error
+  if ($uploadOk == 0) {
+      echo "Sorry, your file was not uploaded.";
+  // if everything is ok, try to upload file
+  } else {
+      if (move_uploaded_file($_FILES["fileToUpload2"]["tmp_name"], $target_file2)) {
+          //echo "The file ". basename( $_FILES["fileToUpload2"]["name"]). " has been uploaded.";
+      } else {
+          echo "Sorry, there was an error uploading your file.";
+      }
+  }
+
+  // Update Query For Amenities
+  $s = $conn->prepare("UPDATE picture SET pic2 = '$target_file2'WHERE listingid = '$listingid'");
+
+  // Execute Query
+  $s->execute();
+}
+
+// Update Picture 3
+$path = "img\\\\";
+$target_file3 = $path . basename($_FILES["fileToUpload3"]["name"]);
+
+// Picture 3 Check
+if($target_file3 != NULL){
+  // File Upload 3
+  $target_dir = "img/";
+  $target_file3 = $target_dir . basename($_FILES["fileToUpload3"]["name"]);
+  $uploadOk = 1;
+  $imageFileType = strtolower(pathinfo($target_file3,PATHINFO_EXTENSION));
+  // Check if image file is a actual image or fake image
+  if(isset($_POST["submit"])) {
+      $check = getimagesize($_FILES["fileToUpload3"]["tmp_name"]);
+      if($check !== false) {
+         // echo "File is an image - " . $check["mime"] . ".";
+          $uploadOk = 1;
+      } else {
+         echo "File is not an image.";
+          $uploadOk = 0;
+      }
+  }
+  // Check if file already exists
+  if (file_exists($target_file3)) {
+      echo "Sorry, file already exists.";
+      $uploadOk = 0;
+  }
+  // Check file size
+  if ($_FILES["fileToUpload3"]["size"] > 500000) {
+      echo "Sorry, your file is too large.";
+      $uploadOk = 0;
+  }
+  // Allow certain file formats
+  if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+  && $imageFileType != "gif" ) {
+      echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+      $uploadOk = 0;
+  }
+  // Check if $uploadOk is set to 0 by an error
+  if ($uploadOk == 0) {
+      echo "Sorry, your file was not uploaded.";
+  // if everything is ok, try to upload file
+  } else {
+      if (move_uploaded_file($_FILES["fileToUpload3"]["tmp_name"], $target_file3)) {
+          //echo "The file ". basename( $_FILES["fileToUpload3"]["name"]). " has been uploaded.";
+      } else {
+          echo "Sorry, there was an error uploading your file.";
+      }
+  }
+
+  // Update Query For Amenities
+  $s = $conn->prepare("UPDATE picture SET pic3 = '$target_file3' WHERE listingid = '$listingid'");
+
+  // Execute Query
+  $s->execute();
+}
+
+// Update Picture 4
+$path = "img\\\\";
+$target_file4 = $path . basename($_FILES["fileToUpload4"]["name"]);
+
+// Picture 4 Check
+if($target_file4 != NULL){
+  // File Upload 4
+  $target_dir = "img/";
+  $target_file4 = $target_dir . basename($_FILES["fileToUpload4"]["name"]);
+  $uploadOk = 1;
+  $imageFileType = strtolower(pathinfo($target_file4,PATHINFO_EXTENSION));
+  // Check if image file is a actual image or fake image
+  if(isset($_POST["submit"])) {
+      $check = getimagesize($_FILES["fileToUpload4"]["tmp_name"]);
+      if($check !== false) {
+          //echo "File is an image - " . $check["mime"] . ".";
+          $uploadOk = 1;
+      } else {
+          echo "File is not an image.";
+          $uploadOk = 0;
+      }
+  }
+  // Check if file already exists
+  if (file_exists($target_file4)) {
+      echo "Sorry, file already exists.";
+      $uploadOk = 0;
+  }
+  // Check file size
+  if ($_FILES["fileToUpload4"]["size"] > 500000) {
+      echo "Sorry, your file is too large.";
+      $uploadOk = 0;
+  }
+  // Allow certain file formats
+  if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+  && $imageFileType != "gif" ) {
+      echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+      $uploadOk = 0;
+  }
+  // Check if $uploadOk is set to 0 by an error
+  if ($uploadOk == 0) {
+      echo "Sorry, your file was not uploaded.";
+  // if everything is ok, try to upload file
+  } else {
+      if (move_uploaded_file($_FILES["fileToUpload4"]["tmp_name"], $target_file4)) {
+        //  echo "The file ". basename( $_FILES["fileToUpload4"]["name"]). " has been uploaded.";
+      } else {
+          echo "Sorry, there was an error uploading your file.";
+      }
+  }
+
+  // Update Query For Amenities
+  $s = $conn->prepare("UPDATE picture SET pic4 = '$target_file4' WHERE listingid = '$listingid'");
+
+  // Execute Query
+  $s->execute();
+
+}
+
+// Update Picture 5
+$path = "img\\\\";
+$target_file5 = $path . basename($_FILES["fileToUpload5"]["name"]);
+
+// Picture 5 Check
+if($target_file5 != NULL){
+  // File Upload 5
+  $target_dir = "img/";
+  $target_file5 = $target_dir . basename($_FILES["fileToUpload5"]["name"]);
+  $uploadOk = 1;
+  $imageFileType = strtolower(pathinfo($target_file5,PATHINFO_EXTENSION));
+  // Check if image file is a actual image or fake image
+  if(isset($_POST["submit"])) {
+      $check = getimagesize($_FILES["fileToUpload5"]["tmp_name"]);
+      if($check !== false) {
+         // echo "File is an image - " . $check["mime"] . ".";
+          $uploadOk = 1;
+      } else {
+          echo "File is not an image.";
+          $uploadOk = 0;
+      }
+  }
+  // Check if file already exists
+  if (file_exists($target_file5)) {
+      echo "Sorry, file already exists.";
+      $uploadOk = 0;
+  }
+  // Check file size
+  if ($_FILES["fileToUpload5"]["size"] > 500000) {
+      echo "Sorry, your file is too large.";
+      $uploadOk = 0;
+  }
+  // Allow certain file formats
+  if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+  && $imageFileType != "gif" ) {
+      echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+      $uploadOk = 0;
+  }
+  // Check if $uploadOk is set to 0 by an error
+  if ($uploadOk == 0) {
+      echo "Sorry, your file was not uploaded.";
+  // if everything is ok, try to upload file
+  } else {
+      if (move_uploaded_file($_FILES["fileToUpload5"]["tmp_name"], $target_file5)) {
+          //echo "The file ". basename( $_FILES["fileToUpload5"]["name"]). " has been uploaded.";
+      } else {
+          echo "Sorry, there was an error uploading your file.";
+      }
+  }
+
+  // Update Query For Amenities
+  $s = $conn->prepare("UPDATE picture SET pic5 = '$target_file5' WHERE listingid = '$listingid'");
+
+  // Execute Query
+  $s->execute();
+}
+
+/* Update Query For Amenities
+$s = $conn->prepare("UPDATE picture SET pic1 = '$target_file1', pic2 = '$target_file2', pic3 = '$target_file3', pic4 = '$target_file4', pic5 = '$target_file5' WHERE listingid = '$listingid'");
+
+// Execute Query
+$s->execute();*/
+
+//Close connection
+$conn->close();
+
+//Return to Account
+header("location: myaccount.php");
 
 ?>

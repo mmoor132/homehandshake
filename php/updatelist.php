@@ -280,37 +280,37 @@
                     <div style="" class="col-md-4">
                       <div class="col-75">
                           <div class="checkbox">
-                            <label><input type="checkbox" name="check_list[]" value="Laundry">Laundry</label>
+                            <label><input type="checkbox" name="check_list[]" value="Laundry" <?php if($row['roommates'] == 'Roommates') { echo "checked";}?>>Laundry</label>
                           </div>
                           <div class="checkbox">
-                            <label><input type="checkbox" name="check_list[]" value="Pets">Pets</label>
+                            <label><input type="checkbox" name="check_list[]" value="Pets" <?php if($row['pets'] == 'Pets') { echo "checked";}?> >Pets</label>
                           </div>
                           <div class="checkbox">
-                            <label><input type="checkbox" name="check_list[]" value="Cooling">Cooling</label>
+                            <label><input type="checkbox" name="check_list[]" value="Cooling" <?php if($row['cooling'] == 'Cooling') { echo "checked";}?>>Cooling</label>
                           </div>
                           <div class="checkbox">
-                            <label><input type="checkbox" name="check_list[]" value="Parking">Parking</label>
+                            <label><input type="checkbox" name="check_list[]" value="Parking" <?php if($row['parking'] == 'Parking') { echo "checked";}?>>Parking</label>
                           </div>
                           <div class="checkbox">
-                            <label><input type="checkbox" name="check_list[]" value="Furnished">Furnished</label>
+                            <label><input type="checkbox" name="check_list[]" value="Furnished" <?php if($row['furnished'] == 'Furnished') { echo "checked";}?>>Furnished</label>
                           </div>
                       </div>
                     </div>
                     <div style="" class="col-md-8">
                         <div class="checkbox">
-                          <label><input type="checkbox" name="check_list[]" value="Swimming">Swimming</label>
+                          <label><input type="checkbox" name="check_list[]" value="Swimming" <?php if($row['swimming'] == 'Swimming') { echo "checked";}?>>Swimming</label>
                         </div>
                         <div class="checkbox">
-                          <label><input type="checkbox" name="check_list[]" value="Gym">Gym</label>
+                          <label><input type="checkbox" name="check_list[]" value="Gym" <?php if($row['gym'] == 'Gym') { echo "checked";}?>>Gym</label>
                         </div>
                         <div class="checkbox">
-                          <label><input type="checkbox" name="check_list[]" value="Property Management">Property Management</label>
+                          <label><input type="checkbox" name="check_list[]" value="Property Management" <?php if($row['propertymanagement'] == 'Property Management') { echo "checked";}?>>Property Management</label>
                         </div>
                         <div class="checkbox">
-                          <label><input type="checkbox" name="check_list[]" value="Hot Tub">Hot Tub</label>
+                          <label><input type="checkbox" name="check_list[]" value="Hot Tub" <?php if($row['hotub'] == 'Hot Tub') { echo "checked";}?>>Hot Tub</label>
                         </div>
                         <div class="checkbox">
-                          <label><input type="checkbox" name="check_list[]" value="Private Bathroom">Private Bathroom</label>
+                          <label><input type="checkbox" name="check_list[]" value="Private Bathroom" <?php if($row['privatebathroom'] == 'Private Bathroom') { echo "checked";}?>>Private Bathroom</label>
                         </div>
                     </div> 
                   </div>
