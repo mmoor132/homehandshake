@@ -168,8 +168,8 @@ $result = $stm->get_result();
 		}	
 	}
 	function heatFunction(){
-		if(heatDB.onchange.checked = true){
-			var x = document.getElementById("heating");
+		if(heatDB.onchange.checked != true){
+			var x = document.getElementsByName("heating")[0];
 			if (x.value != "heat"){
 				var y = document.getElementById("hideRow"); 
 				y.style.display = "none";
@@ -183,7 +183,7 @@ $result = $stm->get_result();
 	}
 	function pvtbroomFunction(){
 		if(pvtbroomDB.onchange.checked = true){
-			var x = document.getElementById("privatebathroom");
+			var x = document.getElementsByName("privatebathroom")[0];
 			if (x.value != "Private Bathroom"){
 				var y = document.getElementById("hideRow"); 
 				y.style.display = "none";
@@ -191,8 +191,8 @@ $result = $stm->get_result();
 		}
 	}
 	function hottubFunction(){
-		if(hottubDB.onchange.checked = true){
-			var x = document.getElementById("hottub");
+		if(hottubDB.onchange.checked != true){
+			var x = document.getElementsByName("hottub")[0];
 			if (x.value != "Hot Tub"){
 				var y = document.getElementById("hideRow"); 
 				y.style.display = "none";
@@ -200,8 +200,8 @@ $result = $stm->get_result();
 		}
 	}
 	function mgmtFunction(){
-		if(mgmtDB.onchange.checked = true){
-			var x = document.getElementById("propertymanagement");
+		if(mgmtDB.onchange.checked != true){
+			var x = document.getElementsByName("propertymanagement")[0];
 			if (x.value != "Property Management"){
 				var y = document.getElementById("hideRow"); 
 				y.style.display = "none";
@@ -209,8 +209,8 @@ $result = $stm->get_result();
 		}
 	}
 	function garageFunction(){
-		if(garageDB.onchange.checked = true){
-			var x = document.getElementById("garage");
+		if(garageDB.onchange.checked != true){
+			var x = document.getElementsByName("garage")[0];
 			if (x.value != "Garage"){
 				var y = document.getElementById("hideRow"); 
 				y.style.display = "none";
@@ -218,8 +218,8 @@ $result = $stm->get_result();
 		}
 	}
 	function poolFunction(){
-		if(poolDB.onchange.checked = true){
-			var x = document.getElementById("pool");
+		if(poolDB.onchange.checked != true){
+			var x = document.getElementsByName("pool")[0];
 			if (x.value != "Pool"){
 				var y = document.getElementById("hideRow"); 
 				y.style.display = "none";
@@ -227,8 +227,8 @@ $result = $stm->get_result();
 		}
 	}
 	function parkingFunction(){
-		if(parkingDB.onchange.checked = true){
-			var x = document.getElementById("parking");
+		if(parkingDB.onchange.checked != true){
+			var x = document.getElementsByName("parking")[0];
 			if (x.value != "Parking"){
 				var y = document.getElementById("hideRow"); 
 				y.style.display = "none";
@@ -236,8 +236,8 @@ $result = $stm->get_result();
 		}
 	}
 	function coolFunction(){
-		if(coolDB.onchange.checked = true){
-			var x = document.getElementById("cooling");
+		if(coolDB.onchange.checked != true){
+			var x = document.getElementsByName("cooling")[0];
 			if (x.value != "Cooling"){
 				var y = document.getElementById("hideRow"); 
 				y.style.display = "none";
@@ -245,8 +245,8 @@ $result = $stm->get_result();
 		}
 	}
 	function petsFunction(){
-		if(petsDB.onchange.checked = true){
-			var x = document.getElementById("pets");
+		if(petsDB.onchange.checked != true){
+			var x = document.getElementsByName("pets")[0];
 			if (x.value != "Pets"){
 				var y = document.getElementById("hideRow"); 
 				y.style.display = "none";
@@ -254,8 +254,8 @@ $result = $stm->get_result();
 		}
 	}
 	function laundryFunction(){
-		if(laundryDB.onchange.checked = true){
-			var x = document.getElementById("laundry");
+		if(laundryDB.onchange.checked != true){
+			var x = document.getElementsByName("laundry")[0];
 			if (x.value != "Laundry"){
 				var y = document.getElementById("hideRow"); 
 				y.style.display = "none";
@@ -263,8 +263,8 @@ $result = $stm->get_result();
 		}
 	}
 	function gymFunction(){
-		if(gymDB.onchange.checked = true){
-			var x = document.getElementById("gym");
+		if(gymDB.onchange.checked != true){
+			var x = document.getElementsByName("gym")[0];
 			if (x.value != "Gym"){
 				var y = document.getElementById("hideRow"); 
 				y.style.display = "none";
@@ -272,8 +272,8 @@ $result = $stm->get_result();
 		}
 	}
 	function furnishedFunction(){
-		if(furnishedDB.onchange.checked = true){
-			var x = document.getElementById("furnished");
+		if(furnishedDB.onchange.checked != true){
+			var x = document.getElementsByName("furnished")[0];
 			if (x.value != "Furnished"){
 				var y = document.getElementById("hideRow"); 
 				y.style.display = "none";
@@ -398,20 +398,20 @@ $result = $stm->get_result();
 		<div class="row">
           <div class="col-md-6" style="text-align: left;">
             <span>
-      		  <input type="hidden" id = "furnished" 			name="1" 	value = "<?php echo $row["furnished"] ?>" >
-      		  <input type="hidden" id = "gym" 					name="2" 	value = "<?php echo $row["gym"] ?>" >
-      		  <input type="hidden" id = "laundry" 				name="3" 	value = "<?php echo $row["laundry"] ?>" >
-      		  <input type="hidden" id = "pets" 					name="4" 	value = "<?php echo $row["pets"] ?>" >
-      		  <input type="hidden" id = "cooling" 				name="5" 	value = "<?php echo $row["cooling"] ?>" >
-      		  <input type="hidden" id = "parking" 				name="6" 	value = "<?php echo $row["parking"] ?>" >
-      		  <input type="hidden" id = "pool" 					name="7" 	value = "<?php echo $row["pool"] ?>" >
-      		  <input type="hidden" id = "garage" 				name="8" 	value = "<?php echo $row["garage"] ?>" >
-      		  <input type="hidden" id = "propertymanagement" 	name="9" 	value = "<?php echo $row["propertymanagement"] ?>" >
-      		  <input type="hidden" id = "hottub" 				name="10" 	value = "<?php echo $row["hottub"] ?>" >
-      		  <input type="hidden" id = "privatebathroom" 		name="11" 	value = "<?php echo $row["privatebathroom"] ?>" >
-      		  <input type="hidden" id = "heating" 		  		name="13" 	value = "<?php echo $row["heating"] ?>" >
-      		  <input type="hidden" id = "price" 				name="14" 	value = "<?php echo $row["price"] ?>" >
-      		  <input type="hidden" id = "squarefoot" 			name="15" 	value = "<?php echo $row["squarefoot"] ?>" ></span>
+      		  <input type="hidden" name = "furnished" 			value = "<?php echo $row["furnished"] ?>" >
+      		  <input type="hidden" name = "gym" 				value = "<?php echo $row["gym"] ?>" >
+      		  <input type="hidden" name = "laundry" 			value = "<?php echo $row["laundry"] ?>" >
+      		  <input type="hidden" name = "pets" 				value = "<?php echo $row["pets"] ?>" >
+      		  <input type="hidden" name = "cooling" 			value = "<?php echo $row["cooling"] ?>" >
+      		  <input type="hidden" name = "parking" 			value = "<?php echo $row["parking"] ?>" >
+      		  <input type="hidden" name = "pool" 				value = "<?php echo $row["pool"] ?>" >
+      		  <input type="hidden" name = "garage" 				value = "<?php echo $row["garage"] ?>" >
+      		  <input type="hidden" name = "propertymanagement" 	value = "<?php echo $row["propertymanagement"] ?>" >
+      		  <input type="hidden" name = "hottub" 				value = "<?php echo $row["hottub"] ?>" >
+      		  <input type="hidden" name = "privatebathroom" 	value = "<?php echo $row["privatebathroom"] ?>" >
+      		  <input type="hidden" name = "heating" 		  	value = "<?php echo $row["heating"] ?>" >
+      		  <input type="hidden" name = "price" 				value = "<?php echo $row["price"] ?>" >
+      		  <input type="hidden" name = "squarefoot" 			value = "<?php echo $row["squarefoot"] ?>" ></span>
           </div>
         </div>
 		
