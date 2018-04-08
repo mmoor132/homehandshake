@@ -431,6 +431,7 @@ $result = $stm->get_result();
       <div class=" col-md-4 three" style="background-color: white; border-style: solid; border-color: gray">
         <center>
           <form  method="post" action="viewlisting.php">
+            <input type="hidden" name="listingid" value = "<?php echo $row['listingid']; ?>" >
             <button class="button" style="position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%);" type="submit" name="submit" value="Submit">View Listing</button>
           </form>
           <form method="post" action="addfav.php">
