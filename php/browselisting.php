@@ -8,15 +8,6 @@ session_start();
 
 $userid = $_SESSION["userid"];
 
-//$price = $_SESSION['price']; $heating = $_SESSION['heating']; 
-//$housingstyle = $_SESSION['housingstyle']; $roommates = $_SESSION['roommates'];
-//$numofroom = $_SESSION['numofroom']; $startdate = $_SESSION['startdate'];
-//$enddate = $_SESSION['enddate']; $furnished = $_SESSION['furnished']; $gym = $_SESSION['gym'];
-//$laundry = $_SESSION['laundry']; $pets = $_SESSION['pets']; $cooling = $_SESSION['cooling'];
-//$parking = $_SESSION['parking']; $pool = $_SESSION['pool']; $garage = $_SESSION['garage'];
-//$propertymanagement = $_SESSION['propertymanagement']; $hottub = $_SESSION['hottub'];
-//$privatebathroom = $_SESSION['privatebathroom']; $floornumber = $_SESSION['floornumber'];
-
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -26,10 +17,15 @@ if ($conn->connect_error) {
 // Query For Active Listing
 $stm = $conn->prepare("
 SELECT picture.pic1, listings.listingid, listings.title, listings.address, listings.city, 
-listings.state, listings.zip, listings.price, listings.squarefoot, listings.roommates
-FROM picture
-INNER JOIN listings
-  ON listings.listingid = picture.listingid");
+listings.state, listings.zip, listings.price, listings.squarefoot, listings.roommates,
+ amenities.furnished, amenities.gym, amenities.laundry, 
+amenities.pets, amenities.cooling, amenities.parking, amenities.pool, amenities.garage, 
+amenities.propertymanagement, amenities.hottub, amenities.privatebathroom, 
+amenities.heating
+FROM picture INNER JOIN listings ON listings.listingid = picture.listingid INNER JOIN amenities ON
+amenities.listingid = picture.listingid
+  ");
+
 
 // Execute Query
 $stm->execute();
@@ -72,9 +68,7 @@ $result = $stm->get_result();
 
 
 <body onload = "onload()">
-<button onclick="myFunction()">Try it</button>
-<script>function myFunction() { var x = document.getElementById("hideRow");
-if (x.style.display === "none") {x.style.display = "block";} else { x.style.display = "none"; }}</script>
+
 <!--Jumbotron code-->
   <div>
   <img src="img\image.jpg" style="width: 100%; height: 400px;">
@@ -122,19 +116,18 @@ if (x.style.display === "none") {x.style.display = "block";} else { x.style.disp
       <h5 style="padding-left: 5px">Amenities</h5>
 	  <ul><input type="radio" name = "onoff" id="chkall"	onchange = "checkallFunction()">Check All</ul>
 	  <ul><input type="radio" name = "onoff" id="unchkall"	onchange = "uncheckallFunction()">UnCheck All</ul>
-      <ul><input type="checkbox" id="furnished" onchange = "amenitiesFunction()">Furnished</ul>
-      <ul><input type="checkbox" id="gym" 		onchange = "amenitiesFunction()">Gym</ul>
-      <ul><input type="checkbox" id="laundry" 	onchange = "amenitiesFunction()">Laundry</ul>
-      <ul><input type="checkbox" id="pets" 		onchange = "amenitiesFunction()">Pets</ul>
-      <ul><input type="checkbox" id="cool" 		onchange = "amenitiesFunction()">Cooling</ul>
-      <ul><input type="checkbox" id="parking" 	onchange = "amenitiesFunction()">Parking</ul>
-      <ul><input type="checkbox" id="pool" 		onchange = "amenitiesFunction()">Pool</ul>
-      <ul><input type="checkbox" id="garage" 	onchange = "amenitiesFunction()">Garage</ul>
-      <ul><input type="checkbox" id="mgmt" 		onchange = "amenitiesFunction()">Property Management</ul>
-      <ul><input type="checkbox" id="hottub" 	onchange = "amenitiesFunction()">Hot Tub</ul>
-      <ul><input type="checkbox" id="pvtbroom" 	onchange = "amenitiesFunction()">Private Bathroom</ul>
-      <ul><input type="checkbox" id="flrlvl" 	onchange = "amenitiesFunction()">Floor Number</ul>
-      <ul><input type="checkbox" id="heat"		onchange = "amenitiesFunction()">Heating</ul>
+      <ul><input type="checkbox" id="furnishedDB" 	onchange = "furnishedFunction()">Furnished</ul>
+      <ul><input type="checkbox" id="gymDB" 		onchange = "gymFunction()">Gym</ul>
+      <ul><input type="checkbox" id="laundryDB" 	onchange = "laundryFunction()">Laundry</ul>
+      <ul><input type="checkbox" id="petsDB" 		onchange = "petsFunction()">Pets</ul>
+      <ul><input type="checkbox" id="coolDB" 		onchange = "coolFunction()">Cooling</ul>
+      <ul><input type="checkbox" id="parkingDB" 	onchange = "parkingFunction()">Parking</ul>
+      <ul><input type="checkbox" id="poolDB" 		onchange = "poolFunction()">Pool</ul>
+      <ul><input type="checkbox" id="garageDB" 		onchange = "garageFunction()">Garage</ul>
+      <ul><input type="checkbox" id="mgmtDB" 		onchange = "mgmtFunction()">Property Management</ul>
+      <ul><input type="checkbox" id="hottubDB" 		onchange = "hottubFunction()">Hot Tub</ul>
+      <ul><input type="checkbox" id="pvtbroomDB" 	onchange = "pvtbroomFunction()">Private Bathroom</ul>
+      <ul><input type="checkbox" id="heatDB"		onchange = "heatFunction()">Heating</ul>
     </div>
 	<script>
 	function onload(){
@@ -144,57 +137,167 @@ if (x.style.display === "none") {x.style.display = "block";} else { x.style.disp
 	}
 	function checkallFunction(){
 		if(chkall.onchange.checked = true){
-			furnished.checked = true; gym.checked = true; laundry.checked = true;
-			pets.checked = true; cool.checked = true; parking.checked = true;
-			pool.checked = true; garage.checked = true; mgmt.checked = true;
-			hottub.checked = true; pvtbroom.checked = true; pvtbroom.checked = true;
-			flrlvl.checked = true; heat.checked = true; sum.checked = true;
-			fall.checked = true; spng.checked = true; twnhm.checked = true;
-			cpnt.checked = true; pvnc.checked = true; uedg.checked = true;
-			ctow.checked = true; eaglnd.checked = true; sum.checked = true; 
-			fall.checked = true; spng.checked = true; twnhm.checked = true; 
-			cpnt.checked = true; pvnc.checked = true; uedg.checked = true; 
-			ctow.checked = true; eaglnd.checked = true; myRange.value = "1000";
+			furnishedDB.checked = true; gymDB.checked = true; laundryDB.checked = true;
+			petsDB.checked = true; coolDB.checked = true; parkingDB.checked = true;
+			poolDB.checked = true; garageDB.checked = true; mgmtDB.checked = true;
+			hottubDB.checked = true; pvtbroomDB.checked = true; pvtbroomDB.checked = true;
+			heatDB.checked = true; sumDB.checked = true;
+			fallDB.checked = true; spngDB.checked = true; twnhmDB.checked = true;
+			cpntDB.checked = true; pvncDB.checked = true; uedgDB.checked = true;
+			ctowDB.checked = true; eaglndDB.checked = true; sumDB.checked = true; 
+			fallDB.checked = true; spngDB.checked = true; twnhmDB.checked = true; 
+			cpntDB.checked = true; pvncDB.checked = true; uedgDB.checked = true; 
+			ctowDB.checked = true; eaglndDB.checked = true; myRange.value = "1000";
 			myRange2.value = "1000";
 		}	
 	}
 	function uncheckallFunction(){
 		if(chkall.onchange.checked = true){
-			furnished.checked = false; gym.checked = false; laundry.checked = false;
-			pets.checked = false; cool.checked = false; parking.checked = false;
-			pool.checked = false; garage.checked = false; mgmt.checked = false;
-			hottub.checked = false; pvtbroom.checked = false; pvtbroom.checked = false;
-			flrlvl.checked = false; heat.checked = false; sum.checked = false;
-			fall.checked = false; spng.checked = false; twnhm.checked = false;
-			cpnt.checked = false; pvnc.checked = false; uedg.checked = false;
-			ctow.checked = false; eaglnd.checked = false; sum.checked = false; 
-			fall.checked = false; spng.checked = false; twnhm.checked = false; 
-			cpnt.checked = false; pvnc.checked = false; uedg.checked = false; 
-			ctow.checked = false; eaglnd.checked = false; myRange.value = "0";
+			furnishedDB.checked = false; gymDB.checked = false; laundryDB.checked = false;
+			petsDB.checked = false; coolDB.checked = false; parkingDB.checked = false;
+			poolDB.checked = false; garageDB.checked = false; mgmtDB.checked = false;
+			hottubDB.checked = false; pvtbroomDB.checked = false; pvtbroomDB.checked = false;
+			heatDB.checked = false; sumDB.checked = false;
+			fallDB.checked = false; spngDB.checked = false; twnhmDB.checked = false;
+			cpntDB.checked = false; pvncDB.checked = false; uedgDB.checked = false;
+			ctowDB.checked = false; eaglndDB.checked = false; sumDB.checked = false; 
+			fallDB.checked = false; spngDB.checked = false; twnhmDB.checked = false; 
+			cpntDB.checked = false; pvncDB.checked = false; uedgDB.checked = false; 
+			ctowDB.checked = false; eaglndDB.checked = false; myRange.value = "0";
 			myRange2.value = "0";
 		}	
 	}
-	function amenitiesFunction(){
-		var x = document.getElementByVal(this);
-		if(x.checked != true){
-			chk4amenities();
+	function heatFunction(){
+		if(heatDB.onchange.checked = true){
+			var x = document.getElementById("heating");
+			if (x.value != "heat"){
+				var y = document.getElementById("hideRow"); 
+				y.style.display = "none";
+			}
 		}
-		
+		if(heat.onchange.checked != true)
+		{
+			var y = document.getElementById("hideRow");
+			y.style.display = "block";
+		}
 	}
-	function chk4amenities(){
-		var x = document.getElementByVal(this);
-		if(x == null){
-			document.getElementById(hideRow).style.display === "none";
+	function pvtbroomFunction(){
+		if(pvtbroomDB.onchange.checked = true){
+			var x = document.getElementById("privatebathroom");
+			if (x.value != "Private Bathroom"){
+				var y = document.getElementById("hideRow"); 
+				y.style.display = "none";
+			}
 		}
+	}
+	function hottubFunction(){
+		if(hottubDB.onchange.checked = true){
+			var x = document.getElementById("hottub");
+			if (x.value != "Hot Tub"){
+				var y = document.getElementById("hideRow"); 
+				y.style.display = "none";
+			}
+		}
+	}
+	function mgmtFunction(){
+		if(mgmtDB.onchange.checked = true){
+			var x = document.getElementById("propertymanagement");
+			if (x.value != "Property Management"){
+				var y = document.getElementById("hideRow"); 
+				y.style.display = "none";
+			}
+		}
+	}
+	function garageFunction(){
+		if(garageDB.onchange.checked = true){
+			var x = document.getElementById("garage");
+			if (x.value != "Garage"){
+				var y = document.getElementById("hideRow"); 
+				y.style.display = "none";
+			}
+		}
+	}
+	function poolFunction(){
+		if(poolDB.onchange.checked = true){
+			var x = document.getElementById("pool");
+			if (x.value != "Pool"){
+				var y = document.getElementById("hideRow"); 
+				y.style.display = "none";
+			}
+		}
+	}
+	function parkingFunction(){
+		if(parkingDB.onchange.checked = true){
+			var x = document.getElementById("parking");
+			if (x.value != "Parking"){
+				var y = document.getElementById("hideRow"); 
+				y.style.display = "none";
+			}
+		}
+	}
+	function coolFunction(){
+		if(coolDB.onchange.checked = true){
+			var x = document.getElementById("cooling");
+			if (x.value != "Cooling"){
+				var y = document.getElementById("hideRow"); 
+				y.style.display = "none";
+			}
+		}
+	}
+	function petsFunction(){
+		if(petsDB.onchange.checked = true){
+			var x = document.getElementById("pets");
+			if (x.value != "Pets"){
+				var y = document.getElementById("hideRow"); 
+				y.style.display = "none";
+			}
+		}
+	}
+	function laundryFunction(){
+		if(laundryDB.onchange.checked = true){
+			var x = document.getElementById("laundry");
+			if (x.value != "Laundry"){
+				var y = document.getElementById("hideRow"); 
+				y.style.display = "none";
+			}
+		}
+	}
+	function gymFunction(){
+		if(gymDB.onchange.checked = true){
+			var x = document.getElementById("gym");
+			if (x.value != "Gym"){
+				var y = document.getElementById("hideRow"); 
+				y.style.display = "none";
+			}
+		}
+	}
+	function furnishedFunction(){
+		if(furnishedDB.onchange.checked = true){
+			var x = document.getElementById("furnished");
+			if (x.value != "Furnished"){
+				var y = document.getElementById("hideRow"); 
+				y.style.display = "none";
+			}
+		}
+	}
+	function chk4price(){
 		var y = myRange.value;
-		var z = myRange2.value;
-		var q = document.getElementsByName("14").value;
-		var r = document.getElementsByName("15").value;
+		var z = myRange2.value;	
 		if(q > y){
 			document.getElementById(hideRow).style.display === "none";
 		}
+	}
+	function chk4size(){
+		var q = document.getElementsByName("14").value;
+		var r = document.getElementsByName("15").value;
 		if(r > z){
 			document.getElementById(hideRow).style.display === "none";
+		}
+	}
+	function myFunction() { 
+	var x = document.getElementById("hideRow");
+	if (x.style.display === "none") {
+		x.style.display = "block";} else { x.style.display = "none"; 
 		}
 	}
 	</script>
@@ -215,18 +318,18 @@ if (x.style.display === "none") {x.style.display = "block";} else { x.style.disp
     </div>
     <div>
       <h5 style="padding-left: 5px">Availablility</h5>
-      <ul><input type="checkbox" id = "sum">Summer Only</ul>
-      <ul><input type="checkbox" id = "fall">Fall Semester</ul>
-      <ul><input type="checkbox" id = "spng">Spring Semester</ul>
+      <ul><input type="checkbox" id = "sumDB">Summer Only</ul>
+      <ul><input type="checkbox" id = "fallDB">Fall Semester</ul>
+      <ul><input type="checkbox" id = "spngDB">Spring Semester</ul>
     </div>
     <div>
       <h5 style="padding-left: 5px">Locations</h5>
-      <ul><input type="checkbox" id = "twnhm">Unversity TownHomes</ul>
-      <ul><input type="checkbox" id = "cpnt">Campus Pointe</ul>
-      <ul><input type="checkbox" id = "pvnc">Province</ul>
-      <ul><input type="checkbox" id = "uedg">Unversity Edge</ul>
-      <ul><input type="checkbox" id = "ctow">College Towers</ul>
-      <ul><input type="checkbox" id = "eaglnd">Eagles Landing</ul>
+      <ul><input type="checkbox" id = "twnhmDB">Unversity TownHomes</ul>
+      <ul><input type="checkbox" id = "cpntDB">Campus Pointe</ul>
+      <ul><input type="checkbox" id = "pvncDB">Province</ul>
+      <ul><input type="checkbox" id = "uedgDB">Unversity Edge</ul>
+      <ul><input type="checkbox" id = "ctowDB">College Towers</ul>
+      <ul><input type="checkbox" id = "eaglndDB">Eagles Landing</ul>
     </div>
   </div>
   <!--SIDEBAR END-->
@@ -238,7 +341,7 @@ if (x.style.display === "none") {x.style.display = "block";} else { x.style.disp
     {
       
     ?>
-  
+	
     <div class="box" id="hideRow" style="margin: 1px;">
       <div class="col-md-4 one" style="background-color: white;border-style: solid;border-color: gray; max-width: 100%; padding: 0">
         <img src = "<?php echo $row["pic1"] ?>" style="width: 100%">
@@ -291,7 +394,27 @@ if (x.style.display === "none") {x.style.display = "block";} else { x.style.disp
             <span>Test Complex</span>
           </div>
         </div>
-
+		
+		<div class="row">
+          <div class="col-md-6" style="text-align: left;">
+            <span>
+      		  <input type="hidden" id = "furnished" 			name="1" 	value = "<?php echo $row["furnished"] ?>" >
+      		  <input type="hidden" id = "gym" 					name="2" 	value = "<?php echo $row["gym"] ?>" >
+      		  <input type="hidden" id = "laundry" 				name="3" 	value = "<?php echo $row["laundry"] ?>" >
+      		  <input type="hidden" id = "pets" 					name="4" 	value = "<?php echo $row["pets"] ?>" >
+      		  <input type="hidden" id = "cooling" 				name="5" 	value = "<?php echo $row["cooling"] ?>" >
+      		  <input type="hidden" id = "parking" 				name="6" 	value = "<?php echo $row["parking"] ?>" >
+      		  <input type="hidden" id = "pool" 					name="7" 	value = "<?php echo $row["pool"] ?>" >
+      		  <input type="hidden" id = "garage" 				name="8" 	value = "<?php echo $row["garage"] ?>" >
+      		  <input type="hidden" id = "propertymanagement" 	name="9" 	value = "<?php echo $row["propertymanagement"] ?>" >
+      		  <input type="hidden" id = "hottub" 				name="10" 	value = "<?php echo $row["hottub"] ?>" >
+      		  <input type="hidden" id = "privatebathroom" 		name="11" 	value = "<?php echo $row["privatebathroom"] ?>" >
+      		  <input type="hidden" id = "heating" 		  		name="13" 	value = "<?php echo $row["heating"] ?>" >
+      		  <input type="hidden" id = "price" 				name="14" 	value = "<?php echo $row["price"] ?>" >
+      		  <input type="hidden" id = "squarefoot" 			name="15" 	value = "<?php echo $row["squarefoot"] ?>" ></span>
+          </div>
+        </div>
+		
         <center>
         <div class="row">
           <div class="" style="text-align: left;">
@@ -305,22 +428,6 @@ if (x.style.display === "none") {x.style.display = "block";} else { x.style.disp
       <div class=" col-md-4 three" style="background-color: white; border-style: solid; border-color: gray">
         <center>
           <form  method="post" action="viewlisting.php">
-            <input type="hidden" name="listingid" value = "<?php echo $row['listingid']; ?>" >
-      		  <input type="hidden" id = "chk4amenities()" name="1" 	value = "<?php echo $furnished ?>" >
-      		  <input type="hidden" id = "chk4amenities()" name="2" 	value = "<?php echo $gym ?>" >
-      		  <input type="hidden" id = "chk4amenities()" name="3" 	value = "<?php echo $laundry ?>" >
-      		  <input type="hidden" id = "chk4amenities()" name="4" 	value = "<?php echo $pets ?>" >
-      		  <input type="hidden" id = "chk4amenities()" name="5" 	value = "<?php echo $cooling ?>" >
-      		  <input type="hidden" id = "chk4amenities()" name="6" 	value = "<?php echo $parking ?>" >
-      		  <input type="hidden" id = "chk4amenities()" name="7" 	value = "<?php echo $pool ?>" >
-      		  <input type="hidden" id = "chk4amenities()" name="8" 	value = "<?php echo $garage ?>" >
-      		  <input type="hidden" id = "chk4amenities()" name="9" 	value = "<?php echo $propertymanagement ?>" >
-      		  <input type="hidden" id = "chk4amenities()" name="10" value = "<?php echo $hottub ?>" >
-      		  <input type="hidden" id = "chk4amenities()" name="11" value = "<?php echo $privatebathroom ?>" >
-      		  <input type="hidden" id = "chk4amenities()" name="12" value = "<?php echo $floornumber ?>" >
-      		  <input type="hidden" id = "chk4amenities()" name="13" value = "<?php echo $heating ?>" >
-      		  <input type="hidden" id = "chk4amenities()" name="14" value = "<?php echo $price ?>" >
-      		  <input type="hidden" id = "chk4amenities()" name="15" value = "<?php echo $squarefoot ?>" >
             <button class="button" style="position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%);" type="submit" name="submit" value="Submit">View Listing</button>
           </form>
           <form method="post" action="addfav.php">
