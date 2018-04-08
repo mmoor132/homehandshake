@@ -172,16 +172,14 @@ $result = $stm->get_result();
         	}
         	function heatFunction(){
         		if(heatDB.onchange.checked != true){
-        			var x = document.getElementsByName("heating")[0];
-        			if (x.value != "heat"){
-        				var y = document.getElementById("hideRow"); 
-        				y.style.display = "none";
+        			var x = document.getElementByName("heating");
+					for(var i = 1; i <= 7; ++i){
+						if(document.getElementById("listingid") == i){
+						if (x.value != "heat"){
+								y.style.display = "none";
+						}}
         			}
-        		}
-        		if(heat.onchange.checked != true)
-        		{
-        			var y = document.getElementById("hideRow");
-        			y.style.display = "block";
+					}
         		}
         	}
         	function pvtbroomFunction(){
@@ -346,7 +344,7 @@ $result = $stm->get_result();
       
     ?>
 	
-    <div class="box" id="hideRow" style="margin: 1px;">
+    <div class="box" id="<?php echo $row['listingid']; ?>" style="margin: 1px;">
       <div class="col-md-4 one" style="background-color: white;border-style: solid;border-color: gray; max-width: 100%; padding: 0">
         <img src = "<?php echo $row["pic1"] ?>" style="width: 100%">
       </div>
