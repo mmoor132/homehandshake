@@ -392,6 +392,9 @@
                   // Get Results
                   $result = $stm->get_result();
 
+                  while($row = $result->fetch_assoc())
+                  {
+                    
                 ?>
               <!--PHP For Pictures-->
 
