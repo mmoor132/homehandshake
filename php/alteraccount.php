@@ -53,7 +53,9 @@ if ($pass == $cpass) {
 //Close connection
 $conn->close();
 
-//Return to Account
-header("location: myaccount.php");
+echo "<script>
+		alert('Account Updated.');
+		window.location.href='http://127.0.0.1/php/myaccount.php';
+	  </script>";
 
 ?>

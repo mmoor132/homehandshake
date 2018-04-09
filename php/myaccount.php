@@ -1,6 +1,6 @@
 <?php
   session_start();
-  $username = $_SESSION["username"];
+  $user = $_SESSION["user"];
   $password = $_SESSION["password"];
   $listingid = $_SESSION["listingid"];
   $lsprice = $_SESSION["price"];
@@ -17,13 +17,6 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!--Bootstrap 4
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    END Bootstrap 4-->
 
     <!--Bootstrap 3-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -91,7 +84,7 @@
 
       <!--Welcome Header-->
         <div>
-          <h1><span>Welcome: </span> <?php echo "$username" ?></h1>
+          <h1><span>Welcome: </span> <?php echo "$user" ?></h1>
         </div>
       <!--Welcome Header-->
 
@@ -290,39 +283,20 @@
                    <label for="">Your Username:</label>
                   </div>
                   <div class="col-75">
-                    <span><?php echo "$username" ?></span>
+                    <span><?php echo "$user" ?></span>
                   </div>
                   <br>
-                </div>
-                <div class="col-md-6">
-                  <div class="col-25" style="margin: 5px">
-                   <label for="">Preferred Contact Number:</label>
-                  </div>
-                  <div class="col-75" style="margin: 5px">
-                    <span><?php echo "$phone" ?></span>
-                  </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-6">
-                  <h5>Preferred Method of Contact</h5>
-                    <div class="checkbox">
-                      <label>Phone</label>
+                  <h5 style="font-weight: bold;">Preferred Method of Contact</h5>
+                    <div class="">
+                      <label>Phone: </label><span> <?php echo "$phone" ?></span>
                     </div>
-                    <div class="checkbox">
-                      <label>Text</label>
+                    <div class="">
+                      <label>E-Mail: </label><span> <?php echo "$email" ?></span>
                     </div>
-                    <div class="checkbox">
-                      <label>E-Mail</label>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="col-25" style="margin: 5px">
-                   <label for="">Preferred E-mail</label>
-                  </div>
-                  <div class="col-75" style="margin: 5px">
-                    <span><?php echo "$email" ?></span>
-                  </div>
                 </div>
               </div>
             </div>

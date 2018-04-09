@@ -31,10 +31,7 @@ $expiration = $_POST["expiration"];
 $bio = $_POST["bio"];
 
 // Update Query For Listing
-$stm = $conn->prepare("UPDATE listings SET title = '$listtitle', address = '$housingstyle', city = '$city', state = '$state', zip = '$state', housingstyle = '$housingstyle', description = '$bio', roommates = '$numofpeople', price = '$rent', startdate = '$sdate', enddate = 'edate', expiration = '$expiration',  WHERE listingid = '$listingid'");
-
-// Execute Query
-$stm->execute();
+$stm = "UPDATE listings SET title = '$listtitle', address = '$address', city = '$city', state = '$state', zip = '$zip', housingstyle = '$housingstyle', description = '$bio', roommates = '$numofpeople', price = '$rent', startdate = '$sdate', enddate = 'edate', expiration = '$expiration' WHERE listingid = '$listingid'";
 
 // Check for Success
 if ($conn->query($stm) === TRUE) {
@@ -44,20 +41,6 @@ if ($conn->query($stm) === TRUE) {
 }
 
 echo "<br>";
-
-
-// Assign null values to Amenities variables
-$furnished = NULL;
-$gym = NULL;
-$laundry = NULL;
-$pets = NULL;
-$cooling = NULL;
-$parking = NULL;
-$swimming = NULL;
-$garage = NULL;
-$propertymanagement = NULL;
-$hottub = NULL;
-$privatebathroom = NULL;
 
 // Assigning Ammenities Variables
 if(!empty($_POST['check_list'])) {
@@ -114,10 +97,7 @@ if(!empty($_POST['check_list'])) {
 }
 
 // Update Query For Amenities
-$st = $conn->prepare("UPDATE amenities SET furnished = '$furnished', gym = '$gym', laundry = '$laundry', pets = '$pets', cooling = '$cooling', parking = '$parking', pool = '$pool', garage = '$garage', propertymanagement = '$propertymanagement', hottub = '$hottub', privatebathroom = '$privatebathroom',  WHERE listingid = '$listingid'");
-
-// Execute Query
-$st->execute();
+$st = "UPDATE amenities SET furnished = '$furnished', gym = '$gym', laundry = '$laundry', pets = '$pets', cooling = '$cooling', parking = '$parking', pool = '$pool', garage = '$garage', propertymanagement = '$propertymanagement', hottub = '$hottub', privatebathroom = '$privatebathroom'  WHERE listingid = '$listingid'";
 
 // Check for Success
 if ($conn->query($st) === TRUE) {
@@ -128,12 +108,8 @@ if ($conn->query($st) === TRUE) {
 
 echo "<br>";
 
-// Update Picture 1
-$path = "img\\\\"; 
-$target_file1 = $path . basename($_FILES["fileToUpload"] ["name"]);
-
 // Picture 1 Check
-if($target_file1 != NULL){
+if(basename($_FILES["fileToUpload"]["name"]) != NULL){
   // File Upload 1
   $target_dir = "img/";
   $target_file1 = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -178,6 +154,10 @@ if($target_file1 != NULL){
       }
   }
 
+  // Update Picture 1
+  $path = "img\\\\"; 
+  $target_file1 = $path . basename($_FILES["fileToUpload"] ["name"]);
+
   // Update Query For Amenities
   $s = $conn->prepare("UPDATE picture SET pic1 = '$target_file1' WHERE listingid = '$listingid'");
 
@@ -185,12 +165,8 @@ if($target_file1 != NULL){
   $s->execute();
 }
 
-// Update Picture 2
-$path = "img\\\\";
-$target_file2 = $path . basename($_FILES["fileToUpload2"]["name"]);
-
 // Picture 2 Check
-if($target_file2 != NULL){
+if(basename($_FILES["fileToUpload2"]["name"]) != NULL){
   // File Upload 2
   $target_dir = "img/";
   $target_file2 = $target_dir . basename($_FILES["fileToUpload2"]["name"]);
@@ -235,6 +211,10 @@ if($target_file2 != NULL){
       }
   }
 
+  // Update Picture 2
+  $path = "img\\\\";
+  $target_file2 = $path . basename($_FILES["fileToUpload2"]["name"]);
+
   // Update Query For Amenities
   $s = $conn->prepare("UPDATE picture SET pic2 = '$target_file2'WHERE listingid = '$listingid'");
 
@@ -242,12 +222,8 @@ if($target_file2 != NULL){
   $s->execute();
 }
 
-// Update Picture 3
-$path = "img\\\\";
-$target_file3 = $path . basename($_FILES["fileToUpload3"]["name"]);
-
 // Picture 3 Check
-if($target_file3 != NULL){
+if(basename($_FILES["fileToUpload3"]["name"]) != NULL){
   // File Upload 3
   $target_dir = "img/";
   $target_file3 = $target_dir . basename($_FILES["fileToUpload3"]["name"]);
@@ -292,6 +268,10 @@ if($target_file3 != NULL){
       }
   }
 
+  // Update Picture 3
+  $path = "img\\\\";
+  $target_file3 = $path . basename($_FILES["fileToUpload3"]["name"]);
+
   // Update Query For Amenities
   $s = $conn->prepare("UPDATE picture SET pic3 = '$target_file3' WHERE listingid = '$listingid'");
 
@@ -299,12 +279,8 @@ if($target_file3 != NULL){
   $s->execute();
 }
 
-// Update Picture 4
-$path = "img\\\\";
-$target_file4 = $path . basename($_FILES["fileToUpload4"]["name"]);
-
 // Picture 4 Check
-if($target_file4 != NULL){
+if(basename($_FILES["fileToUpload4"]["name"]) != NULL){
   // File Upload 4
   $target_dir = "img/";
   $target_file4 = $target_dir . basename($_FILES["fileToUpload4"]["name"]);
@@ -349,6 +325,10 @@ if($target_file4 != NULL){
       }
   }
 
+  // Update Picture 4
+  $path = "img\\\\";
+  $target_file4 = $path . basename($_FILES["fileToUpload4"]["name"]);
+
   // Update Query For Amenities
   $s = $conn->prepare("UPDATE picture SET pic4 = '$target_file4' WHERE listingid = '$listingid'");
 
@@ -357,12 +337,8 @@ if($target_file4 != NULL){
 
 }
 
-// Update Picture 5
-$path = "img\\\\";
-$target_file5 = $path . basename($_FILES["fileToUpload5"]["name"]);
-
 // Picture 5 Check
-if($target_file5 != NULL){
+if(basename($_FILES["fileToUpload5"]["name"])!= NULL){
   // File Upload 5
   $target_dir = "img/";
   $target_file5 = $target_dir . basename($_FILES["fileToUpload5"]["name"]);
@@ -406,6 +382,10 @@ if($target_file5 != NULL){
           echo "Sorry, there was an error uploading your file.";
       }
   }
+
+  // Update Picture 5
+  $path = "img\\\\";
+  $target_file5 = $path . basename($_FILES["fileToUpload5"]["name"]);
 
   // Update Query For Amenities
   $s = $conn->prepare("UPDATE picture SET pic5 = '$target_file5' WHERE listingid = '$listingid'");

@@ -14,22 +14,17 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$username = $_POST["username"];
+$user = $_POST["user"];
 $password = $_POST["password"];
 
-$_SESSION['username'] = $_POST["username"];
+$_SESSION['user'] = $_POST["user"];
 $_SESSION['password'] = $_POST["password"];
 
-$sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+$sql = "SELECT * FROM users WHERE username='$user' AND password='$password'";
 
 $result = $conn->query($sql);
 
-if($result->num_rows==1 && $username =='admin'){
-
-	header("location: profile.php");	
-
-}
-elseif ($result->num_rows==1){
+if ($result->num_rows==1){
 
 	header("location: login2.php");	
 

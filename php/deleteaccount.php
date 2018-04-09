@@ -18,7 +18,7 @@ if ($conn->connect_error) {
 // sql to delete the User record
 $sqlu = "DELETE FROM users WHERE userid = '$userid' ";
 
-if ($conn->query($sql) === TRUE) {
+if ($conn->query($sqlu) === TRUE) {
     echo "User Record deleted successfully";
 } else {
     echo "Error deleting record: " . $conn->error;

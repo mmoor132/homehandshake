@@ -15,11 +15,11 @@ if ($conn->connect_error) {
 }
 
 // Assigns Sessions values back to local variables
-$username = $_SESSION["username"];
+$user = $_SESSION["user"];
 $password = $_SESSION["password"];
 
 // Perpare connection
-$stmt = $conn->prepare("SELECT userid, phone, email FROM users WHERE username = '$username' AND password = '$password'");
+$stmt = $conn->prepare("SELECT userid, phone, email FROM users WHERE username = '$user' AND password = '$password'");
 
 // Execute Query
 $stmt->execute();
@@ -63,15 +63,16 @@ while ($row = $result->fetch_assoc()){
 
 }
 
+$listingid = $_SESSION["listingid"];
+
 // Query For Active Listing
 $st = $conn->prepare("
 SELECT pic1
 FROM picture
 INNER JOIN listings
 	ON listings.listingid=picture.listingid
-INNER JOIN users
-	ON listings.listingid=users.userid
-WHERE users.userid= '$userid'");
+WHERE listings.listingid = '$listingid'
+");
 
 
 // Execute Query

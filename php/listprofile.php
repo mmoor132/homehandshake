@@ -303,7 +303,7 @@ session_start();
         $ammenities = array($furnished, $gym,$laundry,$pets,$cooling,$pool,$garage,$propertymanagement,$hottub,$privatebathroom,$heating);
 
         foreach ($ammenities as $name) {
-          if (isset($name)) {
+          if (isset($name) && $name != "") {
             echo "$name";
             echo "<br>";
           }
