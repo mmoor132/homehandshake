@@ -46,15 +46,65 @@
   </style>
 
   <body>
+    <!-- Start of Sticky Navbar Code -->
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial;
+      }
+
+      .top-container {
+
+        background-color: #f1f1f1;
+        padding: 30px;
+        text-align: center;
+      }
+
+      .content {
+
+        padding: 16px; 
+
+      }
+
+      .sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+      }
+
+      .sticky + .content {
+
+        padding-top: 100px;
+
+      }
+
+      .container {
+          position: relative;
+          text-align: center;
+      }
+
+      .centered {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+      }
+    </style>
+  <!-- END Start of Sticky Navbar Code -->
+  
+
+  <body>
+
     <!--Jumbotron code-->
       <div>
-        <img src="img\image.jpg" style="width: 100%; height: 400px;">
+        <img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%; height: 100%;">
       </div>
     <!--END Jumbotron code-->
 
-
     <!--Navbar code-->
-      <nav class="navbar navbar-inverse" style="background-color: maroon">
+      <div class="header" id="myHeader">
+      <nav class="navbar navbar-inverse" style="background-color:#002664">
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -67,15 +117,14 @@
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
               <li class="active"><a href="homepage.html" style="color: white">Home</a></li>
-      		<li><a href="myaccount.html" style="color: white">My Account</a></li>
               <li><a href="browselisting.php" style="color: white">Browse Listings</a></li>
-              <li><a href="createaccount.html" style="color: white"><span class="glyphicon glyphicon-user"></span> Sign Up </a></li>
-              <li><a href="loginpage.html" style="color: white"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
+              <li><a href='myaccount.php' style='color: white'><span class='glyphicon glyphicon-user'></span> My Account</a></li>
             </ul>
           </div>
           </center>
         </div>
       </nav>
+      </div>
     <!--END Navbar code-->
 
     <br>
@@ -343,45 +392,59 @@
       <br>
 
     <!--Footer-->
-      <footer style="background-color:maroon;"">
+      <footer style="background-color:#002664;">
 
-        <center>
+      <center>
 
-          <!--Links-->
+        <!--Links-->
           <div class="container">
             <div class="row"><br>
-              <div class="col-md-2">
+              <div class="col-md-4">
                 <a href="homepage.html" style="color: white"> Home </a>
               </div>
-        	  <div class="col-md-2">
-                <a href="myaccount.html" style="color: white"> My Account </a>
-              </div>
-              <div class="col-md-2">
+              <div class="col-md-4">
                 <a href="browselisting.php" style="color: white"> Browse Listings </a>
               </div>
-              <div class="col-md-2">
-                <a href="createaccount.html" style="color: white"><span class="glyphicon glyphicon-user"></span> Sign Up </a>
-              </div>
-        	  <div class="col-md-2">
+            <div class="col-md-4">
                 <a href="loginpage.html" style="color: white"><span class="glyphicon glyphicon-log-in"></span> Login </a>
               </div>
             </div>
           </div>
-          <!--End Links-->
+        <!--End Links-->
 
-        </center>
-          <br>
+      </center>
+        <br>
 
-          <!--Copyright-->
+        <!--Copyright-->
           <div>
             <center>
-              <span style="color: white;">2018 © Copyright Orange Solutions. All rights reserved.</span>
+              <span style="color: white;">2018 © Copyright Team 3 Solutions. All rights reserved.</span>
             </center>
           <div>
-          <!--End of Copyright-->
+        <!--End of Copyright-->
 
-          <br>
+        <br>
+
       </footer>
     <!--END Footer-->
+
+    <!-- Start Sticky Navbar script -->
+
+      <script>
+        window.onscroll = function() {myFunction()};
+
+        var header = document.getElementById("myHeader");
+        var sticky = header.offsetTop;
+
+        function myFunction() {
+          if (window.pageYOffset >= sticky) {
+            header.classList.add("sticky");
+          } else {
+            header.classList.remove("sticky");
+          }
+        }
+      </script>
+
+    <!-- End Sticky Navbar script -->
   </body>
 </html>

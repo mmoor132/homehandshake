@@ -70,38 +70,87 @@ $result = $stm->get_result();
 
 <body onload = "onload()">
 
-<!--Jumbotron code-->
-  <div>
-  <img src="img\image.jpg" style="width: 100%; height: 400px;">
-  </div>
-<!--END Jumbotron code-->
+ <!-- Start of Sticky Navbar Code -->
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial;
+      }
 
-<!--Navbar code-->
+      .top-container {
 
-<nav class="navbar navbar-inverse" style="background-color: maroon">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span> 
-      </button>
-    </div>
-    <center>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="homepage.html" style="color: white">Home</a></li>
-    <li><a href="myaccount.php" style="color: white">My Account</a></li>
-        <li><a href="browselisting.php" style="color: white">Browse Listings</a></li>
-        <li><a href="createaccount.html" style="color: white"><span class="glyphicon glyphicon-user"></span> Sign Up </a></li>
-        <li><a href="loginpage.html" style="color: white"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
-      </ul>
-    </div>
-    </center>
-  </div>
-</nav>
+        background-color: #f1f1f1;
+        padding: 30px;
+        text-align: center;
+      }
 
-<!--END Navbar code-->
+      .content {
+
+        padding: 16px; 
+
+      }
+
+      .sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+      }
+
+      .sticky + .content {
+
+        padding-top: 100px;
+
+      }
+
+      .container {
+          position: relative;
+          text-align: center;
+      }
+
+      .centered {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+      }
+    </style>
+  <!-- END Start of Sticky Navbar Code -->
+  
+
+  <body>
+
+    <!--Jumbotron code-->
+      <div>
+        <img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%; height: 100%;">
+      </div>
+    <!--END Jumbotron code-->
+
+    <!--Navbar code-->
+      <div class="header" id="myHeader">
+      <nav class="navbar navbar-inverse" style="background-color:#002664">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span> 
+            </button>
+          </div>
+          <center>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="homepage.html" style="color: white">Home</a></li>
+              <li><a href="browselisting.php" style="color: white">Browse Listings</a></li>
+              <li><a href='myaccount.php' style='color: white'><span class='glyphicon glyphicon-user'></span> My Account</a></li>
+            </ul>
+          </div>
+          </center>
+        </div>
+      </nav>
+      </div>
+    <!--END Navbar code-->
+
 
 <br>
 
@@ -501,42 +550,61 @@ $result = $stm->get_result();
 
 <br>
 
-<!--Footer-->
-<footer style="background-color:maroon;"">
-<center>
-  <!--Links-->
-  <div class="container">
-    <div class="row"><br>
-      <div class="col-md-2">
-        <a href="homepage.html" style="color: white"> Home </a>
-      </div>
-    <div class="col-md-2">
-        <a href="myaccount.php" style="color: white"> My Account </a>
-      </div>
-      <div class="col-md-2">
-        <a href="browselisting.php" style="color: white"> Browse Listings </a>
-      </div>
-      <div class="col-md-2">
-        <a href="createaccount.html" style="color: white"><span class="glyphicon glyphicon-user"></span> Sign Up </a>
-      </div>
-    <div class="col-md-2">
-        <a href="loginpage.html" style="color: white"><span class="glyphicon glyphicon-log-in"></span> Login </a>
-      </div>
-    </div>
-  </div>
-  <!--End Links-->
-</center>
-  <br>
-  <!--Copyright-->
-  <div>
-    <center>
-      <span style="color: white;">2018 © Copyright Orange Solutions. All rights reserved.</span>
-    </center>
-  <div>
-  <!--End of Copyright-->
-  <br>
-</footer>
-<!--END Footer-->
+   <!--Footer-->
+      <footer style="background-color:#002664;">
+
+      <center>
+
+        <!--Links-->
+          <div class="container">
+            <div class="row"><br>
+              <div class="col-md-4">
+                <a href="homepage.html" style="color: white"> Home </a>
+              </div>
+              <div class="col-md-4">
+                <a href="browselisting.php" style="color: white"> Browse Listings </a>
+              </div>
+            <div class="col-md-4">
+                <a href="loginpage.html" style="color: white"><span class="glyphicon glyphicon-log-in"></span> Login </a>
+              </div>
+            </div>
+          </div>
+        <!--End Links-->
+
+      </center>
+        <br>
+
+        <!--Copyright-->
+          <div>
+            <center>
+              <span style="color: white;">2018 © Copyright Team 3 Solutions. All rights reserved.</span>
+            </center>
+          <div>
+        <!--End of Copyright-->
+
+        <br>
+
+      </footer>
+    <!--END Footer-->
+
+    <!-- Start Sticky Navbar script -->
+
+      <script>
+        window.onscroll = function() {myFunction()};
+
+        var header = document.getElementById("myHeader");
+        var sticky = header.offsetTop;
+
+        function myFunction() {
+          if (window.pageYOffset >= sticky) {
+            header.classList.add("sticky");
+          } else {
+            header.classList.remove("sticky");
+          }
+        }
+      </script>
+
+    <!-- End Sticky Navbar script -->
 
 <script>
 var slider = document.getElementById("myRange");
