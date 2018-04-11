@@ -98,7 +98,7 @@
 
     <!--Jumbotron code-->
       <div>
-        <img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%; height: 100%;">
+        <img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%; height: 60%;">
       </div>
     <!--END Jumbotron code-->
 
