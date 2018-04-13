@@ -1,3 +1,8 @@
+<?php
+  session_start();
+  $userid = $_SESSION["userid"];
+?>
+
 <!Doctype html>
 
 <head>
@@ -105,32 +110,36 @@ input[type=submit]:hover {
 
   <!--END Jumbotron code-->
 
-<!--Navbar code-->
-
-<div class="header" id="myHeader">
-<nav class="navbar navbar-inverse" style="background-color:#002664">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span> 
-      </button>
-    </div>
-    <center>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="homepage.html" style="color: white">Home</a></li>
-        <li><a href="browselisting.php" style="color: white">Browse Listings</a></li>
-        <li><a href="loginpage.html" style="color: white"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
-      </ul>
-    </div>
-    </center>
-  </div>
-</nav>
-</div>
-
-<!--END Navbar code-->
+    <!--Navbar code-->
+      <div class="header" id="myHeader">
+        <nav class="navbar navbar-inverse" style="background-color:#002664">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> 
+              </button>
+            </div>
+            <center>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="homepage.html" style="color: white">Home</a></li>
+                <li><a href="browselisting.php" style="color: white">Browse Listings</a></li>
+                <?php
+                  if(isset($_SESSION["userid"])){
+                    echo "<li><a href='myaccount.php' style='color: white'>My Account</a></li>";
+                  } else {
+                    echo "<li><a href='loginpage.html' style='color: white'>Login</a></li>";
+                  }
+                ?> 
+              </ul>
+            </div>
+            </center>
+          </div>
+        </nav>
+      </div>
+    <!--END Navbar code-->
 
 <!--Begin Form Code-->
 
@@ -171,19 +180,25 @@ input[type=submit]:hover {
 <center>
 
   <!--Links-->
-  <div class="container">
-    <div class="row"><br>
-      <div class="col-md-4">
-        <a href="homepage.html" style="color: white"> Home </a>
-      </div>
-      <div class="col-md-4">
-        <a href="browselisting.php" style="color: white"> Browse Listings </a>
-      </div>
-    <div class="col-md-4">
-        <a href="loginpage.html" style="color: white"><span class="glyphicon glyphicon-log-in"></span> Login </a>
+    <div class="container">
+      <div class="row"><br>
+        <div class="col-md-4">
+          <a href="homepage.php" style="color: white"> Home </a>
+        </div>
+        <div class="col-md-4">
+          <a href="browselisting.php" style="color: white"> Browse Listings </a>
+        </div>
+       <div class="col-md-4">
+          <?php
+              if(isset($_SESSION["userid"])){
+                echo "<a href='myaccount.php' style='color: white'>My Account</a>";
+              } else {
+                echo "<a href='loginpage.html' style='color: white'><span class='glyphicon glyphicon-log-in'></span> Login </a>";
+              }
+          ?> 
+        </div>
       </div>
     </div>
-  </div>
   <!--End Links-->
 
 </center>

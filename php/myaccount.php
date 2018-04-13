@@ -1,5 +1,8 @@
-<?php
+<?php 
+  // Start Session
   session_start();
+
+  // Call Variables from Session
   $user = $_SESSION["user"];
   $password = $_SESSION["password"];
   $listingid = $_SESSION["listingid"];
@@ -43,59 +46,51 @@
     .wrap    { 
       flex-wrap: wrap;
     }
-  </style>
+   body {
+      margin: 0;
+      font-family: Arial;
+    }
 
-  <body>
-    <!-- Start of Sticky Navbar Code -->
-    <style>
-      body {
-        margin: 0;
-        font-family: Arial;
-      }
+    .top-container {
 
-      .top-container {
+      background-color: #f1f1f1;
+      padding: 30px;
+      text-align: center;
+    }
 
-        background-color: #f1f1f1;
-        padding: 30px;
+    .content {
+
+      padding: 16px; 
+
+    }
+
+    .sticky {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1;
+    }
+
+    .sticky + .content {
+
+      padding-top: 100px;
+
+    }
+
+    .container {
+        position: relative;
         text-align: center;
-      }
+    }
 
-      .content {
-
-        padding: 16px; 
-
-      }
-
-      .sticky {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1;
-      }
-
-      .sticky + .content {
-
-        padding-top: 100px;
-
-      }
-
-      .container {
-          position: relative;
-          text-align: center;
-      }
-
-      .centered {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-      }
-    </style>
-  <!-- END Start of Sticky Navbar Code -->
-  
-
+    .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+  </style>
+     
   <body>
-
     <!--Jumbotron code-->
       <div>
         <img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%; height: 60%;">
@@ -104,26 +99,26 @@
 
     <!--Navbar code-->
       <div class="header" id="myHeader">
-      <nav class="navbar navbar-inverse" style="background-color:#002664">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span> 
-            </button>
+        <nav class="navbar navbar-inverse" style="background-color:#002664">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> 
+              </button>
+            </div>
+            <center>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="homepage.php" style="color: white">Home</a></li>
+                <li><a href="browselisting.php" style="color: white">Browse Listings</a></li>
+                <li class="active"><a href='myaccount.php' style='color: white'>My Account</a></li>";
+              </ul>
+            </div>
+            </center>
           </div>
-          <center>
-          <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="homepage.html" style="color: white">Home</a></li>
-              <li><a href="browselisting.php" style="color: white">Browse Listings</a></li>
-              <li><a href='myaccount.php' style='color: white'><span class='glyphicon glyphicon-user'></span> My Account</a></li>
-            </ul>
-          </div>
-          </center>
-        </div>
-      </nav>
+        </nav>
       </div>
     <!--END Navbar code-->
 
@@ -375,7 +370,7 @@
         <div class="row">
           <div class="col-md-6">
             <center>
-            <a href = "createlistings.html"><button style="margin: 2px"><span style="color: black">Create Listing</span></button></a>
+            <a href = "createlistings.php"><button style="margin: 2px"><span style="color: black">Create Listing</span></button></a>
           </center>
           </div>  
           <div class="col-md-6">
@@ -400,13 +395,19 @@
           <div class="container">
             <div class="row"><br>
               <div class="col-md-4">
-                <a href="homepage.html" style="color: white"> Home </a>
+                <a href="homepage.php" style="color: white"> Home </a>
               </div>
               <div class="col-md-4">
                 <a href="browselisting.php" style="color: white"> Browse Listings </a>
               </div>
-            <div class="col-md-4">
-                <a href="loginpage.html" style="color: white"><span class="glyphicon glyphicon-log-in"></span> Login </a>
+             <div class="col-md-4">
+                <?php
+                    if(isset($_SESSION["userid"])){
+                      echo "<a href='myaccount.php' style='color: white'>My Account</a>";
+                    } else {
+                      echo "<a href='loginpage.html' style='color: white'><span class='glyphicon glyphicon-log-in'></span> Login </a>";
+                    }
+                ?> 
               </div>
             </div>
           </div>

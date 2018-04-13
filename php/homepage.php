@@ -1,10 +1,8 @@
 <?php
-session_start();
-$userid = $_SESSION["userid"];
+  session_start();
 ?>
 
 <!Doctype html>
-
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -69,32 +67,38 @@ $userid = $_SESSION["userid"];
 
   	<!--Jumbotron code-->
     	<div>
-      	<img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%; height: 100%;">
+      	<img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%; height: 50%;">
     	</div>
     <!--END Jumbotron code-->
 
     <!--Navbar code-->
       <div class="header" id="myHeader">
-      <nav class="navbar navbar-inverse" style="background-color:#002664">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span> 
-            </button>
+        <nav class="navbar navbar-inverse" style="background-color:#002664">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> 
+              </button>
+            </div>
+            <center>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="homepage.php" style="color: white">Home</a></li>
+                <li><a href="browselisting.php" style="color: white">Browse Listings</a></li>
+                <?php
+                  if(isset($_SESSION["userid"])){
+                    echo "<li><a href='myaccount.php' style='color: white'>My Account</a></li>";
+                  } else {
+                    echo "<li><a href='loginpage.html' style='color: white'>Login</a></li>";
+                  }
+                ?> 
+              </ul>
+            </div>
+            </center>
           </div>
-          <center>
-          <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="homepage.html" style="color: white">Home</a></li>
-              <li><a href="browselisting.php" style="color: white">Browse Listings</a></li>
-              <li><a href='myaccount.php' style='color: white'><span class='glyphicon glyphicon-user'></span> My Account</a></li>
-            </ul>
-          </div>
-          </center>
-        </div>
-      </nav>
+        </nav>
       </div>
     <!--END Navbar code-->
 
@@ -241,18 +245,20 @@ $userid = $_SESSION["userid"];
 
     <br>
 
-    <center>
-    	<div class="container">
-    		<div class="row">
-    			<h1>The Handshake Experience</h1>
-    				<span>1) Select your campus.</span>
-    				<br>
-    				<span>2) Browse our listings (depending on your needs).</span>
-    				<br>
-    				<span>3) Make the connection!</span>
-    		</div>
-    	</div>
-    </center>
+    <!--HandShake Experience Div-->
+      <center>
+      	<div class="container">
+      		<div class="row">
+      			<h1>The Handshake Experience</h1>
+      				<span>1) Select your campus.</span>
+      				<br>
+      				<span>2) Browse our listings (depending on your needs).</span>
+      				<br>
+      				<span>3) Make the connection!</span>
+      		</div>
+      	</div>
+      </center>
+    <!--END HandShake Experience Div-->
 
     <br>
 
@@ -263,32 +269,37 @@ $userid = $_SESSION["userid"];
       </center>
     <!-- END of Disclaimer-->
 
-    </div>
-
     <br>
 
     <!--Footer-->
       <footer style="background-color:#002664;">
 
-      <center>
+        <center>
 
-        <!--Links-->
-          <div class="container">
-            <div class="row"><br>
-              <div class="col-md-4">
-                <a href="homepage.html" style="color: white"> Home </a>
-              </div>
-              <div class="col-md-4">
-                <a href="browselisting.php" style="color: white"> Browse Listings </a>
-              </div>
-        	  <div class="col-md-4">
-                <a href="loginpage.html" style="color: white"><span class="glyphicon glyphicon-log-in"></span> Login </a>
+          <!--Links-->
+            <div class="container">
+              <div class="row"><br>
+                <div class="col-md-4">
+                  <a href="homepage.php" style="color: white"> Home </a>
+                </div>
+                <div class="col-md-4">
+                  <a href="browselisting.php" style="color: white"> Browse Listings </a>
+                </div>
+          	   <div class="col-md-4">
+                  <?php
+                      if(isset($_SESSION["userid"])){
+                        echo "<a href='myaccount.php' style='color: white'>My Account</a>";
+                      } else {
+                        echo "<a href='loginpage.html' style='color: white'><span class='glyphicon glyphicon-log-in'></span> Login </a>";
+                      }
+                  ?> 
+                </div>
               </div>
             </div>
-          </div>
-        <!--End Links-->
+          <!--End Links-->
 
-      </center>
+        </center>
+
         <br>
 
         <!--Copyright-->
