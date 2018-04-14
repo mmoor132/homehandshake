@@ -19,7 +19,7 @@
     SELECT picture.pic1, listings.listingid, listings.title, listings.address, listings.city, 
       listings.state, listings.zip, listings.price, listings.squarefoot, listings.roommates, amenities.furnished, amenities.gym, amenities.laundry,
       amenities.pets, amenities.cooling, amenities.parking, amenities.pool, amenities.garage,
-      amenities.propertymanagement, amenities.hottub, amenities.privatebathroom, amenities.heating
+      amenities.propertymanagement, amenities.hottub, amenities.privatebathroom
     FROM picture 
     INNER JOIN listings 
       ON listings.listingid = picture.listingid

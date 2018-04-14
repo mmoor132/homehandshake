@@ -33,6 +33,7 @@
     .box {
     display: flex;
     text-align: center;
+    align-self: middle;
     }
     .one {
       flex: 1 0 0;
@@ -206,7 +207,7 @@
         <div class="box" style="background-color: grey; border-style: solid; margin: 2px;">         
         
           <div class="row">
-            <div class="col-md-12" style="">
+            <div class="col-md-12">
               <?php
                 $servername = "localhost";
                 $username = "administrator";
