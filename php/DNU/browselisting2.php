@@ -53,46 +53,28 @@
   </head>
 
   <style>
-    .filterSection li {
-        list-style: none;
-        margin: 0px;
-        padding: 5px;
-        display: inline;
-         
+    .show {
+      display: flex;
     }
-    .filterSection {
-        margin: 0px;
-        padding: 0px;
-        background-color: #EEEEEE;
+    /* Style the buttons */
+    .btn {
+      border: none;
+      outline: none;
+      padding: 12px 16px;
+      background-color: #f1f1f1;
+      cursor: pointer;
     }
-    #itemsToFilter li {
-        list-style: none;
-        background-position: 0 3px;
-        background-repeat: no-repeat;
-        margin: 15px;
-        padding-left: 40px;
-        font-size: 15pt;
-        color: #666;
+
+    .btn:hover {
+      background-color: #ddd;
     }
-    #itemsToFilter li[data-type=food] {
-        background-image: url("//www.kirupa.com/mini_icons/entypo/small_leaf.png");
-    }
-      
-    #itemsToFilter li[data-type=place] {
-        background-image: url("//www.kirupa.com/mini_icons/entypo/small_plane.png");
-    }
-     
-    #itemsToFilter li[data-type=musician] {
-        background-image: url("//www.kirupa.com/mini_icons/entypo/small_megaphone.png");
-    }
-    .showItem {
-    display: list-item;
-    }
-    .hideItem {
-        display: none;
+
+    .btn.active {
+      background-color: #666;
+      color: white;
     }
     .box {
-    display: flex;
+      display: flex;
     }
     .one {
       flex: 1 0 0;
@@ -157,20 +139,21 @@
             </div>
             <div>
               <h5 style="padding-left: 5px">Amenities</h5>
-          	  <ul class="filterSection" style="list-style-type: none;">
-              <li><input type="checkbox" value="food">Furnished</li>
-              <li><input type="checkbox" id="gymDB" value="Gym">Gym</li>
-              <li><input type="checkbox" id="laundryDB" value="Laundry">Laundry</li>
-              <li><input type="checkbox" id="petsDB" value="Pets">Pets</li>
-              <li><input type="checkbox" id="coolDB" value="parking">Cooling</li>
-              <li><input type="checkbox" id="parkingDB" value="Parking">Parking</li>
-              <li><input type="checkbox" id="poolDB" value="Pool">Pool</li>
-              <li><input type="checkbox" id="garageDB" value="Garage">Garage</li>
-              <li><input type="checkbox" id="mgmtDB" value="Property Management">Property Management</li>
-              <li><input type="checkbox" id="hottubDB" value="Hot Tub">Hot Tub</li>
-              <li><input type="checkbox" id="pvtbroomDB" value="Private Bathroom">Private Bathroom</li>
-              <li><input type="checkbox" id="heatDB" value=" Heating">Heating</li>
-              </ul>
+              <div id="myBtnContainer">
+                  <button class="btn" onclick="filterSelection('all')"> Show all</button>
+                  <button class="btn" onclick="filterSelection('Furnished')"> Furnished</button>
+                  <button class="btn" onclick="filterSelection('Gym')"> Gym</button>
+                  <button class="btn" onclick="filterSelection('Laundry')"> Laundry</button>
+                  <button class="btn" onclick="filterSelection('Pets')"> Pets</button>                  
+                  <button class="btn" onclick="filterSelection('Cooling')"> Cooling</button>
+                  <button class="btn" onclick="filterSelection('Parking')"> Parking</button>
+                  <button class="btn" onclick="filterSelection('Garage')"> Garage</button>
+                  <button class="btn" onclick="filterSelection('Property Management')"> Property Management</button>
+                  <button class="btn" onclick="filterSelection('Hot Tub')"> Hot Tub</button>
+                  <button class="btn" onclick="filterSelection('Private Bathroom')"> Private Bathroom</button>
+                  <button class="btn" onclick="filterSelection('Heating')"> Heating</button>
+                </ul>
+              </div>
             </div>
             <div>
               <h5 style="padding-left: 5px">Rent Price</h5>
@@ -207,7 +190,6 @@
         <!--LISTINGS START-->
           <div class="col-md-8">
 
-            <ul id="itemsToFilter">
               <!--Start PHP Call for Listing-->
                 <?php
                 while($row = $result->fetch_assoc())
@@ -217,8 +199,7 @@
               <!--Start PHP Call for Listing-->
           	
               <!--Row For Listings-->
-              <li data-type="place">
-                <div class="box">
+                <div class="box Furnished">
 
                   <!--Left Box-->
                     <div class="col-md-4 one" style="background-color: white;border-style: solid;border-color: gray; max-width: 100%; padding: 0">
@@ -270,24 +251,7 @@
                         </div>
                       </div>		
               		    <div class="row">
-                        <div class="col-md-6" style="text-align: left;">
-                          <span>
-                      		  <input type="hidden" name = "furnished" value = "<?php echo $row["furnished"] ?>" >
-                      		  <input type="hidden" name = "gym" value = "<?php echo $row["gym"] ?>" >
-                      		  <input type="hidden" name = "laundry" value = "<?php echo $row["laundry"] ?>" >
-                      		  <input type="hidden" name = "pets" value = "<?php echo $row["pets"] ?>" >
-                      		  <input type="hidden" name = "cooling" value = "<?php echo $row["cooling"] ?>" >
-                      		  <input type="hidden" name = "parking" value = "<?php echo $row["parking"] ?>" >
-                      		  <input type="hidden" name = "pool" value = "<?php echo $row["pool"] ?>" >
-                      		  <input type="hidden" name = "garage" value = "<?php echo $row["garage"] ?>" >
-                      		  <input type="hidden" name = "propertymanagement" value = "<?php echo $row["propertymanagement"] ?>" >
-                      		  <input type="hidden" name = "hottub" value = "<?php echo $row["hottub"] ?>" >
-                      		  <input type="hidden" name = "privatebathroom" value = "<?php echo $row["privatebathroom"] ?>" >
-                      		  <input type="hidden" name = "heating" value = "<?php echo $row["heating"] ?>" >
-                      		  <input type="hidden" name = "price" value = "<?php echo $row["price"] ?>" >
-                      		  <input type="hidden" name = "squarefoot" value = "<?php echo $row["squarefoot"] ?>" >
-                          </span>
-                        </div>
+                       
                       </div>  		
                       <center>
                         <div class="row">
@@ -454,78 +418,39 @@
 
     <!--Filter Funtions-->
       <script>
-        // My Solution
-          // get all of our list items
-          var itemsToFilter = document.querySelectorAll("#itemsToFilter li");
-            
-          //setup click event handlers on our checkboxes
-          var checkBoxes = document.querySelectorAll(".filterSection li input");
-            
-          for (var i = 0; i < checkBoxes.length; i++) {
-              checkBoxes[i].addEventListener("click", filterItems, false);
-              checkBoxes[i].checked = true;
+      filterSelection("all")
+      function filterSelection(c) {
+        var x, i;
+        x = document.getElementsByClassName("box");
+        if (c == "all") c = "";
+        for (i = 0; i < x.length; i++) {
+          w3RemoveClass(x[i], "show");
+          if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+        }
+      }
+
+      function w3AddClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+          if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+        }
+      }
+
+      function w3RemoveClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+          while (arr1.indexOf(arr2[i]) > -1) {
+            arr1.splice(arr1.indexOf(arr2[i]), 1);     
           }
-            
-          // the event handler!
-          function filterItems(e) {
-              var clickedItem = e.target;
-                
-              if (clickedItem.checked == true) {
-                  hideOrShowItems(clickedItem.value, "hideItem", "showItem");
-              } else if (clickedItem.checked == false) {
-                  hideOrShowItems(clickedItem.value, "showItem", "hideItem");
-              } else {
-                  // deal with the indeterminate state if needed
-              }
-          }
-            
-          // add or remove classes to show or hide our content
-          function hideOrShowItems(itemType, classToRemove, classToAdd) {
-              for (var i = 0; i < itemsToFilter.length; i++) {
-                  var currentItem = itemsToFilter[i];
-                    
-                  if (currentItem.getAttribute("data-type") == itemType) {
-                      removeClass(currentItem, classToRemove);
-                      addClass(currentItem, classToAdd);
-                  }
-              }
-          }
-            
-          //
-          // Helper functions for adding and removing class values
-          //
-          function addClass(element, classToAdd) {
-              var currentClassValue = element.className;
-                  
-              if (currentClassValue.indexOf(classToAdd) == -1) {
-                  if ((currentClassValue == null) || (currentClassValue === "")) {
-                      element.className = classToAdd;
-                  } else {
-                      element.className += " " + classToAdd;
-                  }
-              }
-          }
-                  
-          function removeClass(element, classToRemove) {
-              var currentClassValue = element.className;
-            
-              if (currentClassValue == classToRemove) {
-                  element.className = "";
-                  return;
-              }
-            
-              var classValues = currentClassValue.split(" ");
-              var filteredList = [];
-            
-              for (var i = 0 ; i < classValues.length; i++) {
-                  if (classToRemove != classValues[i]) {
-                      filteredList.push(classValues[i]);
-                  }
-              }
-            
-              element.className = filteredList.join(" ");
-          }
-        // END My Solution
+        }
+        element.className = arr1.join(" ");
+      }
+
+     
       </script>
     <!-- End Filter Funtions-->
 

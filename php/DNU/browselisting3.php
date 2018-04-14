@@ -173,18 +173,18 @@
               <center><h5 style="padding-left: 5px; font-weight: bold;">Listing Filters</h5></center>
             </div>
             <ul id="filterOptions" style="list-style-type: none;">
-              <li class="active"><a href="#" class="all" style="color: black">All</a></li>
-              <li><a href="#" class="Furnished" style="color: black">Furnished</a></li>
-              <li><a href="#" class="Laundry" style="color: black">Laundry</a></li>
-              <li><a href="#" class="Pets" style="color: black">Pets</a></li>
-              <li><a href="#" class="Cooling" style="color: black">Cooling</a></li>
-              <li><a href="#" class="Parking" style="color: black">Parking</a></li>
-              <li><a href="#" class="Pool" style="color: black">Pool</a></li>
-              <li><a href="#" class="Garage" style="color: black">Garage</a></li>
-              <li><a href="#" class="Property Management" style="color: black">Property Management</a></li>
-              <li><a href="#" class="Hot Tub" style="color: black">Hot Tub</a></li>
-              <li><a href="#" class="Private Bathroom" style="color: black">Private Bathroom</a></li>
-              <li><a href="#" class="Heating" style="color: black">Heating</a></li>
+              <li class="active"><a href="#" class="all">All</a></li>
+              <li><a href="#" class="Furnished"><span style="color: black">Furnished</span></a></li>
+              <li><a href="#" class="Laundry">Laundry</a></li>
+              <li><a href="#" class="Pets">Pets</a></li>
+              <li><a href="#" class="Cooling">Cooling</a></li>
+              <li><a href="#" class="Parking">Parking</a></li>
+              <li><a href="#" class="Pool">Pool</a></li>
+              <li><a href="#" class="Garage">Garage</a></li>
+              <li><a href="#" class="Property Management">Property Management</a></li>
+              <li><a href="#" class="Hot Tub">Hot Tub</a></li>
+              <li><a href="#" class="Private Bathroom">Private Bathroom</a></li>
+              <li><a href="#" class="Heating">Heating</a></li>
             </ul>
             <div>
               <ul>
@@ -207,20 +207,20 @@
             <div>
               <ul id="filterOptions" style="list-style-type: none;">
                 <center><h5 style="padding-left: 5px; font-weight: bold;">Availablility</h5></center>
-                <li><a href="#" class="Summer Only" style="color: black">Summer Only</a></li>
-                <li><a href="#" class="Fall Semester" style="color: black">Fall Semester</a></li>
-                <li><a href="#" class="Spring Semester" style="color: black">Spring Semester</a></li>
+                <li><a href="#" class="Summer Only">Summer Only</a></li>
+                <li><a href="#" class="Fall Semester">Fall Semester</a></li>
+                <li><a href="#" class="Spring Semester">Spring Semester</a></li>
               <ul>
             </div>
             <div>
               <ul id="filterOptions" style="list-style-type: none;">
                 <center><h5 style="padding-left: 5px; font-weight: bold;">Locations</h5></center>
-                <li><a href="#" class="Unversity TownHomes" style="color: black">Unversity TownHomes</a></li>
-                <li><a href="#" class="Campus Pointe" style="color: black">Campus Pointe</a></li>
-                <li><a href="#" class="Unversity Edge" style="color: black">Unversity Edge</a></li>
-                <li><a href="#" class="College Towers" style="color: black">College Towers</a></li>
-                <li><a href="#" class="Eagles Landing" style="color: black">Eagles Landing</a></li>
-                <li><a href="#" class="Province" style="color: black">Province</a></li>
+                <li><a href="#" class="Unversity TownHomes">Unversity TownHomes</a></li>
+                <li><a href="#" class="Campus Pointe">Campus Pointe</a></li>
+                <li><a href="#" class="Unversity Edge">Unversity Edge</a></li>
+                <li><a href="#" class="College Towers">College Towers</a></li>
+                <li><a href="#" class="Eagles Landing">Eagles Landing</a></li>
+                <li><a href="#" class="Province">Province</a></li>
               </ul>
             </div>
           </div>

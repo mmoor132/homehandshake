@@ -111,7 +111,7 @@
             <center>
             <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="homepage.php" style="color: white">Home</a></li>
+                <li class=""><a href="homepage.php" style="color: white">Home</a></li>
                 <li><a href="browselisting.php" style="color: white">Browse Listings</a></li>
                 <li class="active"><a href='myaccount.php' style='color: white'>My Account</a></li>";
               </ul>

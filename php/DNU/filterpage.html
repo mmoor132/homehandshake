@@ -84,23 +84,9 @@ ul {
     </li>
 </ul>
  
-<ul id="itemsToFilter">
-    <li data-type="food">Pasta</li>
-    <li data-type="place">Michigan</li>
-    <li data-type="food">Celery</li>
-    <li data-type="place">Westeros</li>
-    <li data-type="musician">Bon Jovi</li>
-    <li data-type="musician">Taylor Swift</li>
-    <li data-type="place">Portland</li>
-    <li data-type="food">Waffles</li>
-    <li data-type="musician">Bono</li>
-    <li data-type="food">Fried Chicken</li>
-    <li data-type="place">New Zealand</li>
-    <li data-type="musician">Bruce Springsteen</li>
-    <li data-type="food">Bananas</li>
-    <li data-type="musician">Beach Boys</li>
-    <li data-type="place">Idaho</li>
-    <li data-type="musician">Justin Bieber</li>
+<ul id = "itemsToFilter" class="itemsToFilter">
+    <li class="food">Pasta</li>
+    <li class="place">Michigan</li>
 </ul>
  
 <script>
@@ -131,9 +117,9 @@ function filterItems(e) {
 // add or remove classes to show or hide our content
 function hideOrShowItems(itemType, classToRemove, classToAdd) {
     for (var i = 0; i < itemsToFilter.length; i++) {
-        var currentItem = itemsToFilter[i];
+        var currentItem = document.getElementsByClassName("itemsToFilter")[i];
           
-        if (currentItem.getAttribute("data-type") == itemType) {
+        if (currentItem == itemType) {
             removeClass(currentItem, classToRemove);
             addClass(currentItem, classToAdd);
         }

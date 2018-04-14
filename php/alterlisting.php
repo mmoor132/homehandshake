@@ -27,11 +27,13 @@ $rent = $_POST["rent"];
 $numofpeople = $_POST["numofpeople"];
 $sdate = $_POST["sdate"];
 $edate = $_POST["edate"];
+$complex = $_POST["complex"];
+$availability = $_POST["availability"];
 $expiration = $_POST["expiration"]; 
 $bio = $_POST["bio"];
 
 // Update Query For Listing
-$stm = "UPDATE listings SET title = '$listtitle', address = '$address', city = '$city', state = '$state', zip = '$zip', housingstyle = '$housingstyle', description = '$bio', roommates = '$numofpeople', price = '$rent', startdate = '$sdate', enddate = 'edate', expiration = '$expiration' WHERE listingid = '$listingid'";
+$stm = "UPDATE listings SET title = '$listtitle', address = '$address', city = '$city', state = '$state', zip = '$zip', housingstyle = '$housingstyle', complex = '$complex' , description = '$bio', roommates = '$numofpeople', price = '$rent', availability = '$availability', startdate = '$sdate', enddate = 'edate', expiration = '$expiration' WHERE listingid = '$listingid'";
 
 // Check for Success
 if ($conn->query($stm) === TRUE) {

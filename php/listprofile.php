@@ -359,7 +359,7 @@
               foreach ($ammenities as $name) {
                 if (isset($name) && $name != "") {
                   echo "$name";
-                  echo "<br>";
+                  echo " ";
                 }
               }
               

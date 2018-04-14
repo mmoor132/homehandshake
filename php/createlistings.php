@@ -152,6 +152,7 @@
                     </div>
                     <div class="col-75">
                       <select name="housingstyle">
+                          <option value="">Select Listing Type</option>
                           <option value="apartment">Apartment Room</option>
                           <option value="house">House</option>
                        </select>
@@ -270,51 +271,64 @@
                     </div>
                   </div>
                   <div class="col-md-4 space">
-                    <!--Blank-->
+                    <div class="col-25">
+                     <label for="complex">Apartment Complex</label>
+                    </div>
+                    <div class="col-75">
+                      <select name="complex">
+                          <option value="">Select complex</option>
+                          <option value="Unversity TownHomes">Unversity TownHomes</option>
+                          <option value="Campus Pointe">Campus Pointe</option>
+                          <option value="University Edge">University Edge</option>
+                          <option value="College Towers">College Towers</option>
+                          <option value="Eagles Landing">Eagles Landing</option>
+                          <option value="Province">Province</option>
+                       </select>
+                    </div>
                   </div>
                 </div>
               <!--End Row 3-->
 
               <!--Row 4-->
-                <div class="row space">
-                  <div class="col-md-4" style="border-style: solid; margin: 2px;">
+                <div class="row space" style="">
+                  <div class="col-md-12" style="border-style: solid; margin: 2px;">
                     <label>Amenities - Check all that apply:</label>
                     <br>
-                    <div style="" class="col-md-4">
+                    <div style="" class="col-md-6" align="middle">
                       <div class="col-75">
-                          <div class="checkbox">
-                            <label><input type="checkbox" name="check_list[]" value="Laundry">Laundry</label>
-                          </div>
-                          <div class="checkbox">
-                            <label><input type="checkbox" name="check_list[]" value="Pets">Pets</label>
-                          </div>
-                          <div class="checkbox">
-                            <label><input type="checkbox" name="check_list[]" value="Cooling">Cooling</label>
-                          </div>
-                          <div class="checkbox">
-                            <label><input type="checkbox" name="check_list[]" value="Parking">Parking</label>
-                          </div>
-                          <div class="checkbox">
-                            <label><input type="checkbox" name="check_list[]" value="Furnished">Furnished</label>
-                          </div>
+                        <div class="checkbox">
+                          <label><input type="checkbox" name="check_list[]" value="Laundry">Laundry</label>
+                        </div>
+                        <div class="checkbox">
+                          <label><input type="checkbox" name="check_list[]" value="Pets">Pets</label>
+                        </div>
+                        <div class="checkbox">
+                          <label><input type="checkbox" name="check_list[]" value="Cooling">Cooling</label>
+                        </div>
+                        <div class="checkbox">
+                          <label><input type="checkbox" name="check_list[]" value="Parking">Parking</label>
+                        </div>
+                        <div class="checkbox">
+                          <label><input type="checkbox" name="check_list[]" value="Furnished">Furnished</label>
+                        </div>
                       </div>
                     </div>
-                    <div style="" class="col-md-8">
-                        <div class="checkbox">
-                          <label><input type="checkbox" name="check_list[]" value="Swimming">Swimming</label>
-                        </div>
-                        <div class="checkbox">
-                          <label><input type="checkbox" name="check_list[]" value="Gym">Gym</label>
-                        </div>
-                        <div class="checkbox">
-                          <label><input type="checkbox" name="check_list[]" value="Property Management">Property Management</label>
-                        </div>
-                        <div class="checkbox">
-                          <label><input type="checkbox" name="check_list[]" value="Hot Tub">Hot Tub</label>
-                        </div>
-                        <div class="checkbox">
-                          <label><input type="checkbox" name="check_list[]" value="Private Bathroom">Private Bathroom</label>
-                        </div>
+                    <div style="" class="col-md-6" align="middle">
+                      <div class="checkbox">
+                        <label><input type="checkbox" name="check_list[]" value="Swimming">Swimming</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input type="checkbox" name="check_list[]" value="Gym">Gym</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input type="checkbox" name="check_list[]" value="Property Management">Property Management</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input type="checkbox" name="check_list[]" value="Hot Tub">Hot Tub</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input type="checkbox" name="check_list[]" value="Private Bathroom">Private Bathroom</label>
+                      </div>
                     </div> 
                   </div>
                 </div>
@@ -322,7 +336,7 @@
 
               <!--Row 5-->
                 <div class="row cent">
-                  <div class="col-md-6 space">
+                  <div class="col-md-4 space">
                     <div class="col-25">
                      <label for="available">Avalibility</label>
                     </div>
@@ -340,8 +354,18 @@
                       <input type="date" id="expiration" name="expiration" placeholder="XX/XX/XXXX">
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <!--Blank-->
+                  <div class="col-md-4 space">
+                    <div class="col-25">
+                     <label for="availability">Term Availability</label>
+                    </div>
+                    <div class="col-75">
+                      <select name="availability">
+                        <option value="">Select Availability</option>
+                        <option value="Fall Semester">Fall Semester</option>
+                        <option value="Spring Semester">Spring Semester</option>
+                        <option value="Summer Semester">Summer Semester</option>
+                       </select>
+                    </div>
                   </div>
                 </div>
               <!--End Row 5-->

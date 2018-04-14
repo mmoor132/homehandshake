@@ -127,7 +127,7 @@
             <center>
             <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="homepage.php" style="color: white">Home</a></li>
+                <li class=""><a href="homepage.php" style="color: white">Home</a></li>
                 <li><a href="browselisting.php" style="color: white">Browse Listings</a></li>
                 <?php
                   if(isset($_SESSION["userid"])){
@@ -308,7 +308,20 @@
                   </div>
                 </div>
                 <div class="col-md-4 space">
-                  <!--Blank-->
+                  <div class="col-25">
+                     <label for="complex">Apartment Complex</label>
+                    </div>
+                    <div class="col-75">
+                      <select name="complex">
+                        <option value='<?php echo $row['complex']?>' selected='selected'><?php echo $row['complex']?></option>
+                        <option value="Unversity TownHomes">Unversity TownHomes</option>
+                        <option value="Campus Pointe">Campus Pointe</option>
+                        <option value="University Edge">University Edge</option>
+                        <option value="College Towers">College Towers</option>
+                        <option value="Eagles Landing">Eagles Landing</option>
+                        <option value="Province">Province</option>
+                       </select>
+                    </div>
                 </div>
               </div>
             <!--End Row 3-->
@@ -383,8 +396,18 @@
                       <input type="date" id="edate" name="edate" value="<?php echo date("Y-d-m", strtotime($row['enddate']));?>">
                     </div>
                   </div>
-                  <div class="col-md-2">
-                    <!--Blank-->
+                  <div class="col-md-4">
+                    <div class="col-25">
+                     <label for="availability">Term Availability</label>
+                    </div>
+                    <div class="col-75">
+                      <select name="availability">
+                        <option value='<?php echo $row['availability']?>' selected='selected'><?php echo $row['availability']?></option>
+                        <option value="Fall Semester">Fall Semester</option>
+                        <option value="Spring Semester">Spring Semester</option>
+                        <option value="Summer Semester">Summer Semester</option>
+                       </select>
+                    </div>
                   </div>
                   <div class="col-md-4">
                     <div class="col-25">

@@ -103,27 +103,10 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
-
-    /*- FILTER OPTIONS -*/
-    ul#filterOptions li a {
-      height: 50px;
-      padding: 0 20px;
-      border: 1px solid #999;
-      background: #cfcfcf;
-      color: #fff;
-      font-weight: bold;
-      line-height: 50px;
-      text-decoration: none;
-      display: block;
-    }
-    ul#filterOptions li a:hover { background: #c9c9c9; }
-    ul#filterOptions li.active a { background: #999; }
-    /*- -*/
-
   </style>
 
 
-  <body>
+  <body onload = "onload()">
 
     <!--Jumbotron code-->
       <div>
@@ -170,64 +153,233 @@
         <!--SIDEBAR START-->
           <div class="col-md-2" style="border-style: solid; ">
             <div>
-              <center><h5 style="padding-left: 5px; font-weight: bold;">Listing Filters</h5></center>
-            </div>
-            <ul id="filterOptions" style="list-style-type: none;">
-              <li class="active"><a href="#" class="all" style="color: black">All</a></li>
-              <li><a href="#" class="Furnished" style="color: black">Furnished</a></li>
-              <li><a href="#" class="Laundry" style="color: black">Laundry</a></li>
-              <li><a href="#" class="Pets" style="color: black">Pets</a></li>
-              <li><a href="#" class="Cooling" style="color: black">Cooling</a></li>
-              <li><a href="#" class="Parking" style="color: black">Parking</a></li>
-              <li><a href="#" class="Pool" style="color: black">Pool</a></li>
-              <li><a href="#" class="Garage" style="color: black">Garage</a></li>
-              <li><a href="#" class="Property Management" style="color: black">Property Management</a></li>
-              <li><a href="#" class="Hot Tub" style="color: black">Hot Tub</a></li>
-              <li><a href="#" class="Private Bathroom" style="color: black">Private Bathroom</a></li>
-              <li><a href="#" class="Heating" style="color: black">Heating</a></li>
-            </ul>
-            <div>
-              <ul>
-                <center><h5 style="padding-left: 5px; font-weight: bold;">Rent Price</h5></center>
-                <div class="slidecontainer">
-                  <input type="range" min="0" max="1000" value="1000" class="slider" id="myRange" style="margin-left: 5px">
-                  <p>Max Cost: <span id="demo"></span></p>
-                </div>
-              <ul>
+              <center><h5 style="padding-left: 5px">Listing Filters</h5></center>
             </div>
             <div>
-              <ul>
-                <center><h5 style="padding-left: 5px; font-weight: bold;">Square Feet</h5></center>
-                <div class="slidecontainer">
-                  <input type="range" min="0" max="1000" value="1000" class="slider" id="myRange2" style="margin-left: 5px">
-                  <p>Max Size: <span id="demo2"></span></p>
-                </div>
-              <ul>
+              <h5 style="padding-left: 5px">Amenities</h5>
+          	  <ul><input type="radio" name = "onoff" id="chkall"	onchange = "checkallFunction()">Check All</ul>
+          	  <ul><input type="radio" name = "onoff" id="unchkall"	onchange = "uncheckallFunction()">UnCheck All</ul>
+              <ul><input type="checkbox" id="furnishedDB" 	onchange = "furnishedFunction()">Furnished</ul>
+              <ul><input type="checkbox" id="gymDB" 		onchange = "gymFunction()">Gym</ul>
+              <ul><input type="checkbox" id="laundryDB" 	onchange = "laundryFunction()">Laundry</ul>
+              <ul><input type="checkbox" id="petsDB" 		onchange = "petsFunction()">Pets</ul>
+              <ul><input type="checkbox" id="coolDB" 		onchange = "coolFunction()">Cooling</ul>
+              <ul><input type="checkbox" id="parkingDB" 	onchange = "parkingFunction()">Parking</ul>
+              <ul><input type="checkbox" id="poolDB" 		onchange = "poolFunction()">Pool</ul>
+              <ul><input type="checkbox" id="garageDB" 		onchange = "garageFunction()">Garage</ul>
+              <ul><input type="checkbox" id="mgmtDB" 		onchange = "mgmtFunction()">Property Management</ul>
+              <ul><input type="checkbox" id="hottubDB" 		onchange = "hottubFunction()">Hot Tub</ul>
+              <ul><input type="checkbox" id="pvtbroomDB" 	onchange = "pvtbroomFunction()">Private Bathroom</ul>
+              <ul><input type="checkbox" id="heatDB"		onchange = "heatFunction()">Heating</ul>
+            </div>
+
+            <!--Filter Funtions-->
+            	<script>
+              	function onload(){
+              		chkall.onchange.checked = true;
+              		chkall.checked = true;
+              		checkallFunction();
+              	}
+              	function checkallFunction(){
+              		if(chkall.onchange.checked = true){
+              			furnishedDB.checked = true; gymDB.checked = true; laundryDB.checked = true;
+              			petsDB.checked = true; coolDB.checked = true; parkingDB.checked = true;
+              			poolDB.checked = true; garageDB.checked = true; mgmtDB.checked = true;
+              			hottubDB.checked = true; pvtbroomDB.checked = true; pvtbroomDB.checked = true;
+              			heatDB.checked = true; sumDB.checked = true;
+              			fallDB.checked = true; spngDB.checked = true; twnhmDB.checked = true;
+              			cpntDB.checked = true; pvncDB.checked = true; uedgDB.checked = true;
+              			ctowDB.checked = true; eaglndDB.checked = true; sumDB.checked = true; 
+              			fallDB.checked = true; spngDB.checked = true; twnhmDB.checked = true; 
+              			cpntDB.checked = true; pvncDB.checked = true; uedgDB.checked = true; 
+              			ctowDB.checked = true; eaglndDB.checked = true; myRange.value = "1000";
+              			myRange2.value = "1000";
+              		}	
+              	}
+              	function uncheckallFunction(){
+              		if(chkall.onchange.checked = true){
+              			furnishedDB.checked = false; gymDB.checked = false; laundryDB.checked = false;
+              			petsDB.checked = false; coolDB.checked = false; parkingDB.checked = false;
+              			poolDB.checked = false; garageDB.checked = false; mgmtDB.checked = false;
+              			hottubDB.checked = false; pvtbroomDB.checked = false; pvtbroomDB.checked = false;
+              			heatDB.checked = false; sumDB.checked = false;
+              			fallDB.checked = false; spngDB.checked = false; twnhmDB.checked = false;
+              			cpntDB.checked = false; pvncDB.checked = false; uedgDB.checked = false;
+              			ctowDB.checked = false; eaglndDB.checked = false; sumDB.checked = false; 
+              			fallDB.checked = false; spngDB.checked = false; twnhmDB.checked = false; 
+              			cpntDB.checked = false; pvncDB.checked = false; uedgDB.checked = false; 
+              			ctowDB.checked = false; eaglndDB.checked = false; myRange.value = "0";
+              			myRange2.value = "0";
+              		}	
+              	}
+              	function heatFunction(){
+              		if(heatDB.onchange.checked != true){
+              			var x = document.getElementByName("heating");
+      					for(var i = 1; i <= 7; ++i){
+      						if(document.getElementById("listingid") == i){
+      						if (x.value != "heat"){
+      								y.style.display = "none";
+      						}}
+              			}
+      					}
+              		}
+              	}
+              	function pvtbroomFunction(){
+              		if(pvtbroomDB.onchange.checked = true){
+              			var x = document.getElementsByName("privatebathroom")[0];
+              			if (x.value != "Private Bathroom"){
+              				var y = document.getElementById("hideRow"); 
+              				y.style.display = "none";
+              			}
+              		}
+              	}
+              	function hottubFunction(){
+              		if(hottubDB.onchange.checked != true){
+              			var x = document.getElementsByName("hottub")[0];
+              			if (x.value != "Hot Tub"){
+              				var y = document.getElementById("hideRow"); 
+              				y.style.display = "none";
+              			}
+              		}
+              	}
+              	function mgmtFunction(){
+              		if(mgmtDB.onchange.checked != true){
+              			var x = document.getElementsByName("propertymanagement")[0];
+              			if (x.value != "Property Management"){
+              				var y = document.getElementById("hideRow"); 
+              				y.style.display = "none";
+              			}
+              		}
+              	}
+              	function garageFunction(){
+              		if(garageDB.onchange.checked != true){
+              			var x = document.getElementsByName("garage")[0];
+              			if (x.value != "Garage"){
+              				var y = document.getElementById("hideRow"); 
+              				y.style.display = "none";
+              			}
+              		}
+              	}
+              	function poolFunction(){
+              		if(poolDB.onchange.checked != true){
+              			var x = document.getElementsByName("pool")[0];
+              			if (x.value != "Pool"){
+              				var y = document.getElementById("hideRow"); 
+              				y.style.display = "none";
+              			}
+              		}
+              	}
+              	function parkingFunction(){
+              		if(parkingDB.onchange.checked != true){
+              			var x = document.getElementsByName("parking")[0];
+              			if (x.value != "Parking"){
+              				var y = document.getElementById("hideRow"); 
+              				y.style.display = "none";
+              			}
+              		}
+              	}
+              	function coolFunction(){
+              		if(coolDB.onchange.checked != true){
+              			var x = document.getElementsByName("cooling")[0];
+              			if (x.value != "Cooling"){
+              				var y = document.getElementById("hideRow"); 
+              				y.style.display = "none";
+              			}
+              		}
+              	}
+              	function petsFunction(){
+              		if(petsDB.onchange.checked != true){
+              			var x = document.getElementsByName("pets")[0];
+              			if (x.value != "Pets"){
+              				var y = document.getElementById("hideRow"); 
+              				y.style.display = "none";
+              			}
+              		}
+              	}
+              	function laundryFunction(){
+              		if(laundryDB.onchange.checked != true){
+              			var x = document.getElementsByName("laundry")[0];
+              			if (x.value != "Laundry"){
+              				var y = document.getElementById("hideRow"); 
+              				y.style.display = "none";
+              			}
+              		}
+              	}
+              	function gymFunction(){
+              		if(gymDB.onchange.checked != true){
+              			var x = document.getElementsByName("gym")[0];
+              			if (x.value != "Gym"){
+              				var y = document.getElementById("hideRow"); 
+              				y.style.display = "none";
+              			}
+              		}
+              	}
+              	function furnishedFunction(){
+              		if(furnishedDB.onchange.checked != true){
+              			var x = document.getElementsByName("furnished")[0];
+              			if (x.value != "Furnished"){
+              				var y = document.getElementById("hideRow"); 
+              				y.style.display = "none";
+              			}
+              		}
+              	}
+              	function chk4price(){
+              		var y = myRange.value;
+              		var z = myRange2.value;	
+              		if(q > y){
+              			document.getElementById(hideRow).style.display === "none";
+              		}
+              	}
+              	function chk4size(){
+              		var q = document.getElementsByName("14").value;
+              		var r = document.getElementsByName("15").value;
+              		if(r > z){
+              			document.getElementById(hideRow).style.display === "none";
+              		}
+              	}
+              	function myFunction() { 
+              	var x = document.getElementById("hideRow");
+              	if (x.style.display === "none") {
+              		x.style.display = "block";} else { x.style.display = "none"; 
+              		}
+              	}
+            	</script>
+            <!-- End Filter Funtions-->
+
+            <div>
+              <h5 style="padding-left: 5px">Rent Price</h5>
+              <div class="slidecontainer">
+                <input type="range" min="0" max="1000" value="1000" class="slider" id="myRange" style="margin-left: 5px">
+                <p>Max Cost: <span id="demo"></span></p>
+              </div>
             </div>
             <div>
-              <ul id="filterOptions" style="list-style-type: none;">
-                <center><h5 style="padding-left: 5px; font-weight: bold;">Availablility</h5></center>
-                <li><a href="#" class="Summer Only" style="color: black">Summer Only</a></li>
-                <li><a href="#" class="Fall Semester" style="color: black">Fall Semester</a></li>
-                <li><a href="#" class="Spring Semester" style="color: black">Spring Semester</a></li>
-              <ul>
+              <h5 style="padding-left: 5px">Square Feet</h5>
+              <div class="slidecontainer">
+                <input type="range" min="0" max="1000" value="1000" class="slider" id="myRange2" style="margin-left: 5px">
+                <p>Max Size: <span id="demo2"></span></p>
+              </div>
             </div>
             <div>
-              <ul id="filterOptions" style="list-style-type: none;">
-                <center><h5 style="padding-left: 5px; font-weight: bold;">Locations</h5></center>
-                <li><a href="#" class="Unversity TownHomes" style="color: black">Unversity TownHomes</a></li>
-                <li><a href="#" class="Campus Pointe" style="color: black">Campus Pointe</a></li>
-                <li><a href="#" class="Unversity Edge" style="color: black">Unversity Edge</a></li>
-                <li><a href="#" class="College Towers" style="color: black">College Towers</a></li>
-                <li><a href="#" class="Eagles Landing" style="color: black">Eagles Landing</a></li>
-                <li><a href="#" class="Province" style="color: black">Province</a></li>
-              </ul>
+              <h5 style="padding-left: 5px">Availablility</h5>
+              <ul><input type="checkbox" id = "sumDB">Summer Only</ul>
+              <ul><input type="checkbox" id = "fallDB">Fall Semester</ul>
+              <ul><input type="checkbox" id = "spngDB">Spring Semester</ul>
+            </div>
+            <div>
+              <h5 style="padding-left: 5px">Locations</h5>
+              <ul><input type="checkbox" id = "twnhmDB">Unversity TownHomes</ul>
+              <ul><input type="checkbox" id = "cpntDB">Campus Pointe</ul>
+              <ul><input type="checkbox" id = "pvncDB">Province</ul>
+              <ul><input type="checkbox" id = "uedgDB">Unversity Edge</ul>
+              <ul><input type="checkbox" id = "ctowDB">College Towers</ul>
+              <ul><input type="checkbox" id = "eaglndDB">Eagles Landing</ul>
             </div>
           </div>
         <!--SIDEBAR END-->
 
         <!--LISTINGS START-->
-          <div id="ourHolder" class="col-md-8">
+          <div class="col-md-8">
 
             <!--Start PHP Call for Listing-->
               <?php
@@ -236,9 +388,9 @@
                 
               ?>
             <!--Start PHP Call for Listing-->
-          
+        	
             <!--Row For Listings-->
-              <div class="box <?php echo $row['furnished']; echo " "; echo $row["gym"]; echo " "; echo $row["laundry"]; echo " "; echo $row["pets"]; echo " "; echo $row["cooling"]; echo " ";  echo $row["parking"]; echo " "; echo $row["pool"]; echo " "; echo $row["garage"]; echo " ";  echo $row["propertymanagement"]; echo " ";  echo $row["hottub"]; echo " "; echo $row["privatebathroom"]; echo " ";  echo $row["heating"];?>" style="margin: 1px;">
+              <div class="box" id="<?php echo $row['listingid']; ?>" style="margin: 1px;">
 
                 <!--Left Box-->
                   <div class="col-md-4 one" style="background-color: white;border-style: solid;border-color: gray; max-width: 100%; padding: 0">
@@ -272,7 +424,7 @@
                       <div class="col-md-6" style="text-align: left;">
                         <span><?php echo $row["squarefoot"] ?></span>
                       </div>
-                    </div>        
+                    </div>    		
                     <div class="row">
                       <div class="col-md-6" style="text-align: left;">
                         <span>Roommates: </span>
@@ -288,7 +440,27 @@
                       <div class="col-md-6" style="text-align: left;">
                         <span>Test Complex</span>
                       </div>
-                    </div>    
+                    </div>		
+            		    <div class="row">
+                      <div class="col-md-6" style="text-align: left;">
+                        <span>
+                    		  <input type="hidden" name = "furnished" value = "<?php echo $row["furnished"] ?>" >
+                    		  <input type="hidden" name = "gym" value = "<?php echo $row["gym"] ?>" >
+                    		  <input type="hidden" name = "laundry" value = "<?php echo $row["laundry"] ?>" >
+                    		  <input type="hidden" name = "pets" value = "<?php echo $row["pets"] ?>" >
+                    		  <input type="hidden" name = "cooling" value = "<?php echo $row["cooling"] ?>" >
+                    		  <input type="hidden" name = "parking" value = "<?php echo $row["parking"] ?>" >
+                    		  <input type="hidden" name = "pool" value = "<?php echo $row["pool"] ?>" >
+                    		  <input type="hidden" name = "garage" value = "<?php echo $row["garage"] ?>" >
+                    		  <input type="hidden" name = "propertymanagement" value = "<?php echo $row["propertymanagement"] ?>" >
+                    		  <input type="hidden" name = "hottub" value = "<?php echo $row["hottub"] ?>" >
+                    		  <input type="hidden" name = "privatebathroom" value = "<?php echo $row["privatebathroom"] ?>" >
+                    		  <input type="hidden" name = "heating" value = "<?php echo $row["heating"] ?>" >
+                    		  <input type="hidden" name = "price" value = "<?php echo $row["price"] ?>" >
+                    		  <input type="hidden" name = "squarefoot" value = "<?php echo $row["squarefoot"] ?>" >
+                        </span>
+                      </div>
+                    </div>  		
                     <center>
                       <div class="row">
                         <div class="" style="text-align: left;">
@@ -431,32 +603,6 @@
         }
       </script>
     <!-- End Sticky Navbar script -->
-
-    <!--Filter Script-->
-      <script>
-      $(document).ready(function() {
-        $('#filterOptions li a').click(function() {
-          // fetch the class of the clicked item
-          var ourClass = $(this).attr('class');
-          // reset the active class on all the buttons
-          $('#filterOptions li').removeClass('active');
-          // update the active state on our clicked button
-          $(this).parent().addClass('active');
-          if(ourClass == 'all') {
-            // show all our items
-            $('#ourHolder').children('div.item').show();
-          }
-          else {
-            // hide all elements that don't share ourClass
-            $('#ourHolder').children('div:not(.' + ourClass + ')').hide();
-            // show all elements that do share ourClass
-            $('#ourHolder').children('div.' + ourClass).show();
-          }
-          return false;
-        });
-      });
-      </script>
-    <!--END Filter Script-->
 
     <!--Filter Slider Script-->
       <script>
