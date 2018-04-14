@@ -168,6 +168,7 @@
       <div class="row">
 
         <!--SIDEBAR START-->
+          <center>
           <div class="col-md-2" style="border-style: solid; ">
             <div>
               <center><h5 style="padding-left: 5px; font-weight: bold;">Listing Filters</h5></center>
@@ -224,6 +225,7 @@
               </ul>
             </div>
           </div>
+          </center>
         <!--SIDEBAR END-->
 
         <!--LISTINGS START-->
