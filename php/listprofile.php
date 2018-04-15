@@ -229,6 +229,7 @@
                   <div id="myModal" class="modal">
                     <!-- Modal content -->
                     <div class="modal-content">
+                      <span class="close">&times;</span>
                       <?php
                        while($row = $result->fetch_assoc())
                         {
@@ -249,7 +250,6 @@
                           }
                         }
                       ?>
-                      <span class="close">&times;</span>
                     </div>
                   </div>
                 <!--END The Modal-->
