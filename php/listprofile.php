@@ -1,4 +1,12 @@
 <?php
+  $servername = "localhost";
+  $username = "administrator";
+  $password = "";
+  $dbname = "homehandshake";
+
+  // Create connection
+  $conn = new mysqli($servername, $username, $password, $dbname);
+
   // Start Session
   session_start();
 
@@ -34,6 +42,14 @@
   $floornumber = $_SESSION['floornumber'] ;
   $heating = $_SESSION['heating'] ;
 
+  // Query For getting contact information
+    $stm = $conn->prepare("SELECT fname, lname, phone, email FROM users WHERE userid = '1'");
+
+    // Execute Query
+    $stm->execute();
+
+    // Assign Result
+    $result = $stm->get_result();
 ?>
 
 <!Doctype html>
@@ -213,8 +229,27 @@
                   <div id="myModal" class="modal">
                     <!-- Modal content -->
                     <div class="modal-content">
+                      <?php
+                       while($row = $result->fetch_assoc())
+                        {
+                          if(isset($_SESSION["userid"])){
+                      ?> 
+                        <p>Leasor: <?php echo $row["fname"]; echo " "; echo $row["lname"]; ?></p>
+                        <br>
+                        <p>Phone: <?php echo $row["phone"]; ?></p>
+                        <br>
+                        <p>E-Mail: <?php echo $row["email"];?></p>
+                      <?php
+                        } else {
+                          echo "<center>
+                                <br>
+                                <h5>Please Login to view Leasor's Contact Information.
+                                <br>
+                                </center>";
+                          }
+                        }
+                      ?>
                       <span class="close">&times;</span>
-                      
                     </div>
                   </div>
                 <!--END The Modal-->
@@ -486,33 +521,3 @@
 
   </body>
 </html>
-
-<!--<?php
-                      // Query For Active Listing
-                      $stm = $conn->prepare("SELECT fname, lname, phone, email FROM users WHERE userid = '1';");
-
-                      // Execute Query
-                      $stm->execute();
-
-                      // Assign Result
-                      $result = $stm->get_result();
-                       
-                      while($row = $result->fetch_assoc())
-                      {
-                        if(isset($_SESSION["userid"])){
-                     ?> 
-                      <p>Leasor: <?php echo $row["fname"]; echo " "; echo $row["lname"]; ?></p>
-                      <br>
-                      <p>Phone: <?php echo $row["phone"]; ?></p>
-                      <br>
-                      <p>E-Mail: <?php echo $row["email"];?></p>";
-                      <?php
-                        } else {
-                          echo "<center>
-                                <br>
-                                <h5>Please Login to view Leasor's Contact Information.
-                                <br>
-                                </center>";
-                        }
-                      }
-                      ?> -->

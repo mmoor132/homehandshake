@@ -187,6 +187,7 @@
               <li><a href="#" class="Private Bathroom" style="color: black">Private Bathroom</a></li>
               <li><a href="#" class="Heating" style="color: black">Heating</a></li>
             </ul>
+            <br>
             <div>
               <ul>
                 <center><h5 style="padding-left: 5px; font-weight: bold;">Rent Price</h5></center>
@@ -196,6 +197,7 @@
                 </div>
               <ul>
             </div>
+            <br>
             <div>
               <ul>
                 <center><h5 style="padding-left: 5px; font-weight: bold;">Square Feet</h5></center>
@@ -205,6 +207,7 @@
                 </div>
               <ul>
             </div>
+            <br>
             <div>
               <ul id="filterOptions" style="list-style-type: none;">
                 <center><h5 style="padding-left: 5px; font-weight: bold;">Availablility</h5></center>
@@ -213,6 +216,7 @@
                 <li><a href="#" class="Spring Semester" style="color: black">Spring Semester</a></li>
               <ul>
             </div>
+            <br>
             <div>
               <ul id="filterOptions" style="list-style-type: none;">
                 <center><h5 style="padding-left: 5px; font-weight: bold;">Locations</h5></center>
@@ -229,7 +233,7 @@
         <!--SIDEBAR END-->
 
         <!--LISTINGS START-->
-          <div id="ourHolder" class="col-md-8">
+          <div id="ourHolder" class="all col-md-8">
 
             <!--Start PHP Call for Listing-->
               <?php
