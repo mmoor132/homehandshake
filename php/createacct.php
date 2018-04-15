@@ -53,7 +53,10 @@ else{
 
 }
 
-// Clost DB Connection
+//Return to Account
+header("location: myaccount.php");
+
+// Close DB Connection
 $conn->close();
 
 ?>

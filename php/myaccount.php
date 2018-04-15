@@ -138,10 +138,18 @@
       <center>
       <!--Row 1-->
         <h3>My Active Listings</h3>
+        <?php
+          if (!isset($listingid)) {
+            echo "<br>";
+            echo "<h4>Start By Creating Your Listing!!</h4>";
+            echo "<br>";
+          }
+          else{
+        ?>
         <div class="container-fluid" style="background-color: grey; border-style: solid; margin: 1px;">
           <div class="row" style="margin: 1px;">
             <div class="col-md-4" style="background-color: white;border-style: solid;border-color: gray; padding: 0; max-width: 50%">
-              <img src="<?php echo $picture ?>" style="max-width: 100% ">
+              <img src="<?php echo $picture ?>" style="max-width: 100%;">
             </div>
 
             <div class="col-md-4" style="background-color: white;border-style: solid;border-color: gray">
@@ -198,12 +206,24 @@
           </div>
           <br>
         </div>
+        <?php
+          }
+
+        ?>
       <!--END Row 1-->
 
       <br>
 
       <!--Row 2-->
         <h3>My Favorites</h3>
+        <?php
+          if (!isset($listingid)) {
+            echo "<br>";
+            echo "<h4>Start Adding Your Favorites!!</h4>";
+            echo "<br>";
+          }
+          else{
+        ?>
         <div class="box" style="background-color: grey; border-style: solid; margin: 2px;">         
         
           <div class="row">
@@ -315,6 +335,9 @@
             <br>
           </div>
         </div>
+        <?php
+          }
+        ?>
       <!--END Row 2-->
 
       <!--ROW 3-->
@@ -349,7 +372,7 @@
             <div class="col-md-4" style="background-color: white;border-style: solid;border-color: gray">
               <center>
               <form  method="post" action="updateaccount.php">
-                <input type="hidden" name="userid" value="<?php echo $row['username'] ?>">
+                <input type="hidden" name="userid" value="<?php echo $userid ?>">
                 <button style="margin: 2px; width: 50%" type="submit" name="submit" value="Submit">Update Account</button>
               </form>
               <form  method="post" action="deleteaccount.php">

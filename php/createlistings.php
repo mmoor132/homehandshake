@@ -267,7 +267,7 @@
                      <label for="numofpeople">Number of Roommates</label>
                     </div>
                     <div class="col-75">
-                      <input type="number" id="numofpeople" name="numofpeople" min = "1" max = "10" style="width: 50%">
+                      <input type="number" id="numofpeople" name="numofpeople" min = "0" max = "10" style="width: 50%">
                     </div>
                   </div>
                   <div class="col-md-4 space">
@@ -378,7 +378,7 @@
                      <label for="description">Listing Description</label>
                     </div>
                     <div class="col-75" style="height: 75%">
-                      <textarea  style="width: 75%; height: 75%" name="bio" placeholder="Description of Listing..."></textarea>
+                      <textarea type="text" style="width: 75%; height: 75%" name="bio" placeholder="Description of Listing..."></textarea>
                     </div>
                   </div>
                   </center>
@@ -390,15 +390,25 @@
                   <center>
                     <h5 style="font-weight: bold;">Upload Your Listing's Pictures</h5>
                     <div class="col-md-6 space">
+                      <label for="description">Picture 1</label>
+                      <br>
                       <input type="file" name="fileToUpload" id="fileToUpload">
                       <br>
+                      <label for="description">Picture 2</label>
+                      <br>
                       <input type="file" name="fileToUpload2" id="fileToUpload2">
+                      <br>
+                      <label for="description">Picture 3</label>
                       <br>
                       <input type="file" name="fileToUpload3" id="fileToUpload3">
                       <br>
                     </div>
                     <div class="col-md-6 space">
+                      <label for="description">Picture 4</label>
+                      <br>
                       <input type="file" name="fileToUpload4" id="fileToUpload4">
+                      <br>
+                      <label for="description">Picture 5</label>
                       <br>
                       <input type="file" name="fileToUpload5" id="fileToUpload5">
                       <br>

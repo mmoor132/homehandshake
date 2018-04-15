@@ -5,9 +5,12 @@
     $dbname = "homehandshake";
 
     session_start();
+    $userid = $_SESSION["userid"];
+
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
+
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -30,8 +33,8 @@
     $bio = $_POST["bio"];
 
     // SQL Insert for Listings Table
-    $sql = "INSERT INTO listings (userid, title, address, city, state, zip, housingstyle, complex, description, roommates, numofroom, price, squarefoot, addeddate, startdate, enddate, expiration)
-    VALUES ('$userid','$listtitle', '$address', '$city', '$state', '$zip', '$housingstyle', '$complex'. '$bio','$numofpeople', '$rooms', '$rent', '$squarefoot', '$availability', '$sdate', '$edate', '$expiration')";
+    $sql = "INSERT INTO listings (userid, title, address, city, state, zip, housingstyle, complex, description, roommates, price, availability, startdate, enddate, expiration)
+    VALUES ('$userid','$listtitle', '$address', '$city', '$state', '$zip', '$housingstyle', '$complex', '$bio','$numofpeople', '$rent', '$availability', '$sdate', '$edate', '$expiration')";
 
 
     // Check for Success
@@ -143,7 +146,7 @@
         $uploadOk = 0;
     }
     // Check file size
-    if ($_FILES["fileToUpload"]["size"] > 500000) {
+    if ($_FILES["fileToUpload"]["size"] > 900000000) {
         echo "Sorry, your file is too large.";
         $uploadOk = 0;
     }
@@ -189,7 +192,7 @@
         $uploadOk = 0;
     }
     // Check file size
-    if ($_FILES["fileToUpload2"]["size"] > 500000) {
+    if ($_FILES["fileToUpload2"]["size"] > 900000000) {
         echo "Sorry, your file is too large.";
         $uploadOk = 0;
     }
@@ -235,7 +238,7 @@
         $uploadOk = 0;
     }
     // Check file size
-    if ($_FILES["fileToUpload3"]["size"] > 500000) {
+    if ($_FILES["fileToUpload3"]["size"] > 900000000) {
         echo "Sorry, your file is too large.";
         $uploadOk = 0;
     }
@@ -281,7 +284,7 @@
         $uploadOk = 0;
     }
     // Check file size
-    if ($_FILES["fileToUpload4"]["size"] > 500000) {
+    if ($_FILES["fileToUpload4"]["size"] > 900000000) {
         echo "Sorry, your file is too large.";
         $uploadOk = 0;
     }
@@ -327,7 +330,7 @@
         $uploadOk = 0;
     }
     // Check file size
-    if ($_FILES["fileToUpload5"]["size"] > 500000) {
+    if ($_FILES["fileToUpload5"]["size"] > 900000000) {
         echo "Sorry, your file is too large.";
         $uploadOk = 0;
     }
@@ -370,6 +373,9 @@
     } else {
         echo "Error: " . $s . "<br>" . $conn->error;
     }
+
+    //Return to Account
+    header("location: myaccount.php");
 
     // Clost DB Connection
     $conn->close();

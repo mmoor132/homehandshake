@@ -134,7 +134,7 @@ if(basename($_FILES["fileToUpload"]["name"]) != NULL){
       $uploadOk = 0;
   }
   // Check file size
-  if ($_FILES["fileToUpload"]["size"] > 500000) {
+  if ($_FILES["fileToUpload"]["size"] > 900000000) {
       echo "Sorry, your file is too large.";
       $uploadOk = 0;
   }
@@ -191,7 +191,7 @@ if(basename($_FILES["fileToUpload2"]["name"]) != NULL){
       $uploadOk = 0;
   }
   // Check file size
-  if ($_FILES["fileToUpload2"]["size"] > 500000) {
+  if ($_FILES["fileToUpload2"]["size"] > 900000000) {
       echo "Sorry, your file is too large.";
       $uploadOk = 0;
   }
@@ -248,7 +248,7 @@ if(basename($_FILES["fileToUpload3"]["name"]) != NULL){
       $uploadOk = 0;
   }
   // Check file size
-  if ($_FILES["fileToUpload3"]["size"] > 500000) {
+  if ($_FILES["fileToUpload3"]["size"] > 900000000) {
       echo "Sorry, your file is too large.";
       $uploadOk = 0;
   }
@@ -305,7 +305,7 @@ if(basename($_FILES["fileToUpload4"]["name"]) != NULL){
       $uploadOk = 0;
   }
   // Check file size
-  if ($_FILES["fileToUpload4"]["size"] > 500000) {
+  if ($_FILES["fileToUpload4"]["size"] > 900000000) {
       echo "Sorry, your file is too large.";
       $uploadOk = 0;
   }
@@ -363,7 +363,7 @@ if(basename($_FILES["fileToUpload5"]["name"])!= NULL){
       $uploadOk = 0;
   }
   // Check file size
-  if ($_FILES["fileToUpload5"]["size"] > 500000) {
+  if ($_FILES["fileToUpload5"]["size"] > 900000000) {
       echo "Sorry, your file is too large.";
       $uploadOk = 0;
   }

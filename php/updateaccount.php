@@ -8,6 +8,8 @@
   //Session Start
   session_start();
 
+  $userid = $_POST["userid"];
+
   // Create connection
   $conn = new mysqli($servername, $username, $password, $dbname);
 

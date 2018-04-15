@@ -109,7 +109,7 @@
   <body>
     <!--Jumbotron code-->
       <div>
-        <img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%; height: 100%;">
+        <img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%; height: 50%;">
       </div>
     <!--END Jumbotron code-->
 
@@ -168,7 +168,6 @@
               <?php
                 while($row = $result->fetch_assoc())
                 {
-                  
               ?>
             <!--PHP For Details-->
               
@@ -304,7 +303,7 @@
                    <label for="numofpeople">Number of Roommates</label>
                   </div>
                   <div class="col-75">
-                    <input type="number" id="numofpeople" name="numofpeople" min = "1" max = "10" style="width: 50%" value="<?php echo $row['roommates'] ?>">
+                    <input type="number" id="numofpeople" name="numofpeople" min = "0" max = "10" style="width: 50%" value="<?php echo $row['roommates'] ?>">
                   </div>
                 </div>
                 <div class="col-md-4 space">
@@ -329,18 +328,25 @@
             <!--Row 4-->
               <div class="row space">
                 <?php
-                // Query For Active Listing
-                $st = $conn->prepare("SELECT * FROM amenities
-                  WHERE listingid = '$listingid' ");
+                $availability = $row["availability"];
+                $enddate = $row["enddate"];
+                $startdate = $row["startdate"];
+                $expiration = $row["expiration"];
+                $description = $row["description"];
+                ?>
+                <?php
+                  // Query For Active Listing
+                  $st = $conn->prepare("SELECT * FROM amenities
+                    WHERE listingid = '$listingid' ");
 
-                // Execute Query
-                $st->execute();
+                  // Execute Query
+                  $st->execute();
 
-                // Get Results
-                $result = $st->get_result();
+                  // Get Results
+                  $result = $st->get_result();
 
-                while($row = $result->fetch_assoc())
-                {
+                  while($row = $result->fetch_assoc())
+                  {
                 ?>
                 <div class="col-md-4" style="border-style: solid; margin: 2px;">
                   <label>Amenities - Check all that apply:</label>
@@ -391,9 +397,9 @@
                      <label for="available">Avalibility</label>
                     </div>
                     <div class="col-75">
-                      <input type="date" id="sdate" name="sdate" value="<?php echo date("Y-d-m", strtotime($row['startdate']));?>"> 
+                      <input type="date" id="sdate" name="sdate" value="<?php echo date("m", strtotime("$startdate"));?>"> 
                       <span> to: </span>
-                      <input type="date" id="edate" name="edate" value="<?php echo date("Y-d-m", strtotime($row['enddate']));?>">
+                      <input type="date" id="edate" name="edate" value="<?php echo date("Y-d-m", strtotime("$enddate"));?>">
                     </div>
                   </div>
                   <div class="col-md-4">
@@ -402,7 +408,7 @@
                     </div>
                     <div class="col-75">
                       <select name="availability">
-                        <option value='<?php echo $row['availability']?>' selected='selected'><?php echo $row['availability']?></option>
+                        <option value="<?php echo "$availability"?>" selected='selected'><?php echo "$availability"?></option>
                         <option value="Fall Semester">Fall Semester</option>
                         <option value="Spring Semester">Spring Semester</option>
                         <option value="Summer Semester">Summer Semester</option>
@@ -414,7 +420,7 @@
                      <label for="expiration">Listing Expiration:</label>
                     </div>
                     <div class="col-75">
-                      <input type="date" id="expiration" name="expiration" value="<?php echo date("Y-d-m", strtotime($row['expiration']));?>">
+                      <input type="date" id="expiration" name="expiration" value="<?php echo date("Y-d-m", strtotime("$expiration"));?>">
                     </div>
                   </div>
                 </div>
@@ -429,18 +435,18 @@
                    <label for="description">Listing Description</label>
                   </div>
                   <div class="col-75" style="height: 75%">
-                    <textarea  style="width: 75%; height: 75%" name="bio" value="<?php echo $row['description'] ?>"></textarea>
+                    <textarea name="bio" style="width: 75%; height: 75%"><?php echo "$description" ?></textarea>
                   </div>
                 </div>
                 </center>
               </div>
             <!--End Row 6-->
 
-            <!--END PHP For Pictures-->
+            <!--END PHP For Details-->
               <?php
               }
               ?>
-            <!--END PHP For Pictures-->
+            <!--END PHP For Details-->
 
             <!--PHP For Pictures-->
               <?php 
@@ -481,27 +487,27 @@
                     <div class="col-md-4 space">
                       <h5>Picture 1</h5>
                         <br>
-                          <img src="<?php echo $row['pic1'] ?>" style="max-width: 75% ">
+                          <img src="<?php echo $row['pic1'] ?>" style="max-width: 75%; transform: rotate(90deg);">
                         <br>
                       <h5>Picture 4</h5>
                         <br>
-                          <img src="<?php echo $row['pic4'] ?>" style="max-width: 75% ">
+                          <img src="<?php echo $row['pic4'] ?>" style="max-width: 75%; transform: rotate(90deg); ">
                         <br>
                     </div>
                     <div class="col-md-4 space">
                       <h5>Picture 2</h5>
                         <br>
-                          <img src="<?php echo $row['pic2'] ?>" style="max-width: 75% ">
+                          <img src="<?php echo $row['pic2'] ?>" style="max-width: 75%; transform: rotate(90deg); ">
                         <br>
                        <h5>Picture 5</h5>
                         <br>
-                          <img src="<?php echo $row['pic5'] ?>" style="max-width: 75% ">
+                          <img src="<?php echo $row['pic5'] ?>" style="max-width: 75%; transform: rotate(90deg);">
                         <br>
                     </div>
                     <div class="col-md-4 space">
                       <h5>Picture 3</h5>
                         <br>
-                          <img src="<?php echo $row['pic3'] ?>" style="max-width: 75% ">
+                          <img src="<?php echo $row['pic3'] ?>" style="max-width: 75%; transform: rotate(90deg); ">
                         <br>
                      
                     </div>

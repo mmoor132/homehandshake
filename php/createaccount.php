@@ -108,7 +108,7 @@
     <!-- END of Title-->
 
     <!--Create Profile Div 1-->
-      <form action="createaccount.php" method="post" enctype = "multipart/form-data">
+      <form action="createacct.php" method="post" enctype = "multipart/form-data">
         <center>
           <div class="container-fluid" style="background-color: grey; border-style: solid; margin: 2px;">
             <br>

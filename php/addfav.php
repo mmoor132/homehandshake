@@ -16,7 +16,7 @@
 
 	// Gets Value from Browse Listing
 	$listingid = $_POST["listingid"];
-	$userid = '3';
+	$userid = $_POST["userid"];
 
 	if(isset($userid) && $userid != 0){
 

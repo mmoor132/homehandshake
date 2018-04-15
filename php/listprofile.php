@@ -14,6 +14,7 @@
   $numofroom = $_SESSION['numofroom'] ;
   $startdate = $_SESSION['startdate'] ;
   $enddate = $_SESSION['enddate'] ;
+  $description = $_SESSION['description'] ;
   $pic1 = $_SESSION['pic1'] ;
   $pic2 = $_SESSION['pic2'] ;
   $pic3 = $_SESSION['pic3'] ;
@@ -213,21 +214,7 @@
                     <!-- Modal content -->
                     <div class="modal-content">
                       <span class="close">&times;</span>
-                      <?php
-                        if(isset($_SESSION["userid"])){
-                          echo "<p>Leasor: $leasor</p>
-                                <br>
-                                <p>Phone: $phone</p>
-                                <br>
-                                <p>E-Mail: $email</p>";
-                        } else {
-                          echo "<center>
-                                <br>
-                                <h5>Please Login to view Leasor's Contact Information.
-                                <br>
-                                </center>";
-                        }
-                      ?> 
+                      
                     </div>
                   </div>
                 <!--END The Modal-->
@@ -257,22 +244,19 @@
                   <!--Main Image Display-->
                     <div class="container" style="max-width: 100%; padding: 0px">
                       <div class="mySlides">
-                        <img src="<?php echo $pic1 ?>" style="width:100%;">
+                        <img src="<?php echo $pic1 ?>" style="width:10%; transform: rotate(90deg);">
                       </div>
                       <div class="mySlides">
-                        <img src="<?php echo $pic2 ?>" style="width:100%;">
+                        <img src="<?php echo $pic2 ?>" style="width:10%; transform: rotate(90deg);">
                       </div>
                       <div class="mySlides">
-                        <img src="<?php echo $pic3 ?>" style="width:100%">
+                        <img src="<?php echo $pic3 ?>" style="width:10%; transform: rotate(90deg);">
                       </div>  
                       <div class="mySlides">
-                        <img src="<?php echo $pic4 ?>" style="width:100%">
+                        <img src="<?php echo $pic4 ?>" style="width:10%; transform: rotate(90deg);">
                       </div>
                       <div class="mySlides">
-                         <img src="<?php echo $pic5 ?>" style="width:100%">
-                      </div>
-                      <div class="mySlides">
-                        <img src="img\campuspointe.jpg" style="max-width:100%">
+                         <img src="<?php echo $pic5 ?>" style="width:10%; transform: rotate(90deg);">
                       </div>
                       <div class="caption-container">
                         <p id="caption"></p>
@@ -295,10 +279,7 @@
                       </div>
                       <div class="column">
                         <img class="demo cursor" src="<?php echo $pic5 ?>" style="width:100%; height: 95px" onclick="currentSlide(5)" alt="">
-                      </div>  
-                      <div class="column">
-                        <img class="demo cursor" src="img\campuspointe.jpg" style="width:100%; height: 95px" onclick="currentSlide(6)" alt="">
-                      </div>    
+                      </div>     
                     </div>
                   <!--END Image Navbar-->
                   </div>
@@ -338,12 +319,12 @@
 
         <div id="London" class="tabcontent">
           <h3>Poster's Comment</h3>
-          <p>One bedroom available inn the University Townhome Complex. It is close to campus, and willing to negotiate for pricing!</p>
+          <p><?php echo "$description" ?></p>
         </div>
 
         <div id="Paris" class="tabcontent">
             <h3>Availability</h3>
-              <p><?php echo date("d-m-Y", strtotime($startdate)); echo " - "; echo date("d-m-Y", strtotime($enddate))?></p>
+              <p><?php echo date("m-d-Y", strtotime($startdate)); echo " - "; echo date("m-d-Y", strtotime($enddate))?></p>
             <br>
             <br>
             <br>
@@ -359,7 +340,7 @@
               foreach ($ammenities as $name) {
                 if (isset($name) && $name != "") {
                   echo "$name";
-                  echo " ";
+                  echo "<br>";
                 }
               }
               
@@ -505,3 +486,33 @@
 
   </body>
 </html>
+
+<!--<?php
+                      // Query For Active Listing
+                      $stm = $conn->prepare("SELECT fname, lname, phone, email FROM users WHERE userid = '1';");
+
+                      // Execute Query
+                      $stm->execute();
+
+                      // Assign Result
+                      $result = $stm->get_result();
+                       
+                      while($row = $result->fetch_assoc())
+                      {
+                        if(isset($_SESSION["userid"])){
+                     ?> 
+                      <p>Leasor: <?php echo $row["fname"]; echo " "; echo $row["lname"]; ?></p>
+                      <br>
+                      <p>Phone: <?php echo $row["phone"]; ?></p>
+                      <br>
+                      <p>E-Mail: <?php echo $row["email"];?></p>";
+                      <?php
+                        } else {
+                          echo "<center>
+                                <br>
+                                <h5>Please Login to view Leasor's Contact Information.
+                                <br>
+                                </center>";
+                        }
+                      }
+                      ?> -->
