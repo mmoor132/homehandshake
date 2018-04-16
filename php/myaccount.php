@@ -14,6 +14,7 @@
   $phone = $_SESSION["phone"];
   $email = $_SESSION["email"];
   $userid = $_SESSION["userid"];
+
 ?>
 
 <!Doctype html>
@@ -394,7 +395,7 @@
         <div class="row">
           <div class="col-md-6">
             <center>
-            <a href = "createlistings.php"><button style="margin: 2px"><span style="color: black">Create Listing</span></button></a>
+            <a href = "listingcheck.php"><button style="margin: 2px"><span style="color: black">Create Listing</span></button></a>
           </center>
           </div>  
           <div class="col-md-6">

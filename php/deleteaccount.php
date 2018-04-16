@@ -51,7 +51,14 @@ if ($conn->query($s) === TRUE) {
     echo "Error deleting record: " . $conn->error;
 }
 
+$listing = "";
+
+$_SESSION['listingid'] = $listingid;
+
 $conn->close();
 
-header("location: loginpage.html");
+echo "<script>
+		alert('Your Account has been deleted.');
+		window.location.href='http://127.0.0.1/php/loginpage.html';
+	  </script>";
 ?>

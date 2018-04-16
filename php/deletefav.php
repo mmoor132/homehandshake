@@ -27,6 +27,9 @@ if ($conn->query($sql) === TRUE) {
 
 $conn->close();
 
-header("location: myaccount.php");
+echo "<script>
+		alert('Your favorite has been removed.');
+		window.location.href='http://127.0.0.1/php/myaccount.php';
+	  </script>";
 
 ?>

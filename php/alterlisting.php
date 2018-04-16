@@ -33,9 +33,8 @@ $expiration = $_POST["expiration"];
 $bio = $_POST["bio"];
 
 // Update Query For Listing
-$stm = "UPDATE listings SET title = '$listtitle', address = '$address', city = '$city', state = '$state', zip = '$zip', housingstyle = '$housingstyle', complex = '$complex' , description = '$bio', roommates = '$numofpeople', price = '$rent', availability = '$availability', startdate = '$sdate', enddate = 'edate', expiration = '$expiration' WHERE listingid = '$listingid'";
+$stm = "UPDATE listings SET title = '$listtitle', address = '$address', city = '$city', state = '$state', zip = '$zip', housingstyle = '$housingstyle', complex = '$complex' , description = '$bio', roommates = '$numofpeople', price = '$rent', availability = '$availability', startdate = '$sdate', enddate = '$edate', expiration = '$expiration' WHERE listingid = '$listingid'";
 
-// Check for Success
 if ($conn->query($stm) === TRUE) {
     echo "New listing record updated successfully";
 } else {
@@ -101,12 +100,12 @@ if(!empty($_POST['check_list'])) {
 // Update Query For Amenities
 $st = "UPDATE amenities SET furnished = '$furnished', gym = '$gym', laundry = '$laundry', pets = '$pets', cooling = '$cooling', parking = '$parking', pool = '$pool', garage = '$garage', propertymanagement = '$propertymanagement', hottub = '$hottub', privatebathroom = '$privatebathroom'  WHERE listingid = '$listingid'";
 
-// Check for Success
+/*Check for Success
 if ($conn->query($st) === TRUE) {
     echo "New amenities record updated successfully";
   } else {
     echo "Error: " . $st . "<br>" . $conn->error;
-}
+}*/
 
 echo "<br>";
 
@@ -124,24 +123,24 @@ if(basename($_FILES["fileToUpload"]["name"]) != NULL){
          // echo "File is an image - " . $check["mime"] . ".";
           $uploadOk = 1;
       } else {
-         echo "File is not an image.";
+         //echo "File is not an image.";
           $uploadOk = 0;
       }
   }
   // Check if file already exists
   if (file_exists($target_file1)) {
-      echo "Sorry, file already exists.";
+      //echo "Sorry, file already exists.";
       $uploadOk = 0;
   }
   // Check file size
   if ($_FILES["fileToUpload"]["size"] > 900000000) {
-      echo "Sorry, your file is too large.";
+     // echo "Sorry, your file is too large.";
       $uploadOk = 0;
   }
   // Allow certain file formats
   if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
   && $imageFileType != "gif" ) {
-      echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+     // echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
       $uploadOk = 0;
   }
   // Check if $uploadOk is set to 0 by an error
@@ -152,7 +151,7 @@ if(basename($_FILES["fileToUpload"]["name"]) != NULL){
       if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file1)) {
           //echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
       } else {
-          echo "Sorry, there was an error uploading your file.";
+          //echo "Sorry, there was an error uploading your file.";
       }
   }
 
@@ -181,24 +180,24 @@ if(basename($_FILES["fileToUpload2"]["name"]) != NULL){
           //echo "File is an image - " . $check["mime"] . ".";
           $uploadOk = 1;
       } else {
-          echo "File is not an image.";
+         // echo "File is not an image.";
           $uploadOk = 0;
       }
   }
   // Check if file already exists
   if (file_exists($target_file2)) {
-      echo "Sorry, file already exists.";
+      //echo "Sorry, file already exists.";
       $uploadOk = 0;
   }
   // Check file size
   if ($_FILES["fileToUpload2"]["size"] > 900000000) {
-      echo "Sorry, your file is too large.";
+      //echo "Sorry, your file is too large.";
       $uploadOk = 0;
   }
   // Allow certain file formats
   if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
   && $imageFileType != "gif" ) {
-      echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+     // echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
       $uploadOk = 0;
   }
   // Check if $uploadOk is set to 0 by an error
@@ -209,7 +208,7 @@ if(basename($_FILES["fileToUpload2"]["name"]) != NULL){
       if (move_uploaded_file($_FILES["fileToUpload2"]["tmp_name"], $target_file2)) {
           //echo "The file ". basename( $_FILES["fileToUpload2"]["name"]). " has been uploaded.";
       } else {
-          echo "Sorry, there was an error uploading your file.";
+         // echo "Sorry, there was an error uploading your file.";
       }
   }
 
@@ -238,35 +237,35 @@ if(basename($_FILES["fileToUpload3"]["name"]) != NULL){
          // echo "File is an image - " . $check["mime"] . ".";
           $uploadOk = 1;
       } else {
-         echo "File is not an image.";
+         //echo "File is not an image.";
           $uploadOk = 0;
       }
   }
   // Check if file already exists
   if (file_exists($target_file3)) {
-      echo "Sorry, file already exists.";
+     // echo "Sorry, file already exists.";
       $uploadOk = 0;
   }
   // Check file size
   if ($_FILES["fileToUpload3"]["size"] > 900000000) {
-      echo "Sorry, your file is too large.";
+     // echo "Sorry, your file is too large.";
       $uploadOk = 0;
   }
   // Allow certain file formats
   if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
   && $imageFileType != "gif" ) {
-      echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+     // echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
       $uploadOk = 0;
   }
   // Check if $uploadOk is set to 0 by an error
   if ($uploadOk == 0) {
-      echo "Sorry, your file was not uploaded.";
+     //echo "Sorry, your file was not uploaded.";
   // if everything is ok, try to upload file
   } else {
       if (move_uploaded_file($_FILES["fileToUpload3"]["tmp_name"], $target_file3)) {
           //echo "The file ". basename( $_FILES["fileToUpload3"]["name"]). " has been uploaded.";
       } else {
-          echo "Sorry, there was an error uploading your file.";
+         // echo "Sorry, there was an error uploading your file.";
       }
   }
 
@@ -295,35 +294,35 @@ if(basename($_FILES["fileToUpload4"]["name"]) != NULL){
           //echo "File is an image - " . $check["mime"] . ".";
           $uploadOk = 1;
       } else {
-          echo "File is not an image.";
+         // echo "File is not an image.";
           $uploadOk = 0;
       }
   }
   // Check if file already exists
   if (file_exists($target_file4)) {
-      echo "Sorry, file already exists.";
+     // echo "Sorry, file already exists.";
       $uploadOk = 0;
   }
   // Check file size
   if ($_FILES["fileToUpload4"]["size"] > 900000000) {
-      echo "Sorry, your file is too large.";
+     // echo "Sorry, your file is too large.";
       $uploadOk = 0;
   }
   // Allow certain file formats
   if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
   && $imageFileType != "gif" ) {
-      echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+    //  echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
       $uploadOk = 0;
   }
   // Check if $uploadOk is set to 0 by an error
   if ($uploadOk == 0) {
-      echo "Sorry, your file was not uploaded.";
+     // echo "Sorry, your file was not uploaded.";
   // if everything is ok, try to upload file
   } else {
       if (move_uploaded_file($_FILES["fileToUpload4"]["tmp_name"], $target_file4)) {
         //  echo "The file ". basename( $_FILES["fileToUpload4"]["name"]). " has been uploaded.";
       } else {
-          echo "Sorry, there was an error uploading your file.";
+        //  echo "Sorry, there was an error uploading your file.";
       }
   }
 
@@ -353,35 +352,35 @@ if(basename($_FILES["fileToUpload5"]["name"])!= NULL){
          // echo "File is an image - " . $check["mime"] . ".";
           $uploadOk = 1;
       } else {
-          echo "File is not an image.";
+       //   echo "File is not an image.";
           $uploadOk = 0;
       }
   }
   // Check if file already exists
   if (file_exists($target_file5)) {
-      echo "Sorry, file already exists.";
+     // echo "Sorry, file already exists.";
       $uploadOk = 0;
   }
   // Check file size
   if ($_FILES["fileToUpload5"]["size"] > 900000000) {
-      echo "Sorry, your file is too large.";
+     // echo "Sorry, your file is too large.";
       $uploadOk = 0;
   }
   // Allow certain file formats
   if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
   && $imageFileType != "gif" ) {
-      echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+     // echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
       $uploadOk = 0;
   }
   // Check if $uploadOk is set to 0 by an error
   if ($uploadOk == 0) {
-      echo "Sorry, your file was not uploaded.";
+     // echo "Sorry, your file was not uploaded.";
   // if everything is ok, try to upload file
   } else {
       if (move_uploaded_file($_FILES["fileToUpload5"]["tmp_name"], $target_file5)) {
           //echo "The file ". basename( $_FILES["fileToUpload5"]["name"]). " has been uploaded.";
       } else {
-          echo "Sorry, there was an error uploading your file.";
+         // echo "Sorry, there was an error uploading your file.";
       }
   }
 
@@ -402,10 +401,39 @@ $s = $conn->prepare("UPDATE picture SET pic1 = '$target_file1', pic2 = '$target_
 // Execute Query
 $s->execute();*/
 
+$userid = $_SESSION["userid"];
+
+// Query For Active Listing
+$stm = $conn->prepare("
+  SELECT listings.listingid, listings.price, listings.address, listings.city, listings.zip
+  FROM listings
+  INNER JOIN users 
+  ON listings.userid = users.userid
+  WHERE listings.userid = '$userid'");
+
+// Execute Query
+$stm->execute();
+
+// Assign Result
+$result = $stm->get_result();
+
+// Cylce through resut and assignning Values for listing
+while ($row = $result->fetch_assoc()){
+    
+  $_SESSION['listingid'] = $row["listingid"];
+  $_SESSION['price'] = $row["price"];
+  $_SESSION['address'] = $row["address"];
+  $_SESSION['city'] = $row["city"];
+  $_SESSION['zip'] = $row["zip"];
+
+}
 //Close connection
 $conn->close();
 
 //Return to Account
-header("location: myaccount.php");
+echo "<script>
+    alert('Your Listing has been updated.');
+    window.location.href='http://127.0.0.1/php/myaccount.php';
+    </script>";
 
 ?>

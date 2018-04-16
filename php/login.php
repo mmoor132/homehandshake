@@ -30,7 +30,10 @@ if ($result->num_rows==1){
 
 }
 else{
-	echo "problems";
+	echo "<script>
+		alert('Pasword or Username is Incorrect.');
+		window.location.href='http://127.0.0.1/php/loginpage.html';
+	  </script>";
 }
 
 $conn->close();

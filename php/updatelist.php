@@ -127,11 +127,11 @@
             <center>
             <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav">
-                <li class=""><a href="homepage.php" style="color: white">Home</a></li>
+                <li><a href="homepage.php" style="color: white">Home</a></li>
                 <li><a href="browselisting.php" style="color: white">Browse Listings</a></li>
                 <?php
                   if(isset($_SESSION["userid"])){
-                    echo "<li><a href='myaccount.php' style='color: white'>My Account</a></li>";
+                    echo "<li class='active'><a href='myaccount.php' style='color: white'>My Account</a></li>";
                   } else {
                     echo "<li><a href='loginpage.html' style='color: white'>Login</a></li>";
                   }
@@ -397,9 +397,9 @@
                      <label for="available">Avalibility</label>
                     </div>
                     <div class="col-75">
-                      <input type="date" id="sdate" name="sdate" value="<?php echo date("m", strtotime("$startdate"));?>"> 
+                      <input type="date" id="sdate" name="sdate" value="<?php echo "$startdate" ?>"> 
                       <span> to: </span>
-                      <input type="date" id="edate" name="edate" value="<?php echo date("Y-d-m", strtotime("$enddate"));?>">
+                      <input type="date" id="edate" name="edate" value="<?php echo "$enddate" ?>">
                     </div>
                   </div>
                   <div class="col-md-4">
@@ -420,7 +420,7 @@
                      <label for="expiration">Listing Expiration:</label>
                     </div>
                     <div class="col-75">
-                      <input type="date" id="expiration" name="expiration" value="<?php echo date("Y-d-m", strtotime("$expiration"));?>">
+                      <input type="date" id="expiration" name="expiration" value="<?php echo "$expiration" ?>">
                     </div>
                   </div>
                 </div>

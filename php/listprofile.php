@@ -11,6 +11,10 @@
   session_start();
 
   // Call all Variables
+  $fname = $_SESSION['fname'];
+  $lname = $_SESSION['lname'];
+  $phone = $_SESSION['phone'];
+  $email = $_SESSION['email'];
   $listingnum = $_SESSION['listingnum'];
   $title = $_SESSION['title'];
   $price = $_SESSION['price'];
@@ -41,6 +45,7 @@
   $privatebathroom = $_SESSION['privatebathroom'] ;
   $floornumber = $_SESSION['floornumber'] ;
   $heating = $_SESSION['heating'] ;
+  
 
   // Query For getting contact information
     $stm = $conn->prepare("SELECT fname, lname, phone, email FROM users WHERE userid = '1'");
@@ -235,11 +240,11 @@
                         {
                           if(isset($_SESSION["userid"])){
                       ?> 
-                        <p>Leasor: <?php echo $row["fname"]; echo " "; echo $row["lname"]; ?></p>
+                        <p>Leasor: <?php echo $fname; echo " "; echo $lname; ?></p>
                         <br>
-                        <p>Phone: <?php echo $row["phone"]; ?></p>
+                        <p>Phone: <?php echo "$phone"; ?></p>
                         <br>
-                        <p>E-Mail: <?php echo $row["email"];?></p>
+                        <p>E-Mail: <?php echo "$email";?></p>
                       <?php
                         } else {
                           echo "<center>
@@ -279,19 +284,19 @@
                   <!--Main Image Display-->
                     <div class="container" style="max-width: 100%; padding: 0px">
                       <div class="mySlides">
-                        <img src="<?php echo $pic1 ?>" style="width:10%; transform: rotate(90deg);">
+                        <img src="<?php echo $pic1 ?>" style="width:50%;">
                       </div>
                       <div class="mySlides">
-                        <img src="<?php echo $pic2 ?>" style="width:10%; transform: rotate(90deg);">
+                        <img src="<?php echo $pic2 ?>" style="width:50%;">
                       </div>
                       <div class="mySlides">
-                        <img src="<?php echo $pic3 ?>" style="width:10%; transform: rotate(90deg);">
+                        <img src="<?php echo $pic3 ?>" style="width:50%;">
                       </div>  
                       <div class="mySlides">
-                        <img src="<?php echo $pic4 ?>" style="width:10%; transform: rotate(90deg);">
+                        <img src="<?php echo $pic4 ?>" style="width:50%;">
                       </div>
                       <div class="mySlides">
-                         <img src="<?php echo $pic5 ?>" style="width:10%; transform: rotate(90deg);">
+                         <img src="<?php echo $pic5 ?>" style="width:50%;">
                       </div>
                       <div class="caption-container">
                         <p id="caption"></p>

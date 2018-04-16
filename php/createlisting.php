@@ -1,12 +1,16 @@
 <?php
+    
+    // Connect to database
     $servername = "localhost";
     $username = "administrator";
     $password = "";
     $dbname = "homehandshake";
 
+    // Session Start
     session_start();
-    $userid = $_SESSION["userid"];
 
+    // Call of userid
+    $userid = $_SESSION["userid"];
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -374,10 +378,13 @@
         echo "Error: " . $s . "<br>" . $conn->error;
     }
 
-    //Return to Account
-    header("location: myaccount.php");
-
     // Clost DB Connection
     $conn->close();
+
+    //Return to Account
+    echo "<script>
+        alert('Your listing has been creating.');
+        window.location.href='http://127.0.0.1/php/myaccount.php';
+      </script>";
 
 ?>

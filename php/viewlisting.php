@@ -71,11 +71,26 @@ while ($row = $result->fetch_assoc()){
 	$_SESSION['propertymanagement'] = $row["propertymanagement"];
 	$_SESSION['hottub'] = $row["hottub"];
 	$_SESSION['privatebathroom'] = $row["privatebathroom"];
-	$_SESSION['floornumber'] = $row["floornumber"];
-	$_SESSION['heating'] = $row["heating"];
+
+  }
+
+  $st = $conn->prepare("SELECT users.fname, users.lname, users.phone, users.email FROM users INNER JOIN listings ON listings.userid = users.userid WHERE listings.userid = '$listingnum'");
+
+  // Execute Query
+  $st->execute();
+
+  // Assign Result
+  $result = $st->get_result();
+
+  while ($row = $result->fetch_assoc()){
+  	$_SESSION['fname'] = $row["fname"] ;
+  	$_SESSION['lname'] = $row["lname"] ;
+  	$_SESSION['phone'] = $row["phone"] ;
+  	$_SESSION['email'] = $row["email"] ;
 
   }
 
   header("location: listprofile.php");
+  
 
 ?>

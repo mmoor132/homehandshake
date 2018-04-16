@@ -43,5 +43,8 @@ if ($conn->query($s) === TRUE) {
 
 $conn->close();
 
-header("location: myaccount.php");
+echo "<script>
+		alert('Your listing has been removed.');
+		window.location.href='http://127.0.0.1/php/myaccount.php';
+	  </script>";
 ?>
