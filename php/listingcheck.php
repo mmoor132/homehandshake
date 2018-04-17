@@ -51,6 +51,6 @@
           </script>";
 
     } else{
-        header('Location: createlistngs.php');
+        header('Location: createlistings.php');
     }
 ?>

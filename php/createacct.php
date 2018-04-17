@@ -53,8 +53,8 @@ else{
 
 }
 
-//Return to Account
-header("location: myaccount.php");
+//Return to Accounts
+header("location: loginpage.html");
 
 // Close DB Connection
 $conn->close();

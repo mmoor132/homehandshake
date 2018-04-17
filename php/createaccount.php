@@ -63,7 +63,7 @@
   <body>
     <!--Jumbotron code-->
       <div>
-        <img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%; height: 100%;">
+        <img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%; height: 300px;;">
       </div>
     <!--END Jumbotron code-->
 

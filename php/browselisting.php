@@ -127,7 +127,7 @@
 
     <!--Jumbotron code-->
       <div>
-        <img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%; height: 60%;">
+        <img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%; height: 300px;">
       </div>
     <!--END Jumbotron code-->
 
@@ -182,7 +182,7 @@
               <li><a href="#" class="Parking" style="color: black">Parking</a></li>
               <li><a href="#" class="Pool" style="color: black">Pool</a></li>
               <li><a href="#" class="Garage" style="color: black">Garage</a></li>
-              <li><a href="#" class="Property Management" style="color: black">Property Management</a></li>
+              <li><a href="#" class="Property Management" style="color: black">Management</a></li>
               <li><a href="#" class="Hot Tub" style="color: black">Hot Tub</a></li>
               <li><a href="#" class="Private Bathroom" style="color: black">Private Bathroom</a></li>
               <li><a href="#" class="Heating" style="color: black">Heating</a></li>
@@ -220,7 +220,7 @@
             <div>
               <ul id="filterOptions" style="list-style-type: none;">
                 <center><h5 style="padding-left: 5px; font-weight: bold;">Locations</h5></center>
-                <li><a href="#" class="Unversity TownHomes" style="color: black">Unversity TownHomes</a></li>
+                <li><a href="#" class="Unversity TownHomes" style="color: black">TownHomes</a></li>
                 <li><a href="#" class="Campus Pointe" style="color: black">Campus Pointe</a></li>
                 <li><a href="#" class="Unversity Edge" style="color: black">Unversity Edge</a></li>
                 <li><a href="#" class="College Towers" style="color: black">College Towers</a></li>

@@ -2,8 +2,13 @@
   // Start Session
   session_start();
 
-  // Call Variables from Session
+  $userid = $_SESSION["userid"];
+  $phone = $_SESSION["phone"];
+  $email = $_SESSION["email"];
   $user = $_SESSION["user"];
+
+if (isset($_SESSION["listingid"])){
+  // Call Variables from Session
   $password = $_SESSION["password"];
   $listingid = $_SESSION["listingid"];
   $lsprice = $_SESSION["price"];
@@ -11,9 +16,7 @@
   $lscity = $_SESSION["city"];
   $lszip = $_SESSION["zip"];
   $picture = $_SESSION["pic1"];
-  $phone = $_SESSION["phone"];
-  $email = $_SESSION["email"];
-  $userid = $_SESSION["userid"];
+}
 
 ?>
 
@@ -95,7 +98,7 @@
   <body>
     <!--Jumbotron code-->
       <div>
-        <img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%; height: 60%;">
+        <img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%; height: 300px;">
       </div>
     <!--END Jumbotron code-->
 

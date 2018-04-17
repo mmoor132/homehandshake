@@ -67,7 +67,7 @@
 
   	<!--Jumbotron code-->
     	<div>
-      	<img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%; height: 50%;">
+      	<img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%;  height: 300px;">
     	</div>
     <!--END Jumbotron code-->
 
@@ -245,7 +245,7 @@
 
     <br>
 
-    <!--HandShake Experience Div-->
+    <!--HandShake Experience Div
       <center>
       	<div class="container">
       		<div class="row">
@@ -258,7 +258,7 @@
       		</div>
       	</div>
       </center>
-    <!--END HandShake Experience Div-->
+    sEND HandShake Experience Div-->
 
     <br>
 

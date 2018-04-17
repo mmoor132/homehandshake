@@ -175,7 +175,7 @@
 
     <!--Jumbotron code-->
       <div>
-        <img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%; height: 100%;">
+        <img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%; height: 300px;">
       </div>
     <!--END Jumbotron code-->
 
@@ -193,8 +193,8 @@
             <center>
             <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="homepage.php" style="color: white">Home</a></li>
-                <li><a href="browselisting.php" style="color: white">Browse Listings</a></li>
+                <li><a href="homepage.php" style="color: white">Home</a></li>
+                <li class="active"><a href="browselisting.php" style="color: white">Browse Listings</a></li>
                 <?php
                   if(isset($_SESSION["userid"])){
                     echo "<li><a href='myaccount.php' style='color: white'>My Account</a></li>";
@@ -219,7 +219,7 @@
             <div class="row" style="">
               <center>
               <div class="col-md-6" style="">
-                <h2><?php echo "$title" ?></h2>
+                <h1><?php echo "$title" ?></h1>
               </div>
               </center>
               <div class="col-md-6" style=" ">
@@ -263,10 +263,10 @@
             <div class="row">
               <center>
               <div class="col-md-6" style="">
-                <h3>$ <?php echo "$price" ?> per Month</h3>
+                <h2>$ <?php echo "$price" ?> per Month</h2>
               </div>
               <div class="col-md-6" style="">
-                <h3><?php echo "$address, $city, $zip" ?></h3>
+                <h2><?php echo "$address, $city, $zip" ?></h2>
               </div>
               </center>
             </div>
@@ -354,12 +354,12 @@
         <button class="tablink" onclick="openCity('Paris', this, '#002664')">Availibilty</button>
         <button class="tablink" onclick="openCity('Tokyo', this, '#002664')">Amenities</button>
 
-        <div id="London" class="tabcontent">
+        <div id="London" class="tabcontent" style="background-color: #002664;">
           <h3>Poster's Comment</h3>
           <p><?php echo "$description" ?></p>
         </div>
 
-        <div id="Paris" class="tabcontent">
+        <div id="Paris" class="tabcontent" style="background-color: #002664;">
             <h3>Availability</h3>
               <p><?php echo date("m-d-Y", strtotime($startdate)); echo " - "; echo date("m-d-Y", strtotime($enddate))?></p>
             <br>
@@ -368,7 +368,7 @@
             <br>
         </div>
 
-        <div id="Tokyo" class="tabcontent" style="align-content: center;">
+        <div id="Tokyo" class="tabcontent" style="align-content: center; background-color: #002664;">
           <h3>Amenities</h3>
            <?php 
 
