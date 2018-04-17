@@ -43,9 +43,6 @@
   $propertymanagement = $_SESSION['propertymanagement'] ;
   $hottub = $_SESSION['hottub'];
   $privatebathroom = $_SESSION['privatebathroom'] ;
-  $floornumber = $_SESSION['floornumber'] ;
-  $heating = $_SESSION['heating'] ;
-  
 
   // Query For getting contact information
     $stm = $conn->prepare("SELECT fname, lname, phone, email FROM users WHERE userid = '1'");
@@ -375,7 +372,7 @@
           <h3>Amenities</h3>
            <?php 
 
-              $ammenities = array($furnished, $gym,$laundry,$pets,$cooling,$pool,$garage,$propertymanagement,$hottub,$privatebathroom,$heating);
+              $ammenities = array($furnished, $gym, $laundry, $pets, $cooling, $pool, $garage, $propertymanagement, $hottub, $privatebathroom);
 
               foreach ($ammenities as $name) {
                 if (isset($name) && $name != "") {
