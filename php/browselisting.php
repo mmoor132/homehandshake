@@ -314,7 +314,7 @@
                       </form>
                       <form method="post" action="addfav.php">
                         <input type="hidden" name="listingid" value = "<?php echo $row['listingid']; ?>" >
-                         <input type="hidden" name="userid" value = "<?php echo $userid ?>" >
+                         <input type="hidden" name="userid" value = "<?php echo $_SESSION["userid"] ?>" >
                         <button class="button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" type="submit" name="submit" value="Submit">Add to Favorites</button>
                       </form>
                       <br>
