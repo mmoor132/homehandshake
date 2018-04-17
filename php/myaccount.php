@@ -127,8 +127,6 @@ if (isset($_SESSION["listingid"])){
       </div>
     <!--END Navbar code-->
 
-    <br>
-
     <!--Profile Div-->
 
       <!--Welcome Header-->
@@ -136,8 +134,6 @@ if (isset($_SESSION["listingid"])){
           <h1><span>Welcome: </span> <?php echo "$user" ?></h1>
         </div>
       <!--Welcome Header-->
-
-      <br>
 
       <center>
       <!--Row 1-->
