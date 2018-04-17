@@ -189,8 +189,7 @@
 
             <!--Column 2 code-->
       				<div class="col-md-6" style=" ">
-      					<h1>Special Offer</h1>
-      					<span class="style2"><b>Learn more about Housing Handshakes!</b></span><p>
+      					<h1><span class="style2">Learn more about Housing Handshakes!</span><p></h1>
       					You will find the home you have been searching for.</p>
                 <center>
         					<form action="mailto:email@youraddress.com" method="post" enctype="text/plain" name="info"
