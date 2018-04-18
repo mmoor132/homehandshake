@@ -157,6 +157,17 @@
 
     }
 
+    .container {
+        position: relative;
+        text-align: center;
+    }
+
+    .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
   </style>
   
 
@@ -164,7 +175,7 @@
 
     <!--Jumbotron code-->
       <div>
-        <img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%; height: 250px;">
+        <img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%; height: 300px;">
       </div>
     <!--END Jumbotron code-->
 
@@ -202,167 +213,177 @@
     <!--List Profile-->
 
       <!--Image and Map Row-->
-        <div class="container-fluid" style="background-color:grey;border:0;margin: 0;padding: 0">
-          <div class="col-md-8" style="border:0;,margin: 1;padding: 1">
-            
-            <!--Row 1-->
-              <div class="row">
-                <div class="col-md-6" align="center">
-                  <h1><?php echo "$title" ?></h1>
-                </div>
-                <div class="col-md-6" align="center">
-                  <button id="myBtn" style="margin:25px; width: 25%; height: 25%" >Contact</button>
-                  <a href="browselisting.php" style="color: black"><button style="width: 30%; height: 50%">Return to Listings</button></a>
-                  <!-- The Modal -->
-                    <div id="myModal" class="modal">
-                      <!-- Modal content -->
-                      <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <?php
-                         while($row = $result->fetch_assoc())
-                          {
-                            if(isset($_SESSION["userid"])){
-                        ?> 
-                          <p>Leasor: <?php echo $fname; echo " "; echo $lname; ?></p>
-                          <br>
-                          <p>Phone: <?php echo "$phone"; ?></p>
-                          <br>
-                          <p>E-Mail: <?php echo "$email";?></p>
-                        <?php
-                          } else {
-                            echo "<center>
-                                  <br>
-                                  <h5>Please Login to view Leasor's Contact Information.
-                                  <br>
-                                  </center>";
-                            }
+        <div class="container-fluid" style="background-color: grey;">
+         
+          <!--Row 1-->
+            <div class="row" style="">
+              <center>
+              <div class="col-md-6" style="">
+                <h1><?php echo "$title" ?></h1>
+              </div>
+              </center>
+              <div class="col-md-6" style=" ">
+                <center>
+                  <button id="myBtn" style="margin:25px; width: 25%" >Contact</button>
+                  <a href="browselisting.php" style="color: black"><button style="width: 25%">Return to Listings</button></a>
+                </center>
+                <!-- The Modal -->
+                  <div id="myModal" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                      <span class="close">&times;</span>
+                      <?php
+                       while($row = $result->fetch_assoc())
+                        {
+                          if(isset($_SESSION["userid"])){
+                      ?> 
+                        <p>Leasor: <?php echo $fname; echo " "; echo $lname; ?></p>
+                        <br>
+                        <p>Phone: <?php echo "$phone"; ?></p>
+                        <br>
+                        <p>E-Mail: <?php echo "$email";?></p>
+                      <?php
+                        } else {
+                          echo "<center>
+                                <br>
+                                <h5>Please Login to view Leasor's Contact Information.
+                                <br>
+                                </center>";
                           }
-                        ?>
-                      </div>
+                        }
+                      ?>
                     </div>
-                  <!--END The Modal-->
-                </div>
+                  </div>
+                <!--END The Modal-->
               </div>
-            <!--END Row 1-->
+            </div>
+          <!--END of Row 1-->
 
-            <!--Row 2-->
-              <div class="row"  style="border:0;,margin: 0;padding: 0">
-                <div class="col-md-4">
-                  <h3 align="left">$ <?php echo "$price" ?> per Month</h3>
-                </div>
-                <div class="col-md-6">
-                   <h3><?php echo "$address, $city, $zip" ?></h3>
-                </div>
+          <!--Row 2-->
+            <div class="row">
+              <center>
+              <div class="col-md-6" style="">
+                <h2>$ <?php echo "$price" ?> per Month</h2>
               </div>
-            <!--END Row 2-->
+              <div class="col-md-6" style="">
+                <h2><?php echo "$address, $city, $zip" ?></h2>
+              </div>
+              </center>
+            </div>
+          <!--END of Row 2-->
 
-            <!--Row 3-->
-              <div class="row" style="background-color:grey">
-                <div class="col-md-6" style="border:0;margin: 0;padding: 0">
+          <br><br>
+
+          <!--Row 3-->
+            <div class="row" style="padding: 0px">
+              <div class="col-md-8" style="padding: 0px">
+                <div class="row" style="max-width: 100%; min-width: 100%; padding: 0px; margin:0px; margin-bottom: 10px;">
                   <!--Main Image Display-->
-                    <div class="container" style="max-width: 100%;border:0;margin: 0;padding: 0" align="center">
+                    <div class="container" style="max-width: 100%; padding: 0px">
                       <div class="mySlides">
-                        <img src="<?php echo $pic1 ?>" style="width:100%;">
+                        <img src="<?php echo $pic1 ?>" style="width:50%;">
                       </div>
                       <div class="mySlides">
-                        <img src="<?php echo $pic2 ?>" style="width:100%;">
+                        <img src="<?php echo $pic2 ?>" style="width:50%;">
                       </div>
                       <div class="mySlides">
-                        <img src="<?php echo $pic3 ?>" style="width:100%;">
+                        <img src="<?php echo $pic3 ?>" style="width:50%;">
                       </div>  
                       <div class="mySlides">
-                        <img src="<?php echo $pic4 ?>" style="width:100%;">
+                        <img src="<?php echo $pic4 ?>" style="width:50%;">
                       </div>
                       <div class="mySlides">
-                         <img src="<?php echo $pic5 ?>" style="width:100%;">
+                         <img src="<?php echo $pic5 ?>" style="width:50%;">
+                      </div>
+                      <div class="caption-container">
+                        <p id="caption"></p>
                       </div>
                   <!--END of Main Image Display-->
 
                   <!--Image Navbar-->
-                    <div class="row" style="">
+                    <div class="row" style="padding-left:15px;padding-right: 15px">
                       <div class="column">
-                        <img class="demo cursor" src="<?php echo $pic1 ?>" style="width:100%; height: 50%" onclick="currentSlide(1)" alt="">
+                        <img class="demo cursor" src="<?php echo $pic1 ?>" style="width:100%; height: 95px" onclick="currentSlide(1)" alt="">
                       </div>
                       <div class="column">
-                        <img class="demo cursor" src="<?php echo $pic2 ?>" style="width:100%; height: 50%" onclick="currentSlide(2)" alt="">
+                        <img class="demo cursor" src="<?php echo $pic2 ?>" style="width:100%; height: 95px" onclick="currentSlide(2)" alt="">
                       </div>
                       <div class="column">
-                        <img class="demo cursor" src="<?php echo $pic3 ?>" style="width:100%; height: 50%" onclick="currentSlide(3)" alt="">
+                        <img class="demo cursor" src="<?php echo $pic3 ?>" style="width:100%; height: 95px" onclick="currentSlide(3)" alt="">
                       </div>
                       <div class="column">
-                        <img class="demo cursor" src="<?php echo $pic4 ?>" style="width:100%; height: 50%" onclick="currentSlide(4)" alt="">
+                        <img class="demo cursor" src="<?php echo $pic4 ?>" style="width:100%; height: 95px" onclick="currentSlide(4)" alt="">
                       </div>
                       <div class="column">
-                        <img class="demo cursor" src="<?php echo $pic5 ?>" style="width:100%; height: 50%" onclick="currentSlide(5)" alt="">
+                        <img class="demo cursor" src="<?php echo $pic5 ?>" style="width:100%; height: 95px" onclick="currentSlide(5)" alt="">
                       </div>     
                     </div>
                   <!--END Image Navbar-->
                   </div>
                 </div>
-                <div class="col-md-6" align="center"> 
-                  <!--Row 1--> 
-                    <div class="row">
-                      <h3>Poster's Comment</h3>
-                      <p><?php echo "$description" ?></p>
-                    </div>
-                  <!--END Row 1-->
-                  <!--Row 2--> 
-                    <div class="row">
-                      <h3>Availability</h3>
-                      <p><?php echo date("m-d-Y", strtotime($startdate)); echo " - "; echo date("m-d-Y", strtotime($enddate))?></p>
-                    </div>
-                  <!--END Row 2-->
-                  <!--Row 3--> 
-                    <div class="row">
-                      <h3>Pricing</h3>
-                      <br>
-                    </div>
-                  <!--END Row 3-->
-                  <!--Row 4--> 
-                    <div class="row">
-                      <h3>Amenities</h3>
-                      <ul class="" style="list-style-type: none; margin: 0; padding: 0;">
-                       <?php 
-                          $ammenities = array($furnished, $gym, $laundry, $pets, $cooling, $pool, $garage, $propertymanagement, $hottub, $privatebathroom);
-
-                          foreach ($ammenities as $name) {
-                            if (isset($name) && $name != "") {
-                              echo "$name";
-                              echo "<br>";
-                            }
-                          }   
-                        ?>
-                      </ul>
-                    </div>
-                  <!--END Row 4-->
-                </div>
               </div>
-            <!--END Row 3-->
 
-          </div>
-
-          <!--Google Map-->
-            <div class="col-md-4" style="border:0;,margin: 0;padding: 0">
               <!-- Google map -->
-                <center>
-                <div id="map" class="map1" style="width:100%;height:650px;" frameborder="0" style="border:0;,margin: 0;padding: 0"></div>
-                <script>
-                  function myMap() {
-                  var mapOptions = {
-                      center: new google.maps.LatLng(41.149063, -81.341465),
-                      zoom: 13,
-                      mapTypeId: google.maps.MapTypeId.ROADMAP
-                  }
-                  var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-                  }
-                </script>
-                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwPMtmTS5-ruHic9Qa3Q9h_R-I0ptYC3w&callback=myMap"></script>
-                </center>  
+                  <div class="col-md-4" style="padding: 0; border:solid;">
+                    <center>
+                    <div id="map" class="map1" style="width:100%;height:600px;" frameborder="0" style="border:0"></div>
+                    <script>
+                      function myMap() {
+                      var mapOptions = {
+                          center: new google.maps.LatLng(41.149063, -81.341465),
+                          zoom: 13,
+                          mapTypeId: google.maps.MapTypeId.ROADMAP
+                      }
+                      var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+                      }
+                    </script>
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwPMtmTS5-ruHic9Qa3Q9h_R-I0ptYC3w&callback=myMap"></script>
+                    </center>  
+                  </div>
               <!-- End Google map -->
             </div>
-          <!--END Google Map-->
+          <!--END of ROW 3-->
+          <br>
+        </div>
+      <!--END Image and Map Row-->
 
-        </div> 
+      <br>
+
+      <!--Details Navbar-->
+        <button class="tablink" onclick="openCity('London', this, '#002664')" id="defaultOpen">Bio</button>
+        <button class="tablink" onclick="openCity('Paris', this, '#002664')">Availibilty</button>
+        <button class="tablink" onclick="openCity('Tokyo', this, '#002664')">Amenities</button>
+
+        <div id="London" class="tabcontent" style="background-color: #002664;">
+          <h3>Poster's Comment</h3>
+          <p><?php echo "$description" ?></p>
+        </div>
+
+        <div id="Paris" class="tabcontent" style="background-color: #002664;">
+            <h3>Availability</h3>
+              <p><?php echo date("m-d-Y", strtotime($startdate)); echo " - "; echo date("m-d-Y", strtotime($enddate))?></p>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+
+        <div id="Tokyo" class="tabcontent" style="align-content: center; background-color: #002664;">
+          <h3>Amenities</h3>
+           <?php 
+
+              $ammenities = array($furnished, $gym, $laundry, $pets, $cooling, $pool, $garage, $propertymanagement, $hottub, $privatebathroom);
+
+              foreach ($ammenities as $name) {
+                if (isset($name) && $name != "") {
+                  echo "$name";
+                  echo "<br>";
+                }
+              }
+              
+            ?>
+        </div>
+      <!--Details Navbar-->
 
     <!--END of List Profile-->
 
@@ -404,6 +425,23 @@
         <br>
       </footer>
     <!--END Footer-->
+
+    <!-- Start Sticky Navbar script -->
+      <script>
+        window.onscroll = function() {myFunction()};
+
+        var header = document.getElementById("myHeader");
+        var sticky = header.offsetTop;
+
+        function myFunction() {
+          if (window.pageYOffset >= sticky) {
+            header.classList.add("sticky");
+          } else {
+            header.classList.remove("sticky");
+          }
+        }
+      </script>
+    <!-- End Sticky Navbar script -->
 
     <!--Script for Carousel-->
       <script>
@@ -483,70 +521,5 @@
       </script>
     <!--END Script for Carousel-->
 
-    <!--Start Carousel 2 Script
-      <script>
-        function myFunction(imgs) {
-            var expandImg = document.getElementById("expandedImg");
-            var imgText = document.getElementById("imgtext");
-
-        // Loop through the buttons and add the active class to the current/clicked button
-        for (var i = 0; i < btns.length; i++) {
-          btns[i].addEventListener("click", function() {
-            var current = document.getElementsByClassName("active");
-            current[0].className = current[0].className.replace(" active", "");
-            this.className += " active";
-          });
-            expandImg.src = imgs.src;
-            imgText.innerHTML = imgs.alt;
-            expandImg.parentElement.style.display = "block";
-        }
-      </script>
-    <END Carousel 2 Script-->
-
-    <!-- Start Sticky Navbar script
-      <script>
-        window.onscroll = function() {myFunction()};
-
-        var header = document.getElementById("myHeader");
-        var sticky = header.offsetTop;
-
-        function myFunction() {
-          if (window.pageYOffset >= sticky) {
-            header.classList.add("sticky");
-          } else {
-            header.classList.remove("sticky");
-          }
-        }
-      </script>
-    End Sticky Navbar script -->
-
   </body>
 </html>
-
-<!-- Get the container element
-        var btnContainer = document.getElementById("myDIV");
-
-        // Get all buttons with class="btn" inside the container
-        var btns = btnContainer.getElementsByClassName("btn");
-
-        // Loop through the buttons and add the active class to the current/clicked button
-        for (var i = 0; i < btns.length; i++) {
-          btns[i].addEventListener("click", function() {
-            var current = document.getElementsByClassName("active");
-            current[0].className = current[0].className.replace(" active", "");
-            this.className += " active";
-          });
-          <div class="row">
-                    <div class=" col-md-12 container" align="center" style="border-style: solid">
-                      <img id="expandedImg" style="width: 100%">
-                      <div id="imgtext"></div>
-                    </div>
-                  </div>
-                  <div class="row" style="border-style: solid;padding: 0">
-                    <div class="row" align="center">
-                      <img src="<?php $pic1 ?>"  style="width:20%"  align="" onclick="myFunction(this);">
-                      <img src="<?php $pic2 ?>"  style="width:20%"  align="" onclick="myFunction(this);">
-                      <img src="<?php $pic3 ?>" style="width:20%" align="" onclick="myFunction(this);">
-                      <img src="<?php $pic4 ?>" style="width:20%" align="" onclick="myFunction(this);">
-                    </div>
-                  </div>-->

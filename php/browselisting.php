@@ -226,6 +226,7 @@
                 <li><a href="#" class="College Towers" style="color: black">College Towers</a></li>
                 <li><a href="#" class="Eagles Landing" style="color: black">Eagles Landing</a></li>
                 <li><a href="#" class="Province" style="color: black">Province</a></li>
+                <li><a href="#" class="Dartmouth" style="color: black">Dartmouth</a></li>
               </ul>
             </div>
           </div>

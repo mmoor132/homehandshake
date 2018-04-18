@@ -51,10 +51,6 @@
       padding-top: 100px;
     }
 
-    .container {
-        position: relative;
-  
-    }
     .centered {
         position: absolute;
         top: 50%;
@@ -67,7 +63,7 @@
   <body>
     <!--Jumbotron code-->
       <div>
-        <img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%; height: 300px;">
+        <img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%; height: 250px;">
       </div>
     <!--END Jumbotron code-->
 
@@ -98,39 +94,36 @@
 
     <br><br>
 
-    <!--Title Font-Century-->
-      <center>
-        <h1 style="font-style: Century;">Welcome to Housing Handshakes!</h1>
-        <h4>Housing Handshakes is the web app that advertises short-term vacancy in a house or apartment.</h4>
-      </center>
-    <!-- END of Title-->
-
-    <br>
-
     <!--Login Form-->
       <form action="login.php" method="post">
-        <div class="imgcontainer">
-          <img src="img\Golden Flash.jpg" alt="Avatar" class="avatar" style="width: 10%; height: 10%;">
-        </div>
+        <div class="row">
+            <div class="col-md-6"> 
+                <!--Title Font-Century-->
+                  <center>
+                    <h1 style="font-style: Century;">Welcome to Housing Handshakes!</h1>
+                  </center>
+                <!-- END of Title-->
+                <div class="imgcontainer">
+                  <img src="img\Golden Flash.jpg" alt="Avatar" class="avatar" style="width: 40%; height: 40%;">
+                </div>
+            </div>
+            <div class="col-md-6" style=""> 
+                <label><b>Username</b></label>
+                <input style="width: 98%" id="user"  name="user" type="text" placeholder="Enter Username" required>
 
-        <div class="container">
-          <label><b>Username</b></label>
-          <input id="user"  name="user" type="text" placeholder="Enter Username" required>
+                <label><b>Password</b></label>
+                <input style="width: 98%" id="password" name="password" type="password" placeholder="Enter Password"  required>
 
-          <label><b>Password</b></label>
-          <input id="password" name="password" type="password" placeholder="Enter Password"  required>
-              
-          <button class="loginbutton" style="background-color: #002664" type="submit" name="submit" value="Submit">Login</button>
-          <label>
-          
-            <input type="checkbox" checked=""> Remember me
-          </label>
-        </div>
-
-        <div class="container" style="background-color:#f1f1f1">
-          <a href="createaccount.php"><button style="color: white; background-color: #002664;" type="button" class="cancelbtn">Create Account</button></a>
-          <a href="#"><span class="psw">Forgot password?</span></a>
-        </div>
+                <button class="loginbutton" style="background-color: #002664; width: 98%" type="submit" name="submit" value="Submit">Login</button>
+                <label>
+                <input style="" type="checkbox" checked=""> Remember me
+                </label>
+                <div class="container" style="background-color:#f1f1f1; width: 99%; margin: 0px; border: 0px">
+                  <a href="createaccount.php"><button style="color: white; background-color: #002664;" type="button" class="cancelbtn">Create Account</button></a>
+                  <a href="#"><span class="psw">Forgot password?</span></a>
+                </div>
+            </div>
+        </div>  
       </form>
     <!--END of Login Form-->
 
