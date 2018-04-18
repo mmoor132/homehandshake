@@ -202,8 +202,8 @@
     <!--List Profile-->
 
       <!--Image and Map Row-->
-        <div class="container-fluid" style="background-color:grey;border:0;margin: 0;padding: 0">
-          <div class="col-md-8" style="border:0;,margin: 1;padding: 1">
+        <div class="container-fluid" style="border:0;margin: 0;padding: 0">
+          <div class="col-md-9" style="border:0;,margin: 1;padding: 1">
             
             <!--Row 1-->
               <div class="row">
@@ -257,7 +257,7 @@
             <!--END Row 2-->
 
             <!--Row 3-->
-              <div class="row" style="background-color:grey">
+              <div class="row" style="">
                 <div class="col-md-6" style="border:0;margin: 0;padding: 0">
                   <!--Main Image Display-->
                     <div class="container" style="max-width: 100%;border:0;margin: 0;padding: 0" align="center">
@@ -299,7 +299,7 @@
                   <!--END Image Navbar-->
                   </div>
                 </div>
-                <div class="col-md-6" align="center"> 
+                <div class="col-md-6" align="center" style=""> 
                   <!--Row 1--> 
                     <div class="row">
                       <h3>Poster's Comment</h3>
@@ -342,7 +342,7 @@
           </div>
 
           <!--Google Map-->
-            <div class="col-md-4" style="border:0;,margin: 0;padding: 0">
+            <div class="col-md-3" style="border:0;,margin: 0;padding: 0">
               <!-- Google map -->
                 <center>
                 <div id="map" class="map1" style="width:100%;height:650px;" frameborder="0" style="border:0;,margin: 0;padding: 0"></div>
