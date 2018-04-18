@@ -203,7 +203,7 @@
 
       <!--Image and Map Row-->
         <div class="container-fluid" style="border:0;margin: 0;padding: 0">
-          <div class="col-md-9" style="border:0;,margin: 1;padding: 1">
+          <div class="col-md-8" style="border:0;,margin: 1;padding: 1">
             
             <!--Row 1-->
               <div class="row">
@@ -299,42 +299,48 @@
                   <!--END Image Navbar-->
                   </div>
                 </div>
-                <div class="col-md-6" align="center" style=""> 
-                  <!--Row 1--> 
-                    <div class="row">
-                      <h3>Poster's Comment</h3>
-                      <p><?php echo "$description" ?></p>
-                    </div>
-                  <!--END Row 1-->
-                  <!--Row 2--> 
-                    <div class="row">
-                      <h3>Availability</h3>
-                      <p><?php echo date("m-d-Y", strtotime($startdate)); echo " - "; echo date("m-d-Y", strtotime($enddate))?></p>
-                    </div>
-                  <!--END Row 2-->
-                  <!--Row 3--> 
-                    <div class="row">
-                      <h3>Pricing</h3>
-                      <br>
-                    </div>
-                  <!--END Row 3-->
-                  <!--Row 4--> 
-                    <div class="row">
-                      <h3>Amenities</h3>
-                      <ul class="" style="list-style-type: none; margin: 0; padding: 0;">
-                       <?php 
-                          $ammenities = array($furnished, $gym, $laundry, $pets, $cooling, $pool, $garage, $propertymanagement, $hottub, $privatebathroom);
+                <div class="col-md-6" style="" align="center"> 
+                  <div style="margin-left:10px;">
+                      <!--Row 1--> 
+                        <div class="row" style="">
+                          <div style="">
+                            <h3 style="font:white">Poster's Comment</h3>
+                          </div>
+                          <div style="">
+                            <p><?php echo "$description" ?></p>
+                          </div>
+                        </div>
+                      <!--END Row 1-->
+                      <!--Row 2--> 
+                        <div class="row">
+                          <h3>Availability</h3>
+                          <p><?php echo date("m-d-Y", strtotime($startdate)); echo " - "; echo date("m-d-Y", strtotime($enddate))?></p>
+                        </div>
+                      <!--END Row 2-->
+                      <!--Row 3--> 
+                        <div class="row" style="">
+                          <h3>Pricing</h3>
+                          <br>
+</div>
+                      <!--END Row 3-->
+                      <!--Row 4--> 
+                        <div class="row">
+                          <h3>Amenities</h3>
+                          <ul class="" style="list-style-type: none; margin: 0; padding: 0;">
+                           <?php 
+                              $ammenities = array($furnished, $gym, $laundry, $pets, $cooling, $pool, $garage, $propertymanagement, $hottub, $privatebathroom);
 
-                          foreach ($ammenities as $name) {
-                            if (isset($name) && $name != "") {
-                              echo "$name";
-                              echo "<br>";
-                            }
-                          }   
-                        ?>
-                      </ul>
-                    </div>
-                  <!--END Row 4-->
+                              foreach ($ammenities as $name) {
+                                if (isset($name) && $name != "") {
+                                  echo "$name";
+                                  echo "<br>";
+                                }
+                              }   
+                            ?>
+                          </ul>
+</div>
+                      <!--END Row 4-->
+                  </div>
                 </div>
               </div>
             <!--END Row 3-->
@@ -342,7 +348,7 @@
           </div>
 
           <!--Google Map-->
-            <div class="col-md-3" style="border:0;,margin: 0;padding: 0">
+            <div class="col-md-4" style="border:0;,margin: 0;padding: 0">
               <!-- Google map -->
                 <center>
                 <div id="map" class="map1" style="width:100%;height:650px;" frameborder="0" style="border:0;,margin: 0;padding: 0"></div>
