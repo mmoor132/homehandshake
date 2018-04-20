@@ -66,6 +66,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--END Bootstrap 3-->
 
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="css\handshake2.css" type="text/css" rel="stylesheet" />
     <link href="css\slideshow.css" type="text/css" rel="stylesheet" />
     <link href="css\listtabs.css" type="text/css" rel="stylesheet" />
@@ -202,7 +203,7 @@
     <!--List Profile-->
 
       <!--Image and Map Row-->
-        <div class="container-fluid" style="border:0;margin: 0;padding: 0">
+        <div class="container-fluid" style="border:0;margin: 0;padding: 0" align="center">
           <div class="col-md-8" style="border:0;,margin: 1;padding: 1">
             
             <!--Row 1-->
@@ -212,7 +213,7 @@
                 </div>
                 <div class="col-md-6" align="center">
                   <button id="myBtn" style="margin:25px; width: 25%; height: 25%" >Contact</button>
-                  <a href="browselisting.php" style="color: black"><button style="width: 30%; height: 50%">Return to Listings</button></a>
+                  <a href="browselisting.php" style="color: black"><button style="width: 40%; height: 50%">Return to Listings</button></a>
                   <!-- The Modal -->
                     <div id="myModal" class="modal">
                       <!-- Modal content -->
@@ -248,7 +249,7 @@
             <!--Row 2-->
               <div class="row"  style="border:0;,margin: 0;padding: 0">
                 <div class="col-md-4">
-                  <h3 align="left">$ <?php echo "$price" ?> per Month</h3>
+                  <h3 align="">$ <?php echo "$price" ?> per Month</h3>
                 </div>
                 <div class="col-md-6">
                    <h3><?php echo "$address, $city, $zip" ?></h3>
@@ -258,7 +259,7 @@
 
             <!--Row 3-->
               <div class="row" style="">
-                <div class="col-md-6" style="border:0;margin: 0;padding: 0">
+                <div class="col-md-6" style="border:0;margin: 0;padding: 0; margin-bottom: 5pxs">
                   <!--Main Image Display-->
                     <div class="container" style="max-width: 100%;border:0;margin: 0;padding: 0" align="center">
                       <div class="mySlides">
@@ -300,33 +301,56 @@
                   </div>
                 </div>
                 <div class="col-md-6" style="" align="center"> 
-                  <div style="margin-left:10px;">
+                  <div style="margin-left:10px; margin-right: 10px">
                       <!--Row 1--> 
                         <div class="row" style="">
                           <div style="">
-                            <h3 style="font:white">Poster's Comment</h3>
-                          </div>
-                          <div style="">
-                            <p><?php echo "$description" ?></p>
+                            <div class="w3-card-4">
+                              <header class="w3-container" style="background-color: #002664">
+                                <h3 style="color: white">Poster's Comment</h3>
+                              </header>
+                              <div class="w3-container">
+                                <p><?php echo "$description" ?></p>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       <!--END Row 1-->
+                      <br>
                       <!--Row 2--> 
                         <div class="row">
-                          <h3>Availability</h3>
-                          <p><?php echo date("m-d-Y", strtotime($startdate)); echo " - "; echo date("m-d-Y", strtotime($enddate))?></p>
+                          <div class="w3-card-4">
+                            <header class="w3-container" style="background-color: #002664">
+                               <h3 style="color: white">Availability</h3>
+                            </header>
+                            <div class="w3-container">
+                              <p><?php echo date("m-d-Y", strtotime($startdate)); echo " - "; echo date("m-d-Y", strtotime($enddate))?></p>
+                            </div>
+                          </div>                                               
                         </div>
                       <!--END Row 2-->
+                      <br>
                       <!--Row 3--> 
                         <div class="row" style="">
-                          <h3>Pricing</h3>
-                          <br>
-</div>
+                          <div class="w3-card-4">
+                            <header class="w3-container" style="background-color: #002664">
+                              <h3 style="color: white">Pricing</h3>
+                            </header>
+                            <div class="w3-container">
+                              <p>Lorem ipsum...</p>
+                            </div>
+                          </div>
+                        </div>
                       <!--END Row 3-->
+                      <br>
                       <!--Row 4--> 
                         <div class="row">
-                          <h3>Amenities</h3>
-                          <ul class="" style="list-style-type: none; margin: 0; padding: 0;">
+                          <div class="w3-card-4">
+                            <header class="w3-container" style="background-color: #002664">
+                              <h3 style="color: white">Amenities</h3>
+                            </header>
+                            <div class="w3-container">
+                              <ul class="" style="list-style-type: none; margin: 0; padding: 0;">
                            <?php 
                               $ammenities = array($furnished, $gym, $laundry, $pets, $cooling, $pool, $garage, $propertymanagement, $hottub, $privatebathroom);
 
@@ -338,7 +362,9 @@
                               }   
                             ?>
                           </ul>
-</div>
+                            </div>
+                          </div>  
+                        </div>
                       <!--END Row 4-->
                   </div>
                 </div>
