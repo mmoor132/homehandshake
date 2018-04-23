@@ -17,9 +17,9 @@
   // Query For Active Listing
   $stm = $conn->prepare("
     SELECT picture.pic1, picture.pic2, picture.pic3, listings.listingid, listings.title, listings.address, listings.city, 
-      listings.state, listings.zip, listings.price, listings.squarefoot, listings.roommates, amenities.furnished, amenities.gym, amenities.laundry,
+      listings.state, listings.zip, listings.price, listings.squarefoot, listings.roommates, listings.complex, listings.availability, amenities.furnished, amenities.gym, amenities.laundry,
       amenities.pets, amenities.cooling, amenities.parking, amenities.pool, amenities.garage,
-      amenities.propertymanagement, amenities.hottub, amenities.privatebathroom
+      amenities.propertymanagement, amenities.hottub, amenities.privatebathroom, amenities.pool
     FROM picture 
     INNER JOIN listings 
       ON listings.listingid = picture.listingid
@@ -52,7 +52,7 @@
     <link href="css\sidebar.css" rel="stylesheet" />
   </head>
 
-  <style >
+  <style>
     .box {
     display: flex;
     }
@@ -67,7 +67,9 @@
     }
 
     body {
-      margin: 0;
+      margin: 0px;
+      padding: 0px;
+      border:0px;
       font-family: Arial;
     }
 
@@ -103,7 +105,7 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
-
+      
     /*- FILTER OPTIONS -*/
     ul#filterOptions li a {
       height: 50px;
@@ -120,10 +122,55 @@
     ul#filterOptions li.active a { background: #999; }
     /*- -*/
 
+    .bton{
+      display: none;
+    }
+
+    @media only screen and (max-width: 991px){
+      .ads{
+        display: none;
+      }
+      .bton{
+        display: block;
+      }
+      /* Style the buttons that are used to open and close the accordion panel */
+      .accordion {
+          background-color: #eee;
+          color: #444;
+          cursor: pointer;
+          padding: 18px;
+          width: 100%;
+          text-align: center;
+          border: none;
+          outline: double;
+          transition: 0.4s;
+          margin:3px;
+      }
+
+      /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+      .active, .accordion:hover {
+          background-color: #ccc;
+      }
+
+      /* Style the accordion panel. Note: hidden by default */
+      .panel {
+          padding: 0 18px;
+          background-color: white;
+          display: none;
+          overflow: hidden;
+      }
+       .list{
+        display: block;
+        margin-top: 10px;
+      }
+      .title{
+        display: none;
+      }
+    } 
   </style>
 
 
-  <body>
+  <body style="">
 
     <!--Jumbotron code-->
       <div>
@@ -169,62 +216,63 @@
 
         <!--SIDEBAR START-->
           <center>
-          <div class="col-md-2" style="border-style: none; ">
-            <div>
-              <center><h5 style="padding-left: 5px; font-weight: bold;">Listing Filters</h5></center>
+          <div class="col-md-2" style="border-style: none; margin-bottom: 20px ">
+            <button align="center" class="accordion bton"><h5 style="padding-left: 5px; font-weight: bold;">Amenities</h5></button>
+            <div class="panel list" >
+              <ul id="filterOptions" style="list-style-type: none;">
+                <center><h5 class="title" style="padding-left: 5px; font-weight: bold;">Listing Filters</h5></center>
+                <li class="active"><a href="#" class="all" style="color: black">All</a></li>
+                <li><a href="#" class="Furnished" style="color: black">Furnished</a></li>
+                <li><a href="#" class="Laundry" style="color: black">Laundry</a></li>
+                <li><a href="#" class="Pets" style="color: black">Pets</a></li>
+                <li><a href="#" class="Cooling" style="color: black">Cooling</a></li>
+                <li><a href="#" class="Parking" style="color: black">Parking</a></li>
+                <li><a href="#" class="Swimming" style="color: black">Pool</a></li>
+                <li><a href="#" class="Garage" style="color: black">Garage</a></li>
+                <li><a href="#" class="Property" style="color: black">Management</a></li>
+                <li><a href="#" class="Hot Tub" style="color: black">Hot Tub</a></li>
+                <li><a href="#" class="Private" style="color: black">Private Bathroom</a></li>
+                <li><a href="#" class="Heating" style="color: black">Heating</a></li>
+              </ul>
             </div>
-            <ul id="filterOptions" style="list-style-type: none;">
-              <li class="active"><a href="#" class="all" style="color: black">All</a></li>
-              <li><a href="#" class="Furnished" style="color: black">Furnished</a></li>
-              <li><a href="#" class="Laundry" style="color: black">Laundry</a></li>
-              <li><a href="#" class="Pets" style="color: black">Pets</a></li>
-              <li><a href="#" class="Cooling" style="color: black">Cooling</a></li>
-              <li><a href="#" class="Parking" style="color: black">Parking</a></li>
-              <li><a href="#" class="Pool" style="color: black">Pool</a></li>
-              <li><a href="#" class="Garage" style="color: black">Garage</a></li>
-              <li><a href="#" class="Property Management" style="color: black">Management</a></li>
-              <li><a href="#" class="Hot Tub" style="color: black">Hot Tub</a></li>
-              <li><a href="#" class="Private Bathroom" style="color: black">Private Bathroom</a></li>
-              <li><a href="#" class="Heating" style="color: black">Heating</a></li>
-            </ul>
-            <br>
-            <div>
+            <button align="center" class="accordion bton" style="width: 100%"><h5 style="padding-left: 5px; font-weight: bold;">Rent Price</h5></button>
+            <div class="panel list">   
               <ul>
-                <center><h5 style="padding-left: 5px; font-weight: bold;">Rent Price</h5></center>
+                <center><h5 class="title" style="padding-left: 5px; font-weight: bold;">Rent Price</h5></center>
                 <div class="slidecontainer">
                   <input type="range" min="0" max="1000" value="1000" class="slider" id="myRange" style="margin-left: 5px">
                   <p>Max Cost: <span id="demo"></span></p>
                 </div>
               <ul>
             </div>
-            <br>
-            <div>
+            <button align="center" class="accordion bton"><h5 style="padding-left: 5px; font-weight: bold;">Square Feet</h5></button>
+            <div class="panel list">
               <ul>
-                <center><h5 style="padding-left: 5px; font-weight: bold;">Square Feet</h5></center>
+                <center><h5 class="title" style="padding-left: 5px; font-weight: bold;">Square Feet</h5></center>
                 <div class="slidecontainer">
                   <input type="range" min="0" max="1000" value="1000" class="slider" id="myRange2" style="margin-left: 5px">
                   <p>Max Size: <span id="demo2"></span></p>
                 </div>
               <ul>
             </div>
-            <br>
-            <div>
+            <button align="center" class="accordion bton"><h5 style="padding-left: 5px; font-weight: bold;">Availability</h5></button>
+            <div class="panel list">
               <ul id="filterOptions" style="list-style-type: none;">
-                <center><h5 style="padding-left: 5px; font-weight: bold;">Availablility</h5></center>
-                <li><a href="#" class="Summer Only" style="color: black">Summer Only</a></li>
-                <li><a href="#" class="Fall Semester" style="color: black">Fall Semester</a></li>
-                <li><a href="#" class="Spring Semester" style="color: black">Spring Semester</a></li>
+                <center><h5 class="title" style="padding-left: 5px; font-weight: bold;">Availablility</h5></center>
+                <li><a href="#" class="Summer" style="color: black">Summer Only</a></li>
+                <li><a href="#" class="Fall" style="color: black">Fall Semester</a></li>
+                <li><a href="#" class="Spring" style="color: black">Spring Semester</a></li>
               <ul>
             </div>
-            <br>
-            <div>
+            <button align="center" class="accordion bton"><h5 style="padding-left: 5px; font-weight: bold;">Apartment Complex</h5></button>
+            <div class="panel list">
               <ul id="filterOptions" style="list-style-type: none;">
-                <center><h5 style="padding-left: 5px; font-weight: bold;">Locations</h5></center>
-                <li><a href="#" class="Unversity TownHomes" style="color: black">TownHomes</a></li>
-                <li><a href="#" class="Campus Pointe" style="color: black">Campus Pointe</a></li>
-                <li><a href="#" class="Unversity Edge" style="color: black">Unversity Edge</a></li>
-                <li><a href="#" class="College Towers" style="color: black">College Towers</a></li>
-                <li><a href="#" class="Eagles Landing" style="color: black">Eagles Landing</a></li>
+                <center><h5 class="title" style="padding-left: 5px; font-weight: bold;">Locations</h5></center>
+                <li><a href="#" class="TownHomes" style="color: black">TownHomes</a></li>
+                <li><a href="#" class="Pointe" style="color: black">Campus Pointe</a></li>
+                <li><a href="#" class="Edge" style="color: black">Unversity Edge</a></li>
+                <li><a href="#" class="Towers" style="color: black">College Towers</a></li>
+                <li><a href="#" class="Eagles" style="color: black">Eagles Landing</a></li>
                 <li><a href="#" class="Province" style="color: black">Province</a></li>
               </ul>
             </div>
@@ -233,7 +281,7 @@
         <!--SIDEBAR END-->
 
         <!--LISTINGS START-->
-          <div id="ourHolder" class="all col-md-8">
+          <div id="ourHolder" class="all col-md-8" >
 
             <!--Start PHP Call for Listing-->
               <?php
@@ -244,7 +292,7 @@
             <!--Start PHP Call for Listing-->
           
             <!--Row For Listings-->
-              <div class="box <?php echo $row['furnished']; echo " "; echo $row["gym"]; echo " "; echo $row["laundry"]; echo " "; echo $row["pets"]; echo " "; echo $row["cooling"]; echo " ";  echo $row["parking"]; echo " "; echo $row["pool"]; echo " "; echo $row["garage"]; echo " ";  echo $row["propertymanagement"]; echo " ";  echo $row["hottub"]; echo " "; echo $row["privatebathroom"]; echo " ";  echo $row["heating"];?>" style="margin: 1px;">
+              <div class="box <?php echo $row['furnished']; echo " "; echo $row["gym"]; echo " "; echo $row["laundry"]; echo " "; echo $row["pets"]; echo " "; echo $row["cooling"]; echo " ";  echo $row["parking"]; echo " "; echo $row["pool"]; echo " "; echo $row["garage"]; echo " ";  echo $row["propertymanagement"]; echo " ";  echo $row["hottub"]; echo " "; echo $row["privatebathroom"]; echo " ";  echo $row["heating"]; echo " ";  echo $row["availability"]; echo " ";  echo $row["complex"]; echo " ";  echo $row["pool"];?>" style="margin-bottom: 20px;">
 
                 <!--Left Box-->
                   <div class="col-md-4 one" style="background-color: white;border-style: none;border-color: gray; max-width: 100%; padding: 0">
@@ -253,7 +301,7 @@
                 <!--END Left Box-->
 
                 <!--Middle Box-->
-                  <div class=" col-md-4 two" style="background-color: white;border-style: none;border-color: gray;">    
+                  <div class=" col-md-8 two" style="background-color: white;border-style: none;border-color: gray;">    
                     <div class="row">
                       <div class="col-md-6" style="text-align: left;">
                          <span>Price:</span>
@@ -268,7 +316,7 @@
                       </div>
                       <div class="col-md-6" style="text-align: left;">
                         <span><?php //echo $row["address"], $row["state"], $row["zip"] ?></span>
-                        <span>Test Holder</span>
+                        <span><?php echo $row["availability"] ?></span>
                       </div>
                     </div>
                     <div class="row">
@@ -292,7 +340,7 @@
                         <span>Complex: </span>
                       </div>
                       <div class="col-md-6" style="text-align: left;">
-                        <span>Test Complex</span>
+                        <span><?php echo $row["complex"] ?></span>
                       </div>
                     </div>
 					<div class="row">
@@ -312,10 +360,10 @@
                     </div>   
 					<div class="row">
                       <div class="col-md-6" style="text-align: left;">
-                    <br><img src = "<?php echo $row["pic2"] ?>" style="width: 100%">
+                    <br><img src = "<?php echo $row["pic2"] ?>" style="width: 100%; height:100%">
                       </div>
                       <div class="col-md-6" style="text-align: left;">
-                    <br><img src = "<?php echo $row["pic3"] ?>" style="width: 100%">
+                    <br><img src = "<?php echo $row["pic3"] ?>" style="width: 100%; height:100%">
                       </div>
                     </div>					
                     <center>
@@ -340,10 +388,10 @@
         <!--LISTINGS END-->
 
         <!--GOOGLE ADS START-->
-          <div class="col-md-2" style="border-style: none;">
+          <div class="col-md-2 ads" style="border-style: none; margin:0px;border:0px;padding: 0px">
             <br>
               <div style="border: none; background-color: white">
-                <center><img src="img/ad1.jpg" style="width: 100%; height: 100%;"/></center>
+                <center><img src="img/ad1.jpg" style="max-width: 100%; max-height: 100%;"></center>
                 <br>
                 <br>
                 <br>
@@ -351,23 +399,15 @@
               </div>
             <br>
             <div style="border: none; background-color: white">
-			  <center><img src="img/ad2.jpg" style="width: 100%; height: 100%;"/></center>
-			  <br>
+      			  <center><img src="img/ad2.jpg" style="max-width: 100%; max-height: 100%;"></center>
+      			  <br>
               <br>
               <br>
               <br>
             </div>
             <br>
             <div style="border: none; background-color: white">
-              <center><img src="img/ad3.jpg" style="width: 100%; height: 100%;"/></center>
-              <br>
-              <br>
-              <br>
-              <br>
-            </div>
-            <br>
-            <div style="border: none; background-color: white">
-              <center><img src="img/ad4.jpg" style="width: 100%; height: 100%;"/></center>
+              <center><img src="img/ad3.jpg" style="max-width: 100%; max-height: 100%;"></center>
               <br>
               <br>
               <br>
@@ -375,7 +415,7 @@
             </div>
             <br>
             <div style="border: none; background-color: white">
-              <center><img src="img/ad5.jpg" style="width: 100%; height: 100%;"/></center>
+              <center><img src="img/ad4.jpg" style="max-width: 100%; max-height: 100%;"></center>
               <br>
               <br>
               <br>
@@ -421,7 +461,7 @@
             <center>
               <span style="color: white;">2018 © Copyright Team 3 Solutions. All rights reserved.</span>
             </center>
-          <div>
+          </div>
         <!--End of Copyright-->
         <br>
       </footer>
@@ -488,6 +528,25 @@
         }
       </script>
     <!--END Filter Slider Script-->
+
+    <!--Panel Activation-->
+      <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+      </script>
+    <!--END Panle Activation-->
 
   </body>
 </html>

@@ -27,6 +27,8 @@
   $startdate = $_SESSION['startdate'] ;
   $enddate = $_SESSION['enddate'] ;
   $description = $_SESSION['description'] ;
+  $complex = $_SESSION['complex'] ;
+  $availability = $_SESSION['availability'] ;
   $pic1 = $_SESSION['pic1'] ;
   $pic2 = $_SESSION['pic2'] ;
   $pic3 = $_SESSION['pic3'] ;
@@ -157,7 +159,11 @@
       padding-top: 100px;
 
     }
-
+    hr { 
+    display: block;
+    border-style: inset;
+    border-width: 1px;
+    } 
   </style>
   
 
@@ -248,13 +254,17 @@
 
             <!--Row 2-->
               <div class="row"  style="border:0;,margin: 0;padding: 0">
-                <div class="col-md-4">
+                <div class="col-md-2">
                   <h3 align="">$ <?php echo "$price" ?> per Month</h3>
                 </div>
                 <div class="col-md-6">
                    <h3><?php echo "$address, $city, $zip" ?></h3>
                 </div>
+                <div class="col-md-2">
+                  <h3 align=""><?php echo "$complex" ?></h3>
+                </div>
               </div>
+            <hr>
             <!--END Row 2-->
 
             <!--Row 3-->
@@ -324,6 +334,7 @@
                                <h3 style="color: white">Availability</h3>
                             </header>
                             <div class="w3-container">
+                                <p><?php echo "$availability" ?></p>
                               <p><?php echo date("m-d-Y", strtotime($startdate)); echo " - "; echo date("m-d-Y", strtotime($enddate))?></p>
                             </div>
                           </div>                                               
@@ -337,7 +348,7 @@
                               <h3 style="color: white">Pricing</h3>
                             </header>
                             <div class="w3-container">
-                              <p>Lorem ipsum...</p>
+                              <p>$<?php echo "$price" ?> per month</p>
                             </div>
                           </div>
                         </div>
@@ -377,7 +388,7 @@
             <div class="col-md-4" style="border:0;,margin: 0;padding: 0">
               <!-- Google map -->
                 <center>
-                <div id="map" class="map1" style="width:100%;height:650px;" frameborder="0" style="border:0;,margin: 0;padding: 0"></div>
+                <div id="map" class="map1" style="width:100%;height:70vh;" frameborder="0" style="border:0;,margin: 0;padding: 0"></div>
                 <script>
                   function myMap() {
                   var mapOptions = {
