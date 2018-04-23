@@ -330,10 +330,22 @@
                     </div>
                     <div class="row">
                       <div class="col-md-6" style="text-align: left;">
-                        <span>Complex: </span>
+                        <span><?php 
+                                    if($row["complex"]==""){
+                                        echo "Location:";
+                                    }else{
+                                        echo "Complex:" ;
+                                    }
+                        ?></span>
                       </div>
                       <div class="col-md-6" style="text-align: left;">
-                        <span><?php echo $row["complex"] ?></span>
+                        <span><?php 
+                                    if($row["complex"]==""){
+                                        echo "House";
+                                    }else{
+                                        echo $row["complex"];
+                                    }
+                        ?></span>
                       </div>
                     </div>
 					          <div class="row">
