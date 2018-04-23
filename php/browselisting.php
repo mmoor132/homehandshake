@@ -16,7 +16,7 @@
 
   // Query For Active Listing
   $stm = $conn->prepare("
-    SELECT picture.pic1, listings.listingid, listings.title, listings.address, listings.city, 
+    SELECT picture.pic1, picture.pic2, picture.pic3, listings.listingid, listings.title, listings.address, listings.city, 
       listings.state, listings.zip, listings.price, listings.squarefoot, listings.roommates, amenities.furnished, amenities.gym, amenities.laundry,
       amenities.pets, amenities.cooling, amenities.parking, amenities.pool, amenities.garage,
       amenities.propertymanagement, amenities.hottub, amenities.privatebathroom
@@ -169,7 +169,7 @@
 
         <!--SIDEBAR START-->
           <center>
-          <div class="col-md-2" style="border-style: solid; ">
+          <div class="col-md-2" style="border-style: none; ">
             <div>
               <center><h5 style="padding-left: 5px; font-weight: bold;">Listing Filters</h5></center>
             </div>
@@ -226,7 +226,6 @@
                 <li><a href="#" class="College Towers" style="color: black">College Towers</a></li>
                 <li><a href="#" class="Eagles Landing" style="color: black">Eagles Landing</a></li>
                 <li><a href="#" class="Province" style="color: black">Province</a></li>
-                <li><a href="#" class="Dartmouth" style="color: black">Dartmouth</a></li>
               </ul>
             </div>
           </div>
@@ -248,13 +247,13 @@
               <div class="box <?php echo $row['furnished']; echo " "; echo $row["gym"]; echo " "; echo $row["laundry"]; echo " "; echo $row["pets"]; echo " "; echo $row["cooling"]; echo " ";  echo $row["parking"]; echo " "; echo $row["pool"]; echo " "; echo $row["garage"]; echo " ";  echo $row["propertymanagement"]; echo " ";  echo $row["hottub"]; echo " "; echo $row["privatebathroom"]; echo " ";  echo $row["heating"];?>" style="margin: 1px;">
 
                 <!--Left Box-->
-                  <div class="col-md-4 one" style="background-color: white;border-style: solid;border-color: gray; max-width: 100%; padding: 0">
+                  <div class="col-md-4 one" style="background-color: white;border-style: none;border-color: gray; max-width: 100%; padding: 0">
                     <img src = "<?php echo $row["pic1"] ?>" style="width: 100%">
                   </div>
                 <!--END Left Box-->
 
                 <!--Middle Box-->
-                  <div class=" col-md-4 two" style="background-color: white;border-style: solid;border-color: gray;">    
+                  <div class=" col-md-4 two" style="background-color: white;border-style: none;border-color: gray;">    
                     <div class="row">
                       <div class="col-md-6" style="text-align: left;">
                          <span>Price:</span>
@@ -295,7 +294,30 @@
                       <div class="col-md-6" style="text-align: left;">
                         <span>Test Complex</span>
                       </div>
-                    </div>    
+                    </div>
+					<div class="row">
+                      <div class="col-md-6" style="text-align: left;">
+                        <br><form  method="post" action="viewlisting.php">
+							<input type="hidden" name="listingid" value = "<?php echo $row['listingid']; ?>" >
+							<button class="button" type="submit" name="submit" value="Submit">View Listing</button>
+						</form>
+                      </div>
+                      <div class="col-md-6" style="text-align: left;">
+                        <br><form method="post" action="addfav.php">
+							<input type="hidden" name="listingid" value = "<?php echo $row['listingid']; ?>" >
+							<input type="hidden" name="userid" value = "<?php echo $_SESSION["userid"] ?>" >
+							<button class="button" type="submit" name="submit" value="Submit">Add to Favorites</button>
+                      </form>
+                      </div>
+                    </div>   
+					<div class="row">
+                      <div class="col-md-6" style="text-align: left;">
+                    <br><img src = "<?php echo $row["pic2"] ?>" style="width: 100%">
+                      </div>
+                      <div class="col-md-6" style="text-align: left;">
+                    <br><img src = "<?php echo $row["pic3"] ?>" style="width: 100%">
+                      </div>
+                    </div>					
                     <center>
                       <div class="row">
                         <div class="" style="text-align: left;">
@@ -305,23 +327,6 @@
                     </center>
                   </div>
                 <!--END Middle Box-->
-
-                <!--Right Box-->
-                  <div class=" col-md-4 three" style="background-color: white; border-style: solid; border-color: gray">
-                    <center>
-                      <form  method="post" action="viewlisting.php">
-                        <input type="hidden" name="listingid" value = "<?php echo $row['listingid']; ?>" >
-                        <button class="button" style="position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%);" type="submit" name="submit" value="Submit">View Listing</button>
-                      </form>
-                      <form method="post" action="addfav.php">
-                        <input type="hidden" name="listingid" value = "<?php echo $row['listingid']; ?>" >
-                         <input type="hidden" name="userid" value = "<?php echo $_SESSION["userid"] ?>" >
-                        <button class="button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" type="submit" name="submit" value="Submit">Add to Favorites</button>
-                      </form>
-                      <br>
-                    </center>
-                  </div>
-                <!--END Right Box-->
               </div>
             <!--END Row for Listing-->
 
@@ -335,42 +340,42 @@
         <!--LISTINGS END-->
 
         <!--GOOGLE ADS START-->
-          <div class="col-md-2" style="border-style: solid;">
+          <div class="col-md-2" style="border-style: none;">
             <br>
-              <div style="border: solid; background-color: gray">
-                <center><h5 style="padding-left: 5px">Google Ad 1</h5></center>
+              <div style="border: none; background-color: white">
+                <center><img src="img/ad1.jpg" style="width: 100%; height: 100%;"/></center>
                 <br>
                 <br>
                 <br>
                 <br>
               </div>
             <br>
-            <div style="border: solid; background-color: gray">
-              <center><h5 style="padding-left: 5px">Google Ad 2</h5></center>
+            <div style="border: none; background-color: white">
+			  <center><img src="img/ad2.jpg" style="width: 100%; height: 100%;"/></center>
+			  <br>
+              <br>
+              <br>
+              <br>
+            </div>
+            <br>
+            <div style="border: none; background-color: white">
+              <center><img src="img/ad3.jpg" style="width: 100%; height: 100%;"/></center>
               <br>
               <br>
               <br>
               <br>
             </div>
             <br>
-            <div style="border: solid; background-color: gray">
-              <center><h5 style="padding-left: 5px">Google Ad 3</h5></center>
+            <div style="border: none; background-color: white">
+              <center><img src="img/ad4.jpg" style="width: 100%; height: 100%;"/></center>
               <br>
               <br>
               <br>
               <br>
             </div>
             <br>
-            <div style="border: solid; background-color: gray">
-              <center><h5 style="padding-left: 5px">Google Ad 4</h5></center>
-              <br>
-              <br>
-              <br>
-              <br>
-            </div>
-            <br>
-            <div style="border: solid; background-color: gray">
-              <center><h5 style="padding-left: 5px">Google Ad 5</h5></center>
+            <div style="border: none; background-color: white">
+              <center><img src="img/ad5.jpg" style="width: 100%; height: 100%;"/></center>
               <br>
               <br>
               <br>
