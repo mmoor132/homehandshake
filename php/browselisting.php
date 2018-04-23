@@ -67,9 +67,6 @@
     }
 
     body {
-      margin: 0px;
-      padding: 0px;
-      border:0px;
       font-family: Arial;
     }
 
@@ -142,7 +139,7 @@
           width: 100%;
           text-align: center;
           border: none;
-          outline: double;
+          outline: none;
           transition: 0.4s;
           margin:3px;
       }
@@ -159,22 +156,18 @@
           display: none;
           overflow: hidden;
       }
-       .list{
-        display: block;
-        margin-top: 10px;
-      }
-      .title{
-        display: none;
-      }
+        .title{
+         display: none;   
+        }
     } 
   </style>
 
 
-  <body style="">
+  <body>
 
-    <!--Jumbotron code-->
+   <!--Jumbotron code-->
       <div>
-        <img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%; height: 300px;">
+        <img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%;  height: 300px;">
       </div>
     <!--END Jumbotron code-->
 
@@ -211,69 +204,69 @@
 
     <br>
 
-    <!--Row 1 START-->
-      <div class="row">
+    <!--Row START-->
+      <div class="row" style="width: 100%; height: 100%; margin: 0px; padding: 0px; overflow-x: hidden; ">
 
         <!--SIDEBAR START-->
           <center>
           <div class="col-md-2" style="border-style: none; margin-bottom: 20px ">
-            <button align="center" class="accordion bton"><h5 style="padding-left: 5px; font-weight: bold;">Amenities</h5></button>
+            <button align="center" class="accordion bton"><h5 style="font-weight: bold;">Amenities</h5></button>
             <div class="panel list" >
               <ul id="filterOptions" style="list-style-type: none;">
-                <center><h5 class="title" style="padding-left: 5px; font-weight: bold;">Listing Filters</h5></center>
-                <li class="active"><a href="#" class="all" style="color: black">All</a></li>
-                <li><a href="#" class="Furnished" style="color: black">Furnished</a></li>
-                <li><a href="#" class="Laundry" style="color: black">Laundry</a></li>
-                <li><a href="#" class="Pets" style="color: black">Pets</a></li>
-                <li><a href="#" class="Cooling" style="color: black">Cooling</a></li>
-                <li><a href="#" class="Parking" style="color: black">Parking</a></li>
-                <li><a href="#" class="Swimming" style="color: black">Pool</a></li>
-                <li><a href="#" class="Garage" style="color: black">Garage</a></li>
-                <li><a href="#" class="Property" style="color: black">Management</a></li>
-                <li><a href="#" class="Hot Tub" style="color: black">Hot Tub</a></li>
-                <li><a href="#" class="Private" style="color: black">Private Bathroom</a></li>
-                <li><a href="#" class="Heating" style="color: black">Heating</a></li>
+                <center><h5 class="title" style="font-weight: bold;">Listing Filters</h5></center>
+                <li class="active"><a href="#" class="all" style="color: black; height:25%;">All</a></li>
+                <li><a href="#" class="Furnished" style="color: black; height:25%;">Furnished</a></li>
+                <li><a href="#" class="Laundry" style="color: black; height:25%;">Laundry</a></li>
+                <li><a href="#" class="Pets" style="color: black; height:25%;">Pets</a></li>
+                <li><a href="#" class="Cooling" style="color: black; height:25%;">Cooling</a></li>
+                <li><a href="#" class="Parking" style="color: black; height:25%;">Parking</a></li>
+                <li><a href="#" class="Swimming" style="color: black; height:25%;">Pool</a></li>
+                <li><a href="#" class="Garage" style="color: black; height:25%;">Garage</a></li>
+                <li><a href="#" class="Property" style="color: black; height:25%;">Management</a></li>
+                <li><a href="#" class="Hot Tub" style="color: black; height:25%;">Hot Tub</a></li>
+                <li><a href="#" class="Private" style="color: black; height:25%;">Private Bathroom</a></li>
+                <li><a href="#" class="Heating" style="color: black; height:25%;">Heating</a></li>
               </ul>
             </div>
-            <button align="center" class="accordion bton" style="width: 100%"><h5 style="padding-left: 5px; font-weight: bold;">Rent Price</h5></button>
+            <button align="center" class="accordion bton" style="width: 100%"><h5 style="font-weight: bold;">Rent Price</h5></button>
             <div class="panel list">   
               <ul>
-                <center><h5 class="title" style="padding-left: 5px; font-weight: bold;">Rent Price</h5></center>
+                <center><h5 class="title" style="font-weight: bold;">Rent Price</h5></center>
                 <div class="slidecontainer">
-                  <input type="range" min="0" max="1000" value="1000" class="slider" id="myRange" style="margin-left: 5px">
+                  <input type="range" min="0" max="1000" value="1000" class="slider" id="myRange" style="">
                   <p>Max Cost: <span id="demo"></span></p>
                 </div>
               <ul>
             </div>
-            <button align="center" class="accordion bton"><h5 style="padding-left: 5px; font-weight: bold;">Square Feet</h5></button>
+            <button align="center" class="accordion bton"><h5 style="font-weight: bold;">Square Feet</h5></button>
             <div class="panel list">
               <ul>
-                <center><h5 class="title" style="padding-left: 5px; font-weight: bold;">Square Feet</h5></center>
+                <center><h5 class="title" style="font-weight: bold;">Square Feet</h5></center>
                 <div class="slidecontainer">
-                  <input type="range" min="0" max="1000" value="1000" class="slider" id="myRange2" style="margin-left: 5px">
+                  <input type="range" min="0" max="1000" value="1000" class="slider" id="myRange2" style="">
                   <p>Max Size: <span id="demo2"></span></p>
                 </div>
               <ul>
             </div>
-            <button align="center" class="accordion bton"><h5 style="padding-left: 5px; font-weight: bold;">Availability</h5></button>
+            <button align="center" class="accordion bton"><h5 style="font-weight: bold;">Availability</h5></button>
             <div class="panel list">
               <ul id="filterOptions" style="list-style-type: none;">
-                <center><h5 class="title" style="padding-left: 5px; font-weight: bold;">Availablility</h5></center>
-                <li><a href="#" class="Summer" style="color: black">Summer Only</a></li>
-                <li><a href="#" class="Fall" style="color: black">Fall Semester</a></li>
-                <li><a href="#" class="Spring" style="color: black">Spring Semester</a></li>
+                <center><h5 class="title" style=" font-weight: bold;">Availablility</h5></center>
+                <li><a href="#" class="Summer" style="color: black; height:25%;">Summer Only</a></li>
+                <li><a href="#" class="Fall" style="color: black; height:25%;">Fall Semester</a></li>
+                <li><a href="#" class="Spring" style="color: black; height:25%;">Spring Semester</a></li>
               <ul>
             </div>
-            <button align="center" class="accordion bton"><h5 style="padding-left: 5px; font-weight: bold;">Apartment Complex</h5></button>
+            <button align="center" class="accordion bton"><h5 style="font-weight: bold;">Apartment Complex</h5></button>
             <div class="panel list">
               <ul id="filterOptions" style="list-style-type: none;">
-                <center><h5 class="title" style="padding-left: 5px; font-weight: bold;">Locations</h5></center>
-                <li><a href="#" class="TownHomes" style="color: black">TownHomes</a></li>
-                <li><a href="#" class="Pointe" style="color: black">Campus Pointe</a></li>
-                <li><a href="#" class="Edge" style="color: black">Unversity Edge</a></li>
-                <li><a href="#" class="Towers" style="color: black">College Towers</a></li>
-                <li><a href="#" class="Eagles" style="color: black">Eagles Landing</a></li>
-                <li><a href="#" class="Province" style="color: black">Province</a></li>
+                <center><h5 class="title" style="font-weight: bold;">Locations</h5></center>
+                <li><a href="#" class="TownHomes" style="color: black; height:25%;">TownHomes</a></li>
+                <li><a href="#" class="Pointe" style="color: black; height:25%;">Campus Pointe</a></li>
+                <li><a href="#" class="Edge" style="color: black; height:25%;">Unversity Edge</a></li>
+                <li><a href="#" class="Towers" style="color: black; height:25%;">College Towers</a></li>
+                <li><a href="#" class="Eagles" style="color: black; height:25%;">Eagles Landing</a></li>
+                <li><a href="#" class="Province" style="color: black; height:25%;">Province</a></li>
               </ul>
             </div>
           </div>
@@ -295,13 +288,13 @@
               <div class="box <?php echo $row['furnished']; echo " "; echo $row["gym"]; echo " "; echo $row["laundry"]; echo " "; echo $row["pets"]; echo " "; echo $row["cooling"]; echo " ";  echo $row["parking"]; echo " "; echo $row["pool"]; echo " "; echo $row["garage"]; echo " ";  echo $row["propertymanagement"]; echo " ";  echo $row["hottub"]; echo " "; echo $row["privatebathroom"]; echo " ";  echo $row["heating"]; echo " ";  echo $row["availability"]; echo " ";  echo $row["complex"]; echo " ";  echo $row["pool"];?>" style="margin-bottom: 20px;">
 
                 <!--Left Box-->
-                  <div class="col-md-4 one" style="background-color: white;border-style: none;border-color: gray; max-width: 100%; padding: 0">
+                  <div class="col-md-6 one" style="max-width: 100%; padding: 0px">
                     <img src = "<?php echo $row["pic1"] ?>" style="width: 100%">
                   </div>
                 <!--END Left Box-->
 
                 <!--Middle Box-->
-                  <div class=" col-md-8 two" style="background-color: white;border-style: none;border-color: gray;">    
+                  <div class=" col-md-6 two" style="">    
                     <div class="row">
                       <div class="col-md-6" style="text-align: left;">
                          <span>Price:</span>
@@ -343,36 +336,33 @@
                         <span><?php echo $row["complex"] ?></span>
                       </div>
                     </div>
-					<div class="row">
+					          <div class="row">
                       <div class="col-md-6" style="text-align: left;">
-                        <br><form  method="post" action="viewlisting.php">
-							<input type="hidden" name="listingid" value = "<?php echo $row['listingid']; ?>" >
-							<button class="button" type="submit" name="submit" value="Submit">View Listing</button>
-						</form>
+                        <br>
+                        <form  method="post" action="viewlisting.php">
+            							<input type="hidden" name="listingid" value = "<?php echo $row['listingid']; ?>" >
+            							<button class="button" type="submit" name="submit" value="Submit">View Listing</button>
+            						</form>
                       </div>
                       <div class="col-md-6" style="text-align: left;">
-                        <br><form method="post" action="addfav.php">
-							<input type="hidden" name="listingid" value = "<?php echo $row['listingid']; ?>" >
-							<input type="hidden" name="userid" value = "<?php echo $_SESSION["userid"] ?>" >
-							<button class="button" type="submit" name="submit" value="Submit">Add to Favorites</button>
-                      </form>
+                        <br>
+                        <form method="post" action="addfav.php">
+            							<input type="hidden" name="listingid" value = "<?php echo $row['listingid']; ?>" >
+            							<input type="hidden" name="userid" value = "<?php echo $_SESSION["userid"] ?>" >
+            							<button class="button" type="submit" name="submit" value="Submit">Add to Favorites</button>
+                        </form>
                       </div>
                     </div>   
-					<div class="row">
+					          <div class="row">
                       <div class="col-md-6" style="text-align: left;">
-                    <br><img src = "<?php echo $row["pic2"] ?>" style="width: 100%; height:100%">
+                        <br>
+                        <img src = "<?php echo $row["pic2"] ?>" style="width: 100%; height:100%">
                       </div>
                       <div class="col-md-6" style="text-align: left;">
-                    <br><img src = "<?php echo $row["pic3"] ?>" style="width: 100%; height:100%">
+                        <br>
+                        <img src = "<?php echo $row["pic3"] ?>" style="width: 100%; height:100%">
                       </div>
                     </div>					
-                    <center>
-                      <div class="row">
-                        <div class="" style="text-align: left;">
-                          <!--Blank-->
-                        </div>
-                      </div>
-                    </center>
                   </div>
                 <!--END Middle Box-->
               </div>
@@ -383,43 +373,26 @@
                 }
               ?>
             <!--END PHP Call for Listing-->
-
           </div>
         <!--LISTINGS END-->
 
         <!--GOOGLE ADS START-->
-          <div class="col-md-2 ads" style="border-style: none; margin:0px;border:0px;padding: 0px">
+          <div class="col-md-2 ads" style="">
             <br>
               <div style="border: none; background-color: white">
-                <center><img src="img/ad1.jpg" style="max-width: 100%; max-height: 100%;"></center>
-                <br>
-                <br>
-                <br>
-                <br>
+                <center><img src="img/ad1.jpg" style="width: 100%;"></center>
               </div>
             <br>
             <div style="border: none; background-color: white">
-      			  <center><img src="img/ad2.jpg" style="max-width: 100%; max-height: 100%;"></center>
-      			  <br>
-              <br>
-              <br>
-              <br>
+      			  <center><img src="img/ad2.jpg" style="width: 100%;"></center>
             </div>
             <br>
             <div style="border: none; background-color: white">
-              <center><img src="img/ad3.jpg" style="max-width: 100%; max-height: 100%;"></center>
-              <br>
-              <br>
-              <br>
-              <br>
+              <center><img src="img/ad3.jpg" style="width: 100%;"></center>
             </div>
             <br>
             <div style="border: none; background-color: white">
-              <center><img src="img/ad4.jpg" style="max-width: 100%; max-height: 100%;"></center>
-              <br>
-              <br>
-              <br>
-              <br>
+              <center><img src="img/ad4.jpg" style="width: 100%;"></center>
             </div>
             <br>
           </div>
@@ -432,38 +405,35 @@
 
     <!--Footer-->
       <footer style="background-color:#002664;">
+        <br>
         <center>
           <!--Links-->
-            <div class="container">
-              <div class="row"><br>
-                <div class="col-md-4">
-                  <a href="homepage.php" style="color: white"> Home </a>
-                </div>
-                <div class="col-md-4">
-                  <a href="browselisting.php" style="color: white"> Browse Listings </a>
-                </div>
-               <div class="col-md-4">
-                  <?php
-                      if(isset($_SESSION["userid"])){
-                        echo "<a href='myaccount.php' style='color: white'>My Account</a>";
-                      } else {
-                        echo "<a href='loginpage.html' style='color: white'><span class='glyphicon glyphicon-log-in'></span> Login </a>";
-                      }
-                  ?> 
-                </div>
+              <div class="col-md-4">
+                <a href="homepage.php" style="color: white"> Home </a>
               </div>
-            </div>
+              <div class="col-md-4">
+                <a href="browselisting.php" style="color: white"> Browse Listings </a>
+              </div>
+              <div class="col-md-4">
+                <?php
+                    if(isset($_SESSION["userid"])){
+                      echo "<a href='myaccount.php' style='color: white'>My Account</a>";
+                    } else {
+                      echo "<a href='loginpage.html' style='color: white'><span class='glyphicon glyphicon-log-in'></span> Login </a>";
+                    }
+                ?> 
+              </div>
+
+              <br>
           <!--End Links-->
-        </center>
         <br>
         <!--Copyright-->
           <div>
-            <center>
-              <span style="color: white;">2018 © Copyright Team 3 Solutions. All rights reserved.</span>
-            </center>
+            <span style="color: white;">2018 © Copyright Team 3 Solutions. All rights reserved.</span>
           </div>
         <!--End of Copyright-->
         <br>
+        </center>
       </footer>
     <!--END Footer-->
 
