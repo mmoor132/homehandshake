@@ -98,7 +98,7 @@ if (isset($_SESSION["listingid"])){
   <body>
     <!--Jumbotron code-->
       <div>
-        <img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%; height: 300px;">
+        <img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%; height: 250px;">
       </div>
     <!--END Jumbotron code-->
 
@@ -358,7 +358,7 @@ if (isset($_SESSION["listingid"])){
               </div>
               <div class="row">
                 <div class="col-md-6">
-                  <h5 style="font-weight: bold;">Preferred Method of Contact</h5>
+                  <h5 style="font-weight: bold;">Preferred Methods of Contact</h5>
                     <div class="">
                       <label>Phone: </label><span> <?php echo "$phone" ?></span>
                     </div>
