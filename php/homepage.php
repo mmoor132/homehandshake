@@ -186,7 +186,7 @@
         <!-- Google map -->
           <div class="col-md-8">
             <center>
-              <div id="map" style="width:100%;height:80vh;"></div>      
+              <div id="map" style="width:100%;height:60vh;"></div>      
               <div id="map"></div>
                 <script>
 
