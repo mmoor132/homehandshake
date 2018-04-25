@@ -69,7 +69,7 @@
 
   	<!--Jumbotron code-->
     	<div>
-      	<img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%;  height: 300px;">
+      	<img src="img/KSU Fountain.jpg" alt = "Header Image" style="width: 100%;  height: 250px;">
     	</div>
     <!--END Jumbotron code-->
 
@@ -117,141 +117,143 @@
 
     <hr>
 
-    <div class="row"  style="width: 100%; height: 100%; margin: 0px; padding: 0px; overflow-x: hidden; ">
-      <center>
-      <div class="col-md-4">
-        <!--Div 2 code-->
-          <div>
-            <h1><span class="style2">Learn more about Housing Handshakes!</span><p></h1>
-            You will find the home you have been searching for.</p>
-            <center>
-              <form action="mailto:email@youraddress.com" method="post" enctype="text/plain" name="info"
-              id="info">
-                <table border="0">
-                  <colgroup span="1" width="40%" align="left" />
-                  <colgroup span=" 1" align="left" />
-                  <tr>
-                    <td>
-                      <p>
-                      First name</p>
-                    </td>
-                    <td>
-                      <input type="text" name="first" id="first" size="20" />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <p>Last name</p>
-                    </td>
-                    <td>
-                      <input type="text" name="last" id="last" size="20" />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <p>Telephone</p>
-                    </td>
-                    <td>
-                      <input type="text" name="phone" id="phone" size="20" />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <p>E-mail address</p>
-                    </td>
-                    <td>
-                      <input type="text" name="email" id="email" size="20" />
-                    </td>
-                  </tr>
-                </table>
-                <br>    
-                <p><button type="submit">Discover!</button></p>
-              </form>
-            </center>
-          </div>  
-        <!-- END Div 2-->
-        <br>
-        <!--Div 1-->
-          <div id="col1" class="">
-            <h1>We understand.</h1>
-            <center>
-              <p style="width: 85%">
-                Subleasing is difficult - hands down. Whether you are studying abroad, landed an internship (congrats!), headed home for the summer, or simply can't afford your current living - we can help.</p>
-            </center>
-          </div> 
-        <!--END Div 1--> 
-      </div>
-      </center>
-      <!-- Google map -->
-        <div class="col-md-8">
-          <center>
-            <div id="map" style="width:100%;height:80vh;"></div>      
-            <div id="map"></div>
-              <script>
-
-                function initMap() {
-
-                  var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 15,
-                    center: {lat: 41.150955, lng: -81.342237}
-                  });
-
-                  // Create an array of alphabetical characters used to label the markers.
-                  var labels = '';
-
-                  // Add some markers to the map.
-                  // Note: The code uses the JavaScript Array.prototype.map() method to
-                  // create an array of markers based on a given "locations" array.
-                  // The map() method here has nothing to do with the Google Maps API.
-                  var markers = locations.map(function(location, i) {
-                    return new google.maps.Marker({
-                      position: location,
-                      label: labels[i % labels.length]
-                    });
-                  });
-
-                  // Add a marker clusterer to manage the markers.
-                  var markerCluster = new MarkerClusterer(map, markers,
-                      {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
-                }
-                var locations = [
-
-                  //Province Lat and Long
-                  {lat: 41.147250, lng: -81.350555},
-
-                  //Eagles Landing Lat and Long
-                  {lat: 41.145258, lng: -81.349331},
-
-                  //Campus Pointe Lat and Long
-                  {lat: 41.156494, lng: -81.328473},
-
-                  //Dartmouth Lat and Long
-                  {lat: 41.145720, lng: -81.351426},
-
-                  //University Oaks
-                  {lat: 41.150210, lng: -81.335212},
-
-                  //University Edge
-                  {lat: 41.144502, lng: -81.332225},
-
-                  //University TownHomes
-                  {lat: 41.138851, lng: -81.329646},
-
-                  //College Towers
-                  {lat: 41.146865, lng: -81.333490}
-                
-                ]
-              </script>
-              <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
-              </script>
-            <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwPMtmTS5-ruHic9Qa3Q9h_R-I0ptYC3w&callback=initMap">
-            </script>
-          </center>
+    <!--Main Content Div-->
+      <div class="row"  style="width: 100%; height: 100%; margin: 0px; padding: 0px; overflow-x: hidden; ">
+        <center>
+        <div class="col-md-4">
+          <!--Div 2 code-->
+            <div>
+              <h1><span class="style2">Learn more about Housing Handshakes!</span><p></h1>
+              You will find the home you have been searching for.</p>
+              <center>
+                <form action="mailto:email@youraddress.com" method="post" enctype="text/plain" name="info"
+                id="info">
+                  <table border="0">
+                    <colgroup span="1" width="40%" align="left" />
+                    <colgroup span=" 1" align="left" />
+                    <tr>
+                      <td>
+                        <p>
+                        First name</p>
+                      </td>
+                      <td>
+                        <input type="text" name="first" id="first" size="20" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p>Last name</p>
+                      </td>
+                      <td>
+                        <input type="text" name="last" id="last" size="20" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p>Telephone</p>
+                      </td>
+                      <td>
+                        <input type="text" name="phone" id="phone" size="20" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p>E-mail address</p>
+                      </td>
+                      <td>
+                        <input type="text" name="email" id="email" size="20" />
+                      </td>
+                    </tr>
+                  </table>
+                  <br>    
+                  <p><button type="submit">Discover!</button></p>
+                </form>
+              </center>
+            </div>  
+          <!-- END Div 2-->
+          <br>
+          <!--Div 1-->
+            <div id="col1" class="">
+              <h1>We understand.</h1>
+              <center>
+                <p style="width: 85%">
+                  Subleasing is difficult - hands down. Whether you are studying abroad, landed an internship (congrats!), headed home for the summer, or simply can't afford your current living - we can help.</p>
+              </center>
+            </div> 
+          <!--END Div 1--> 
         </div>
-      <!-- End Google map -->
-    </div>
+        </center>
+        <!-- Google map -->
+          <div class="col-md-8">
+            <center>
+              <div id="map" style="width:100%;height:80vh;"></div>      
+              <div id="map"></div>
+                <script>
 
+                  function initMap() {
+
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                      zoom: 15,
+                      center: {lat: 41.150955, lng: -81.342237}
+                    });
+
+                    // Create an array of alphabetical characters used to label the markers.
+                    var labels = '';
+
+                    // Add some markers to the map.
+                    // Note: The code uses the JavaScript Array.prototype.map() method to
+                    // create an array of markers based on a given "locations" array.
+                    // The map() method here has nothing to do with the Google Maps API.
+                    var markers = locations.map(function(location, i) {
+                      return new google.maps.Marker({
+                        position: location,
+                        label: labels[i % labels.length]
+                      });
+                    });
+
+                    // Add a marker clusterer to manage the markers.
+                    var markerCluster = new MarkerClusterer(map, markers,
+                        {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+                  }
+                  var locations = [
+
+                    //Province Lat and Long
+                    {lat: 41.147250, lng: -81.350555},
+
+                    //Eagles Landing Lat and Long
+                    {lat: 41.145258, lng: -81.349331},
+
+                    //Campus Pointe Lat and Long
+                    {lat: 41.156494, lng: -81.328473},
+
+                    //Dartmouth Lat and Long
+                    {lat: 41.145720, lng: -81.351426},
+
+                    //University Oaks
+                    {lat: 41.150210, lng: -81.335212},
+
+                    //University Edge
+                    {lat: 41.144502, lng: -81.332225},
+
+                    //University TownHomes
+                    {lat: 41.138851, lng: -81.329646},
+
+                    //College Towers
+                    {lat: 41.146865, lng: -81.333490}
+                  
+                  ]
+                </script>
+                <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+                </script>
+              <script async defer
+              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwPMtmTS5-ruHic9Qa3Q9h_R-I0ptYC3w&callback=initMap">
+              </script>
+            </center>
+          </div>
+        <!-- End Google map -->
+      </div>
+    <!--END Main Content Div-->
+    
     <br>
 
     <br>

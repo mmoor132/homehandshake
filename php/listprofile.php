@@ -11,6 +11,8 @@
   session_start();
 
   // Call all Variables
+  $latitude = $_SESSION['latitude'];
+  $longitude = $_SESSION['longitude'];
   $fname = $_SESSION['fname'];
   $lname = $_SESSION['lname'];
   $phone = $_SESSION['phone'];
@@ -20,6 +22,7 @@
   $price = $_SESSION['price'];
   $address = $_SESSION['address'];
   $city = $_SESSION['city'];
+  $state = $_SESSION['state'] ;
   $zip = $_SESSION['zip'] ;
   $housingstyle = $_SESSION['housingstyle'];
   $roommates = $_SESSION['roommates'] ;
@@ -164,6 +167,44 @@
     border-style: inset;
     border-width: 1px;
     } 
+
+    .button {
+      padding: 10px 15px;
+      font-size: 24px;
+      text-align: center;
+      cursor: pointer;
+      outline: none;
+      color: #fff;
+      background-color: #002664;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 9px #999;
+    }
+
+    .button:hover {background-color: #002664}
+
+    .button:active {
+      background-color: lbue;
+      box-shadow: 0 5px #666;
+      transform: translateY(4px);
+    }
+
+    <?php
+       if (!isset($_SESSION["userid"])) {
+         echo '
+          .map1{
+            opacity: 0.5;
+            filter: blur(5px);
+          }
+          .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }  
+         ';
+       }
+    ?>
   </style>
   
 
@@ -209,17 +250,15 @@
     <!--List Profile-->
 
       <!--Image and Map Row-->
-        <div class="container-fluid" style="border:0;margin: 0;padding: 0" align="center">
-          <div class="col-md-8" style="border:0;,margin: 1;padding: 1">
-            
+        <div class="container-fluid" style="border:0;margin: 0;padding: 0" align="center">       
             <!--Row 1-->
               <div class="row">
                 <div class="col-md-6" align="center">
                   <h1><?php echo "$title" ?></h1>
                 </div>
                 <div class="col-md-6" align="center">
-                  <button id="myBtn" style="margin:25px; width: 25%; height: 25%" >Contact</button>
-                  <a href="browselisting.php" style="color: black"><button style="width: 40%; height: 50%">Return to Listings</button></a>
+                  <button id="myBtn" class="button" style="margin:25px; width: 25%; height: 25%" >Contact</button>
+                  <a href="browselisting.php" style="color: black"><button class="button" style="width: 40%; height: 50%">Return to Listings</button></a>
                   <!-- The Modal -->
                     <div id="myModal" class="modal">
                       <!-- Modal content -->
@@ -255,13 +294,19 @@
             <!--Row 2-->
               <div class="row"  style="border:0;,margin: 0;padding: 0">
                 <div class="col-md-2">
-                  <h3 align="">$ <?php echo "$price" ?> per Month</h3>
+                  <h2 align="">$ <?php echo "$price" ?> per Month</h2>
                 </div>
                 <div class="col-md-6">
-                   <h3><?php echo "$address, $city, $zip" ?></h3>
+                    <?php
+                        if(isset($_SESSION["userid"])){
+                            echo "<h2>$address, $city, $state, $zip</h2>";
+                        }else{
+                            echo "";
+                        }
+                    ?>
                 </div>
                 <div class="col-md-2">
-                  <h3 align=""><?php echo "$complex" ?></h3>
+                  <h2 align=""><?php echo "$complex" ?></h2>
                 </div>
               </div>
             <hr>
@@ -269,7 +314,7 @@
 
             <!--Row 3-->
               <div class="row" style="">
-                <div class="col-md-6" style="border:0;margin: 0;padding: 0; margin-bottom: 5pxs">
+                <div class="col-md-4" style="border:0;margin: 0;padding: 0; margin-bottom: 10px">
                   <!--Main Image Display-->
                     <div class="container" style="max-width: 100%;border:0;margin: 0;padding: 0" align="center">
                       <div class="mySlides">
@@ -310,7 +355,7 @@
                   <!--END Image Navbar-->
                   </div>
                 </div>
-                <div class="col-md-6" style="" align="center"> 
+                <div class="col-md-4" style="margin-bottom: 10px" align="center"> 
                   <div style="margin-left:10px; margin-right: 10px">
                       <!--Row 1--> 
                         <div class="row" style="">
@@ -363,7 +408,7 @@
                             <div class="w3-container">
                               <ul class="" style="list-style-type: none; margin: 0; padding: 0;">
                            <?php 
-                              $ammenities = array($furnished, $gym, $laundry, $pets, $cooling, $pool, $garage, $propertymanagement, $hottub, $privatebathroom);
+                              $ammenities = array($furnished, $gym, $laundry, $pets, $cooling, $parking, $pool, $garage, $propertymanagement, $hottub, $privatebathroom);
 
                               foreach ($ammenities as $name) {
                                 if (isset($name) && $name != "") {
@@ -379,31 +424,58 @@
                       <!--END Row 4-->
                   </div>
                 </div>
+                <!--Google Map-->
+                  <div class="col-md-4" style="border:0;,margin: 0;padding: 0; margin-bottom: 10px">
+                    <!-- Google map -->
+                      <center>
+                      <div id="map" class="map1 " style="width:100%;height:60vh;" frameborder="0" style="border:0;,margin: 0;padding: 0">
+                          <div class="centered">Please login to View Google Maps</div>
+                      </div>
+                      <script>
+                        function myMap() {
+                        var mapOptions = {
+                            center: new google.maps.LatLng(<?php echo "$latitude";?>, <?php echo "$longitude";?>),
+                            zoom: 13,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        }
+                        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+                        }
+                      </script>
+                      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwPMtmTS5-ruHic9Qa3Q9h_R-I0ptYC3w&callback=myMap"></script>
+
+                      <script>
+                        function initMap() {
+                          var kent = {
+
+                          lat: <?php if(isset($_SESSION["userid"])){echo "$latitude";}else{echo "41.148725";}?>, 
+
+                          lng: <?php if(isset($_SESSION["userid"])){echo "$longitude";}else{echo " -81.341442";}?>};
+                          var map = new google.maps.Map(document.getElementById('map'), {
+
+                          zoom: 15,
+                          center: kent
+
+                          });
+
+
+                          var marker = new google.maps.Marker({
+                            position: kent,
+                            map: map,
+                            });
+                          marker.addListener('click', function() {
+                            infowindow.open(map, marker);
+                          });
+                        }
+                      </script>
+                      <script async defer
+                      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwPMtmTS5-ruHic9Qa3Q9h_R-I0ptYC3w&callback=initMap">
+                      </script>
+                      </center>  
+                    <!-- End Google map -->
+                  </div>
+                <!--END Google Map-->
               </div>
             <!--END Row 3-->
-
-          </div>
-
-          <!--Google Map-->
-            <div class="col-md-4" style="border:0;,margin: 0;padding: 0">
-              <!-- Google map -->
-                <center>
-                <div id="map" class="map1" style="width:100%;height:70vh;" frameborder="0" style="border:0;,margin: 0;padding: 0"></div>
-                <script>
-                  function myMap() {
-                  var mapOptions = {
-                      center: new google.maps.LatLng(41.149063, -81.341465),
-                      zoom: 13,
-                      mapTypeId: google.maps.MapTypeId.ROADMAP
-                  }
-                  var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-                  }
-                </script>
-                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwPMtmTS5-ruHic9Qa3Q9h_R-I0ptYC3w&callback=myMap"></script>
-                </center>  
-              <!-- End Google map -->
-            </div>
-          <!--END Google Map-->
 
         </div> 
 
@@ -565,31 +637,3 @@
 
   </body>
 </html>
-
-<!-- Get the container element
-        var btnContainer = document.getElementById("myDIV");
-
-        // Get all buttons with class="btn" inside the container
-        var btns = btnContainer.getElementsByClassName("btn");
-
-        // Loop through the buttons and add the active class to the current/clicked button
-        for (var i = 0; i < btns.length; i++) {
-          btns[i].addEventListener("click", function() {
-            var current = document.getElementsByClassName("active");
-            current[0].className = current[0].className.replace(" active", "");
-            this.className += " active";
-          });
-          <div class="row">
-                    <div class=" col-md-12 container" align="center" style="border-style: solid">
-                      <img id="expandedImg" style="width: 100%">
-                      <div id="imgtext"></div>
-                    </div>
-                  </div>
-                  <div class="row" style="border-style: solid;padding: 0">
-                    <div class="row" align="center">
-                      <img src="<?php $pic1 ?>"  style="width:20%"  align="" onclick="myFunction(this);">
-                      <img src="<?php $pic2 ?>"  style="width:20%"  align="" onclick="myFunction(this);">
-                      <img src="<?php $pic3 ?>" style="width:20%" align="" onclick="myFunction(this);">
-                      <img src="<?php $pic4 ?>" style="width:20%" align="" onclick="myFunction(this);">
-                    </div>
-                  </div>-->

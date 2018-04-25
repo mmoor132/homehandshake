@@ -18,7 +18,7 @@ $listingnum = $_POST["listingid"];
 
 $_SESSION["listingnum"] = $listingnum;
 
-$stmt = $conn->prepare("SELECT listings.title, listings.price, listings.address, listings.city, listings.zip, listings.housingstyle, listings.roommates, listings.numofroom, listings.startdate, listings.enddate, listings.description, listings.availability, listings.complex, picture.pic1, picture.pic2, picture.pic3, picture.pic4, picture.pic5
+$stmt = $conn->prepare("SELECT listings.title, listings.price, listings.address, listings.city, listings.state, listings.zip, listings.housingstyle, listings.roommates, listings.numofroom, listings.startdate, listings.enddate, listings.description, listings.availability, listings.complex, listings.latitude, listings.longitude, picture.pic1, picture.pic2, picture.pic3, picture.pic4, picture.pic5
 	FROM listings
 	INNER JOIN picture ON listings.listingid = picture.listingid
 	WHERE listings.listingid = '$listingnum'");
@@ -35,6 +35,7 @@ while ($row = $result->fetch_assoc()){
 	$_SESSION['price'] = $row["price"];
 	$_SESSION['address'] = $row["address"];
 	$_SESSION['city'] = $row["city"];
+	$_SESSION['state'] = $row["state"];
 	$_SESSION['zip'] = $row["zip"];
 	$_SESSION['housingstyle'] = $row["housingstyle"];
 	$_SESSION['roommates'] = $row["roommates"];
@@ -44,6 +45,8 @@ while ($row = $result->fetch_assoc()){
 	$_SESSION['description'] = $row["description"];
     $_SESSION['complex'] = $row["complex"];
     $_SESSION['availability'] = $row["availability"];
+    $_SESSION['latitude'] = $row["latitude"];
+    $_SESSION['longitude'] = $row["longitude"];
 	$_SESSION['pic1'] = $row["pic1"];
 	$_SESSION['pic2'] = $row["pic2"];
 	$_SESSION['pic3'] = $row["pic3"];
