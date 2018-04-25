@@ -13,6 +13,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--END Bootstrap 3-->
     <link href="css\handshake2.css" type="text/css" rel="stylesheet" />
+    <script src="http://maps.google.com/maps/api/js?sensor=false" 
+          type="text/javascript"></script>
   </head>
 
   <!-- Start of Sticky Navbar Code -->
@@ -183,51 +185,65 @@
       <!-- Google map -->
         <div class="col-md-8">
           <center>
-            <div id="map" style="width:100%;height:80vh;"></div>
-            <script>
-              function myMap() {
-              var mapOptions = {
-                  center: new google.maps.LatLng(41.149063, -81.350555),
-                  zoom: 13,
-                  mapTypeId: google.maps.MapTypeId.ROADMAP
-              }
-              var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-              }
-            </script>
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwPMtmTS5-ruHic9Qa3Q9h_R-I0ptYC3w&callback=myMap"></script>
-            <script>
-              function initMap() {
+            <div id="map" style="width:100%;height:80vh;"></div>      
+            <div id="map"></div>
+              <script>
 
-                var theProvince = {lat: 41.147250, lng: -81.350555};
+                function initMap() {
 
-                var map = new google.maps.Map(document.getElementById('map'), {
-                  zoom: 13,
-                  center: theProvince
-                });
-                var contentString = '<div id="content">'+
-                    '<div id="siteNotice">'+
-                    '</div>'+
-                    '<p><b> The Province</b></p>'+
-                    '<p>Website: The Province, <a href="http://www.theprovincekent.com/">'+
-                    'http://www.theprovincekent.com</a> '+
-                    '</div>'+
-                    '</div>';
-
-                var infowindow = new google.maps.InfoWindow({
-                  content: contentString
-                });
-
-                var marker = new google.maps.Marker({
-                  position: theProvince,
-                  map: map,
-                  title: 'The Province'
+                  var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 15,
+                    center: {lat: 41.150955, lng: -81.342237}
                   });
-                marker.addListener('click', function() {
-                  infowindow.open(map, marker);
-                });
 
-              }
-            </script>
+                  // Create an array of alphabetical characters used to label the markers.
+                  var labels = '';
+
+                  // Add some markers to the map.
+                  // Note: The code uses the JavaScript Array.prototype.map() method to
+                  // create an array of markers based on a given "locations" array.
+                  // The map() method here has nothing to do with the Google Maps API.
+                  var markers = locations.map(function(location, i) {
+                    return new google.maps.Marker({
+                      position: location,
+                      label: labels[i % labels.length]
+                    });
+                  });
+
+                  // Add a marker clusterer to manage the markers.
+                  var markerCluster = new MarkerClusterer(map, markers,
+                      {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+                }
+                var locations = [
+
+                  //Province Lat and Long
+                  {lat: 41.147250, lng: -81.350555},
+
+                  //Eagles Landing Lat and Long
+                  {lat: 41.145258, lng: -81.349331},
+
+                  //Campus Pointe Lat and Long
+                  {lat: 41.156494, lng: -81.328473},
+
+                  //Dartmouth Lat and Long
+                  {lat: 41.145720, lng: -81.351426},
+
+                  //University Oaks
+                  {lat: 41.150210, lng: -81.335212},
+
+                  //University Edge
+                  {lat: 41.144502, lng: -81.332225},
+
+                  //University TownHomes
+                  {lat: 41.138851, lng: -81.329646},
+
+                  //College Towers
+                  {lat: 41.146865, lng: -81.333490}
+                
+                ]
+              </script>
+              <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+              </script>
             <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwPMtmTS5-ruHic9Qa3Q9h_R-I0ptYC3w&callback=initMap">
             </script>
