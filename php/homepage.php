@@ -113,151 +113,130 @@
 
     <br>
 
-    <!-- Google map -->
+    <hr>
+
+    <div class="row"  style="width: 100%; height: 100%; margin: 0px; padding: 0px; overflow-x: hidden; ">
       <center>
-
-      <div id="map" style="width:75%;height:450px;"></div>
-
-      <script>
-        function myMap() {
-        var mapOptions = {
-            center: new google.maps.LatLng(41.149063, -81.350555),
-            zoom: 13,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-        }
-      </script>
-
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwPMtmTS5-ruHic9Qa3Q9h_R-I0ptYC3w&callback=myMap"></script>
-
-      <script>
-        function initMap() {
-
-          var theProvince = {lat: 41.147250, lng: -81.350555};
-
-          var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 13,
-            center: theProvince
-          });
-          var contentString = '<div id="content">'+
-              '<div id="siteNotice">'+
-              '</div>'+
-              '<p><b> The Province</b></p>'+
-              '<p>Website: The Province, <a href="http://www.theprovincekent.com/">'+
-              'http://www.theprovincekent.com</a> '+
-              '</div>'+
-              '</div>';
-
-          var infowindow = new google.maps.InfoWindow({
-            content: contentString
-          });
-
-          var marker = new google.maps.Marker({
-            position: theProvince,
-            map: map,
-            title: 'The Province'
-            });
-          marker.addListener('click', function() {
-            infowindow.open(map, marker);
-          });
-
-        }
-      </script>
-      <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwPMtmTS5-ruHic9Qa3Q9h_R-I0ptYC3w&callback=initMap">
-      </script>
-
+      <div class="col-md-4">
+        <!--Div 2 code-->
+          <div>
+            <h1><span class="style2">Learn more about Housing Handshakes!</span><p></h1>
+            You will find the home you have been searching for.</p>
+            <center>
+              <form action="mailto:email@youraddress.com" method="post" enctype="text/plain" name="info"
+              id="info">
+                <table border="0">
+                  <colgroup span="1" width="40%" align="left" />
+                  <colgroup span=" 1" align="left" />
+                  <tr>
+                    <td>
+                      <p>
+                      First name</p>
+                    </td>
+                    <td>
+                      <input type="text" name="first" id="first" size="20" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>Last name</p>
+                    </td>
+                    <td>
+                      <input type="text" name="last" id="last" size="20" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>Telephone</p>
+                    </td>
+                    <td>
+                      <input type="text" name="phone" id="phone" size="20" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>E-mail address</p>
+                    </td>
+                    <td>
+                      <input type="text" name="email" id="email" size="20" />
+                    </td>
+                  </tr>
+                </table>
+                <br>    
+                <p><button type="submit">Discover!</button></p>
+              </form>
+            </center>
+          </div>  
+        <!-- END Div 2-->
+        <br>
+        <!--Div 1-->
+          <div id="col1" class="">
+            <h1>We understand.</h1>
+            <center>
+              <p style="width: 85%">
+                Subleasing is difficult - hands down. Whether you are studying abroad, landed an internship (congrats!), headed home for the summer, or simply can't afford your current living - we can help.</p>
+            </center>
+          </div> 
+        <!--END Div 1--> 
+      </div>
       </center>
-    <!-- End Google map -->
+      <!-- Google map -->
+        <div class="col-md-8">
+          <center>
+            <div id="map" style="width:100%;height:80vh;"></div>
+            <script>
+              function myMap() {
+              var mapOptions = {
+                  center: new google.maps.LatLng(41.149063, -81.350555),
+                  zoom: 13,
+                  mapTypeId: google.maps.MapTypeId.ROADMAP
+              }
+              var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+              }
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwPMtmTS5-ruHic9Qa3Q9h_R-I0ptYC3w&callback=myMap"></script>
+            <script>
+              function initMap() {
+
+                var theProvince = {lat: 41.147250, lng: -81.350555};
+
+                var map = new google.maps.Map(document.getElementById('map'), {
+                  zoom: 13,
+                  center: theProvince
+                });
+                var contentString = '<div id="content">'+
+                    '<div id="siteNotice">'+
+                    '</div>'+
+                    '<p><b> The Province</b></p>'+
+                    '<p>Website: The Province, <a href="http://www.theprovincekent.com/">'+
+                    'http://www.theprovincekent.com</a> '+
+                    '</div>'+
+                    '</div>';
+
+                var infowindow = new google.maps.InfoWindow({
+                  content: contentString
+                });
+
+                var marker = new google.maps.Marker({
+                  position: theProvince,
+                  map: map,
+                  title: 'The Province'
+                  });
+                marker.addListener('click', function() {
+                  infowindow.open(map, marker);
+                });
+
+              }
+            </script>
+            <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwPMtmTS5-ruHic9Qa3Q9h_R-I0ptYC3w&callback=initMap">
+            </script>
+          </center>
+        </div>
+      <!-- End Google map -->
+    </div>
 
     <br>
-
-    <!--Row 1 code-->
-    	<center>
-    		<div class="container">
-    			<div class="row">
-            <!--END Column 1 code-->      
-      				<div id="col1" class="col-md-6">
-      					<h1>We understand.</h1>
-                <center>
-        					<p style="width: 85%">
-        						Subleasing is difficult - hands down. Whether you are studying abroad, landed an internship (congrats!), headed home for the summer, or simply can't afford your current living - we can help.</p>
-                </center>
-      				</div>
-            <!--END Column 1 code-->				
-
-            <!--Column 2 code-->
-      				<div class="col-md-6" style=" ">
-      					<h1><span class="style2">Learn more about Housing Handshakes!</span><p></h1>
-      					You will find the home you have been searching for.</p>
-                <center>
-        					<form action="mailto:email@youraddress.com" method="post" enctype="text/plain" name="info"
-        					id="info">
-          					<table border="0">
-          						<colgroup span="1" width="40%" align="left" />
-          						<colgroup span=" 1" align="left" />
-          						<tr>
-          							<td>
-          								<p>
-          								First name</p>
-          							</td>
-          							<td>
-          								<input type="text" name="first" id="first" size="20" />
-          							</td>
-          						</tr>
-          						<tr>
-          							<td>
-          								<p>Last name</p>
-          							</td>
-          							<td>
-          								<input type="text" name="last" id="last" size="20" />
-          							</td>
-          						</tr>
-          						<tr>
-          							<td>
-          								<p>Telephone</p>
-          							</td>
-          							<td>
-          								<input type="text" name="phone" id="phone" size="20" />
-                        </td>
-          						</tr>
-          						<tr>
-          							<td>
-          								<p>E-mail address</p>
-          							</td>
-          							<td>
-          								<input type="text" name="email" id="email" size="20" />
-                        </td>
-          						</tr>
-          					</table>
-        						<br>		
-        						<p><button type="submit">Discover!</button></p>
-        					</form>
-              </center>
-      				</div>
-            <!-- END Column 2 code-->
-          </div>
-        </div>  
-      </center>
-    <!-- END Row 1 code-->
-
-    <br>
-
-    <!--HandShake Experience Div
-      <center>
-      	<div class="container">
-      		<div class="row">
-      			<h1>The Handshake Experience</h1>
-      				<span>1) Select your campus.</span>
-      				<br>
-      				<span>2) Browse our listings (depending on your needs).</span>
-      				<br>
-      				<span>3) Make the connection!</span>
-      		</div>
-      	</div>
-      </center>
-    sEND HandShake Experience Div-->
 
     <br>
 
