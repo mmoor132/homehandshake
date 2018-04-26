@@ -19,7 +19,7 @@ $user = $_SESSION["user"];
 $password = $_SESSION["password"];
 
 // Perpare connection
-$stmt = $conn->prepare("SELECT userid, phone, email FROM users WHERE username = '$user' AND password = '$password'");
+$stmt = $conn->prepare("SELECT userid, phone, email, address, city, state, gender, age, zip, fname, lname, bio FROM users WHERE username = '$user' AND password = '$password'");
 
 // Execute Query
 $stmt->execute();
@@ -33,6 +33,15 @@ while ($row = $result->fetch_assoc()){
 	$_SESSION["userid"] = $row["userid"];
 	$_SESSION['phone'] = $row["phone"];
 	$_SESSION['email'] = $row["email"];
+	$_SESSION['uaddress'] = $row["address"];
+	$_SESSION['ucity'] = $row["city"];
+	$_SESSION['ustate'] = $row["state"];
+	$_SESSION['gender'] = $row["gender"];
+	$_SESSION['age'] = $row["age"];
+	$_SESSION['uzip'] = $row["zip"];
+	$_SESSION['fname'] = $row["fname"];
+	$_SESSION['lname'] = $row["lname"];
+	$_SESSION['bio'] = $row["bio"];
 }
 
 // Assigns Sessions values back to local variables
@@ -40,7 +49,7 @@ $userid = $_SESSION["userid"];
 
 // Query For Active Listing
 $stm = $conn->prepare("
-	SELECT listings.listingid, listings.price, listings.address, listings.city, listings.zip
+	SELECT listings.listingid, listings.price, listings.address, listings.city, listings.zip, listings.complex, listings.squarefoot, listings.availability, listings.roommates
 	FROM listings
 	INNER JOIN users 
 	ON listings.userid = users.userid
@@ -60,7 +69,10 @@ while ($row = $result->fetch_assoc()){
 	$_SESSION['address'] = $row["address"];
 	$_SESSION['city'] = $row["city"];
 	$_SESSION['zip'] = $row["zip"];
-
+	$_SESSION['complex'] = $row["complex"];
+	$_SESSION['squarefoot'] = $row["squarefoot"];
+	$_SESSION['availability'] = $row["availability"];
+	$_SESSION['roommates'] = $row["roommates"];
 }
 
 $listingid = $_SESSION["listingid"];

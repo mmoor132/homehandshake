@@ -6,17 +6,32 @@
   $phone = $_SESSION["phone"];
   $email = $_SESSION["email"];
   $user = $_SESSION["user"];
+  $uaddress = $_SESSION["uaddress"];
+  $ucity = $_SESSION["ucity"];
+  $ustate = $_SESSION["ustate"];
+  $uzip = $_SESSION['uzip'];
+  $gender = $_SESSION["gender"];
+  $age = $_SESSION["age"];
+  $fname = $_SESSION['fname'];
+  $lname = $_SESSION['lname'];
+  $bio = $_SESSION['bio'];
 
-if (isset($_SESSION["listingid"])){
-  // Call Variables from Session
-  $password = $_SESSION["password"];
-  $listingid = $_SESSION["listingid"];
-  $lsprice = $_SESSION["price"];
-  $lsaddress = $_SESSION["address"];
-  $lscity = $_SESSION["city"];
-  $lszip = $_SESSION["zip"];
-  $picture = $_SESSION["pic1"];
-}
+  if (isset($_SESSION["listingid"])){
+    
+    // Call Variables from Session
+    $password = $_SESSION["password"];
+    $listingid = $_SESSION["listingid"];
+    $lsprice = $_SESSION["price"];
+    $lsaddress = $_SESSION["address"];
+    $lscity = $_SESSION["city"];
+    $lszip = $_SESSION["zip"];
+    $lscomplex = $_SESSION["complex"] ;
+    $lssquarefoot = $_SESSION["squarefoot"] ;
+    $lsavailibility = $_SESSION["availability"] ;
+    $lsroommates = $_SESSION["roommates"] ;
+    $picture = $_SESSION["pic1"];
+      
+  }
 
 ?>
 
@@ -33,24 +48,7 @@ if (isset($_SESSION["listingid"])){
     <link href="css\handshake2.css" type="text/css" rel="stylesheet" />
   </head>
 
-  <style>
-    .box {
-    display: flex;
-    text-align: center;
-    align-self: middle;
-    }
-    .one {
-      flex: 1 0 0;
-    }
-    .two {
-      flex: 1 1 0;
-    }
-    .three {
-      flex: 1 1 0;
-    }
-    .wrap    { 
-      flex-wrap: wrap;
-    }
+  <style>      
    body {
       margin: 0;
       font-family: Arial;
@@ -93,6 +91,66 @@ if (isset($_SESSION["listingid"])){
         left: 50%;
         transform: translate(-50%, -50%);
     }
+      .button {
+      padding: 10px 15px;
+      font-size: 20px;
+      text-align: center;
+      cursor: pointer;
+      outline: none;
+      color: #fff;
+      background-color:  #404040;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 9px #999;
+    }
+
+    .button:hover {background-color: black}
+
+    .button:active {
+      background-color: black;
+      box-shadow: 0 5px #666;
+      transform: translateY(4px);
+    }
+      hr {
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 5px solid black;
+        margin: 1em 0;
+        padding: 0; 
+      }   
+    @media only screen and (max-width: 991px){
+        .alignment{
+            text-align: center;
+        }
+        .button {
+          padding: 10px 15px;
+          font-size: 20px;
+          text-align: center;
+          cursor: pointer;
+          outline: none;
+          color: #fff;
+          background-color:  #404040;
+          border: none;
+          border-radius: 15px;
+          box-shadow: 0 9px #999;
+          margin:auto;
+        }
+
+        .button:hover {background-color: black}
+
+        .button:active {
+          background-color: black;
+          box-shadow: 0 5px #666;
+          transform: translateY(4px);
+        }
+        .btalign{
+            margin:15px;
+        }
+        .images{
+            width: 50%;
+        }
+    } 
   </style>
      
   <body>
@@ -127,289 +185,265 @@ if (isset($_SESSION["listingid"])){
       </div>
     <!--END Navbar code-->
 
-    <!--Profile Div-->
+    <!--Div for Overflow-->
+        <div style="width: 100%; height: 100%; margin: 0px; padding: 0px; overflow-x: hidden;">
 
-      <!--Welcome Header-->
-        <div>
-          <h1><span>Welcome: </span> <?php echo "$user" ?></h1>
-        </div>
-      <!--Welcome Header-->
-
-      <center>
-      <!--Row 1-->
-        <h3>My Active Listings</h3>
-        <?php
-          if (!isset($listingid)) {
-            echo "<br>";
-            echo "<h4>Start By Creating Your Listing!!</h4>";
-            echo "<br>";
-          }
-          else{
-        ?>
-        <div class="container-fluid" style="background-color: grey; border-style: solid; margin: 1px;">
-          <div class="row" style="margin: 1px;">
-            <div class="col-md-4" style="background-color: white;border-style: solid;border-color: gray; padding: 0; max-width: 50%">
-              <img src="<?php echo $picture ?>" style="max-width: 100%;">
-            </div>
-
-            <div class="col-md-4" style="background-color: white;border-style: solid;border-color: gray">
-              <div class="row">
-                <div class="col-md-6" style="text-align: left;">
-                  <span>Location:</span>
-                </div>
-                <div class="col-md-6" style="text-align: left;">
-                  <span><?php echo "$lsaddress, $lscity, $lszip" ?></span>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6" style="text-align: left;">
-                   <span>Price:</span>
-                </div>
-                <div class="col-md-6" style="text-align: left;">
-                  <span><?php echo "$ $lsprice per month" ?></span>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6" style="text-align: left;">
-                  <span>Holder:</span>
-                </div>
-                <div class="col-md-6" style="text-align: left;">
-                  <span><?php echo "$password" ?></span>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6" style="text-align: left;">
-                  <span>Holder:</span>
-                </div>
-                <div class="col-md-6" style="text-align: left;">
-                  <span><?php echo "$password" ?></span>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4" style="background-color: white;border-style: solid;border-color: gray">
-              <center>
-                <form method="post" action="viewlisting.php">
-                  <input type="hidden" name="listingid" value="<?php echo "$listingid"; ?>">
-                  <button style="margin: 2px; width: 50%" type="submit" name="submit" value="Submit">View Listing</button>
-                </form>
-                <form method="post" action="updatelist.php">
-                  <input type="hidden" name="listingid" value="<?php echo "$listingid"; ?>">
-                  <button style="margin: 2px; width: 50%" type="submit" name="submit" value="Submit">Edit Listing</button>
-                </form>
-                <form method="post" action="deletelist.php">
-                  <input type="hidden" name="listingid" value="<?php echo "$listingid"; ?>">
-                  <button style="margin: 2px; width: 50%" type="submit" name="submit" value="Submit">Delete Listing</button>
-                </form>
-              </center>
-            </div>
-          </div>
           <br>
-        </div>
-        <?php
-          }
 
-        ?>
-      <!--END Row 1-->
-
-      <br>
-
-      <!--Row 2-->
-        <h3>My Favorites</h3>
-        <?php
-          if (!isset($listingid)) {
-            echo "<br>";
-            echo "<h4>Start Adding Your Favorites!!</h4>";
-            echo "<br>";
-          }
-          else{
-        ?>
-        <div class="box" style="background-color: grey; border-style: solid; margin: 2px;">         
-        
-          <div class="row">
-            <div class="col-md-12">
-              <?php
-                $servername = "localhost";
-                $username = "administrator";
-                $password = "";
-                $dbname = "homehandshake";
-
-                // Create connection
-                $conn = new mysqli($servername, $username, $password, $dbname);
-                // Check connection
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                }
-
-                $stm = $conn->prepare("
-                  SELECT picture.pic1, listings.listingid, listings.title, listings.address, listings.city, listings.state, listings.zip, listings.price, listings.squarefoot, listings.roommates 
-                  FROM picture 
-                  INNER JOIN listings 
-                    ON listings.listingid = picture.listingid 
-                  INNER JOIN favorites 
-                    ON favorites.listingid = listings.listingid 
-                  WHERE favorites.userid = '$userid'");
-
-                // Execute Query
-                $stm->execute();
-
-                // Assign Result
-                $result = $stm->get_result();
-
-                while($row = $result->fetch_assoc())
-                    {
-              ?>
-
-              <div class="box" id="hideRow" style="margin: 1px;">
-                <div class="col-md-4 one" style="background-color: white;border-style: solid;border-color: gray; max-width: 100%; padding: 0">
-                  <img src = "<?php echo $row["pic1"] ?>" style="width: 100%">
+          <!--Row 2: Profile-->
+            <div class="row alignment">
+                <div class="col-md-2">
+                    <br>
+                    <br>
+                    <br>
                 </div>
-
-                <div class=" col-md-4 two" style="background-color: white;border-style: solid;border-color: gray;">
-                  <div class="row">
-                    <div class="col-md-6" style="text-align: left;">
-                       <span>Price:</span>
+                <div class="col-md-8 img-rounded" style="background-color: #002664; color: white">
+                    <div class="col-md-4" style="">
+                      <div class="card" align="center">
+                        <img class="images" src="img/img_avatar.png" alt="Avatar" style="width:75%;height:50%">
+                        <div class="">
+                          <h4 style="font-size: 20px"><b><?php echo "$fname"; echo " "; echo "$lname";?></b></h4>
+                        
+                          <p style="font-size: 20px"><?php echo "$bio";?></p> 
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-md-6" style="text-align: left;">
-                      <span>$<?php echo $row["price"] ?> Per Month</span>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6" style="text-align: left;">
-                      <span>Availablity:</span>
-                    </div>
-                    <div class="col-md-6" style="text-align: left;">
-                      <span><?php //echo $row["address"], $row["state"], $row["zip"] ?></span>
-                      <span>Test Holder</span>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6" style="text-align: left;">
-                      <span>Square Feet: </span>
-                    </div>
-                    <div class="col-md-6" style="text-align: left;">
-                      <span><?php echo $row["squarefoot"] ?></span>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6" style="text-align: left;">
-                      <span>Roommates: </span>
-                    </div>
-                    <div class="col-md-6" style="text-align: left;">
-                      <span><?php echo $row["roommates"] ?></span>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6" style="text-align: left;">
-                      <span>Complex: </span>
-                    </div>
-                    <div class="col-md-6" style="text-align: left;">
-                      <span>Test Complex</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-md-4 three" style="background-color: white;border-style: solid;border-color: gray;">
-                  <div class="row">
-                    <div class="" >
-                      <form method="post" action="viewlisting.php">
-                        <input type="hidden" name="listingid" value = "<?php echo $row['listingid']; ?>" >
-                        <input type="hidden" name="userid" value = "<?php echo $userid ?>" >
-                        <button class="button" style="position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%);" type="submit" name="submit" value="Submit">View Favorite</button>
-                      </form>
-                      <form method="post" action="deletefav.php">
-                        <input type="hidden" name="listingid" value = "<?php echo $row['listingid']; ?>" >
-                        <input type="hidden" name="userid" value = "<?php echo $userid ?>" >
-                        <button class="button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" type="submit" name="submit" value="Submit">Remove Favorite</button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <?php
-                }
-              ?>
-              
-            </div>    
-            <br>
-          </div>
-        </div>
-        <?php
-          }
-        ?>
-      <!--END Row 2-->
-
-      <!--ROW 3-->
-        <h3>Account Details</h3>
-        <div class="container-fluid" style="background-color: grey; border-style: solid; margin: 2px;">
-          <div class="row" style="margin: 1px;">
-            <div class="col-md-8" style="background-color: white;border-style: solid;border-color: gray">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="col-25">
-                   <label for="">Your Username:</label>
-                  </div>
-                  <div class="col-75">
-                    <span><?php echo "$user" ?></span>
-                  </div>
-                  <br>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <h5 style="font-weight: bold;">Preferred Methods of Contact</h5>
-                    <div class="">
-                      <label>Phone: </label><span> <?php echo "$phone" ?></span>
-                    </div>
-                    <div class="">
-                      <label>E-Mail: </label><span> <?php echo "$email" ?></span>
+                    <div class="col-md-8">
+                        <h1 class="alignment" align="left" style="font-size: 50px">Your Account Info</h1>
+                        <div class="row">
+                            <div class="col-md-6">  
+                                <span style="font-size: 20px">Permanent Address: </span><span style="font-size: 18px"><?php echo "$uaddress" ?></span>
+                                <br>
+                                <span style="font-size: 20px">City: </span><span style="font-size: 18px"><?php echo "$ucity" ?></span>
+                                <br>
+                                <span style="font-size: 20px">State: </span><span style="font-size: 18px"><?php echo "$ustate" ?></span>
+                                <br>
+                                <span style="font-size: 20px">Zip: </span><span style="font-size: 18px"><?php echo "$uzip" ?></span>
+                            </div>
+                            <div class="col-md-6">
+                                <span style="font-size: 20px">Listed Contact Methods: </span>
+                                <div class="row">
+                                    <div class="col-md-1">
+                                    </div>
+                                    <div class="col-md-11">
+                                        <span style="font-size: 18px">Phone: </span><span style="font-size: 18px"><?php echo "$phone" ?></span>
+                                        <br>
+                                        <span style="font-size: 18px">E-mail: </span><span style="font-size: 18px"><?php echo "$email" ?></span>
+                                    </div>
+                                </div>
+                                <span style="font-size: 20px">Gender: </span><span style="font-size: 18px"><?php echo "$gender" ?></span>
+                                <br>
+                                <span style="font-size: 20px">Age: </span><span style="font-size: 18px"><?php echo "$age" ?></span>
+                                <br>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-4 btalign" style="m">
+                                <form  method="post" action="updateaccount.php">
+                                    <input type="hidden" name="userid" value="<?php echo $userid ?>">
+                                    <button class="button" style="width: 100%; height:50%;" type="submit" name="submit" value="Submit">Update Account</button>
+                                </form>
+                            </div>
+                            <div class="col-md-4 btalign" style="">
+                                <form  method="post" action="deleteaccount.php">
+                                    <input type="hidden" name="userid" value="<?php echo $userid ?>">
+                                    <input type="hidden" name="listingid" value="<?php echo "$listingid"; ?>">
+                                    <button class="button" style="width: 100%" type="submit" name="submit" value="Submit">Delete Account</button>
+                                </form>
+                            </div>
+                            <div class="col-md-4 btalign" style="">
+                                <a href = "logout.php"><button class="button" style="width: 100%"><span style="color: white">Sign Out</span></button></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-              </div>
+                <div class="col-md-2">
+                    <br>
+                    <br>
+                    <br>
+                </div>
             </div>
+          <!--END Row 2: Profile-->
 
-            <div class="col-md-4" style="background-color: white;border-style: solid;border-color: gray">
-              <center>
-              <form  method="post" action="updateaccount.php">
-                <input type="hidden" name="userid" value="<?php echo $userid ?>">
-                <button style="margin: 2px; width: 50%" type="submit" name="submit" value="Submit">Update Account</button>
-              </form>
-              <form  method="post" action="deleteaccount.php">
-                <input type="hidden" name="userid" value="<?php echo $userid ?>">
-                <input type="hidden" name="listingid" value="<?php echo "$listingid"; ?>">
-                <button style="margin: 2px; width: 50%" type="submit" name="submit" value="Submit">Delete Account</button>
-              </form>
-              </center>
-            </div>
-          </div>
           <br>
-        </div>
-      <!--END Row 3-->
-      </center>
 
-      <br>
+          <!-- Row 3: Listings-->
+            <div class="row alignment" >
+                  <div class="col-md-6">
+                    <h1 align="center"><span>Manage Your Listing</h1>
+                    <hr>
+                     <?php
+                          if (!isset($listingid)) {
+                            echo "<br>";
+                            echo "<h4>Start By Creating Your Listing!!</h4>";
+                            echo "<br>";
+                          }
+                          else{
+                      ?>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img class="images" src="<?php echo $picture ?>" style="max-width: 100%;">
+                        </div>
+                        <div class="col-md-6 alignment" align="left">
+                            <div class="row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-10">
+                                    <div class="row">
+                                        <span style="font-size: 20px; font-weight:bold">Complex: </span><span style="font-size: 18px;"><?php echo "$lscomplex" ?></span>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <span style="font-size: 20px; font-weight:bold">Price: </span><span style="font-size: 18px;"><?php echo "$ $lsprice per month" ?></span>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <span style="font-size: 20px; font-weight:bold">Square Feet: </span><span style="font-size: 18px;"><?php echo "$lssquarefoot" ?> sqft.</span>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <span style="font-size: 20px; font-weight:bold">Availbility: </span><span style="font-size: 18px;"><?php echo "$lsavailibility" ?></span>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <span style="font-size: 20px; font-weight:bold">Roommates: </span><span style="font-size: 18px;"><?php echo "$lsroommates" ?></span>
+                                    </div>
+                                </div>
+                            </div>              
+                            <br>
+                            <div class="row">
+                                <div class="col-md-4 btalign" align="left">
+                                    <form method="post" action="updatelist.php">
+                                        <input type="hidden" name="listingid" value="<?php echo "$listingid"; ?>">
+                                        <button class="button " style="width: 100%;" type="submit" name="submit" value="Submit">Update Listing</button>
+                                    </form>
+                                </div>
+                                <div class="col-md-4 btalign">
+                                    <form method="post" action="deletelist.php">
+                                        <input type="hidden" name="listingid" value="<?php echo "$listingid"; ?>">
+                                        <button class="button" style="width: 100%" type="submit" name="submit" value="Submit" >Delete Listing</button>
+                                    </form>
+                                </div>
+                                <div class="col-md-4 btalign">
+                                    <form method="post" action="viewlisting.php">
+                                        <input type="hidden" name="listingid" value="<?php echo "$listingid"; ?>">
+                                        <button class="button" style="width: 100%" type="submit" name="submit" value="Submit">View Listing</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <?php
+                      }
+                    ?>
+                  </div>
+                  <div class="col-md-6">
+                    <h1 align="center"><span>Favorited Listings</h1>
+                    <hr>
+                    <?php
+                      if (!isset($listingid)) {
+                        echo "<br>";
+                        echo "<h4>Start Adding Your Favorites!!</h4>";
+                        echo "<br>";
+                      }
+                      else{
+                    ?>
+                    <div class="row">
+                         <?php
+                            $servername = "localhost";
+                            $username = "administrator";
+                            $password = "";
+                            $dbname = "homehandshake";
 
-      <!--Row 4-->
-        <div class="row">
-          <div class="col-md-6">
-            <center>
-            <a href = "listingcheck.php"><button style="margin: 2px"><span style="color: black">Create Listing</span></button></a>
-          </center>
-          </div>  
-          <div class="col-md-6">
-            <center>
-            <a href = "logout.php"><button style="margin: 2px"><span style="color: black">Sign Out</span></button></a>
-          </center>
-          </div>
-        </div>
-      <!--END Row 4-->
+                            // Create connection
+                            $conn = new mysqli($servername, $username, $password, $dbname);
+                            // Check connection
+                            if ($conn->connect_error) {
+                                die("Connection failed: " . $conn->connect_error);
+                            }
 
-      <br>
-    <!--END Profile Div-->
+                            $stm = $conn->prepare("
+                              SELECT picture.pic1, listings.listingid, listings.title, listings.address, listings.city, listings.state, listings.zip, listings.price, listings.squarefoot, listings.roommates, listings.complex, listings.availability 
+                              FROM picture 
+                              INNER JOIN listings 
+                                ON listings.listingid = picture.listingid 
+                              INNER JOIN favorites 
+                                ON favorites.listingid = listings.listingid 
+                              WHERE favorites.userid = '$userid'");
 
-      <br>
+                            // Execute Query
+                            $stm->execute();
 
+                            // Assign Result
+                            $result = $stm->get_result();
+
+                            while($row = $result->fetch_assoc())
+                                {
+                          ?>
+                        <div class="col-md-6">
+                            <div class="card" align="center">
+                                <img src = "<?php echo $row["pic1"] ?>" style="width: 100%">
+                            </div>
+                        </div>
+                        <div class="col-md-6" align="left">
+                            <div class="row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-10">
+                                    <div class="row">
+                                        <span style="font-size: 20px; font-weight:bold">Complex: </span><span style="font-size: 18px;"><?php echo $row["complex"] ?></span>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <span style="font-size: 20px; font-weight:bold">Price: </span><span style="font-size: 20px;" >$<?php echo $row["price"] ?> per month</span>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <span style="font-size: 20px; font-weight:bold">Square Feet: </span><span style="font-size: 18px;"><?php echo $row["squarefoot"] ?> sqft.</span>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <span style="font-size: 20px; font-weight:bold">Availbility: </span><span style="font-size: 18px;"><?php echo $row["availability"] ?> sqft.</span>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <span style="font-size: 20px; font-weight:bold">Roommates: </span><span style="font-size: 18px;"><?php echo $row["roommates"] ?></span>
+                                    </div>
+                                </div>
+                            </div>              
+                            <br>
+                            <div class="row">
+                                <div class="col-md-6" align="left">
+                                    <form method="post" action="viewlisting.php">
+                                        <input type="hidden" name="listingid" value = "<?php echo $row['listingid']; ?>" >
+                                        <input type="hidden" name="userid" value = "<?php echo $userid; ?>" >
+                                        <button class="button" style="width: 100%; height:50%;" type="submit" name="submit" value="Submit" >View Listing</button>
+                                    </form>
+                                </div>
+                                <div class="col-md-6">
+                                    <form method="post" action="deletefav.php">
+                                        <input type="hidden" name="listingid" value = "<?php echo $row['listingid']; ?>" >
+                                        <input type="hidden" name="userid" value = "<?php echo $userid; ?>" >
+                                        <button class="button" style="width: 100%" type="submit" name="submit" value="Submit" >Remove Listing</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                     <hr>
+                    </div>
+                    <?php
+                        }
+                     }
+                    ?>
+                  </div>
+            </div>
+          <!--END Row 3:Listings-->
+        </div>  
+    <!--END Div for Overflow-->
+      
+    <br>
+      
     <!--Footer-->
       <footer style="background-color:#002664;">
 

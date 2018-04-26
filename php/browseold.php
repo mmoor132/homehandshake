@@ -53,6 +53,19 @@
   </head>
 
   <style>
+    .box {
+    display: flex;
+    }
+    .one {
+      flex: 1 0 0;
+    }
+    .two {
+      flex: 1 1 0;
+    }
+    .three {
+      flex: 1 1 0;
+    }
+
     body {
       font-family: Arial;
     }
@@ -109,35 +122,6 @@
     .bton{
       display: none;
     }
-      
-    .button {
-          padding: 10px 15px;
-          font-size: 20px;
-          text-align: center;
-          cursor: pointer;
-          outline: none;
-          color: #fff;
-          background-color:  #002664;
-          border: none;
-          border-radius: 15px;
-          box-shadow: 0 9px #999;
-        }
-
-       .button:hover {background-color: }
-
-       .button:active {
-          background-color: black;
-          box-shadow: 0 5px #666;
-          transform: translateY(4px);
-        }
-        hr {
-            display: block;
-            height: 1px;
-            border: 0;
-            border-top: 5px solid black;
-            margin: 1em 0;
-            padding: 0; 
-          }   
 
     @media only screen and (max-width: 991px){
       .ads{
@@ -175,38 +159,7 @@
         .title{
          display: none;   
         }
-        .alignment{
-            text-align: center;
-        }
-        .button {
-          padding: 10px 15px;
-          font-size: 20px;
-          text-align: center;
-          cursor: pointer;
-          outline: none;
-          color: #fff;
-          background-color:  #404040;
-          border: none;
-          border-radius: 15px;
-          box-shadow: 0 9px #999;
-          margin:auto;
-        }
-
-        .button:hover {background-color: black}
-
-        .button:active {
-          background-color: black;
-          box-shadow: 0 5px #666;
-          transform: translateY(4px);
-        }
-        .btalign{
-            margin:15px;
-        }
-        .images{
-            width: 50%;
-        }
     } 
-
   </style>
 
 
@@ -322,105 +275,136 @@
 
         <!--LISTINGS START-->
           <div id="ourHolder" class="all col-md-8" >
-              
+
             <!--Start PHP Call for Listing-->
-                <?php
-                    while($row = $result->fetch_assoc())
-                   {
-                ?>
+              <?php
+              while($row = $result->fetch_assoc())
+              {
+                
+              ?>
             <!--Start PHP Call for Listing-->
-              
-            <div class="row <?php echo $row['furnished']; echo " "; echo $row["gym"]; echo " "; echo $row["laundry"]; echo " "; echo $row["pets"]; echo " "; echo $row["cooling"]; echo " ";  echo $row["parking"]; echo " "; echo $row["pool"]; echo " "; echo $row["garage"]; echo " ";  echo $row["propertymanagement"]; echo " ";  echo $row["hottub"]; echo " "; echo $row["privatebathroom"]; echo " ";  echo $row["heating"]; echo " ";  echo $row["availability"]; echo " ";  echo $row["complex"]; echo " ";  echo $row["pool"];?>">
-                <div class="col-md-1"></div>
-                <div class="col-md-5 alignment" align="right">
-                    <img class="images" src="<?php echo $row["pic1"] ?>" style="max-width: 90%;">
-                </div>
-                <div class="col-md-5 alignment" align="left">
+          
+            <!--Row For Listings-->
+              <div class="box <?php echo $row['furnished']; echo " "; echo $row["gym"]; echo " "; echo $row["laundry"]; echo " "; echo $row["pets"]; echo " "; echo $row["cooling"]; echo " ";  echo $row["parking"]; echo " "; echo $row["pool"]; echo " "; echo $row["garage"]; echo " ";  echo $row["propertymanagement"]; echo " ";  echo $row["hottub"]; echo " "; echo $row["privatebathroom"]; echo " ";  echo $row["heating"]; echo " ";  echo $row["availability"]; echo " ";  echo $row["complex"]; echo " ";  echo $row["pool"];?>" style="margin-bottom: 20px;">
+
+                <!--Left Box-->
+                  <div class="col-md-6 one" style="max-width: 100%; padding: 0px">
+                    <img src = "<?php echo $row["pic1"] ?>" style="width: 100%">
+                  </div>
+                <!--END Left Box-->
+
+                <!--Middle Box-->
+                  <div class=" col-md-6 two" style="">    
                     <div class="row">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-10">
-                            <div class="row">
-                                <span style="font-size: 20px; font-weight:bold"><?php 
+                      <div class="col-md-6" style="text-align: left;">
+                         <span>Price:</span>
+                      </div>
+                      <div class="col-md-6" style="text-align: left;">
+                        <span>$<?php echo $row["price"] ?> Per Month</span>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6" style="text-align: left;">
+                        <span>Availablity:</span>
+                      </div>
+                      <div class="col-md-6" style="text-align: left;">
+                        <span><?php //echo $row["address"], $row["state"], $row["zip"] ?></span>
+                        <span><?php echo $row["availability"] ?></span>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6" style="text-align: left;">
+                        <span>Square Feet: </span>
+                      </div>
+                      <div class="col-md-6" style="text-align: left;">
+                        <span><?php echo $row["squarefoot"] ?></span>
+                      </div>
+                    </div>        
+                    <div class="row">
+                      <div class="col-md-6" style="text-align: left;">
+                        <span>Roommates: </span>
+                      </div>
+                      <div class="col-md-6" style="text-align: left;">
+                        <span><?php echo $row["roommates"] ?></span>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6" style="text-align: left;">
+                        <span><?php 
                                     if($row["complex"]==""){
                                         echo "Location:";
                                     }else{
                                         echo "Complex:" ;
                                     }
-                                    ?>
-                                </span>
-                                <span style="font-size: 18px;"><?php 
+                        ?></span>
+                      </div>
+                      <div class="col-md-6" style="text-align: left;">
+                        <span><?php 
                                     if($row["complex"]==""){
                                         echo "House";
                                     }else{
                                         echo $row["complex"];
                                     }
-                                    ?>      
-                                </span>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <span style="font-size: 20px; font-weight:bold">Price: </span><span style="font-size: 18px;">$<?php echo $row["price"] ?> per month</span>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <span style="font-size: 20px; font-weight:bold">Square Feet: </span><span style="font-size: 18px;"><?php echo $row["squarefoot"] ?> sqft.</span>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <span style="font-size: 20px; font-weight:bold">Availbility: </span><span style="font-size: 18px;"><?php echo $row["availability"] ?></span>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <span style="font-size: 20px; font-weight:bold">Roommates: </span><span style="font-size: 18px;"><?php echo $row["roommates"] ?></span>
-                            </div>
-                        </div>
-                    </div>              
-                    <br>
-                    <div class="row">
-                        <div class="col-md-6 btalign" align="left">
-                            <form method="post" action="viewlisting.php">
-            				    <input type="hidden" name="listingid" value = "<?php echo $row['listingid']; ?>" >
-                                <button class="button " style="width: 100%;" type="submit" name="submit" value="Submit">View Listing</button>
-                            </form>
-                        </div>
-                        <div class="col-md-6 btalign">
-                            <form method="post" action="addfav.php">
-                                    <input type="hidden" name="listingid" value = "<?php echo $row['listingid']; ?>" >
-                                    <input type="hidden" name="userid" value = "<?php echo $_SESSION["userid"] ?>" >
-                                <button class="button" style="width: 100%" type="submit" name="submit" value="Submit" >Add to Favorites</button>
-                            </form>
-                        </div>
+                        ?></span>
+                      </div>
                     </div>
-                    <br>
-                </div>
-                <div class="col-md-1"></div>
-            </div>
-            <hr>
-           <!--END PHP Call for Listing-->
+					          <div class="row">
+                      <div class="col-md-6" style="text-align: left;">
+                        <br>
+                        <form  method="post" action="viewlisting.php">
+            							<input type="hidden" name="listingid" value = "<?php echo $row['listingid']; ?>" >
+            							<button class="button" type="submit" name="submit" value="Submit">View Listing</button>
+            						</form>
+                      </div>
+                      <div class="col-md-6" style="text-align: left;">
+                        <br>
+                        <form method="post" action="addfav.php">
+            							<input type="hidden" name="listingid" value = "<?php echo $row['listingid']; ?>" >
+            							<input type="hidden" name="userid" value = "<?php echo $_SESSION["userid"] ?>" >
+            							<button class="button" type="submit" name="submit" value="Submit">Add to Favorites</button>
+                        </form>
+                      </div>
+                    </div>   
+					          <div class="row">
+                      <div class="col-md-6" style="text-align: left;">
+                        <br>
+                        <img src = "<?php echo $row["pic2"] ?>" style="width: 100%; height:100%">
+                      </div>
+                      <div class="col-md-6" style="text-align: left;">
+                        <br>
+                        <img src = "<?php echo $row["pic3"] ?>" style="width: 100%; height:100%">
+                      </div>
+                    </div>					
+                  </div>
+                <!--END Middle Box-->
+              </div>
+            <!--END Row for Listing-->
+
+            <!--END PHP Call for Listing-->
               <?php
                 }
               ?>
-           <!--END PHP Call for Listing-->
-          </div>              
+            <!--END PHP Call for Listing-->
+          </div>
         <!--LISTINGS END-->
 
         <!--GOOGLE ADS START-->
           <div class="col-md-2 ads" style="">
             <br>
               <div style="border: none; background-color: white">
-                <center><img src="img/gad1.jpg" style="width: 100%;"></center>
+                <center><img src="img/ad1.jpg" style="width: 100%;"></center>
               </div>
             <br>
             <div style="border: none; background-color: white">
-              <center><img src="img/gad2.jpg" style="width: 100%;"></center>
+      			  <center><img src="img/ad2.jpg" style="width: 100%;"></center>
             </div>
             <br>
             <div style="border: none; background-color: white">
-              <center><img src="img/gad3.jpg" style="width: 100%;"></center>
+              <center><img src="img/ad3.jpg" style="width: 100%;"></center>
             </div>
             <br>
             <div style="border: none; background-color: white">
-              <center><img src="img/gad4.jpg" style="width: 100%;"></center>
+              <center><img src="img/ad4.jpg" style="width: 100%;"></center>
             </div>
             <br>
           </div>
