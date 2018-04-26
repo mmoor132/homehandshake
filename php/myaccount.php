@@ -200,7 +200,7 @@
                 <div class="col-md-8 img-rounded" style="background-color: #002664; color: white">
                     <div class="col-md-4" style="">
                       <div class="card" align="center">
-                        <img class="images" src="img/img_avatar.png" alt="Avatar" style="width:75%;height:50%">
+                        <img class="images" src="img/img_avatar.png" alt="Avatar" style="max-width:75%;">
                         <div class="">
                           <h4 style="font-size: 20px"><b><?php echo "$fname"; echo " "; echo "$lname";?></b></h4>
                         
@@ -239,10 +239,10 @@
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-md-4 btalign" style="m">
+                            <div class="col-md-4 btalign" style="">
                                 <form  method="post" action="updateaccount.php">
                                     <input type="hidden" name="userid" value="<?php echo $userid ?>">
-                                    <button class="button" style="width: 100%; height:50%;" type="submit" name="submit" value="Submit">Update Account</button>
+                                    <button class="button" style="width: 100%; height:50%;" type="submit" name="submit" value="Submit">Edit Account</button>
                                 </form>
                             </div>
                             <div class="col-md-4 btalign" style="">
@@ -265,6 +265,20 @@
                 </div>
             </div>
           <!--END Row 2: Profile-->
+
+          <br>
+
+          <!--Row: Create Listing-->
+            <div class="row">
+              <h3 align="center">Don't have a listing? Create on by clicking the button below!</h3>
+            </div>
+            <br>
+            <div class="row">
+              <center>
+                <a href = "listingcheck.php"><button class="button" style="margin: 2px"><span style="color: white">Create Listing</span></button></a>
+              </center>
+            </div>
+          <!--END Row: Create listng-->
 
           <br>
 
@@ -315,7 +329,7 @@
                                 <div class="col-md-4 btalign" align="left">
                                     <form method="post" action="updatelist.php">
                                         <input type="hidden" name="listingid" value="<?php echo "$listingid"; ?>">
-                                        <button class="button " style="width: 100%;" type="submit" name="submit" value="Submit">Update Listing</button>
+                                        <button class="button" style="width: 100%;" type="submit" name="submit" value="Submit">Edit Listing</button>
                                     </form>
                                 </div>
                                 <div class="col-md-4 btalign">
@@ -386,7 +400,7 @@
                                 <img src = "<?php echo $row["pic1"] ?>" style="width: 100%">
                             </div>
                         </div>
-                        <div class="col-md-6" align="left">
+                        <div class="col-md-6 alignment" align="left">
                             <div class="row">
                                 <div class="col-md-2"></div>
                                 <div class="col-md-10">
@@ -413,18 +427,18 @@
                             </div>              
                             <br>
                             <div class="row">
-                                <div class="col-md-6" align="left">
+                                <div class="col-md-6 btalign" align="left">
                                     <form method="post" action="viewlisting.php">
                                         <input type="hidden" name="listingid" value = "<?php echo $row['listingid']; ?>" >
                                         <input type="hidden" name="userid" value = "<?php echo $userid; ?>" >
                                         <button class="button" style="width: 100%; height:50%;" type="submit" name="submit" value="Submit" >View Listing</button>
                                     </form>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 btalign">
                                     <form method="post" action="deletefav.php">
                                         <input type="hidden" name="listingid" value = "<?php echo $row['listingid']; ?>" >
                                         <input type="hidden" name="userid" value = "<?php echo $userid; ?>" >
-                                        <button class="button" style="width: 100%" type="submit" name="submit" value="Submit" >Remove Listing</button>
+                                        <button class="button" style="width: 100%" type="submit" name="submit" value="Submit" >Delete Listing</button>
                                     </form>
                                 </div>
                             </div>
