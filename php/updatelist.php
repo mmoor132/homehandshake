@@ -160,7 +160,7 @@
     <br><br>
 
     <!--Create Listing Div-->
-      <div id="" class="container-fluid" style="border-style: solid; margin: 2px;">
+      <div id="" class="container-fluid" style="margin: 2px;">
         <br>
         <div class="container">
           <form action="alterlisting.php" method="post" enctype = "multipart/form-data"> 
@@ -487,27 +487,27 @@
                     <div class="col-md-4 space">
                       <h5>Picture 1</h5>
                         <br>
-                          <img src="<?php echo $row['pic1'] ?>" style="max-width: 75%; transform: rotate(90deg);">
+                          <img src="<?php echo $row['pic1'] ?>" style="max-width: 75%;">
                         <br>
                       <h5>Picture 4</h5>
                         <br>
-                          <img src="<?php echo $row['pic4'] ?>" style="max-width: 75%; transform: rotate(90deg); ">
+                          <img src="<?php echo $row['pic4'] ?>" style="max-width: 75%;">
                         <br>
                     </div>
                     <div class="col-md-4 space">
                       <h5>Picture 2</h5>
                         <br>
-                          <img src="<?php echo $row['pic2'] ?>" style="max-width: 75%; transform: rotate(90deg); ">
+                          <img src="<?php echo $row['pic2'] ?>" style="max-width: 75%;">
                         <br>
                        <h5>Picture 5</h5>
                         <br>
-                          <img src="<?php echo $row['pic5'] ?>" style="max-width: 75%; transform: rotate(90deg);">
+                          <img src="<?php echo $row['pic5'] ?>" style="max-width: 75%;">
                         <br>
                     </div>
                     <div class="col-md-4 space">
                       <h5>Picture 3</h5>
                         <br>
-                          <img src="<?php echo $row['pic3'] ?>" style="max-width: 75%; transform: rotate(90deg); ">
+                          <img src="<?php echo $row['pic3'] ?>" style="max-width: 75%;">
                         <br>
                      
                     </div>

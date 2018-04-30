@@ -102,7 +102,7 @@
 
     <!--Title Font-Century-->
       <center>
-      <h1 style="font-style: Century;">Welcome to Housing Handshakes!</h1>
+      <h1 style="font-style: Century;">Welcome to Household Handshakes!</h1>
       <h4>Housing Handshakes is the web app that advertises short-term vacancy in a house or apartment.</h4>
       </center>
     <!-- END of Title-->
@@ -332,7 +332,7 @@
           <br>
           <button type="button" class="btn btn-warning">Warning</button>
             <h5 style="font-style: italic; color: white">
-              Housing Handshakes connects you to people who are looking to enter a subleasing agreement - nothing more. Use discretion when sharing personal information with others over the internet. We are not resposible for any contractual relationships or harm inflicted from utilizing this service.
+              Household Handshakes connects you to people who are looking to enter a subleasing agreement - nothing more. Use discretion when sharing personal information with others over the internet. We are not resposible for any contractual relationships or harm inflicted from utilizing this service.
             </h5>
             <input type="checkbox" name="agreement"><span style="color: white"> I agree to the terms of using this service.</span>
             <br><br>

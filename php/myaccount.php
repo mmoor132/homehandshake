@@ -290,7 +290,7 @@
                      <?php
                           if (!isset($listingid)) {
                             echo "<br>";
-                            echo "<h4>Start By Creating Your Listing!!</h4>";
+                            echo "<h4 align='center'>Start By Creating Your Listing!!</h4>";
                             echo "<br>";
                           }
                           else{
@@ -358,7 +358,7 @@
                     <?php
                       if (!isset($listingid)) {
                         echo "<br>";
-                        echo "<h4>Start Adding Your Favorites!!</h4>";
+                        echo "<h4 align='center'>Start Adding Your Favorites!!</h4>";
                         echo "<br>";
                       }
                       else{

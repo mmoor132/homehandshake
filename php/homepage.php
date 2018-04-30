@@ -108,8 +108,8 @@
 
     <!--Title Font-Century-->
       <center>
-        <h1 style="font-style: Century;">Welcome to Housing Handshakes!</h1>
-        <h4>Housing Handshakes is the web app that advertises short-term vacancy in a house or apartment.</h4>
+        <h1 style="font-style: Century;">Welcome to Household Handshakes!</h1>
+        <h4>Household Handshakes is the web app that advertises short-term vacancy in a house or apartment.</h4>
       </center>
     <!-- END of Title-->
 
@@ -123,7 +123,7 @@
         <div class="col-md-4">
           <!--Div 2 code-->
             <div>
-              <h1><span class="style2">Learn more about Housing Handshakes!</span><p></h1>
+              <h1><span class="style2">Learn more about Household Handshakes!</span><p></h1>
               You will find the home you have been searching for.</p>
               <center>
                 <form action="mailto:email@youraddress.com" method="post" enctype="text/plain" name="info"
@@ -261,7 +261,7 @@
     <!--Disclaimer-->
       <center>
       	<button type="button" class="btn btn-warning">Warning</button>
-      		<h5 style="font-style: italic;">Housing Handshakes connects you to people who are looking to enter a subleasing agreement - nothing more. Use discretion when sharing personal information with others over the internet. We are not resposible for any contractual relationships or harm inflicted from utilizing this service.</h5>
+      		<h5 style="font-style: italic;">Household Handshakes connects you to people who are looking to enter a subleasing agreement - nothing more. Use discretion when sharing personal information with others over the internet. We are not resposible for any contractual relationships or harm inflicted from utilizing this service.</h5>
       </center>
     <!-- END of Disclaimer-->
 

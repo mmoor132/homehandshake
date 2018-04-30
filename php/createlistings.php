@@ -131,7 +131,7 @@
     <br><br>
 
     <!--Create Listing Div-->
-      <div id="" class="container-fluid" style="border-style: solid; margin: 2px;">
+      <div id="" class="container-fluid" style="margin: 2px;">
         <br>
         <div class="container">
           <form action="createlisting.php" method="post" enctype = "multipart/form-data">
@@ -291,7 +291,7 @@
 
               <!--Row 4-->
                 <div class="row space" style="">
-                  <div class="col-md-12" style="border-style: solid; margin: 2px;">
+                  <div class="col-md-12" style="margin: 2px;">
                     <label>Amenities - Check all that apply:</label>
                     <br>
                     <div style="" class="col-md-6" align="middle">
