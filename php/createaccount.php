@@ -103,14 +103,14 @@
     <!--Title Font-Century-->
       <center>
       <h1 style="font-style: Century;">Welcome to Household Handshakes!</h1>
-      <h4>Housing Handshakes is the web app that advertises short-term vacancy in a house or apartment.</h4>
+      <h4>Household Handshakes is the web app that advertises short-term vacancy in a house or apartment.</h4>
       </center>
     <!-- END of Title-->
 
     <!--Create Profile Div 1-->
       <form action="createacct.php" method="post" enctype = "multipart/form-data">
         <center>
-          <div class="container-fluid" style="background-color: grey; border-style: solid; margin: 2px;">
+          <div class="container-fluid" style="margin: 2px;">
             <br>
             <div class="container"> 
               <!--Row 1-->
@@ -142,6 +142,8 @@
                 </div>
               <!--End Row 1-->
 
+              <br>
+
               <!--Row 2-->
                 <div class="row cent">
                   <div class="col-md-4 space">
@@ -165,6 +167,8 @@
                   </div>          
                 </div>
               <!--End Row 2-->
+
+              <br>
 
               <!--Row 3-->
                 <div class="row cent">
@@ -247,6 +251,8 @@
                 </div>
               <!--End Row 3-->
 
+              <br>
+
               <!--Row 4-->
                 <div class="row cent">
                   <div class="col-md-4 space">
@@ -284,6 +290,8 @@
                 </div>
               <!--End Row 4-->
 
+              <br>
+
               <!--Row 5-->
                 <div class="row cent">
                   <div class="col-md-4 space">
@@ -304,6 +312,8 @@
                   </div>
                 </div>
               <!--End Row 5-->
+
+              <br>
 
               <!--Row 6-->
                 <div class="row cent">
